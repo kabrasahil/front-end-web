@@ -43,15 +43,13 @@ const HoneyComb = () => {
                     e.currentTarget.style.opacity = "10%";
                     e.currentTarget.style.zIndex = "-99";
                   }}
-                />
-                <motion.div
-                  className="mt-7 w-full h-full flex flex-col items-center justify-center z-10"
                   onMouseLeave={(e) => {
                     const el = document.getElementById("honeycomb-image-" + i);
                     el.style.opacity = "100%";
                     el.style.zIndex = "10";
                   }}
-                >
+                />
+                <motion.div className="mt-7 w-full h-full flex flex-col items-center justify-center z-10">
                   <div className="items-end  bg-slate-300 text-center font-extrabold text-gray-900 text-md">
                     Parikshit Dabas
                   </div>
