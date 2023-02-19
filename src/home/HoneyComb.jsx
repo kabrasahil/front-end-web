@@ -30,7 +30,10 @@ const HoneyComb = () => {
         {" "}
         {list.map((el, i) => {
           return (
-            <li className="li-honeycomb" id={"li-honeycomb-id-" + i}>
+            <li
+              className="li-honeycomb flex items-end"
+              id={"li-honeycomb-id-" + i}
+            >
               <div className="hexagon-honeycomb bg-indigo-100">
                 <motion.img
                   src={el}
@@ -43,13 +46,16 @@ const HoneyComb = () => {
                     e.currentTarget.style.opacity = "10%";
                     e.currentTarget.style.zIndex = "-99";
                   }}
+                />
+                <motion.div
+                  className="mt-7 flex m-auto h-full flex-col items-center justify-center z-10 overflow-hidden"
+                  // style={{ width: "100%", height: "100%" }}
                   onMouseLeave={(e) => {
                     const el = document.getElementById("honeycomb-image-" + i);
                     el.style.opacity = "100%";
                     el.style.zIndex = "10";
                   }}
-                />
-                <motion.div className="mt-7 w-full h-full flex flex-col items-center justify-center z-10">
+                >
                   <div className="items-end  bg-slate-300 text-center font-extrabold text-gray-900 text-md">
                     Parikshit Dabas
                   </div>

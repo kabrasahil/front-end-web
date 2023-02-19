@@ -4,7 +4,7 @@ import Footer from "./Footer";
 import Navbar from "./Navbar";
 import Stile from "./home/Stile";
 import Ttile from "./home/Ttile";
-import Announcement from "./marquee/Announcement";
+import Announcement from "./home/marquee/Announcement";
 
 function App() {
   return (
