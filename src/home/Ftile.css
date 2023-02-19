@@ -1,0 +1,26 @@
+.custom-shape-divider-bottom-1676728531 {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  transform: rotate(180deg);
+  margin-top: -250px;
+  z-index: -10;
+}
+
+.custom-shape-divider-bottom-1676728531 svg {
+  position: relative;
+  display: block;
+  width: calc(124% + 1.3px);
+  height: 177px;
+  transform: rotateY(180deg);
+}
+
+.custom-shape-divider-bottom-1676728531 .shape-fill {
+  fill: black;
+}
+.ftile {
+  background: #14213d;
+  z-index: -50;
+  /* border-radius: 2.5% 2.5% 2.5% 2.5%; */
+  /* border: 2px solid white; */
+}

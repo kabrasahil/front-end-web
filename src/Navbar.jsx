@@ -45,7 +45,10 @@ function Navbar() {
 
   return (
     <>
-      <nav className="relative px-4 py-4 flex justify-between items-center bg-white">
+      <nav
+        className="relative px-4 py-4 flex justify-between items-center"
+        style={{ backgroundColor: "rgba(0,5,96,1)" }}
+      >
         <a className="text-3xl font-bold leading-none" href="#">
           <svg className="h-10" alt="logo" viewBox="0 0 10240 10240">
             <path
