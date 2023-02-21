@@ -1,35 +1,17 @@
 import "./App.css";
-import Ftile from "./home/Ftile";
-import Footer from "./Footer";
-import Navbar from "./Navbar";
-import Stile from "./home/Stile";
-import Ttile from "./home/Ttile";
-import Announcement from "./home/marquee/Announcement";
-import HomeArticle from "./home/HomeArticles";
-import FFtile from "./home/FFtile";
+import Footer from "./footer/Footer";
+import Navbar from "./header/Navbar";
+import Home from "./home/Home";
+import Announcement from "./marquee/Announcement";
 
 function App() {
   return (
-    <div className="App cont">
-      <section className="snap-align-top"><Navbar /> </section>
+    <div>
+      <Navbar />
       <Announcement />
-      <section className="snap-align-top"><Ftile /> </section>
-      <section className="snap-align-top"><hr />
-      <hr />
-      <Stile /></section>
-      <section className="snap-align-top"><hr />
-      <hr />
-      <Ttile /> </section>
-      <section className="snap-align-top"><hr />
-      <hr />
-      <FFtile />
-      <FFtile /> </section>
-      <section className="snap-align-top"><Footer /> </section>
-      
-      
-      
-      
-      
+
+      <Home />
+      <Footer />
     </div>
   );
 }

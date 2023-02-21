@@ -6,7 +6,7 @@ const Ttile = () => {
 
   return (
     <section
-      className="mt-20 text-gray-600 body-font ftile m-5 p-2 shadow-xl rounded-xl"
+      className="rounded-xl bg-slate-900 shadow-xl mt-20 text-gray-600 body-font ftile p-2 shadow-xl rounded-xl"
       id="ttile-id"
     >
       <div class="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">

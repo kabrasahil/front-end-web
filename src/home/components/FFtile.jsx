@@ -13,7 +13,7 @@ const FFtile = () => {
           place. When a random word or a random sentence isn't quite enough
         </p>
       </div>
-      <section className="ml-4 mr-4 rounded-xl bg-slate-900 shadow-xl">
+      <section className="rounded-xl bg-slate-900 shadow-xl">
         <HomeArticle />
       </section>
     </div>
