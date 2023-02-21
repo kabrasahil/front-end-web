@@ -21,7 +21,7 @@ const Ttile = () => {
           </p>
         </div>
         <div className="container mx-auto flex px-5 md:flex-row flex-col items-center">
-          <div className="w-full">
+          <div className="w-full snap-align-top">
             <HoneyComb />
           </div>
         </div>

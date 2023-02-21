@@ -10,17 +10,26 @@ import FFtile from "./home/FFtile";
 
 function App() {
   return (
-    <div className="App">
-      <Navbar />
+    <div className="App cont">
+      <section className="snap-align-top"><Navbar /> </section>
       <Announcement />
-      <Ftile />
+      <section className="snap-align-top"><Ftile /> </section>
+      <section className="snap-align-top"><hr />
       <hr />
-      <Stile />
+      <Stile /></section>
+      <section className="snap-align-top"><hr />
       <hr />
-      <Ttile />
+      <Ttile /> </section>
+      <section className="snap-align-top"><hr />
       <hr />
       <FFtile />
-      <Footer />
+      <FFtile /> </section>
+      <section className="snap-align-top"><Footer /> </section>
+      
+      
+      
+      
+      
     </div>
   );
 }
