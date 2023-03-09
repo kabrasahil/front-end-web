@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { UserContext } from "../App";
+import { UserContext } from "../Discussions";
 import Moment from "react-moment";
 import { PlusIcon, MinusIcon, CrudIcons } from "./Icons";
 import CommentForm from "./CommentForm";
@@ -40,6 +40,10 @@ const Comment = ({
             <p className="text-gray-500">
               {<Moment fromNow>{new Date(createdAt)}</Moment>}
             </p>
+
+          {comments}
+
+
             <CrudIcons
               replyForm={replyForm}
               setReplyForm={setReplyForm}

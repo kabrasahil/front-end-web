@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { UserContext } from "../App";
+import { UserContext } from "../Discussions";
 
 const CommentForm = ({
   addComment,
