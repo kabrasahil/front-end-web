@@ -1,5 +1,4 @@
 import React, { useState, useContext } from "react";
-import { UserContext } from "../Discussions";
 
 const CommentForm = ({
   addComment,
@@ -7,7 +6,6 @@ const CommentForm = ({
   commentArrIndex,
   closeReplyForm,
 }) => {
-  const user = useContext(UserContext);
   const [content, setContent] = useState("");
 
   const onChange = (content) => {
@@ -15,13 +13,13 @@ const CommentForm = ({
   };
 
   const onSubmit = (e) => {
-    e.preventDefault();
-    if (content === "") return;
-    addComment(user, content, commentArrIndex, replyingTo);
-    setContent("");
-    if (closeReplyForm) {
-      closeReplyForm(false);
-    }
+    // e.preventDefault();
+    // if (content === "") return;
+    // addComment();
+    // setContent("");
+    // if (closeReplyForm) {
+    //   closeReplyForm(false);
+    // }
   };
 
   return (
@@ -40,7 +38,7 @@ const CommentForm = ({
         ></textarea>
 
         <img
-          src={require(`../assets/images/avatars/image-${user.username}.png`)}
+          // src={require(`../assets/images/avatars/image-${user.username}.png`)}
           alt="avatar"
           className=" col-span-2 h-10 w-10 sm:order-1"
         />
