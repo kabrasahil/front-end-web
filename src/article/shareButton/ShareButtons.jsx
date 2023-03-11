@@ -1,7 +1,17 @@
 import React from "react";
 import { FaFacebook, FaTwitter, FaInstagram } from "react-icons/fa";
 import "./sharebutton.css";
-import { ShareButton, FacebookShareButton, TwitterShareButton, WhatsappShareButton, EmailShareButton, FacebookIcon, TwitterIcon, WhatsappIcon, EmailIcon } from 'react-share';
+import {
+  ShareButton,
+  FacebookShareButton,
+  TwitterShareButton,
+  WhatsappShareButton,
+  EmailShareButton,
+  FacebookIcon,
+  TwitterIcon,
+  WhatsappIcon,
+  EmailIcon,
+} from "react-share";
 
 // const ShareButton = ({ url, socialMedia }) => {
 //   const handleClick = () => {
@@ -54,11 +64,13 @@ import { ShareButton, FacebookShareButton, TwitterShareButton, WhatsappShareButt
 
 // export default ShareButton;
 
-
 function ShareButtons({ url, title }) {
   return (
     <div>
-      <FacebookShareButton url="https://medium.com/game-theory-in-competitive-programming/sprague-grundy-theorem-5938233fb64b" quote={title}>
+      <FacebookShareButton
+        url="https://medium.com/game-theory-in-competitive-programming/sprague-grundy-theorem-5938233fb64b"
+        quote={title}
+      >
         <FacebookIcon size={32} round={true} />
       </FacebookShareButton>
       <TwitterShareButton url={url} title={title}>
@@ -75,5 +87,3 @@ function ShareButtons({ url, title }) {
 }
 
 export default ShareButtons;
-
-
