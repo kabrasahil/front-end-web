@@ -1,4 +1,5 @@
 import "./App.css";
+import Discussions from "./article/comment-section/discussions/Discussions";
 import Footer from "./footer/Footer";
 import Navbar from "./header/Navbar";
 import Home from "./home/Home";
@@ -11,6 +12,8 @@ function App() {
       <Announcement />
 
       <Home />
+
+      <Discussions />
       <Footer />
     </div>
   );
