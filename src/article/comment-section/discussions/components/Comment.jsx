@@ -47,7 +47,7 @@ const Comment = ({
             <CrudIcons
               replyForm={replyForm}
               setReplyForm={setReplyForm}
-              onDelete={onDelete}
+              onDelete={deleteComment}
               commentArrIndex={commentArrIndex}
               replyArrIndex={replyArrIndex}
               id={id}
@@ -103,7 +103,7 @@ const Comment = ({
           <CrudIcons
             replyForm={replyForm}
             setReplyForm={setReplyForm}
-            onDelete={onDelete}
+            onDelete={deleteComment}
             commentArrIndex={commentArrIndex}
             replyArrIndex={replyArrIndex}
             id={id}
@@ -136,7 +136,7 @@ const Comment = ({
               updateScore={updateScore}
               commentArrIndex={commentArrIndex}
               addComment={addComment}
-              onDelete={onDelete}
+              onDelete={deleteComment}
               replyArrIndex={index}
               editComment={editComment}
             />
