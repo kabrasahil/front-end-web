@@ -9,14 +9,21 @@ import ShareButton from "./article/shareButton/ShareButtons";
 
 function App() {
   return (
-    <div>
-      <Navbar />
+    <div className="cont">
+    <section className="snap-align-top">
+        <hr />
+        <Navbar />{" "}
+      </section>
+      
       <Announcement />
       {/* <ShareButton url="https://twitter.com/" socialMedia="twitter" /> */}
       <Home />
 
       {/* <Discussions /> */}
-      <Footer />
+      <section className="snap-align-top">
+        <hr />
+        <Footer />{" "}
+      </section>
     </div>
   );
 }
