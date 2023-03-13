@@ -21,14 +21,12 @@ const ArticleContent = ({ content }) => {
     element.classList +=
       "mx-auto w-full max-w-2xl format format-sm sm:format-base lg:format-lg format-blue dark:format-invert";
   });
-  
-  
-  
-  useEffect(() => {
-    console.log(doc.getElementsByTagName("article")[0].classList);
-    document.getElementById("article-content-div").appendChild(doc);
-  }, []);
-  return <div id="article-content-div"></div>;
+
+  useEffect(() => {}, []);
+
+  return (
+    <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(cont) }}></div>
+  );
 };
 
 export default ArticleContent;
