@@ -7,6 +7,7 @@ import Announcement from "./marquee/Announcement";
 
 import ShareButton from "./article/shareButton/ShareButtons";
 import ArticleContent from "./article/articleContent/ArticleContent";
+import ArticlesHome from "./articles_home/ArticlesHome";
 
 function App() {
   return (
@@ -15,6 +16,8 @@ function App() {
         <hr />
         <Navbar />
       </section>
+
+      <ArticleContent />
 
       <Announcement />
       {/* <ShareButton url="https://twitter.com/" socialMedia="twitter" /> */}
