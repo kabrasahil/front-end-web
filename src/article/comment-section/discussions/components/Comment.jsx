@@ -13,7 +13,7 @@ const Comment = ({
   addComment,
   deleteComment,
   editComment,
-  replies,
+  // replies,
 }) => {
   const { user, content, createdAt, score, replies, id } = comment;
   const currUser = "";

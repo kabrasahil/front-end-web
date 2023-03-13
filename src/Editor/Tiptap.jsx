@@ -7,6 +7,14 @@ import { EditorContent, useEditor } from '@tiptap/react'
 import StarterKit from '@tiptap/starter-kit'
 import React from 'react'
 
+import Document from '@tiptap/extension-document'
+import Dropcursor from '@tiptap/extension-dropcursor'
+import Image from '@tiptap/extension-image'
+import Paragraph from '@tiptap/extension-paragraph'
+import Text from '@tiptap/extension-text'
+
+
+
 const MenuBar = ({ editor }) => {
   if (!editor) {
     return null
@@ -164,6 +172,8 @@ const MenuBar = ({ editor }) => {
       >
         purple
       </button>
+     
+
       </div>
       <div>
       <button
@@ -190,6 +200,8 @@ const MenuBar = ({ editor }) => {
       >
         redo
       </button>
+
+
       
       </div>
     </div>
@@ -199,6 +211,11 @@ const MenuBar = ({ editor }) => {
 const TipTap = ({setDesc}) => {
   const editor = useEditor({
     extensions: [
+      Document,
+      Paragraph,
+      Text,
+      Image,
+      Dropcursor,
       Underline,
       Color.configure({ types: [TextStyle.name, ListItem.name] }),
       TextStyle.configure({ types: [ListItem.name] }),
@@ -221,9 +238,18 @@ const TipTap = ({setDesc}) => {
     },
   });
 
+  const addImage = () => {
+    const url = window.prompt('URL')
+  
+    if (url) {
+      editor.chain().focus().setImage({ src: url }).run()
+    }
+  }
+
   return (
     <div className="text-editor">
       <MenuBar editor={editor} />
+      <button onClick={addImage}>add image from URL</button>
       <EditorContent editor={editor} />
     </div>
   )
