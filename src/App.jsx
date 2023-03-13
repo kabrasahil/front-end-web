@@ -13,7 +13,7 @@ function App() {
     <div className="cont">
       <section className="snap-align-top">
         <hr />
-        <Navbar />{" "}
+        <Navbar />
       </section>
 
       <Announcement />
