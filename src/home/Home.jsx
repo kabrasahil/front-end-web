@@ -6,7 +6,7 @@ import FFtile from "./components/FFtile";
 
 const Home = () => {
   return (
-    <div className="App cont">
+    <div className="App ">
       <section className="snap-align-top">
         <Ftile />{" "}
       </section>

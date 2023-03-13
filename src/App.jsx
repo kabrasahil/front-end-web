@@ -10,15 +10,21 @@ import ArticleContent from "./article/articleContent/ArticleContent";
 
 function App() {
   return (
-    <div>
-      <Navbar />
-      <ArticleContent />
+    <div className="cont">
+      <section className="snap-align-top">
+        <hr />
+        <Navbar />{" "}
+      </section>
+
       <Announcement />
       {/* <ShareButton url="https://twitter.com/" socialMedia="twitter" /> */}
       <Home />
 
       {/* <Discussions /> */}
-      <Footer />
+      <section className="snap-align-top">
+        <hr />
+        <Footer />{" "}
+      </section>
     </div>
   );
 }
