@@ -13,7 +13,7 @@ const ArticlesHome = () => {
           <div className="lg:w-2/3">Left side component content</div>
           {/* Right side component */}
           <div className="hidden lg:block lg:w-1/3">
-            Right side component content
+            <RightSide />
           </div>
         </div>
       </div>
