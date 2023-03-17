@@ -4,7 +4,6 @@ import Editor from "./Editor/Editor";
 import Footer from "./footer/Footer";
 import Navbar from "./header/Navbar";
 import Home from "./home/Home";
-import Announcement from "./marquee/Announcement";
 import Tiptap from "./Editor/Tiptap";
 import ShareButton from "./article/shareButton/ShareButtons";
 import ArticleContent from "./article/articleContent/ArticleContent";
@@ -16,25 +15,24 @@ import {
   Link,
   Navigate,
 } from "react-router-dom";
+import Article from "./article/Article";
 
 function App() {
   return (
     <Router>
       <div className="cont">
-        <section className="snap-align-top">
-          <hr />
+        <section className="">
           <Navbar />
         </section>
-        <Announcement />
+        {/* <Announcement /> */}
         <Routes>
           <Route exact path="/articles" element={<ArticlesHome />} />
-
-          
+          <Route exact path="/articles/:id" element={<Article />} />
 
           <Route exact path="/" element={<Navigate to="/home" />} />
           <Route exact path="/home" element={<Home />} />
         </Routes>
-        <section className="snap-align-top">
+        <section className="">
           <hr />
           <Footer />
         </section>

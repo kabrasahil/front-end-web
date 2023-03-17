@@ -3,31 +3,16 @@ import "./article-navbar.css"; // import your CSS file
 
 function ArticleListNavbar() {
   return (
-    <nav className="Navbar">
-      <ul>
+    <nav className="Navbar" style={{ minWidth: "100%" }}>
+      <ul className="ml-5">
         <li>
           <a href="#">For You</a>
         </li>
         <li>
-          <a href="#">Following</a>
+          <a href="#">Popular</a>
         </li>
         <li>
-          <a href="#">Business</a>
-        </li>
-        <li>
-          <a href="#">Tech</a>
-        </li>
-        <li>
-          <a href="#">Culture</a>
-        </li>
-        <li>
-          <a href="#">Politics</a>
-        </li>
-        <li>
-          <a href="#">Science</a>
-        </li>
-        <li>
-          <a href="#">Sports</a>
+          <a href="#">Reading List</a>
         </li>
       </ul>
     </nav>
