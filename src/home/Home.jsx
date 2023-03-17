@@ -3,7 +3,7 @@ import IntroHome from "./IntroHome";
 
 const Home = () => {
   return (
-    <div className="mt-10">
+    <div className="h-screen">
       <IntroHome />
     </div>
   );
