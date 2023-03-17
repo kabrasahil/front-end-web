@@ -1,11 +1,12 @@
 import React from "react";
 import logo from "./assets/igts-white-logo.png";
+import "./Home.css";
 
 const IntroHome = () => {
   console.log(logo);
   return (
     <div
-      className="flex flex-col items-center justify-center"
+      className="flex flex-col items-center justify-center intro-home-pattern"
       style={{ minHeight: "800px", minWidth: "100%" }}
     >
       <img
@@ -16,7 +17,10 @@ const IntroHome = () => {
         style={{ filter: "drop-shadow(0px 0px 3px #fff)" }}
       />
 
-      <h1 class=" mr-auto ml-auto text-4xl font-extrabold leading-none tracking-tight md:text-5xl lg:text-6xl">
+      <h1
+        class=" mr-auto ml-auto text-5xl font-extrabold leading-none tracking-tight md:text-6xl lg:text-7xl"
+        style={{ fontFamily: "sans-serif" }}
+      >
         <span class="text-transparent bg-clip-text bg-gradient-to-r to-pink-500 from-blue-400">
           The Indian Game Theory Society
         </span>

@@ -1,32 +1,92 @@
-import React from 'react'
+import React from "react";
 
 export default function HomeUpdates() {
-    return(
-        <div className='my-10 bg-stone-900 box-border grid mx-80 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2'>
-            <div className='w-64 text-center'>
-                <img className='shadow-md shadow-black w-64 h-44 rounded-3xl object-cover' src='https://p19-sign.tiktokcdn-us.com/tos-useast5-avt-0068-tx/234bee5baac21e4f3da4d5265ba5aad0~c5_720x720.jpeg?x-expires=1679000400&x-signature=3z%2BQLvAFfKLglim4RmGL3jjlekM%3D' alt='' />
-                <p className='px-2 py-4 text-slate-400 text-sm'>jaisdji asd aisdjiasjd iajsdioajs diajsdi asdijasi difj idajfisjf jaisodjfoija sdjaijsdioajsd oiasjd </p>
-            </div>
-            <div className='w-64 text-center'>
-                <img className='shadow-md shadow-black w-64 h-44 rounded-3xl object-cover' src='https://p19-sign.tiktokcdn-us.com/tos-useast5-avt-0068-tx/234bee5baac21e4f3da4d5265ba5aad0~c5_720x720.jpeg?x-expires=1679000400&x-signature=3z%2BQLvAFfKLglim4RmGL3jjlekM%3D' alt='' />
-                <p className='px-2 py-4 text-slate-400 text-sm'>jaisdji asd aisdjiasjd iajsdioajs diajsdi asdijasi difj idajfisjf jaisodjfoija sdjaijsdioajsd oiasjd </p>
-            </div>
-            <div className='w-64 text-center'>
-                <img className='shadow-md shadow-black w-64 h-44 rounded-3xl object-cover' src='https://p19-sign.tiktokcdn-us.com/tos-useast5-avt-0068-tx/234bee5baac21e4f3da4d5265ba5aad0~c5_720x720.jpeg?x-expires=1679000400&x-signature=3z%2BQLvAFfKLglim4RmGL3jjlekM%3D' alt='' />
-                <p className='px-2 py-4 text-slate-400 text-sm'>jaisdji asd aisdjiasjd iajsdioajs diajsdi asdijasi difj idajfisjf jaisodjfoija sdjaijsdioajsd oiasjd </p>
-            </div>
-            <div className='w-64 text-center'>
-                <img className='shadow-md shadow-black w-64 h-44 rounded-3xl object-cover' src='https://p19-sign.tiktokcdn-us.com/tos-useast5-avt-0068-tx/234bee5baac21e4f3da4d5265ba5aad0~c5_720x720.jpeg?x-expires=1679000400&x-signature=3z%2BQLvAFfKLglim4RmGL3jjlekM%3D' alt='' />
-                <p className='px-2 py-4 text-slate-400 text-sm'>jaisdji asd aisdjiasjd iajsdioajs diajsdi asdijasi difj idajfisjf jaisodjfoija sdjaijsdioajsd oiasjd </p>
-            </div>
-            <div className='w-64 text-center'>
-                <img className='shadow-md shadow-black w-64 h-44 rounded-3xl object-cover' src='https://p19-sign.tiktokcdn-us.com/tos-useast5-avt-0068-tx/234bee5baac21e4f3da4d5265ba5aad0~c5_720x720.jpeg?x-expires=1679000400&x-signature=3z%2BQLvAFfKLglim4RmGL3jjlekM%3D' alt='' />
-                <p className='px-2 py-4 text-slate-400 text-sm'>jaisdji asd aisdjiasjd iajsdioajs diajsdi asdijasi difj idajfisjf jaisodjfoija sdjaijsdioajsd oiasjd </p>
-            </div>
-            <div className='w-64 text-center text-slate-100 flex flex-col gap-3 '>
-                <div className='w-64 h-20 bg-stone-800 hover:bg-stone-700 rounded-2xl items-center'><p className='py-6'>Blogs</p></div>
-                <div className='w-64 h-20 bg-stone-800 hover:bg-stone-700 rounded-2xl items-center'><p className='py-6'>Events</p></div>
-            </div>
-        </div>
-    )
+  const data = [
+    {
+      type: "Blog",
+      description:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, nobis? Architecto perferendis, accusantium quibusdam dolore ad obcaecati maxime explicabo at ab aut ipsa illo voluptatem asperiores voluptates, cum suscipit repudiandae?",
+      image:
+        "https://instagram.fdel11-2.fna.fbcdn.net/v/t51.2885-15/327590825_214953080892210_7335381751730104556_n.webp?stp=dst-jpg_e35&_nc_ht=instagram.fdel11-2.fna.fbcdn.net&_nc_cat=106&_nc_ohc=BIbrZsnSk84AX_dW5qr&edm=ACWDqb8BAAAA&ccb=7-5&ig_cache_key=MzAyNDAyMjg5NTY5MDU2OTQ2NA%3D%3D.2-ccb7-5&oh=00_AfDzIKsVoJ0oEfour2q49F1W3oKKfFn3iGOsPTmLBQkYiA&oe=641A80DC&_nc_sid=1527a3",
+      title: "Bored Apes Yatch Club New Sale Game",
+      link: "#",
+    },
+    {
+      type: "Blog",
+      description:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, nobis? Architecto perferendis, accusantium quibusdam dolore ad obcaecati maxime explicabo at ab aut ipsa illo voluptatem asperiores voluptates, cum suscipit repudiandae?",
+      image:
+        "https://instagram.fdel11-2.fna.fbcdn.net/v/t51.2885-15/327590825_214953080892210_7335381751730104556_n.webp?stp=dst-jpg_e35&_nc_ht=instagram.fdel11-2.fna.fbcdn.net&_nc_cat=106&_nc_ohc=BIbrZsnSk84AX_dW5qr&edm=ACWDqb8BAAAA&ccb=7-5&ig_cache_key=MzAyNDAyMjg5NTY5MDU2OTQ2NA%3D%3D.2-ccb7-5&oh=00_AfDzIKsVoJ0oEfour2q49F1W3oKKfFn3iGOsPTmLBQkYiA&oe=641A80DC&_nc_sid=1527a3",
+      title: "Bored Apes Yatch Club New Sale Game",
+      link: "#",
+    },
+    {
+      type: "Blog",
+      description:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, nobis? Architecto perferendis, accusantium quibusdam dolore ad obcaecati maxime explicabo at ab aut ipsa illo voluptatem asperiores voluptates, cum suscipit repudiandae?",
+      image:
+        "https://instagram.fdel11-2.fna.fbcdn.net/v/t51.2885-15/327590825_214953080892210_7335381751730104556_n.webp?stp=dst-jpg_e35&_nc_ht=instagram.fdel11-2.fna.fbcdn.net&_nc_cat=106&_nc_ohc=BIbrZsnSk84AX_dW5qr&edm=ACWDqb8BAAAA&ccb=7-5&ig_cache_key=MzAyNDAyMjg5NTY5MDU2OTQ2NA%3D%3D.2-ccb7-5&oh=00_AfDzIKsVoJ0oEfour2q49F1W3oKKfFn3iGOsPTmLBQkYiA&oe=641A80DC&_nc_sid=1527a3",
+      title: "Bored Apes Yatch Club New Sale Game",
+      link: "#",
+    },
+    {
+      type: "Blog",
+      description:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, nobis? Architecto perferendis, accusantium quibusdam dolore ad obcaecati maxime explicabo at ab aut ipsa illo voluptatem asperiores voluptates, cum suscipit repudiandae?",
+      image:
+        "https://instagram.fdel11-2.fna.fbcdn.net/v/t51.2885-15/327590825_214953080892210_7335381751730104556_n.webp?stp=dst-jpg_e35&_nc_ht=instagram.fdel11-2.fna.fbcdn.net&_nc_cat=106&_nc_ohc=BIbrZsnSk84AX_dW5qr&edm=ACWDqb8BAAAA&ccb=7-5&ig_cache_key=MzAyNDAyMjg5NTY5MDU2OTQ2NA%3D%3D.2-ccb7-5&oh=00_AfDzIKsVoJ0oEfour2q49F1W3oKKfFn3iGOsPTmLBQkYiA&oe=641A80DC&_nc_sid=1527a3",
+      title: "Bored Apes Yatch Club New Sale Game",
+      link: "#",
+    },
+    {
+      type: "Blog",
+      description:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, nobis? Architecto perferendis, accusantium quibusdam dolore ad obcaecati maxime explicabo at ab aut ipsa illo voluptatem asperiores voluptates, cum suscipit repudiandae?",
+      image:
+        "https://instagram.fdel11-2.fna.fbcdn.net/v/t51.2885-15/327590825_214953080892210_7335381751730104556_n.webp?stp=dst-jpg_e35&_nc_ht=instagram.fdel11-2.fna.fbcdn.net&_nc_cat=106&_nc_ohc=BIbrZsnSk84AX_dW5qr&edm=ACWDqb8BAAAA&ccb=7-5&ig_cache_key=MzAyNDAyMjg5NTY5MDU2OTQ2NA%3D%3D.2-ccb7-5&oh=00_AfDzIKsVoJ0oEfour2q49F1W3oKKfFn3iGOsPTmLBQkYiA&oe=641A80DC&_nc_sid=1527a3",
+      title: "Bored Apes Yatch Club New Sale Game",
+      link: "#",
+    },
+  ];
+
+  return (
+    <div className="mb-20">
+      <h1 class="text-center mb-20 text-gray-500 mr-auto ml-auto text-5xl font-extrabold leading-none tracking-tight md:text-6xl lg:text-7xl">
+        <span class="">Highlights</span>
+      </h1>
+
+      <div className=" grid lg:mx-80 md:mx-40 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5  ">
+        {data.map(({ image, title, type, description, link }) => {
+          return (
+            <a
+              href={link}
+              class="group relative block bg-black rounded-xl w-full aspect-square"
+            >
+              <img
+                alt="Developer"
+                src={
+                  "https://d1csarkz8obe9u.cloudfront.net/posterpreviews/martin-luther-king-day-political-poster-square-design-template-3b876db32c574f1c68275b35ed741c7e_screen.jpg?ts=1561447823"
+                }
+                class="absolute rounded-xl aspect-square overflow-hidden inset-0 h-full w-full  object-cover opacity-75 transition-opacity group-hover:blur-sm group-hover:opacity-40"
+              />
+
+              <div class="absolute flex flex-col justify-between p-4 sm:p-6 lg:p-8">
+                <p class="text-xl font-bold uppercase tracking-widest text-pink-500">
+                  {type}
+                </p>
+
+                <p class="text-2xl font-bold text-white sm:text-2xl">{title}</p>
+
+                <div class="mt-auto">
+                  <div class="translate-y-8 transform opacity-0 transition-all group-hover:translate-y-0 group-hover:opacity-100">
+                    <p class="text-base text-white">{description}</p>
+                  </div>
+                </div>
+              </div>
+            </a>
+          );
+        })}
+      </div>
+    </div>
+  );
 }

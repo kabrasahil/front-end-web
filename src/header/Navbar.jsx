@@ -67,7 +67,7 @@ const Navbar = () => {
   return (
     <div className="">
       <nav
-        className={`navbar-main navbar-font bg-stone-900 text-gray-400 conatainer w-100 absolute z-50 top-0 border-b border-gray-500`}
+        className={`navbar-main navbar-font bg-stone-900 text-gray-400 conatainer w-100 fixed z-50 top-0 border-b border-gray-500`}
         style={{ height: "70px", width: "100%", boxShadow: topNavShadow }}
       >
         <motion.aside

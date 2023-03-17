@@ -10,7 +10,7 @@
   height: 100%;
 }
 .navbar-main {
-  background: rgba(29, 29, 29, 0.25);
+  background: rgba(29, 29, 29, 0.99);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
 }
