@@ -1,7 +1,6 @@
 import React from "react";
-import ArticleList from "./articleList/AtricleList";
-import RightSide from "./rightSide/RightSide";
-import BlogHeading from "./blogHeading/App";
+import ArticleList from "./AtricleList";
+import BlogHeading from "./BlogHeading";
 
 const ArticlesHome = () => {
   return (

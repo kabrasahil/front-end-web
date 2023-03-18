@@ -1,8 +1,7 @@
 import React from 'react';
-import './App.css';
 
 
-function App() {
+function BlogHeading() {
   return (
     <div className='bg-stone-900'>
         {/* make a small heading showing blogs and with background colour slate-500 */}
@@ -16,4 +15,4 @@ function App() {
   );
 }
 
-export default App;
+export default BlogHeading;
