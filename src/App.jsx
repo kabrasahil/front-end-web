@@ -20,7 +20,7 @@ import Article from "./article/Article";
 function App() {
   return (
     <Router>
-      <div className="cont">
+      <div className="bg-stone-900">
         <section className="">
           <Navbar />
         </section>
@@ -33,7 +33,6 @@ function App() {
           <Route exact path="/home" element={<Home />} />
         </Routes>
         <section className="">
-          <hr />
           <Footer />
         </section>
       </div>

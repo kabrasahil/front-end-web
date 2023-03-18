@@ -6,7 +6,7 @@ import IntroHome from "./IntroHome";
 
 const Home = () => {
   return (
-    <div>
+    <div className="">
       <div className="">
         <IntroHome />
       </div>

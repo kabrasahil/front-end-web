@@ -10,7 +10,7 @@ const MenuButton = ({ isOpen = false }) => {
     },
     opened: {
       rotate: 45,
-      translateY: 6,
+      translateY: 9,
     },
   };
   const center = {
@@ -28,7 +28,7 @@ const MenuButton = ({ isOpen = false }) => {
     },
     opened: {
       rotate: -45,
-      translateY: -6,
+      translateY: -9,
     },
   };
 
@@ -36,20 +36,20 @@ const MenuButton = ({ isOpen = false }) => {
     <div style={{ height: "max-content" }} className="mt-auto mb-auto">
       <motion.div className="flex flex-col content-center h-100 gap-y-1">
         <motion.div
-          className="w-6 bg-gray-300 mt-auto"
-          style={{ height: "2px" }}
+          className="w-10 bg-gray-300 mt-auto"
+          style={{ height: "5px" }}
           variants={top}
           animate={variant}
         ></motion.div>
         <motion.div
-          className="w-6 bg-gray-300"
-          style={{ height: "2px" }}
+          className="w-10 bg-gray-300"
+          style={{ height: "5px" }}
           variants={center}
           animate={variant}
         ></motion.div>
         <motion.div
-          className="w-6 bg-gray-300 mb-auto"
-          style={{ height: "2px" }}
+          className="w-10 bg-gray-300 mb-auto"
+          style={{ height: "5px" }}
           variants={bottom}
           animate={variant}
         ></motion.div>

@@ -1,0 +1,7 @@
+.article-card {
+  /* background: rgba(23, 23, 23, 0.4); */
+  box-shadow: 0 0px 40px -1px rgba(0, 0, 0, 0.6);
+  /* /* backdrop-filter: blur(12px); */
+  /* -webkit-backdrop-filter: blur(12px); */
+  /* border-radius: 10px; */
+}

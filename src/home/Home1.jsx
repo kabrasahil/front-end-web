@@ -4,7 +4,7 @@ import "./Home1.css";
 
 export default function Home1() {
   return (
-    <div className="flex justify-center gap-10 items-center py-12 overflow-x-hidden bg-stone-900">
+    <div className="flex justify-center gap-10 items-center py-12 px-8 overflow-x-hidden bg-stone-900">
       <div className="flex flex-col gap-5 w-96">
         <h3 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-indigo-500">
           About

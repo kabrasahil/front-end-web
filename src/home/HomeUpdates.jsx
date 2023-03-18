@@ -50,12 +50,12 @@ export default function HomeUpdates() {
   ];
 
   return (
-    <div className="mb-20">
+    <div className="mb-20  sm:h-screen md:h-screen">
       <h1 class="text-center mb-20 text-gray-500 mr-auto ml-auto text-5xl font-extrabold leading-none tracking-tight md:text-6xl lg:text-7xl">
         <span class="">Highlights</span>
       </h1>
 
-      <div className=" grid lg:mx-80 md:mx-40 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5  ">
+      <div className=" grid lg:mx-80 md:mx-40 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:gap-5   sm:gap-16 md:gap-16">
         {data.map(({ image, title, type, description, link }) => {
           return (
             <a
@@ -65,7 +65,7 @@ export default function HomeUpdates() {
               <img
                 alt="Developer"
                 src={
-                  "https://d1csarkz8obe9u.cloudfront.net/posterpreviews/martin-luther-king-day-political-poster-square-design-template-3b876db32c574f1c68275b35ed741c7e_screen.jpg?ts=1561447823"
+                  "https://d1csarkz8obe9u.cloudfront.net/posterpreviews/tech-party-motion-poster-design-template-b63c68de5d78628b1350ae504aa4fc7d_screen.jpg?ts=1567082379"
                 }
                 class="absolute rounded-xl aspect-square overflow-hidden inset-0 h-full w-full  object-cover opacity-75 transition-opacity group-hover:blur-sm group-hover:opacity-40"
               />

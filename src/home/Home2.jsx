@@ -4,7 +4,7 @@ import "./Home2.css";
 
 export default function Home2() {
   return (
-    <div className="flex justify-center gap-16 items-center overflow-x-hidden bg-stone-900 py-12">
+    <div className="flex justify-center gap-16 px-8 items-center overflow-x-hidden bg-stone-900 py-12">
       <div className="w-[800px]">
         <img
           className="drop-shadow-2xl shadow-zinc-400 rounded-xl img-home2"

@@ -17,24 +17,22 @@ const Navbar = () => {
   ];
 
   const [isOpen, setOpen] = useState(false);
-  const [topNavShadow, setShadow] = useState(
-    "0 4px 16px 0 rgba(0, 0, 0, 0.37)"
-  );
+  const [topNavShadow, setShadow] = useState("");
   const dropDownMenuVariants = {
     opened: {
       opacity: 1,
       y: 0,
       height: "max-content",
       transition: {
-        duration: 0.3,
+        duration: 0.1,
       },
       display: "block",
     },
     closed: {
-      y: -400,
+      y: -1000,
       height: 0,
       transition: {
-        duration: 0.3,
+        duration: 0.1,
       },
       transitionEnd: {
         display: "none",
@@ -68,29 +66,27 @@ const Navbar = () => {
     <div className="">
       <nav
         className={`navbar-main navbar-font bg-stone-900 text-gray-400 conatainer w-100 fixed z-50 top-0 border-b border-gray-500`}
-        style={{ height: "70px", width: "100%", boxShadow: topNavShadow }}
+        style={{ width: "100%", boxShadow: topNavShadow }}
       >
         <motion.aside
           className="justify-center flex content-center z-30"
           style={{ height: "100%" }}
         >
           <motion.div
-            className="container flex gap-x-8 justify-center content-center"
+            className=" flex gap-x-8 ml-auto justify-center content-center"
             // initial="closed"
             // animate="open"
             // variants={sideVariants}
           >
-            <a href="#" key={0} className="nav-item">
-              <div class="self-center mr-2">
+            <a href="#" key={0} className="nav-item w-fit">
+              <div class=" w-fit">
                 <img
                   src={logo}
                   alt=""
                   srcset=""
-                  className="object-cover"
+                  className="object-cover ml-4 w-fit sm:h-24 md:h-32 lg:h-16"
                   style={{
                     filter: "drop-shadow(0px 0px 3px #fff)",
-                    height: "80px",
-                    width: "160px",
                   }}
                 />
               </div>
@@ -112,7 +108,7 @@ const Navbar = () => {
             // initial="closed"
             // animate="open"
             // variants={sideVariants}
-            className="flex content-center h-10 my-auto mx-auto"
+            className="flex content-center h-10 my-auto ml-auto mr-10"
           >
             <a
               href="#_"
@@ -145,7 +141,7 @@ const Navbar = () => {
               onClick={() => {
                 setOpen(!isOpen);
                 if (topNavShadow == "") {
-                  setShadow("0 4px 16px 0 rgba(31, 38, 135, 0.37)");
+                  setShadow("box-shadow: 0 30px 80px 30px rgba(0, 0, 0, 0.6);");
                 } else setShadow("");
               }}
             >
@@ -159,7 +155,7 @@ const Navbar = () => {
           style={{ zIndex: "-10", position: "relative" }}
         >
           <div
-            className="ml-auto mr-auto bg-stone-900 flex flex-col gap-y-1 lg:hidden navbar-main border-b border-x border-gray-500"
+            className="ml-auto pt-10 mr-auto bg-stone-900 flex flex-col gap-y-1 lg:hidden navbar-main border-b border-x border-gray-500"
             style={{
               width: "100%",
               borderRadius: "0px 0px 10px 10px",
@@ -168,7 +164,7 @@ const Navbar = () => {
             {links.map(({ name, to, id }) => {
               return (
                 <motion.div
-                  className="mt-2 border-b border-gray-700 mx-20 p-2"
+                  className="mt-2 border-b border-gray-700 mx-20 px-2 py-10 text-5xl"
                   variants={itemVariants}
                   animate={isOpen ? "opened" : "closed"}
                 >
