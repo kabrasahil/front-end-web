@@ -80,9 +80,9 @@ export default function HomeUpdates() {
                   {title}
                 </p>
 
-                <div class="mt-auto">
+                <div class="mt-3">
                   <div class="translate-y-8 transform lg:opacity-0 transition-all lg:group-hover:translate-y-0 lg:group-hover:opacity-100">
-                    <p class="lg:text-base md:text-xl sm:text-xl text-white">
+                    <p class="lg:text-base lg:h-[7rem] md:text-3xl sm:text-xl text-white overflow-hidden text-ellipsis">
                       {description}
                     </p>
                   </div>
