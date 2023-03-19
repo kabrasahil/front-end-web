@@ -177,8 +177,8 @@ const posts = [
 const ArticleList = () => {
   return (
     <div className=" ">
-      <div className="mx-auto lg:mx-96 lg:px-24 md:mx-24 sm:mx-5">
-        <div className="mx-auto mt-10 grid gap-y-14">
+      <div className=" lg:px-24 md:mx-24 sm:mx-5">
+        <div className="mx-auto mt-10 grid gap-y-14 w-fit">
           {posts.map((el) => {
             return <ArticleCard post={el} />;
           })}

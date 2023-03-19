@@ -91,9 +91,13 @@ export default function HomeUpdates() {
             </a>
           );
         })}
-        <div className='w-64 text-center text-slate-100 flex flex-col gap-3 '>
-            <button className='w-64 h-20 bg-stone-900 shadow-md shadow-black hover:bg-stone-800 rounded-2xl items-center'>Blogs</button>
-            <button className='w-64 h-20 bg-stone-900 shadow-md shadow-black hover:bg-stone-800 rounded-2xl items-center'>Events</button>
+        <div className="w-full h-full text-center text-slate-100 flex flex-col gap-3 ">
+          <button className="lg:p-0 w-full h-full bg-stone-800 shadow-md shadow-black hover:bg-stone-700 rounded-2xl items-center text-gray-300 lg:text-4xl sm:text-5xl md:text-5xl sm:py-24 flex justify-center">
+            Blogs
+          </button>
+          <button className="lg:p-0 w-full h-full bg-stone-800 shadow-md shadow-black hover:bg-stone-700 rounded-2xl text-gray-300 lg:text-4xl sm:text-5xl md:text-5xl sm:py-24 flex justify-center">
+            Events
+          </button>
         </div>
       </div>
     </div>

@@ -16,6 +16,7 @@ import {
   Navigate,
 } from "react-router-dom";
 import Article from "./article/Article";
+import LoginPage from "./login/LoginPage";
 
 function App() {
   return (
@@ -26,8 +27,9 @@ function App() {
         </section>
         {/* <Announcement /> */}
         <Routes>
-          <Route exact path="/articles" element={<ArticlesHome />} />
-          <Route exact path="/articles/:id" element={<Article />} />
+          <Route exact path="/blogs" element={<ArticlesHome />} />
+          <Route exact path="/blogs/:id" element={<Article />} />
+          <Route exact path="/login" element={<LoginPage />} />
 
           <Route exact path="/" element={<Navigate to="/home" />} />
           <Route exact path="/home" element={<Home />} />

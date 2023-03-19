@@ -5,7 +5,7 @@ const ArticleCard = ({ post }) => {
   return (
     <article
       key={post.id}
-      className="flex article-card flex-col items-start justify-between pb-8 px-12 lg:px-10 sm:py-6 lg:py-10 rounded-xl bg-stone-900"
+      className="lg:w-3/4 flex article-card flex-col items-start justify-between pb-8 px-12 lg:px-10 sm:py-6 lg:py-10 rounded-xl bg-stone-900 "
     >
       <div className="flex flex-row">
         <div className="">
@@ -17,7 +17,7 @@ const ArticleCard = ({ post }) => {
             />
             <p className="mt-8 font-sans font-bold  text-2xl lg:text-sm   text-gray-400">
               <a href={post.author.href}>
-                <span className="absolute inset-0" />
+                <span className="relative inset-0" />
                 {post.author.name}
               </a>
             </p>
