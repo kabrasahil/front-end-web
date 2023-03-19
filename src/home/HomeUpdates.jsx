@@ -55,12 +55,12 @@ export default function HomeUpdates() {
         <span class="">Highlights</span>
       </h1>
 
-      <div className=" grid lg:mx-80 md:mx-40 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-3 lg:gap-5   sm:gap-16 md:gap-16">
+      <div className=" grid lg:mx-80 md:mx-40 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-3 lg:gap-5 sm:gap-16 md:gap-16">
         {data.map(({ image, title, type, description, link }) => {
           return (
             <a
               href={link}
-              class="group relative block bg-black rounded-xl w-full aspect-square"
+              class="group relative block bg-black rounded-xl w-full aspect-square lg:overflow-hidden"
               style={{ boxShadow: "0 0px 40px -1px rgba(0, 0, 0, 0.6)" }}
             >
               <img
@@ -80,9 +80,9 @@ export default function HomeUpdates() {
                   {title}
                 </p>
 
-                <div class="mt-auto">
+                <div class="mt-3">
                   <div class="translate-y-8 transform lg:opacity-0 transition-all lg:group-hover:translate-y-0 lg:group-hover:opacity-100">
-                    <p class="lg:text-base md:text-xl sm:text-xl text-white">
+                    <p class="lg:text-base lg:h-[7rem] md:text-3xl sm:text-xl text-white overflow-hidden text-ellipsis">
                       {description}
                     </p>
                   </div>
@@ -91,9 +91,9 @@ export default function HomeUpdates() {
             </a>
           );
         })}
-        <div className='w-64 text-center text-slate-100 flex flex-col gap-3 '>
-            <button className='w-64 h-20 bg-stone-900 shadow-md shadow-black hover:bg-stone-800 rounded-2xl items-center'>Blogs</button>
-            <button className='w-64 h-20 bg-stone-900 shadow-md shadow-black hover:bg-stone-800 rounded-2xl items-center'>Events</button>
+        <div className='text-center flex flex-col justify-center gap-3 '>
+          <button className='lg:text-lg lg:m-0 flex-grow text-slate-300 bg-stone-900 justify-center hover:bg-stone-800 sm:text-6xl sm:py-10 sm:my-5 lg:rounded-2xl md:rounded-md items-center' style={{ boxShadow: "0 0px 40px -1px rgba(0, 0, 0, 0.6)" }}>Blogs</button>
+          <button className='lg:text-lg lg:m-0 flex-grow text-slate-300 bg-stone-900 justify-center hover:bg-stone-800 sm:text-6xl sm:py-10 sm:my-5 lg:rounded-2xl md:rounded-md items-center' style={{ boxShadow: "0 0px 40px -1px rgba(0, 0, 0, 0.6)" }}>Events</button>
         </div>
       </div>
     </div>
