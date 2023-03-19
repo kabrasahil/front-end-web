@@ -58,7 +58,7 @@ const LoginCard = () => {
         {/* logo */}
 
         <div className="flex flex-col gap-y-3 mb-4">
-          <h1 className=" mr-auto ml-auto lg:text-3xl sm:text-9xl md:text-9xl sm:px-16  text-center font-extrabold  tracking-tight ">
+          <h1 className=" mr-auto ml-auto lg:text-7xl sm:text-9xl md:text-9xl sm:px-16  text-center font-extrabold  tracking-tight ">
             <span
               className="text-gray-300 "
               style={{ filter: "drop-shadow(0px 0px 1px #fff)" }}
@@ -83,7 +83,7 @@ const LoginCard = () => {
           >
             <button
               type="button"
-              className="text-white bg-blue-800 hover:bg-blue-900 focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg lg:text-base sm:text-3xl md:text-3xl px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55 mr-2 mb-2 gap-x-3 w-full justify-center py-5"
+              className="text-white bg-blue-800 hover:bg-blue-900 focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg lg:text-base sm:text-3xl md:text-3xl px-5 lg:py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55 mr-2 mb-2 gap-x-3 w-full justify-center sm:py-5 md:py-5"
             >
               <svg
                 className="lg:w-4 lg:h-4 sm:w-8 sm:h-8 md:w-8 md:h-8 mr-2 -ml-1 "
@@ -113,7 +113,7 @@ const LoginCard = () => {
             <div className="relative">
               <input
                 type="Email"
-                className="bg-stone-800 sm:p-5 md:p-5 text-gray-400  focus:outline focus:outline-gray-600 lg:text-base sm:text-3xl md:text-3xl rounded-lg focus:0 block w-full p-2.5"
+                className="bg-stone-800 lg:p-3 lg:p-3 sm:p-5 md:p-5 text-gray-400  focus:outline focus:outline-gray-600 lg:text-base sm:text-3xl md:text-3xl rounded-lg focus:0 block w-full p-2.5"
                 placeholder="Email"
                 value={emailL}
                 onChange={(e) => {
@@ -124,7 +124,7 @@ const LoginCard = () => {
             <div className="relative">
               <input
                 type="password"
-                className="bg-stone-800  sm:p-5 md:p-5  text-gray-400  focus:outline focus:outline-gray-600 lg:text-base sm:text-3xl md:text-3xl rounded-lg focus:0 block w-full p-2.5"
+                className="bg-stone-800 lg:p-3 lg:p-3 sm:p-5 md:p-5  text-gray-400  focus:outline focus:outline-gray-600 lg:text-base sm:text-3xl md:text-3xl rounded-lg focus:0 block w-full p-2.5"
                 placeholder="Password"
                 value={passwordL}
                 onChange={(e) => setPasswordL(e.target.value)}
@@ -152,7 +152,7 @@ const LoginCard = () => {
           >
             <button
               type="button"
-              className="text-white bg-blue-800 hover:bg-blue-900 focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg lg:lg:text-base sm:text-3xl md:text-3xl sm:text-3xl md:text-3xl px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55 mr-2 mb-2 gap-x-3 w-full justify-center py-5"
+              className="text-white bg-blue-800 hover:bg-blue-900 focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg lg:lg:text-base sm:text-3xl md:text-3xl sm:text-3xl md:text-3xl px-5 lg:py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55 mr-2 mb-2 gap-x-3 w-full justify-center sm:py-5"
             >
               <svg
                 className="lg:w-4 lg:h-4 sm:w-8 sm:h-8 md:w-8 md:h-8 mr-2 -ml-1 "
@@ -182,7 +182,7 @@ const LoginCard = () => {
             <div className="relative flex lg:gap-x-3 sm:gap-x-10 md:gap-x-10">
               <input
                 type={"text"}
-                className="bg-stone-800  sm:p-5 md:p-5 text-gray-400  focus:outline focus:outline-gray-600 lg:text-base sm:text-3xl md:text-3xl rounded-lg focus:0 block w-full p-2.5"
+                className="bg-stone-800  lg:p-3 sm:p-5 md:p-5 text-gray-400  focus:outline focus:outline-gray-600 lg:text-base sm:text-3xl md:text-3xl rounded-lg focus:0 block w-full p-2.5"
                 placeholder="First Name"
                 value={fname}
                 onChange={(e) => setFname(e.target.value)}
@@ -190,7 +190,7 @@ const LoginCard = () => {
               <div className="flex flex-col w-full">
                 <input
                   type={"text"}
-                  className={`bg-stone-800  sm:p-5 md:p-5 text-gray-400  focus:outline focus:outline-gray-600 lg:text-base sm:text-3xl md:text-3xl rounded-lg focus:0 block w-full p-2.5 ${
+                  className={`bg-stone-800  lg:p-3 sm:p-5 md:p-5 text-gray-400  focus:outline focus:outline-gray-600 lg:text-base sm:text-3xl md:text-3xl rounded-lg focus:0 block w-full p-2.5 ${
                     lnameEmpty
                       ? "outline outline-1 outline-red-600 text-red-500"
                       : ""
@@ -208,7 +208,7 @@ const LoginCard = () => {
             <div>
               <input
                 type="tel"
-                className={`bg-stone-800  sm:p-5 md:p-5 text-gray-400  focus:outline focus:outline-gray-600 lg:text-base sm:text-3xl md:text-3xl rounded-lg focus:0 block w-full p-2.5 ${
+                className={`bg-stone-800  lg:p-3 sm:p-5 md:p-5 text-gray-400  focus:outline focus:outline-gray-600 lg:text-base sm:text-3xl md:text-3xl rounded-lg focus:0 block w-full p-2.5 ${
                   invalidPhone
                     ? "outline outline-1 outline-red-600 text-red-500"
                     : ""
@@ -223,7 +223,7 @@ const LoginCard = () => {
             <div className="relative">
               <input
                 type="Email"
-                className={`bg-stone-800  sm:p-5 md:p-5 text-gray-400  focus:outline focus:outline-gray-600 lg:text-base sm:text-3xl md:text-3xl rounded-lg focus:0 block w-full p-2.5 ${
+                className={`bg-stone-800  lg:p-3 sm:p-5 md:p-5 text-gray-400  focus:outline focus:outline-gray-600 lg:text-base sm:text-3xl md:text-3xl rounded-lg focus:0 block w-full p-2.5 ${
                   invalidEmail
                     ? "outline outline-1 outline-red-600 text-red-500"
                     : ""
@@ -239,7 +239,7 @@ const LoginCard = () => {
             <div className="relative flex lg:gap-x-3  sm:gap-x-10 md:gap-x-10">
               <input
                 type={invalidPass ? "text" : "password"}
-                className={`bg-stone-800  sm:p-5 md:p-5 text-gray-400  focus:outline focus:outline-gray-600 lg:text-base sm:text-3xl md:text-3xl rounded-lg focus:0 block w-full p-2.5 ${
+                className={`bg-stone-800  lg:p-3 sm:p-5 md:p-5 text-gray-400  focus:outline focus:outline-gray-600 lg:text-base sm:text-3xl md:text-3xl rounded-lg focus:0 block w-full p-2.5 ${
                   invalidPass || passDontMatch
                     ? "outline outline-1 outline-red-600 text-red-500"
                     : ""
@@ -256,7 +256,7 @@ const LoginCard = () => {
 
               <input
                 type={passDontMatch ? "text" : "password"}
-                className={`bg-stone-800 text-gray-400  sm:p-5 md:p-5  focus:outline focus:outline-gray-600 lg:text-base sm:text-3xl md:text-3xl rounded-lg focus:0 block w-full p-2.5 ${
+                className={`bg-stone-800 text-gray-400  lg:p-3 sm:p-5 md:p-5  focus:outline focus:outline-gray-600 lg:text-base sm:text-3xl md:text-3xl rounded-lg focus:0 block w-full p-2.5 ${
                   invalidPass || passDontMatch
                     ? "outline outline-1 outline-red-600 text-red-500"
                     : ""
@@ -273,7 +273,7 @@ const LoginCard = () => {
               <input
                 type="text"
                 name="organization"
-                className={`bg-stone-800  sm:p-5 md:p-5  text-gray-400  focus:outline focus:outline-gray-600 lg:text-base sm:text-3xl md:text-3xl rounded-lg focus:0 block w-full p-2.5 ${
+                className={`bg-stone-800  lg:p-3 sm:p-5 md:p-5  text-gray-400  focus:outline focus:outline-gray-600 lg:text-base sm:text-3xl md:text-3xl rounded-lg focus:0 block w-full p-2.5 ${
                   organizationEmpty
                     ? "outline outline-1 outline-red-600 text-red-500"
                     : ""

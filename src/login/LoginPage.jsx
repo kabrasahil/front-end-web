@@ -10,7 +10,7 @@ const LoginPage = () => {
           "url(https://w0.peakpx.com/wallpaper/997/21/HD-wallpaper-carbon-world-map-grunge-art-carbon-background-creative-black-world-map-travel-concepts-world-map-concepts-world-map.jpg)",
       }}
     >
-      <div className="w-screen h-screen flex flex-col justify-center items-center backdrop-blur-2xl">
+      <div className="w-screen h-screen flex flex-col lg:pt-20 justify-center items-center backdrop-blur-2xl">
         <div className="flex justify-center items-center">
           <LoginCard />
         </div>
