@@ -1,16 +1,21 @@
-import React from 'react';
-
+import React from "react";
 
 function BlogHeading() {
   return (
-    <div className='bg-stone-900'>
-        {/* make a small heading showing blogs and with background colour slate-500 */}
-        <div className='text-center'>
-            <h1 class="bg-gradient-to-r from-blue-600 via-green-500 to-indigo-400 inline-block text-transparent bg-clip-text mt-20 text-4xl font-sans font-semibold">BLOGS</h1>  
-            </div>      {/* make a much larger heading showing "Releases,insights,and company announcements" and make it white in colour with text justified in center */}
-        <h1 className='text-center text-white text-5xl font-bold mt-5'>Releases, insights, and </h1>
-        <h1 className='text-center text-white text-5xl font-bold p-2'>company announcements</h1>
-
+    <div className="bg-stone-900 lg:py-0 sm:py-20 md:py-20">
+      {/* make a small heading showing blogs and with background colour slate-500 */}
+      <div className="text-center">
+        <h1 class="bg-gradient-to-r to-pink-500 from-blue-400 inline-block text-transparent bg-clip-text mt-20 text-5xl font-sans font-extrabold">
+          BLOGS
+        </h1>
+      </div>{" "}
+      {/* make a much larger heading showing "Releases,insights,and company announcements" and make it white in colour with text justified in center */}
+      <h1 className="text-center text-gray-400 text-5xl font-semibold mt-5 pb-2">
+        Exploring the Delta of{" "}
+      </h1>
+      <h1 className="text-center  text-gray-400 text-5xl font-semibold pb-10 ">
+        Programming, Math, and Economics
+      </h1>
     </div>
   );
 }

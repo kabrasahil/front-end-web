@@ -30,6 +30,7 @@ const Navbar = () => {
     },
     closed: {
       y: -1000,
+      border: "0",
       height: 0,
       transition: {
         duration: 0.1,
@@ -65,15 +66,15 @@ const Navbar = () => {
   return (
     <div className="">
       <nav
-        className={`navbar-main navbar-font bg-stone-900 text-gray-400 conatainer w-100 fixed z-50 top-0 border-b border-gray-500`}
+        className={`navbar-main navbar-font bg-stone-900 text-gray-400 conatainer w-100 fixed z-50 top-0 border-b-2 border-gray-500`}
         style={{ width: "100%", boxShadow: topNavShadow }}
       >
         <motion.aside
-          className="justify-center flex content-center z-30"
+          className="lg:justify-center md:justify-between sm:justify-between flex content-center z-30"
           style={{ height: "100%" }}
         >
           <motion.div
-            className=" flex gap-x-8 ml-auto justify-center content-center"
+            className=" flex gap-x-8 lg:ml-auto justify-center content-center"
             // initial="closed"
             // animate="open"
             // variants={sideVariants}
@@ -96,7 +97,7 @@ const Navbar = () => {
                 <a
                   href={to}
                   key={id}
-                  className="nav-item hover:text-gray-200 sm:opacity-0 md:opacity-0 lg:opacity-100"
+                  className=" hover:text-gray-200 sm:hidden md:hidden lg:flex items-center"
                 >
                   {name}
                 </a>
@@ -137,7 +138,7 @@ const Navbar = () => {
               <span class="absolute inset-0 border-2 border-pink-500 rounded-full"></span>
             </a>
             <div
-              className="flex flex-row content-center lg:opacity-0 cursor-pointer"
+              className="flex flex-row content-center lg:hidden sm:block md:block cursor-pointer"
               onClick={() => {
                 setOpen(!isOpen);
                 if (topNavShadow == "") {
@@ -155,7 +156,7 @@ const Navbar = () => {
           style={{ zIndex: "-10", position: "relative" }}
         >
           <div
-            className="ml-auto pt-10 mr-auto bg-stone-900 flex flex-col gap-y-1 lg:hidden navbar-main border-b border-x border-gray-500"
+            className="ml-auto pt-10 mr-auto bg-stone-900 flex flex-col gap-y-1 sm:flex md:flex sm:border-0 md:border-0 lg:hidden navbar-main border-b-4 border-x-2 border-gray-500"
             style={{
               width: "100%",
               borderRadius: "0px 0px 10px 10px",
@@ -164,7 +165,7 @@ const Navbar = () => {
             {links.map(({ name, to, id }) => {
               return (
                 <motion.div
-                  className="mt-2 border-b border-gray-700 mx-20 px-2 py-10 text-5xl"
+                  className="mt-2 border-b-2 border-gray-700 mx-20 px-2 py-10 text-5xl"
                   variants={itemVariants}
                   animate={isOpen ? "opened" : "closed"}
                 >
