@@ -86,6 +86,10 @@ export default function HomeUpdates() {
             </a>
           );
         })}
+        <div className='w-64 text-center text-slate-100 flex flex-col gap-3 '>
+            <button className='w-64 h-20 bg-stone-900 shadow-md shadow-black hover:bg-stone-800 rounded-2xl items-center'>Blogs</button>
+            <button className='w-64 h-20 bg-stone-900 shadow-md shadow-black hover:bg-stone-800 rounded-2xl items-center'>Events</button>
+        </div>
       </div>
     </div>
   );
