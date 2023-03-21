@@ -5,7 +5,7 @@ import "./Home2.css";
 export default function Home2() {
   return (
     <div className="flex lg:flex-row sm:flex-col md:flex-col gap-10 lg:justify-center lg:items-center py-12 px-8 overflow-x-hidden bg-stone-900">
-      <div className="w-[800px]   sm:order-last md:order-last">
+      <div className="w-[800px]   sm:order-last md:order-last lg:order-first">
         <img
           className="drop-shadow-2xl shadow-zinc-400 rounded-xl img-home2"
           src={image}
