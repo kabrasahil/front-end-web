@@ -5,3 +5,7 @@
 body {
   font-family: "League Spartan";
 }
+
+.card-shadow-black {
+  box-shadow: 0 0px 40px -1px rgba(0, 0, 0, 0.6);
+}

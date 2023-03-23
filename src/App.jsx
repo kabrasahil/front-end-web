@@ -17,6 +17,7 @@ import {
 } from "react-router-dom";
 import Article from "./article/Article";
 import LoginPage from "./login/LoginPage";
+import Dashboard from "./dashboard/Dashboard";
 
 function App() {
   return (
@@ -30,7 +31,7 @@ function App() {
           <Route exact path="/blogs" element={<ArticlesHome />} />
           <Route exact path="/blogs/:id" element={<Article />} />
           <Route exact path="/login" element={<LoginPage />} />
-
+          <Route path="/dashboard/*" element={<Dashboard />} />
           <Route exact path="/" element={<Navigate to="/home" />} />
           <Route exact path="/home" element={<Home />} />
         </Routes>
