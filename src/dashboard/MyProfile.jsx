@@ -38,7 +38,7 @@ const EditProfile = ({ user }) => {
           <input
             type={"text"}
             id="first-name"
-            className="block py-2.5 px-0 w-full text-sm text-gray-400 bg-transparent border-0 border-b border-stone-800 focus:outline-none ml-2 "
+            className="block py-2.5 px-0 w-full text-sm text-gray-400 bg-transparent  border-b border-stone-800 focus:outline-none ml-2 "
             placeholder="First Name"
             value={fname}
             onChange={(e) => setFname(e.target.value)}
@@ -53,8 +53,8 @@ const EditProfile = ({ user }) => {
           </label>
           <input
             type={"text"}
-            className={`block py-2.5 px-0 w-full text-sm text-gray-400 bg-transparent border-0 border-b border-stone-800 focus:outline-none ml-2 ${
-              lnameEmpty ? "border-b border-red-600 text-red-500" : ""
+            className={`block py-2.5 px-0 w-full text-sm text-gray-400 bg-transparent  border-b border-stone-800 focus:outline-none ml-2 ${
+              lnameEmpty ? "!border-b border-red-600 text-red-500" : ""
             }`}
             placeholder={`Last Name`}
             value={lnameEmpty ? `*This is a required field` : lname}
@@ -73,8 +73,8 @@ const EditProfile = ({ user }) => {
         <input
           id="phone"
           type="tel"
-          className={`block py-2.5 px-0 w-full text-sm text-gray-400 bg-transparent border-0 border-b border-stone-800 focus:outline-none ml-2 ${
-            invalidPhone ? "border-b border-red-600 text-red-500" : ""
+          className={`block py-2.5 px-0 w-full text-sm text-gray-400 bg-transparent  border-b border-stone-800 focus:outline-none ml-2 ${
+            invalidPhone ? "!border-b border-red-600 text-red-500" : ""
           }`}
           placeholder="Phone Number"
           value={invalidPhone ? "*Invalid Phone Number" : phone}
@@ -90,8 +90,8 @@ const EditProfile = ({ user }) => {
         <input
           id="email"
           type="Email"
-          className={`block py-2.5 px-0 w-full text-sm text-gray-400 bg-transparent border-0 border-b border-stone-800 focus:outline-none ml-2 ${
-            invalidEmail ? "border-b border-red-600 text-red-500" : ""
+          className={`block py-2.5 px-0 w-full text-sm text-gray-400 bg-transparent  border-b border-stone-800 focus:outline-none ml-2 ${
+            invalidEmail ? "!border-b border-red-600 text-red-500" : ""
           }`}
           placeholder="Email"
           value={invalidEmail ? "*Invalid Email" : emailR}
@@ -113,7 +113,7 @@ const EditProfile = ({ user }) => {
           <input
             id="password"
             type="password"
-            className={`block py-2.5 px-0 w-full text-sm text-gray-400 bg-transparent border-0 border-b border-stone-800 focus:outline-none ml-2 `}
+            className={`block py-2.5 px-0 w-full text-sm text-gray-400 bg-transparent  border-b border-stone-800 focus:outline-none ml-2 `}
             placeholder="password"
             value={"password"}
             disabled={true}
@@ -137,8 +137,8 @@ const EditProfile = ({ user }) => {
           id="organization"
           type="text"
           name="organization"
-          className={`block py-2.5 px-0 w-full text-sm text-gray-400 bg-transparent border-0 border-b border-stone-800 focus:outline-none ml-2 ${
-            organizationEmpty ? "border-b border-red-600 text-red-500" : ""
+          className={`block py-2.5 px-0 w-full text-sm text-gray-400 bg-transparent  border-b border-stone-800 focus:outline-none ml-2 ${
+            organizationEmpty ? "!border-b border-red-600 text-red-500" : ""
           }`}
           placeholder="Organization / College"
           value={organizationEmpty ? "*This is a required field" : organization}
@@ -163,15 +163,141 @@ const ChangePassword = () => {
   const [oldPassWrong, setOldPassWrong] = useState(false);
 
   const [newPass, setNewPass] = useState("");
-  // const[invalid]
+  const [invalidPass, setInvalidPass] = useState(false);
 
   const [confirmPass, setConfirmPass] = useState("");
+  const [passDontMatch, setPassDontMatch] = useState(false);
 
-  return <></>;
+  const [showPassword, setShowPassword] = useState(false);
+
+  return (
+    <div>
+      <div className="flex gap-x-5 w-full  mx-20 mt-20">
+        <form action="" className="p-4 w-1/2 flex flex-col  gap-y-6">
+          <div className="flex flex-col w-full">
+            <label
+              for="oldpassword"
+              class="block mb-2 text-md font-medium text-gray-300"
+            >
+              Old Password
+            </label>
+
+            <input
+              id="oldpassword"
+              type={showPassword ? "text" : oldPassWrong ? "text" : "password"}
+              className={`block py-2.5 px-0 w-full text-sm text-gray-400 bg-transparent  border-b border-stone-800 focus:outline-none ml-2 ${
+                oldPassWrong ? "!border-b border-red-600 text-red-500" : ""
+              }`}
+              placeholder="***********"
+              value={
+                oldPassWrong ? "*Old Password entered was invalid" : oldPass
+              }
+              onChange={(e) => {
+                setOldPass(e.target.value);
+              }}
+              onClick={() => setOldPass(false)}
+            />
+          </div>
+          <div className="flex flex-col w-full">
+            <label
+              for="newpassword"
+              class="block mb-2 text-md font-medium text-gray-300"
+            >
+              New Password
+            </label>
+
+            <input
+              id="newpassword"
+              type={showPassword ? "text" : invalidPass ? "text" : "password"}
+              className={`block py-2.5 px-0 w-full text-sm text-gray-400 bg-transparent  border-b border-stone-800 focus:outline-none ml-2 ${
+                invalidPass ? "!border-b border-red-600 text-red-500" : ""
+              }`}
+              placeholder="***********"
+              value={invalidPass ? "*Invalid Password was entered" : newPass}
+              onChange={(e) => {
+                setNewPass(e.target.value);
+              }}
+              onClick={(e) => {
+                setInvalidPass(false);
+              }}
+            />
+          </div>
+          <div className="flex flex-col w-full">
+            <label
+              for="confirmpassword"
+              class="block mb-2 text-md font-medium text-gray-300"
+            >
+              Confirm Password
+            </label>
+
+            <input
+              id="confirmpassword"
+              type={showPassword ? "text" : passDontMatch ? "text" : "password"}
+              className={`block py-2.5 px-0 w-full text-sm text-gray-400 bg-transparent  border-b border-stone-800 focus:outline-none ml-2 ${
+                passDontMatch ? "!border-b border-red-600 text-red-500" : ""
+              }`}
+              placeholder="***********"
+              value={passDontMatch ? "*Passwords Don't Match" : confirmPass}
+              onChange={(e) => {
+                setConfirmPass(e.target.value);
+              }}
+              onClick={(e) => {
+                setPassDontMatch(false);
+              }}
+            />
+          </div>
+
+          <div className="flex  justify-center">
+            <label class="flex items-center">
+              <input
+                type="checkbox"
+                class="form-checkbox h-5 w-5 text-gray-600 transition duration-150 ease-in-out"
+                onChange={(e) => {
+                  setShowPassword(!showPassword);
+                }}
+              />
+              <span class="ml-2 text-sm font-medium text-gray-700">
+                Show Password
+              </span>
+            </label>
+          </div>
+          <div className="flex justify-center">
+            <button
+              type="button"
+              class="text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl  font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 w-max"
+            >
+              Update Password
+            </button>
+          </div>
+        </form>
+        <div class="p-4 text-gray-300 rounded-md">
+          <h2 class="text-lg font-medium mb-2">Password Rules:</h2>
+          <ul class="list-disc ml-4">
+            <li>Must be at least 8 characters long</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 const DeleteAccount = () => {
-  return <></>;
+  return (
+    <div class="rounded-lg mx-20 mt-20 flex flex-col  justify-center">
+      <p class="text-gray-200 text-lg mb-4 p-4">
+        {" "}
+        Before proceeding, please be aware that deleting your account is a
+        permanent action that cannot be undone. Are you sure you want to proceed
+        with account deletion?
+      </p>
+      <button
+        type="button"
+        class="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br  font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 ml-6 w-max"
+      >
+        Delete Account
+      </button>
+    </div>
+  );
 };
 
 const MyProfile = () => {
