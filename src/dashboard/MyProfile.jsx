@@ -38,7 +38,10 @@ const EditProfile = ({ user }) => {
         ></img>
         <button
           type="button"
-          class="text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl my-auto font-bold rounded-lg sm:text-3xl sm:px-10 sm:py-5 md:text-3xl md:px-10 md:py-5 lg:text-base lg:px-5 lg:py-2.5 mb-10 text-center h-full rounded-xl"
+          class="text-slate-100 rounded-2xl bg-gradient-to-r from-blue-400 to-pink-400 font-bold rounded-lg sm:text-3xl sm:px-10 sm:py-5 md:text-3xl md:px-10 md:py-5 lg:text-base lg:px-5 lg:py-2.5 text-center h-full rounded-xl !my-auto"
+          onClick={(e) => {
+            document.getElementById("update-profile-pic").click();
+          }}
         >
           Update Profile Picture
         </button>
@@ -186,7 +189,7 @@ const EditProfile = ({ user }) => {
         <div className="flex justify-end">
           <button
             type="button"
-            class="text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl font-bold rounded-lg sm:text-3xl sm:px-10 sm:py-5 md:text-3xl md:px-10 md:py-5 lg:text-base lg:px-5 lg:py-2.5 mb-10 text-center h-full rounded-xl"
+            class="text-slate-100 rounded-2xl bg-gradient-to-r from-blue-400 to-pink-400 font-bold rounded-lg sm:text-3xl sm:px-10 sm:py-5 md:text-3xl md:px-10 md:py-5 lg:text-base lg:px-5 lg:py-2.5 mb-10 text-center h-full rounded-xl"
           >
             Update Profile
           </button>
@@ -210,7 +213,7 @@ const ChangePassword = () => {
 
   return (
     <div>
-      <div className="flex items-center gap-x-5 w-full  mx-20">
+      <div className="flex items-center gap-x-5 w-full  px-20">
         <form
           action=""
           className="p-4 flex flex-col mx-10  lg:gap-y-6  sm:gap-y-24 md:gap-y-24 items-center justify-center"
@@ -309,7 +312,7 @@ const ChangePassword = () => {
 
             <button
               type="button"
-              class="text-white bg-gradient-to-r from-cyan-500 to-blue-500 w-fit h-fit hover:bg-gradient-to-bl font-bold rounded-lg sm:text-3xl sm:px-10 sm:py-5 md:text-3xl md:px-10 md:py-5 lg:text-base lg:px-5 lg:py-2.5 mb-10 text-center h-full rounded-xl"
+              class="text-slate-100 rounded-2xl bg-gradient-to-r from-blue-400 to-pink-400 font-bold rounded-lg sm:text-3xl sm:px-10 sm:py-5 md:text-3xl md:px-10 md:py-5 lg:text-base lg:px-5 lg:py-2.5 text-center h-full rounded-xl !my-auto"
             >
               Update Password
             </button>

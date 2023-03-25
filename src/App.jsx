@@ -18,6 +18,8 @@ import {
 import Article from "./article/Article";
 import LoginPage from "./login/LoginPage";
 import Dashboard from "./dashboard/Dashboard";
+import AboutUs from "./about/AboutUs";
+import AboutIgts from "./about/AboutIgts";
 
 function App() {
   return (
@@ -34,6 +36,8 @@ function App() {
           <Route path="/dashboard/*" element={<Dashboard />} />
           <Route exact path="/" element={<Navigate to="/home" />} />
           <Route exact path="/home" element={<Home />} />
+          <Route exact path="/about" element={<AboutUs />} />
+          <Route exact path="/aboutIgts" element={<AboutIgts />} />
         </Routes>
         <section className="">
           <Footer />

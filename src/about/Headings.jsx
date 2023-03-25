@@ -1,0 +1,23 @@
+import React from "react";
+
+const Headings = ({ title, subTitle }) => {
+  return (
+    <div className="bg-stone-900 lg:py-0 sm:py-20 md:py-20">
+      {/* make a small heading showing blogs and with background colour slate-500 */}
+      <div className="text-center">
+        <h1 class="bg-gradient-to-r to-pink-500 from-blue-400 inline-block text-transparent bg-clip-text mt-20 text-5xl font-sans font-extrabold">
+          {title}
+        </h1>
+      </div>{" "}
+      {/* make a much larger heading showing "Releases,insights,and company announcements" and make it white in colour with text justified in center */}
+      <h1 className="text-center text-gray-400 text-2xl font-semibold mt-5 pb-2">
+        {subTitle[0]}
+      </h1>
+      <h1 className="text-center  text-gray-400 text-2xl font-semibold pb-10 ">
+        {subTitle[1]}
+      </h1>
+    </div>
+  );
+};
+
+export default Headings;
