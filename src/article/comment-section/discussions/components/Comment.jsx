@@ -1,6 +1,10 @@
 // import React from "react";
 // import "./index.css";
 import React, { useState } from "react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCircleUp } from '@fortawesome/free-solid-svg-icons'
+import { faCircleDown } from '@fortawesome/free-solid-svg-icons'
+
 
 const Comment = ({
   author,
@@ -37,12 +41,13 @@ const Comment = ({
       </button>
       {!isReply && (
         <>
-      <button className="comment-upvote" onClick={decreaseCount}>
-        -
+        
+      <button className="comment-downvote" onClick={decreaseCount}>
+      <FontAwesomeIcon icon={faCircleDown} />
       </button>
       <span className="comment-score">{count}&nbsp;&nbsp;</span>
-      <button className="comment-downvote" onClick={increaseCount}>
-        +
+      <button className="comment-upvote" onClick={increaseCount}>
+      <FontAwesomeIcon icon={faCircleUp} />
       </button>
       </>
       )}
