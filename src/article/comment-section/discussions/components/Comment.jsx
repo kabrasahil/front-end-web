@@ -1,45 +1,58 @@
-import React, { useState, useContext } from "react";
-// import { UserContext } from "../Discussions";
-import Moment from "react-moment";
-import { PlusIcon, MinusIcon, CrudIcons } from "./Icons";
-import CommentForm from "./CommentForm";
-import Reply from "./Reply";
+// import React from "react";
+// import "./index.css";
+import React, { useState } from "react";
 
 const Comment = ({
-  comment,
-  commentArrIndex,
-  replyArrIndex,
-  updateScore,
-  addComment,
-  deleteComment,
-  editComment,
-  // replies,
+  author,
+  message,
+  image,
+  score,
+  onDelete,
+  onReply,
+  isReply,
 }) => {
-  const { user, content, createdAt, score, replies, id } = comment;
-  const currUser = "";
-  const [replyForm, setReplyForm] = useState(false);
-  const [updateForm, setUpdateForm] = useState({ isOpen: false, content });
+  const [count, setCount] = useState(score);
 
-  const onChange = (value) => setUpdateForm({ ...updateForm, content: value });
+  function decreaseCount() {
+    setCount((prevCount) => prevCount - 1);
+  }
 
-  const onSubmit = (e) => {
-    // e.preventDefault();
-    // editComment(updateForm.content, commentArrIndex, replyArrIndex);
-    // setUpdateForm({ ...updateForm, isOpen: false });
-  };
-
+  function increaseCount() {
+    setCount((prevCount) => prevCount + 1);
+  }
   return (
-    <>
-      // comment fine // replies array // reply button
-      <div>
-
-        // reply comment form
-
-        {replies.map((e) => {
-          <Reply />;
-        })}
+    <div className={`comment-container ${isReply ? "comment-reply" : ""}`}>
+      <div className="comment-header">
+        {/* <img className="comment-image" src={image} alt="user" /> */}
+        <div className="flex-container">
+          <img className="comment-image" src={image} alt="user" />
+          <h3 className="comment-author">{author}</h3>
+        </div>
       </div>
-    </>
+      <p className="comment-message">{message}</p>
+      
+      
+      <button className="comment-delete-btn" onClick={onDelete}>
+        Delete
+      </button>
+      {!isReply && (
+        <>
+      <button className="comment-upvote" onClick={decreaseCount}>
+        -
+      </button>
+      <span className="comment-score">{count}&nbsp;&nbsp;</span>
+      <button className="comment-downvote" onClick={increaseCount}>
+        +
+      </button>
+      </>
+      )}
+
+      {!isReply && (
+        <button className="comment-reply-btn" onClick={onReply}>
+          Reply
+        </button>
+      )}
+    </div>
   );
 };
 

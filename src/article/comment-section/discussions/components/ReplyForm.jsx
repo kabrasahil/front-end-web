@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const CommentForm = ({ onSubmit }) => {
+const ReplyForm = ({ onSubmit }) => {
   const [author, setAuthor] = useState("");
   const [message, setMessage] = useState("");
 
@@ -12,25 +12,23 @@ const CommentForm = ({ onSubmit }) => {
   };
 
   return (
-    <form className="comment-form" onSubmit={handleSubmit}>
+    <form className="reply-form" onSubmit={handleSubmit}>
       {/* <input
-        className="comment-form-author"
+        className="reply-author-input"
         type="text"
         placeholder="Name"
         value={author}
         onChange={(e) => setAuthor(e.target.value)}
       /> */}
       <textarea
-        className="comment-form-message"
+        className="reply-message-input"
         placeholder="Message"
         value={message}
         onChange={(e) => setMessage(e.target.value)}
       ></textarea>
-      <button className="comment-form-submit" type="submit">
-        Comment
-      </button>
+      <button className="reply-submit-button" type="submit">Reply</button>
     </form>
   );
 };
 
-export default CommentForm;
+export default ReplyForm;

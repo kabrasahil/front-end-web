@@ -1,98 +1,60 @@
-import { useEffect, useState, createContext } from "react";
-import Comment from "./components/Comment";
+import React, { useState } from "react";
+import CommentList from "./components/CommentList"
 import CommentForm from "./components/CommentForm";
+import "./index.css";
+// import image from my-app\src\profileIcon_mgukerzbivna1.jpg
+// import samyak from "./profileIcon_mgukerzbivna1.jpg";
+
 
 function Discussions() {
-  const [comments, setComments] = useState([
+  let [comments] = useState([
     {
-      id: 1,
-      content:
-        "Impressive! Though it seems the drag feature could be improved. But overall it looks incredible. You've nailed the design and the responsiveness at various breakpoints works really well.",
-      createdAt: "2022-02-08T17:10:17.090Z",
-      score: 12,
-      user: {
-        image: {
-          png: "../assets/images/avatars/image-amyrobson.png",
-          webp: "./assets/images/avatars/image-amyrobson.webp",
-        },
-        username: "amyrobson",
-      },
-      replies: [],
+      author: "Alice",
+      message:
+        "Very straight-to-point article. Really worth time reading. Thank you! But tools are just the instruments for the UX designers. The knowledge of the design tools are as important as the creation of the design strategy.",
+      image:"/static/media/profileIcon_mgukerzbivna1.2f2752a754e89bfac4ed.jpg", // add image property
+      score: 0,
     },
     {
-      id: 2,
-      content:
-        "Woah, your project looks awesome! How long have you been coding for? I'm still new, but think I want to dive into React as well soon. Perhaps you can give me an insight on where I can learn React? Thanks!",
-      createdAt: "2022-05-09T17:10:17.090Z",
-      score: 5,
-      user: {
-        image: {
-          png: "../assets/images/avatars/image-maxblagun.png",
-          webp: "./assets/images/avatars/image-maxblagun.webp",
-        },
-        username: "maxblagun",
-      },
-      replies: [
-        {
-          id: 3,
-          content:
-            "If you're still new, I'd recommend focusing on the fundamentals of HTML, CSS, and JS before considering React. It's very tempting to jump ahead but lay a solid foundation first.",
-          createdAt: "2022-05-10T17:10:17.090Z",
-          score: 4,
-          replyingTo: "maxblagun",
-          user: {
-            image: {
-              png: "../assets/images/avatars/image-ramsesmiron.png",
-              webp: "./assets/images/avatars/image-ramsesmiron.webp",
-            },
-            username: "ramsesmiron",
-          },
-        },
-        {
-          id: 4,
-          content:
-            "I couldn't agree more with this. Everything moves so fast and it always seems like everyone knows the newest library/framework. But the fundamentals are what stay constant.",
-          createdAt: "2022-05-13T17:10:17.090Z",
-          score: 2,
-          replyingTo: "ramsesmiron",
-          user: {
-            image: {
-              png: "../assets/images/avatars/image-juliusomo.png",
-              webp: "./assets/images/avatars/image-juliusomo.webp",
-            },
-            username: "juliusomo",
-          },
-        },
-      ],
+      author: "Bob",
+      message:
+        "The article covers the essentials, challenges, myths and stages the UX designer should consider while creating the design strategy.",
+      image: "/static/media/logo.2f2752a754e89bfac4ed.svg", // add image property
+      score: 0,
+    },
+    {
+      author: "Charlie",
+      message:
+        "The article is very informative. I have been working as a UX designer for 3 years and I have never thought about the design strategy. I will definitely use the tips from the article in my future projects.",
+      image: "static/media/profileIcon_mgukerzbivna1.jpg", // add image property
+      score: 0,
     },
   ]);
+  
+  // const [replies, setReplies] = useState([]);
+  // const handleCommentSubmit = (comment) => {
+  //   setComments([...comments, comment]);
+  // };
 
-  const updateScore = (id, commentArrIndex, operation) => {};
+  let [replies] = useState([
+    { parentIndex: 1, author: "Alice", message: "Thank you for your comment!" },
+  ]);
 
-  const addComment = async (postId, newComment) => {};
-
-  const deleteComment = async (postId, commentId) => {};
-
-  const editComment = async (id, newContent) => {};
 
   return (
-    <section className={`min-w-screen min-h-screen bg-lightGray py-8`}>
-      <div className="mx-auto max-w-2xl">
-        <CommentForm addComment={addComment} />
-
-        {comments.map((comment, index) => (
-          <Comment
-            key={comment.id}
-            commentArrIndex={index}
-            comment={comment}
-            updateScore={updateScore}
-            addComment={addComment}
-            onDelete={deleteComment}
-            editComment={editComment}
-          />
-        ))}
-      </div>
-    </section>
+    <div className="app-container">
+      <CommentList
+        comments={comments}
+        replies={replies}
+        // onCommentSubmit={handleCommentSubmit}
+        // onReplySubmit={(reply, parentIndex) => {
+        //   setReplies([...replies, { parentIndex, ...reply }]);
+        // }}
+      />
+      <CommentForm 
+      // onCommentSubmit={handleCommentSubmit}
+       />
+    </div>
   );
 }
 
