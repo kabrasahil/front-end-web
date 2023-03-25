@@ -1,7 +1,73 @@
 import React from "react";
+import Headings from "./Headings";
 
 const AboutIgts = () => {
-  return <div className="min-h-screen"></div>;
+  return (
+    <div className="min-h-screen pt-10 flex flex-col items-center">
+      <Headings
+        title={"The Indian Game Theory Society"}
+        subTitle={[
+          '"Our Mission and Vision"',
+          `Discover How We're Making an Impact Through Gaming, Economics, and Math`,
+        ]}
+      />
+
+      <p className=" prose lg:text-xl md:text-3xl sm:text-3xl sm:mx-3 md:mx-3 text-center pb-8">
+        Welcome to the official website of the IGTS college society! We are a
+        community of passionate individuals with a shared love for gaming,
+        economics, and math. Our society was founded with the goal of creating a
+        space for like-minded individuals to connect, collaborate, and share
+        their knowledge and skills with one another. Through our blogs, events,
+        and gaming sessions, we aim to empower and educate others about the
+        fascinating world of game theory and its applications in economics and
+        math. At IGTS, we believe that anyone can learn and excel in these
+        fields, regardless of their background or prior experience. Our team of
+        talented developers and dedicated members work tirelessly to organize
+        events, design games, and write blogs that showcase the practical
+        applications of game theory concepts. We are constantly exploring new
+        ideas and pushing the boundaries of what's possible, all while fostering
+        a supportive and inclusive community.
+      </p>
+      <img
+        class="h-96 card-shadow-black transition-all duration-300 rounded-xl cursor-pointer filter lg:grayscale lg:hover:grayscale-0 shadow-2xl shadow-gray-800 m-5"
+        src="https://drive.google.com/uc?export=view&id=1I8LBraLkRdRLWp2f9mNzsnip6ujxO3LZ"
+        alt="image description"
+      />
+
+      <h1 className="text-center  text-gray-400  lg:text-4xl md:text-6xl sm:text-6xl font-semibold pt-20 pb-4">
+        What is IGTS?
+      </h1>
+
+      <p className=" prose lg:text-xl md:text-3xl sm:text-3xl sm:mx-3 md:mx-3 text-center pb-8">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla fuga
+        reprehenderit neque sit id fugiat provident architecto veritatis
+        excepturi, necessitatibus, aut doloremque molestiae repudiandae ut quam
+        blanditiis nihil cum voluptates?
+      </p>
+      <img
+        class="h-96 card-shadow-black transition-all duration-300 rounded-xl cursor-pointer filter lg:grayscale lg:hover:grayscale-0 shadow-2xl shadow-gray-800 m-5"
+        src="https://drive.google.com/uc?export=view&id=1I8LBraLkRdRLWp2f9mNzsnip6ujxO3LZ"
+        alt="image description"
+      />
+
+      <h1 className="text-center  text-gray-400  lg:text-4xl md:text-6xl sm:text-6xl font-semibold pt-20 pb-4">
+        What is Game Theory?
+      </h1>
+
+      <p className=" prose lg:text-xl md:text-3xl sm:text-3xl sm:mx-3 md:mx-3 text-center pb-8">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla fuga
+        reprehenderit neque sit id fugiat provident architecto veritatis
+        excepturi, necessitatibus, aut doloremque molestiae repudiandae ut quam
+        blanditiis nihil cum voluptates?
+      </p>
+
+      <img
+        class="h-96 card-shadow-black transition-all duration-300 rounded-xl cursor-pointer filter lg:grayscale lg:hover:grayscale-0 shadow-2xl shadow-gray-800 m-5"
+        src="https://drive.google.com/uc?export=view&id=1I8LBraLkRdRLWp2f9mNzsnip6ujxO3LZ"
+        alt="image description"
+      />
+    </div>
+  );
 };
 
 export default AboutIgts;

@@ -81,7 +81,7 @@ const AboutUs = () => {
         ]}
       />
 
-      <p className="prose-xl text-gray-700 lg:mx-56 sm:mx-10 md:mx-10 text-center leading-tight">
+      <p className=" prose lg:text-xl md:text-3xl sm:text-3xl sm:mx-3 md:mx-3 text-center pb-8">
         Welcome to the official website of the IGTS college society! We are a
         community of passionate individuals with a shared love for gaming,
         economics, and math. Our society was founded with the goal of creating a
@@ -98,37 +98,39 @@ const AboutUs = () => {
         a supportive and inclusive community.
       </p>
 
-      <h1 className="text-center  text-gray-400 text-2xl font-semibold pt-20 pb-4">
+      <h1 className="text-center  text-gray-400  lg:text-4xl md:text-6xl sm:text-6xl font-semibold pt-20 pb-4">
         Meet Our Developers
       </h1>
 
-      <p className=" text-xl prose text-center">
+      <p className=" prose lg:text-xl md:text-3xl sm:text-3xl sm:mx-3 md:mx-3 text-center pb-8">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla fuga
         reprehenderit neque sit id fugiat provident architecto veritatis
         excepturi, necessitatibus, aut doloremque molestiae repudiandae ut quam
         blanditiis nihil cum voluptates?
       </p>
 
-      <div class="grid gap-8 pt-16 lg:gap-16 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+      <div class="grid gap-8 pt-16 lg:gap-16 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3">
         {techTeam.map((el, i) => {
           return (
             <div class="text-center text-gray-500 dark:text-gray-400">
               <img
-                class="mx-auto mb-4 w-36 h-36 rounded-full"
+                class="mx-auto mb-4 lg:w-48 lg:h-48 md:h-64 md:w-64 sm:h-64 md:w-64 rounded-full"
                 src={el.avatar}
                 alt="Bonnie Avatar"
               />
-              <h3 class="mb-1 text-2xl font-bold tracking-tight text-white cursor-pointer">
+              <h3 class="mb-1 lg:text-2xl sm:text-4xl md:text-4xl font-bold tracking-tight text-white cursor-pointer">
                 <p>{el.name}</p>
               </h3>
-              <p className=" cursor-pointer">{el.post}</p>
+              <p className=" cursor-pointer lg:text-xl sm:text-3xl md:text-3xl">
+                {el.post}
+              </p>
               <ul class="flex justify-center mt-4 space-x-4">
                 {el.socials.map((el, i) => {
                   return (
                     <li>
                       <a href={el.url} target="_blank" class="" key={i}>
                         <i
-                          className={`fa fa-${el.icon} text-xl text-pink-800 hover:text-white`}
+                          className={`fa fa-${el.icon} lg:text-xl sm:text-3xl md:text-3xl text-pink-800 hover:text-white`}
                         ></i>
                       </a>
                     </li>
@@ -140,19 +142,27 @@ const AboutUs = () => {
         })}
       </div>
 
-      <h1 className="text-center  text-gray-400 text-2xl font-semibold pt-20 pb-4">
+      <h1 className="text-center  text-gray-400  lg:text-4xl md:text-6xl sm:text-6xl font-semibold pt-20 pb-4">
         Meet IGTS
       </h1>
 
-      <p className=" text-xl prose  text-center">
+      <p className=" prose lg:text-xl md:text-3xl sm:text-3xl sm:mx-3 md:mx-3 text-center pb-8">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla fuga
         reprehenderit neque sit id fugiat provident architecto veritatis
         excepturi, necessitatibus, aut doloremque molestiae repudiandae ut quam
         blanditiis nihil cum voluptates?
       </p>
-
-
-
+      <img
+        class="h-96 card-shadow-black transition-all duration-300 rounded-xl cursor-pointer filter lg:grayscale lg:hover:grayscale-0 shadow-2xl shadow-gray-800 m-5"
+        src="https://drive.google.com/uc?export=view&id=1I8LBraLkRdRLWp2f9mNzsnip6ujxO3LZ"
+        alt="image description"
+      />
+      <p className="  prose lg:text-xl md:text-3xl sm:text-3xl sm:mx-3 md:mx-3 text-center pb-8 pt-8">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla fuga
+        reprehenderit neque sit id fugiat provident architecto veritatis
+        excepturi, necessitatibus, aut doloremque molestiae repudiandae ut quam
+        blanditiis nihil cum voluptates?
+      </p>
     </div>
   );
 };

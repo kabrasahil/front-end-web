@@ -20,6 +20,7 @@ import LoginPage from "./login/LoginPage";
 import Dashboard from "./dashboard/Dashboard";
 import AboutUs from "./about/AboutUs";
 import AboutIgts from "./about/AboutIgts";
+import NotFound from "./notFound/NotFound";
 
 function App() {
   return (
@@ -37,7 +38,8 @@ function App() {
           <Route exact path="/" element={<Navigate to="/home" />} />
           <Route exact path="/home" element={<Home />} />
           <Route exact path="/about" element={<AboutUs />} />
-          <Route exact path="/aboutIgts" element={<AboutIgts />} />
+          <Route exact path="/igts" element={<AboutIgts />} />
+          <Route path="/*" element={<NotFound />} />
         </Routes>
         <section className="">
           <Footer />
