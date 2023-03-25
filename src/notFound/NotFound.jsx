@@ -1,12 +1,9 @@
-import React from "react";
-import Rive from "@rive-app/react-canvas";
+import React from 'react'
+import Rive from '@rive-app/react-canvas';
+import anim from './404_not_found.riv';
 
-const NotFound = () => {
-  return (
-    <div>
-      <Rive url="./404myfile.riv" />
-    </div>
-  );
-};
-
-export default NotFound;
+export default function NotFound() {
+    return (
+            <Rive src={anim} className='notFound' />
+    )
+}
