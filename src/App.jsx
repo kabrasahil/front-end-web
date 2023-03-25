@@ -22,7 +22,11 @@ import AboutUs from "./about/AboutUs";
 import AboutIgts from "./about/AboutIgts";
 import NotFound from "./notFound/NotFound";
 
-function App() {
+import { useEffect, useState } from "react";
+import ReactPlayer from "react-player";
+import LoadingScreen from "./loading_screen/LoadingScreen";
+
+function IgtsWebsite() {
   return (
     <Router>
       <div className="bg-stone-900">
@@ -48,5 +52,27 @@ function App() {
     </Router>
   );
 }
+
+const App = () => {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 1500); // Change 3000 to the number of milliseconds you want to show the loading screen
+  }, []);
+
+  return (
+    <div>
+      {isLoading ? (
+        <div>
+          <LoadingScreen />
+        </div>
+      ) : (
+        <IgtsWebsite />
+      )}
+    </div>
+  );
+};
 
 export default App;
