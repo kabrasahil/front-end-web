@@ -15,3 +15,9 @@ body {
             max-width: 90vw;
         }
 }
+
+.notFound > canvas {
+    height: 100vh !important;
+    width: 100vw !important;
+    object-fit: cover !important;
+}
