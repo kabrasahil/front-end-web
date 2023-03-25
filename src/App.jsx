@@ -25,11 +25,12 @@ import NotFound from "./notFound/NotFound";
 import { useEffect, useState } from "react";
 import ReactPlayer from "react-player";
 import LoadingScreen from "./loading_screen/LoadingScreen";
+import ComingSoon from "./comingSoon/ComingSoon";
 
 function IgtsWebsite() {
   return (
     <Router>
-      <div className="bg-stone-900">
+      <div className="bg-stone-900 h-full">
         <section className="">
           <Navbar />
         </section>
@@ -43,6 +44,12 @@ function IgtsWebsite() {
           <Route exact path="/home" element={<Home />} />
           <Route exact path="/about" element={<AboutUs />} />
           <Route exact path="/igts" element={<AboutIgts />} />
+          <Route exact path="/editor" element={<Editor />} />
+
+          <Route exact path="/games" element={<ComingSoon />} />
+          <Route exact path="/events" element={<ComingSoon />} />
+          <Route exact path="/merchandise" element={<ComingSoon />} />
+
           <Route path="/*" element={<NotFound />} />
         </Routes>
         <section className="">

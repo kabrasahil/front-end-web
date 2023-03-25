@@ -3,17 +3,16 @@ import "./Navbar.css";
 import { motion } from "framer-motion";
 import { MenuButton } from "./MenuButton";
 import logo from "./../home/assets/igts-white-logo.png";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const links = [
-    { name: "About-us", to: "#", id: 4 },
-
-    { name: "Blogs", to: "#", id: 1 },
-    { name: "Events", to: "#", id: 3 },
-    { name: "Games", to: "#", id: 5 },
-    { name: "Community", to: "#", id: 2 },
-
-    { name: "Merchandise", to: "#", id: 6 },
+    { name: "Blogs", to: "/blogs", id: 1 },
+    { name: "Events", to: "/events", id: 3 },
+    { name: "Games", to: "/games", id: 5 },
+    { name: "Community", to: "/community", id: 2 },
+    { name: "Merchandise", to: "/merchandise", id: 6 },
+    { name: "About-us", to: "/about", id: 4 },
   ];
 
   const [isOpen, setOpen] = useState(false);
@@ -79,7 +78,7 @@ const Navbar = () => {
             // animate="open"
             // variants={sideVariants}
           >
-            <a href="#" key={0} className="nav-item w-fit">
+            <Link to="#" key={0} className="nav-item w-fit">
               <div class=" w-fit">
                 <img
                   src={logo}
@@ -91,16 +90,16 @@ const Navbar = () => {
                   }}
                 />
               </div>
-            </a>
+            </Link>
             {links.map(({ name, to, id }) => {
               return (
-                <a
-                  href={to}
+                <Link
+                  to={to}
                   key={id}
                   className=" hover:text-gray-200 sm:hidden md:hidden lg:flex items-center"
                 >
                   {name}
-                </a>
+                </Link>
               );
             })}
           </motion.div>
@@ -111,8 +110,8 @@ const Navbar = () => {
             // variants={sideVariants}
             className="flex content-center h-10 my-auto ml-auto mr-10"
           >
-            <a
-              href="#_"
+            <Link
+              to="#_"
               class="relative inline-flex items-center justify-start inline-block px-5 py-3 overflow-hidden font-bold rounded-full group sm:hidden lg:inline-flex"
             >
               <span class="w-32 h-32 rotate-45 translate-x-12 -translate-y-2 absolute left-0 top-0 bg-red opacity-[3%]"></span>
@@ -136,7 +135,7 @@ const Navbar = () => {
                 <span className="text-gray-100">Get Started</span>
               </span>
               <span class="absolute inset-0 border-2 border-pink-500 rounded-full"></span>
-            </a>
+            </Link>
             <div
               className="flex flex-row content-center lg:hidden sm:block md:block cursor-pointer"
               onClick={() => {
@@ -169,10 +168,10 @@ const Navbar = () => {
                   variants={itemVariants}
                   animate={isOpen ? "opened" : "closed"}
                 >
-                  <a href={to} key={id} className="hover:text-gray-200">
+                  <Link to={to} key={id} className="hover:text-gray-200">
                     {name}
                     {/* <hr /> */}
-                  </a>
+                  </Link>
                 </motion.div>
               );
             })}
