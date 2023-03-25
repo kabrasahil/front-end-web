@@ -5,3 +5,13 @@
 body {
   font-family: "League Spartan";
 }
+
+.prose {
+    max-width: 70vw;
+}
+
+@media (max-width: 35em) {
+    .prose {
+            max-width: 90vw;
+        }
+}
