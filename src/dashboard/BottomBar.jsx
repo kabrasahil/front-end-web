@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-const SideBar = () => {
+
+const BottomBar = () => {
   const [links, setLinks] = useState([
     { title: "My Profile", link: "/dashboard/profile", active: false },
     { title: "My Blogs", link: "/dashboard/blogs", active: false },
@@ -8,7 +9,6 @@ const SideBar = () => {
     { title: "Manage Users", link: "/dashboard/manageusers", active: false },
     { title: "Logout", link: "/dashboard/logout", active: false },
   ]);
-
   const newLinks = links;
   const currentPath = useLocation().pathname;
   newLinks.forEach((el, i) => {
@@ -21,7 +21,7 @@ const SideBar = () => {
   }, []);
 
   return (
-    <div className="flex flex-col gap-y-10 items-center justify-center h-full px-8 py-20 card-shadow-black text-gray-400 rounded-tr-full rounded-2xl !rounded-b-2xl">
+    <div className="flex flex-row fixed  gap-y-10 items-center justify-center h-full px-8 py-20 card-shadow-black text-gray-400 rounded-tr-full rounded-2xl !rounded-b-2xl">
       <Link
         to="/dashboard/profile"
         className="h-56 w-56 -mt-32 hover:contrast-50"
@@ -50,4 +50,4 @@ const SideBar = () => {
   );
 };
 
-export default SideBar;
+export default BottomBar;

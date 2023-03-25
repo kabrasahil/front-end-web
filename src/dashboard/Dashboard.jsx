@@ -6,6 +6,7 @@ import MyArticles from "./MyArticles";
 import ManageUsers from "./ManageUsers";
 import ManageArticles from "./ManageArticles";
 import "./Dashboard.css";
+import BottomBar from "./BottomBar";
 
 const Dashboard = () => {
   const a = useLocation().pathname;
@@ -31,14 +32,17 @@ const Dashboard = () => {
   }
 
   return (
-    <div className="min-h-screen flex py-32 justify-center items-center h-full">
-      <div className="flex gap-x-10">
+    <div className=" flex  lg:justify-center lg:items-center lg:h-fit sm:h-max md:h-max sm:min-h-screen md:min-h-screen  py-40  sm:mx-auto md:mx-auto">
+      <div className="flex gap-x-10 sm:w-full md:w-full lg:w-max h-[1200px]">
         <div className="sm:hidden md:hidden lg:block ">
           {/* sidebar */}
           <SideBar />
         </div>
-        <div className="card-shadow-black rounded-xl w-[900px] ">
+        <div className=" sm:w-full md:w-full sm:h-full md:h-full sm:flex md:flex sm:justify-center md:justify-center lg:card-shadow-black rounded-xl lg:w-[900px] !h-full">
           {toRender}
+        </div>
+        <div className="sm:block md:block lg:hidden">
+          <BottomBar />
         </div>
       </div>
     </div>
