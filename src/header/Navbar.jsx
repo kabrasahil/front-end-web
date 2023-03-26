@@ -78,7 +78,7 @@ const Navbar = () => {
             // animate="open"
             // variants={sideVariants}
           >
-            <Link to="#" key={0} className="nav-item w-fit">
+            <Link to="/" key={0} className="nav-item w-fit">
               <div class=" w-fit">
                 <img
                   src={logo}

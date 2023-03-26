@@ -7,3 +7,19 @@
     box-shadow: 0 0px 40px -1px rgba(0, 0, 0, 0.6);
   }
 }
+
+.prose {
+  max-width: 70vw;
+}
+
+@media (max-width: 35em) {
+  .prose {
+    max-width: 90vw;
+  }
+}
+
+.notFound > canvas {
+  height: 100vh !important;
+  width: 100vw !important;
+  object-fit: cover !important;
+}

@@ -54,7 +54,7 @@ export default function Dashboard_MyArticles() {
             />
             <input
               placeholder="Search"
-              className="text-slate-100 text rounded-xl flex-1 px-4 py-1 bg-stone-800 focus:outline-0"
+              className="text-slate-100 text rounded-xl flex-1 px-4 py-1 bg-stone-800 focus:outline-none"
             />
           </div>
         </div>

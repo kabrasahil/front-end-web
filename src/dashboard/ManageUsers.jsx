@@ -42,7 +42,7 @@ const ManageUsers = () => {
         />
         <input
           placeholder="Enter Email Id"
-          className="text-slate-100 text rounded-xl flex-1 px-4 py-1 bg-stone-800 focus:outline-0 lg:w-1/3"
+          className="text-slate-100 text rounded-xl flex-1 px-4 py-1 bg-stone-800 focus:outline-0 lg:w-1/3 focus:outline-none"
         />
       </div>
 

@@ -70,7 +70,7 @@ const App = () => {
   }, []);
 
   return (
-    <div>
+    <div className="bg-stone-900">
       {isLoading ? (
         <div>
           <LoadingScreen />

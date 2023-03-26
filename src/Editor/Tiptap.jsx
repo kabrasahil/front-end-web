@@ -5,13 +5,14 @@ import TextStyle from "@tiptap/extension-text-style";
 import Underline from "@tiptap/extension-underline";
 import { EditorContent, useEditor } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 
 import Document from "@tiptap/extension-document";
 import Dropcursor from "@tiptap/extension-dropcursor";
 import Image from "@tiptap/extension-image";
 import Paragraph from "@tiptap/extension-paragraph";
 import Text from "@tiptap/extension-text";
+import Link from "@tiptap/extension-link";
 
 const MenuBar = ({ editor }) => {
   if (!editor) {
@@ -19,7 +20,7 @@ const MenuBar = ({ editor }) => {
   }
 
   return (
-    <div className="grid grid-cols-10 tiptap-toolbar">
+    <div className="grid grid-cols-11 tiptap-toolbar">
       <button
         onClick={() => editor.chain().focus().toggleBold().run()}
         disabled={!editor.can().chain().focus().toggleBold().run()}
@@ -134,6 +135,41 @@ const MenuBar = ({ editor }) => {
       >
         add image from URL
       </button>
+      <button
+        onClick={() => {
+          const previousUrl = editor.getAttributes("link").href;
+          const url = window.prompt("URL", previousUrl);
+
+          // cancelled
+          if (url === null) {
+            return;
+          }
+
+          // empty
+          if (url === "") {
+            editor.chain().focus().extendMarkRange("link").unsetLink().run();
+
+            return;
+          }
+
+          // update link
+          editor
+            .chain()
+            .focus()
+            .extendMarkRange("link")
+            .setLink({ href: url })
+            .run();
+        }}
+        className={editor.isActive("link") ? "is-active" : ""}
+      >
+        setLink
+      </button>
+      <button
+        onClick={() => editor.chain().focus().unsetLink().run()}
+        disabled={!editor.isActive("link")}
+      >
+        unsetLink
+      </button>
     </div>
   );
 };
@@ -144,7 +180,11 @@ const TipTap = ({ setDesc }) => {
   const [thumbnail, setThumbnail] = useState("");
 
   useEffect(() => {
-    setDesc({ heading: `<h1>${heading}</h1>`, content, thumbnail: '<img src="' +thumbnail + '" alt="check"><hr>' });
+    setDesc({
+      heading: `<h1>${heading}</h1>`,
+      content,
+      thumbnail: '<img src="' + thumbnail + '" alt="check"><hr>',
+    });
   }, [content, heading, thumbnail]);
 
   const editor = useEditor({
@@ -167,6 +207,7 @@ const TipTap = ({ setDesc }) => {
           keepAttributes: false, // TODO : Making this as `false` becase marks are not preserved when I try to preserve attrs, awaiting a bit of help
         },
       }),
+      Link,
     ],
     content: `
     `,
@@ -188,8 +229,7 @@ const TipTap = ({ setDesc }) => {
         <label
           for="large-input"
           class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-        >
-        </label>
+        ></label>
         <input
           type="text"
           placeholder="Title"
