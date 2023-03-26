@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import Comment from "./Comment";
 import ReplyForm from "./ReplyForm";
 import image from "./logo192.png";
 
 const CommentList = ({ comments, replies, onCommentDelete, onReplySubmit, onReplyDelete }) => {
+  const [selectedCommentIndex, setSelectedCommentIndex] = useState(null);
+
   const handleCommentDelete = (index) => {
     onCommentDelete(index);
   };
@@ -16,6 +18,10 @@ const CommentList = ({ comments, replies, onCommentDelete, onReplySubmit, onRepl
     onReplyDelete(replyIndex);
   };
 
+  const samyak = (x) => {
+    setSelectedCommentIndex(x);
+  };
+
   return (
     <div className="comment-list">
       {comments.map((comment, index) => (
@@ -26,7 +32,7 @@ const CommentList = ({ comments, replies, onCommentDelete, onReplySubmit, onRepl
             image={image}
             score={comment.score}
             onDelete={() => handleCommentDelete(index)}
-            onReply={() => onReplySubmit(null, index)}
+            onReply={() => samyak(index)}
             commentId={`comment-${index}`}
             replyButtonId={`reply-${index}`}
             deleteButtonId={`delete-${index}`}
@@ -38,7 +44,7 @@ const CommentList = ({ comments, replies, onCommentDelete, onReplySubmit, onRepl
                 <Comment
                   author={reply.author}
                   message={reply.message}
-                    image={image}
+                  image={image}
                   onDelete={() => handleReplyDelete(replyIndex)}
                   commentId={`comment-reply-${replyIndex}`}
                   deleteButtonId={`delete-reply-${replyIndex}`}
@@ -46,19 +52,17 @@ const CommentList = ({ comments, replies, onCommentDelete, onReplySubmit, onRepl
                 />
               </div>
             ))}
-          {replies &&
-            replies.length > 0 &&
-            replies[0].parentIndex === index && (
-              <div className="reply-form-container">
-                <ReplyForm
-                  parentId={index}
-                  onSubmit={(newReply) => handleReplySubmit(newReply, index)}
-                  formId={`reply-form-${index}`}
-                  textAreaId={`reply-textarea-${index}`}
-                  submitButtonId={`reply-submit-${index}`}
-                />
-              </div>
-            )}
+          {selectedCommentIndex === index && (
+            <div className="reply-form-container">
+              <ReplyForm
+                parentId={index}
+                onSubmit={(newReply) => handleReplySubmit(newReply, index)}
+                formId={`reply-form-${index}`}
+                textAreaId={`reply-textarea-${index}`}
+                submitButtonId={`reply-submit-${index}`}
+              />
+            </div>
+          )}
         </div>
       ))}
     </div>

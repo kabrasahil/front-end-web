@@ -6,7 +6,7 @@ import "./index.css";
 // import samyak from "./profileIcon_mgukerzbivna1.jpg";
 
 function Discussions() {
-  let [comments] = useState([
+  let [comments,setComments] = useState([
     {
       author: "Alice",
       message:
@@ -30,24 +30,25 @@ function Discussions() {
     },
   ]);
 
-  // const [replies, setReplies] = useState([]);
-  // const handleCommentSubmit = (comment) => {
-  //   setComments([...comments, comment]);
-  // };
 
-  let [replies] = useState([
+
+  let [replies,setReplies] = useState([
     { parentIndex: 1, author: "Alice", message: "Thank you for your comment!" },
   ]);
 
+  
+  const handleCommentSubmit = (comment) => {
+    setComments([...comments, comment]);
+  };
   return (
     <div className="app-container">
       <CommentList
         comments={comments}
         replies={replies}
-        // onCommentSubmit={handleCommentSubmit}
-        // onReplySubmit={(reply, parentIndex) => {
-        //   setReplies([...replies, { parentIndex, ...reply }]);
-        // }}
+        onCommentSubmit={handleCommentSubmit}
+        onReplySubmit={(reply, parentIndex) => {
+           setReplies([...replies, { parentIndex, ...reply }]);
+         }}
       />
       <CommentForm
       // onCommentSubmit={handleCommentSubmit}

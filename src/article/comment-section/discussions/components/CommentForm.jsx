@@ -5,10 +5,7 @@ const CommentForm = ({ onSubmit }) => {
   const [message, setMessage] = useState("");
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    onSubmit({ author, message });
-    setAuthor("");
-    setMessage("");
+   
   };
 
   return (
