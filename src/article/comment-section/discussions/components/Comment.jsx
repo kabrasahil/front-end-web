@@ -1,9 +1,11 @@
 // import React from "react";
 // import "./index.css";
 import React, { useState } from "react";
-// import { FontAwesomeIcon } from "@fontawesome/react-fontawesome";
-// import { faCircleUp } from "@fontawesome/free-solid-svg-icons";
-// import { faCircleDown } from "@fontawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCircleUp } from "@fortawesome/free-solid-svg-icons";
+import { faCircleDown } from "@fortawesome/free-solid-svg-icons";
+import { faReply } from "@fortawesome/free-solid-svg-icons";
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
 
 const Comment = ({
   author,
@@ -15,13 +17,20 @@ const Comment = ({
   isReply,
 }) => {
   const [count, setCount] = useState(score);
+  const [voted, setVoted] = useState(false);
 
   function decreaseCount() {
-    setCount((prevCount) => prevCount - 1);
+    if (!voted) {
+      setCount((prevCount) => prevCount - 1);
+      setVoted(true);
+    }
   }
 
   function increaseCount() {
-    setCount((prevCount) => prevCount + 1);
+    if (!voted) {
+      setCount((prevCount) => prevCount + 1);
+      setVoted(true);
+    }
   }
   return (
     <div className={`comment-container ${isReply ? "comment-reply" : ""}`}>
@@ -35,7 +44,7 @@ const Comment = ({
       <p className="comment-message">{message}</p>
 
       <button className="comment-delete-btn" onClick={onDelete}>
-        Delete
+        <FontAwesomeIcon icon={faTrash} />
       </button>
       {!isReply && (
         <>
@@ -51,7 +60,7 @@ const Comment = ({
 
       {!isReply && (
         <button className="comment-reply-btn" onClick={onReply}>
-          Reply
+          <FontAwesomeIcon icon={faReply} />
         </button>
       )}
     </div>
