@@ -1,51 +1,21 @@
-import React, { useState } from "react";
+import React from "react";
 import Comment from "./Comment";
 import ReplyForm from "./ReplyForm";
-// import "./index.css";
 import image from "./logo192.png";
 
-
-
-
-const CommentList = ({ comments }) => {
-  const [replies, setReplies] = useState([
-    { parentIndex: 0, author: "Alice", message: "Thank you for your comment!" },
-  ]);
-
-  
-
-  // const handleReplySubmit = (reply) => {
-  //   setReplies([...replies, reply]);
-  // };
-
-  const handleDelete = (index) => {
-    const newComments = [...comments];
-    newComments.splice(index, 1);
-    // setComment(newComments);
+const CommentList = ({ comments, replies, onCommentDelete, onReplySubmit, onReplyDelete }) => {
+  const handleCommentDelete = (index) => {
+    onCommentDelete(index);
   };
 
-  const handleReplyDelete = (index) => {
-    const newReplies = [...replies];
-    newReplies.splice(index, 1);
-    setReplies(newReplies);
+  const handleReplySubmit = (newReply, parentIndex) => {
+    onReplySubmit(newReply, parentIndex);
   };
 
-  const handleReplySubmit = (parentId) => {
-    const newReplies = [...replies];
-    newReplies.push({ parentId, author: "", message: "" });
-    setReplies(newReplies);
+  const handleReplyDelete = (replyIndex) => {
+    onReplyDelete(replyIndex);
   };
-  
-  // const onReply = (parentId) => {
-  //   // If parentId is undefined or null, it's a top-level comment
-  //   if (parentId === undefined || parentId === null) {
-  //     setReplies([{ parentId: null, author: "", message: "" }]);
-  //   } else {
-  //     handleReplyClick(parentId);
-  //   }
-  // };
-  
-  
+
   return (
     <div className="comment-list">
       {comments.map((comment, index) => (
@@ -54,42 +24,41 @@ const CommentList = ({ comments }) => {
             author={comment.author}
             message={comment.message}
             image={image}
-            score = {comment.score}
-            onDelete={() => handleDelete(index)}
-            onReply={() =>
-              setReplies([{ parentId: index, author: "", message: "" }])
-            }
+            score={comment.score}
+            onDelete={() => handleCommentDelete(index)}
+            onReply={() => onReplySubmit(null, index)}
             commentId={`comment-${index}`}
             replyButtonId={`reply-${index}`}
             deleteButtonId={`delete-${index}`}
           />
           {replies
-            .filter((reply) => reply.parentId === index)
+            .filter((reply) => reply.parentIndex === index)
             .map((reply, replyIndex) => (
               <div key={replyIndex} className="reply-container">
                 <Comment
                   author={reply.author}
                   message={reply.message}
+                    image={image}
                   onDelete={() => handleReplyDelete(replyIndex)}
                   commentId={`comment-reply-${replyIndex}`}
                   deleteButtonId={`delete-reply-${replyIndex}`}
-                  isReply = {true}
+                  isReply={true}
                 />
               </div>
             ))}
-          {replies
-            .filter((reply) => reply.parentId === index)
-            .map((reply, replyIndex) => (
-              <div key={replyIndex} className="reply-form-container">
+          {replies &&
+            replies.length > 0 &&
+            replies[0].parentIndex === index && (
+              <div className="reply-form-container">
                 <ReplyForm
                   parentId={index}
-                  onSubmit={(newReply) => handleReplySubmit(newReply)}
-                  formId={`reply-form-${replyIndex}`}
-                  textAreaId={`reply-textarea-${replyIndex}`}
-                  submitButtonId={`reply-submit-${replyIndex}`}
+                  onSubmit={(newReply) => handleReplySubmit(newReply, index)}
+                  formId={`reply-form-${index}`}
+                  textAreaId={`reply-textarea-${index}`}
+                  submitButtonId={`reply-submit-${index}`}
                 />
               </div>
-            ))}
+            )}
         </div>
       ))}
     </div>
