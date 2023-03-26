@@ -20,9 +20,11 @@ const ReplyForm = ({ onSubmit }) => {
         value={author}
         onChange={(e) => setAuthor(e.target.value)}
       /> */}
+
+       
       <textarea
         className="reply-message-input"
-        placeholder="Message"
+        placeholder="Type your reply here..."
         value={message}
         onChange={(e) => setMessage(e.target.value)}
       ></textarea>

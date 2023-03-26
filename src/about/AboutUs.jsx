@@ -81,7 +81,7 @@ const AboutUs = () => {
         ]}
       />
 
-      <p className=" prose lg:text-xl md:text-3xl sm:text-3xl sm:mx-3 md:mx-3 text-center pb-8">
+      <p className=" prose lg:text-xl md:text-3xl sm:text-3xl sm:mx-3 md:mx-3 text-center pb-8  text-slate-400">
         Welcome to the official website of the IGTS college society! We are a
         community of passionate individuals with a shared love for gaming,
         economics, and math. Our society was founded with the goal of creating a
@@ -98,11 +98,11 @@ const AboutUs = () => {
         a supportive and inclusive community.
       </p>
 
-      <h1 className="text-center  text-gray-400  lg:text-4xl md:text-6xl sm:text-6xl font-semibold pt-20 pb-4">
+      <h1 className="text-center  text-gray-400  lg:text-4xl md:text-6xl sm:text-6xl font-semibold pt-20 pb-4  ">
         Meet Our Developers
       </h1>
 
-      <p className=" prose lg:text-xl md:text-3xl sm:text-3xl sm:mx-3 md:mx-3 text-center pb-8">
+      <p className=" prose lg:text-xl md:text-3xl sm:text-3xl sm:mx-3 md:mx-3 text-center pb-8  text-slate-400">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla fuga
         reprehenderit neque sit id fugiat provident architecto veritatis
         excepturi, necessitatibus, aut doloremque molestiae repudiandae ut quam
@@ -146,7 +146,7 @@ const AboutUs = () => {
         Meet IGTS
       </h1>
 
-      <p className=" prose lg:text-xl md:text-3xl sm:text-3xl sm:mx-3 md:mx-3 text-center pb-8">
+      <p className=" prose lg:text-xl md:text-3xl sm:text-3xl sm:mx-3 md:mx-3 text-center pb-8  text-slate-400">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla fuga
         reprehenderit neque sit id fugiat provident architecto veritatis
         excepturi, necessitatibus, aut doloremque molestiae repudiandae ut quam
@@ -157,7 +157,7 @@ const AboutUs = () => {
         src="https://drive.google.com/uc?export=view&id=1I8LBraLkRdRLWp2f9mNzsnip6ujxO3LZ"
         alt="image description"
       />
-      <p className="  prose lg:text-xl md:text-3xl sm:text-3xl sm:mx-3 md:mx-3 text-center pb-8 pt-8">
+      <p className="  prose lg:text-xl md:text-3xl sm:text-3xl sm:mx-3 md:mx-3 text-center pb-8 pt-8  text-slate-400">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla fuga
         reprehenderit neque sit id fugiat provident architecto veritatis
         excepturi, necessitatibus, aut doloremque molestiae repudiandae ut quam

@@ -19,7 +19,7 @@ const CommentForm = ({ onSubmit }) => {
       /> */}
       <textarea
         className="comment-form-message"
-        placeholder="Message"
+        placeholder="Type your comment here..."
         value={message}
         onChange={(e) => setMessage(e.target.value)}
       ></textarea>

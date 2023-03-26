@@ -21,7 +21,7 @@ const CommentList = ({ comments, replies, onCommentDelete, onReplySubmit, onRepl
   const samyak = (x) => {
     setSelectedCommentIndex(x);
   };
-
+  
   return (
     <div className="comment-list">
       {comments.map((comment, index) => (
@@ -42,7 +42,8 @@ const CommentList = ({ comments, replies, onCommentDelete, onReplySubmit, onRepl
             .map((reply, replyIndex) => (
               <div key={replyIndex} className="reply-container">
                 <Comment
-                  author={reply.author}
+                  author="Current User"
+                  // author={reply.author}
                   message={reply.message}
                   image={image}
                   onDelete={() => handleReplyDelete(replyIndex)}

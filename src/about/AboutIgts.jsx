@@ -12,7 +12,7 @@ const AboutIgts = () => {
         ]}
       />
 
-      <p className=" prose lg:text-xl md:text-3xl sm:text-3xl sm:mx-3 md:mx-3 text-center pb-8">
+      <p className=" prose lg:text-xl md:text-3xl sm:text-3xl sm:mx-3 md:mx-3 text-center pb-8 text-slate-400">
         Welcome to the official website of the IGTS college society! We are a
         community of passionate individuals with a shared love for gaming,
         economics, and math. Our society was founded with the goal of creating a
@@ -38,7 +38,7 @@ const AboutIgts = () => {
         What is IGTS?
       </h1>
 
-      <p className=" prose lg:text-xl md:text-3xl sm:text-3xl sm:mx-3 md:mx-3 text-center pb-8">
+      <p className=" prose lg:text-xl md:text-3xl sm:text-3xl sm:mx-3 md:mx-3 text-center pb-8  text-slate-400">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla fuga
         reprehenderit neque sit id fugiat provident architecto veritatis
         excepturi, necessitatibus, aut doloremque molestiae repudiandae ut quam
@@ -54,7 +54,7 @@ const AboutIgts = () => {
         What is Game Theory?
       </h1>
 
-      <p className=" prose lg:text-xl md:text-3xl sm:text-3xl sm:mx-3 md:mx-3 text-center pb-8">
+      <p className=" prose lg:text-xl md:text-3xl sm:text-3xl sm:mx-3 md:mx-3 text-center pb-8  text-slate-400">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla fuga
         reprehenderit neque sit id fugiat provident architecto veritatis
         excepturi, necessitatibus, aut doloremque molestiae repudiandae ut quam
