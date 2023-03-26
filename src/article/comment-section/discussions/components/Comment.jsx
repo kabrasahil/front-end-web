@@ -1,10 +1,9 @@
 // import React from "react";
 // import "./index.css";
 import React, { useState } from "react";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCircleUp } from '@fortawesome/free-solid-svg-icons'
-import { faCircleDown } from '@fortawesome/free-solid-svg-icons'
-
+// import { FontAwesomeIcon } from "@fontawesome/react-fontawesome";
+// import { faCircleUp } from "@fontawesome/free-solid-svg-icons";
+// import { faCircleDown } from "@fontawesome/free-solid-svg-icons";
 
 const Comment = ({
   author,
@@ -34,22 +33,20 @@ const Comment = ({
         </div>
       </div>
       <p className="comment-message">{message}</p>
-      
-      
+
       <button className="comment-delete-btn" onClick={onDelete}>
         Delete
       </button>
       {!isReply && (
         <>
-        
-      <button className="comment-downvote" onClick={decreaseCount}>
-      <FontAwesomeIcon icon={faCircleDown} />
-      </button>
-      <span className="comment-score">{count}&nbsp;&nbsp;</span>
-      <button className="comment-upvote" onClick={increaseCount}>
-      <FontAwesomeIcon icon={faCircleUp} />
-      </button>
-      </>
+          <button className="comment-downvote" onClick={decreaseCount}>
+            <i className="fa fa-circle-down"></i>
+          </button>
+          <span className="comment-score">{count}&nbsp;&nbsp;</span>
+          <button className="comment-upvote" onClick={increaseCount}>
+            <i className="fa fa-circle-up"></i>
+          </button>
+        </>
       )}
 
       {!isReply && (

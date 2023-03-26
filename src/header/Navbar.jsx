@@ -168,7 +168,14 @@ const Navbar = () => {
                   variants={itemVariants}
                   animate={isOpen ? "opened" : "closed"}
                 >
-                  <Link to={to} key={id} className="hover:text-gray-200">
+                  <Link
+                    to={to}
+                    key={id}
+                    className="hover:text-gray-200"
+                    onClick={(e) => {
+                      setOpen(false);
+                    }}
+                  >
                     {name}
                     {/* <hr /> */}
                   </Link>

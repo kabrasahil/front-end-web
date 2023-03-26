@@ -5,7 +5,7 @@ import TextStyle from "@tiptap/extension-text-style";
 import Underline from "@tiptap/extension-underline";
 import { EditorContent, useEditor } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import Document from "@tiptap/extension-document";
 import Dropcursor from "@tiptap/extension-dropcursor";
@@ -19,7 +19,7 @@ const MenuBar = ({ editor }) => {
   }
 
   return (
-    <div className="grid grid-cols-12 tiptap-toolbar">
+    <div className="grid grid-cols-10 tiptap-toolbar">
       <button
         onClick={() => editor.chain().focus().toggleBold().run()}
         disabled={!editor.can().chain().focus().toggleBold().run()}
@@ -68,40 +68,17 @@ const MenuBar = ({ editor }) => {
         paragraph
       </button>
       <button
-        onClick={() => editor.chain().focus().toggleHeading({ level: 1 }).run()}
-        className={editor.isActive("heading", { level: 1 }) ? "is-active" : ""}
-      >
-        h1
-      </button>
-      <button
         onClick={() => editor.chain().focus().toggleHeading({ level: 2 }).run()}
         className={editor.isActive("heading", { level: 2 }) ? "is-active" : ""}
       >
-        h2
+        Subheading 1
       </button>
-      <button
-        onClick={() => editor.chain().focus().toggleHeading({ level: 3 }).run()}
-        className={editor.isActive("heading", { level: 3 }) ? "is-active" : ""}
-      >
-        h3
-      </button>
+
       <button
         onClick={() => editor.chain().focus().toggleHeading({ level: 4 }).run()}
         className={editor.isActive("heading", { level: 4 }) ? "is-active" : ""}
       >
-        h4
-      </button>
-      <button
-        onClick={() => editor.chain().focus().toggleHeading({ level: 5 }).run()}
-        className={editor.isActive("heading", { level: 5 }) ? "is-active" : ""}
-      >
-        h5
-      </button>
-      <button
-        onClick={() => editor.chain().focus().toggleHeading({ level: 6 }).run()}
-        className={editor.isActive("heading", { level: 6 }) ? "is-active" : ""}
-      >
-        h6
+        Subheading 2
       </button>
       <button
         onClick={() => editor.chain().focus().toggleBulletList().run()}
@@ -125,21 +102,13 @@ const MenuBar = ({ editor }) => {
         onClick={() => editor.chain().focus().toggleBlockquote().run()}
         className={editor.isActive("blockquote") ? "is-active" : ""}
       >
-        blockquote
+        Toggle Blockquote
       </button>
       <button onClick={() => editor.chain().focus().setHorizontalRule().run()}>
         horizontal rule
       </button>
       <button onClick={() => editor.chain().focus().setHardBreak().run()}>
         hard break
-      </button>
-      <button
-        onClick={() => editor.chain().focus().setColor("#958DF1").run()}
-        className={
-          editor.isActive("textStyle", { color: "#958DF1" }) ? "is-active" : ""
-        }
-      >
-        purple
       </button>
 
       <button
@@ -170,6 +139,14 @@ const MenuBar = ({ editor }) => {
 };
 
 const TipTap = ({ setDesc }) => {
+  const [content, setContent] = useState("");
+  const [heading, setHeading] = useState("");
+  const [thumbnail, setThumbnail] = useState("");
+
+  useEffect(() => {
+    setDesc({ heading: `<h1>${heading}</h1>`, content, thumbnail });
+  }, [content, heading, thumbnail]);
+
   const editor = useEditor({
     extensions: [
       Document,
@@ -201,16 +178,34 @@ const TipTap = ({ setDesc }) => {
     },
     onUpdate: ({ editor }) => {
       const html = editor.getHTML();
-      setDesc(html);
+      setContent(html);
     },
   });
 
   return (
-    <div className="w-[60%] h-full bg-white">
+    <div className="w-full h-full bg-white">
+      <div class="mb-6">
+        <label
+          for="large-input"
+          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+        >
+          Large input
+        </label>
+        <input
+          type="text"
+          id="large-input"
+          class="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 break-all"
+          value={heading}
+          onChange={(e) => {
+            setHeading(e.target.value);
+          }}
+        />
+      </div>
+
       <MenuBar editor={editor} />
       <EditorContent
         editor={editor}
-        className="outline-none max-h-[500px] overflow-scroll"
+        className="outline-none h-full overflow-scroll"
       />
     </div>
   );
