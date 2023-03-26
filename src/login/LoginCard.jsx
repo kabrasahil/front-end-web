@@ -83,7 +83,7 @@ const LoginCard = () => {
           >
             <button
               type="button"
-              className="text-white bg-blue-800 hover:bg-blue-900 focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg lg:text-base sm:text-3xl md:text-3xl px-5 lg:py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55 mr-2 mb-2 gap-x-3 w-full justify-center sm:py-5 md:py-5"
+              className="text-white  bg-blue-500 hover:bg-blue-600 focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg lg:text-base sm:text-3xl md:text-3xl px-5 lg:py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55 mr-2 mb-2 gap-x-3 w-full justify-center sm:py-5 md:py-5"
             >
               <svg
                 className="lg:w-4 lg:h-4 sm:w-8 sm:h-8 md:w-8 md:h-8 mr-2 -ml-1 "
@@ -132,7 +132,7 @@ const LoginCard = () => {
             </div>
             <button
               type="button"
-              className=" text-white bg-gradient-to-r font-medium rounded-lg lg:text-base lg:px-5 lg:py-2.5 sm:text-3xl md:text-3xl sm:py-5 md:py-5 text-center inline-flex items-center mr-2 mb-2 gap-x-3 w-full justify-center mt-5 bg-gradient-to-r to-pink-800 from-blue-800 hover:to-pink-900 hover:from-blue-900"
+              className=" text-white bg-gradient-to-r font-medium rounded-lg lg:text-base lg:px-5 lg:py-2.5 sm:text-3xl md:text-3xl sm:py-5 md:py-5 text-center inline-flex items-center mr-2 mb-2 gap-x-3 w-full justify-center mt-5 bg-gradient-to-r  to-pink-500 from-blue-400 hover:to-pink-600 hover:from-blue-500"
             >
               Sign In
             </button>
@@ -152,7 +152,7 @@ const LoginCard = () => {
           >
             <button
               type="button"
-              className="text-white bg-blue-800 hover:bg-blue-900 focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg lg:lg:text-base sm:text-3xl md:text-3xl sm:text-3xl md:text-3xl px-5 lg:py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55 mr-2 mb-2 gap-x-3 w-full justify-center sm:py-5"
+              className="text-white bg-blue-500 hover:bg-blue-600 focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg lg:lg:text-base sm:text-3xl md:text-3xl sm:text-3xl md:text-3xl px-5 lg:py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55 mr-2 mb-2 gap-x-3 w-full justify-center sm:py-5"
             >
               <svg
                 className="lg:w-4 lg:h-4 sm:w-8 sm:h-8 md:w-8 md:h-8 mr-2 -ml-1 "
@@ -354,7 +354,7 @@ const LoginCard = () => {
             </div>
             <button
               type="button"
-              className=" text-white bg-gradient-to-r to-pink-800 from-blue-800 hover:to-pink-900 hover:from-blue-900 focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg lg:text-base lg:px-5 lg:py-2.5 sm:text-3xl md:text-3xl sm:py-5 md:py-5 text-center inline-flex items-center mr-2 mb-2 gap-x-3 w-full justify-center mt-5"
+              className=" text-white bg-gradient-to-r   to-pink-500 from-blue-400 hover:to-pink-600 hover:from-blue-500 focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg lg:text-base lg:px-5 lg:py-2.5 sm:text-3xl md:text-3xl sm:py-5 md:py-5 text-center inline-flex items-center mr-2 mb-2 gap-x-3 w-full justify-center mt-5"
             >
               Sign Up
             </button>

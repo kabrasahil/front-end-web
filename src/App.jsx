@@ -66,7 +66,7 @@ const App = () => {
   useEffect(() => {
     setTimeout(() => {
       setIsLoading(false);
-    }, 1500); // Change 3000 to the number of milliseconds you want to show the loading screen
+    }, 1000); // Change 3000 to the number of milliseconds you want to show the loading screen
   }, []);
 
   return (

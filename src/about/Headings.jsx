@@ -11,7 +11,7 @@ const Headings = ({ title, subTitle }) => {
       </div>{" "}
       {/* make a much larger heading showing "Releases,insights,and company announcements" and make it white in colour with text justified in center */}
       <h1 className="text-center text-gray-400 lg:text-2xl md:text-4xl sm:text-4xl font-semibold mt-5 pb-2">
-        {subTitle[0]}
+        <i> {subTitle[0]}</i>
       </h1>
       <h1 className="text-center  text-gray-400 lg:text-2xl md:text-4xl sm:text-4xl font-semibold pb-10 ">
         {subTitle[1]}
