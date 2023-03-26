@@ -16,13 +16,20 @@ const Comment = ({
   isReply,
 }) => {
   const [count, setCount] = useState(score);
+  const [voted, setVoted] = useState(false);
 
   function decreaseCount() {
-    setCount((prevCount) => prevCount - 1);
+    if(!voted){
+      setCount((prevCount) => prevCount - 1);
+      setVoted(true);
+    }
   }
 
   function increaseCount() {
-    setCount((prevCount) => prevCount + 1);
+    if(!voted){
+      setCount((prevCount) => prevCount + 1);
+      setVoted(true);
+    }
   }
   return (
     <div className={`comment-container ${isReply ? "comment-reply" : ""}`}>
