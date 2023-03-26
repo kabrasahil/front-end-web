@@ -1,9 +1,11 @@
 import "./App.css";
 import Editor from "./Editor/Editor";
 // import Discussions from './article/comment-section/discussions/Discussions';
+import Terms from "./privacy and terms/terms";
 import Footer from "./footer/Footer";
 import Navbar from "./header/Navbar";
 import Home from "./home/Home";
+import PrivacyPolicy from "./privacy and terms/privacy-policy";
 import Tiptap from "./Editor/Tiptap";
 import ShareButton from "./article/shareButton/ShareButtons";
 import ArticleContent from "./article/articleContent/ArticleContent";
@@ -26,6 +28,7 @@ import { useEffect, useState } from "react";
 import ReactPlayer from "react-player";
 import LoadingScreen from "./loading_screen/LoadingScreen";
 import ComingSoon from "./comingSoon/ComingSoon";
+import { isPlainObject } from "@tiptap/react";
 
 function IgtsWebsite() {
   return (
@@ -45,11 +48,12 @@ function IgtsWebsite() {
           <Route exact path="/about" element={<AboutUs />} />
           <Route exact path="/igts" element={<AboutIgts />} />
           <Route exact path="/editor" element={<Editor />} />
+          <Route exact path="/privacy" element={<PrivacyPolicy />} />
+          <Route exact path="/terms" element={<Terms />} />
 
           <Route exact path="/games" element={<ComingSoon />} />
           <Route exact path="/events" element={<ComingSoon />} />
           <Route exact path="/merchandise" element={<ComingSoon />} />
-
           <Route path="/*" element={<NotFound />} />
         </Routes>
         <section className="">
