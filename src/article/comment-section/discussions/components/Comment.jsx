@@ -1,11 +1,4 @@
-// import React from "react";
-// import "./index.css";
 import React, { useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCircleUp } from "@fortawesome/free-solid-svg-icons";
-import { faCircleDown } from "@fortawesome/free-solid-svg-icons";
-import { faReply } from "@fortawesome/free-solid-svg-icons";
-import { faTrash } from "@fortawesome/free-solid-svg-icons";
 
 const Comment = ({
   author,
@@ -44,7 +37,7 @@ const Comment = ({
       <p className="comment-message">{message}</p>
 
       <button className="comment-delete-btn" onClick={onDelete}>
-        <FontAwesomeIcon icon={faTrash} />
+        <i className="fa fa-trash"></i>
       </button>
       {!isReply && (
         <>
@@ -60,7 +53,7 @@ const Comment = ({
 
       {!isReply && (
         <button className="comment-reply-btn" onClick={onReply}>
-          <FontAwesomeIcon icon={faReply} />
+          <i className="fa fa-reply"></i>
         </button>
       )}
     </div>
