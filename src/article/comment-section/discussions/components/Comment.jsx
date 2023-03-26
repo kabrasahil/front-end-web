@@ -16,6 +16,7 @@ const Comment = ({
     if (!voted) {
       setCount((prevCount) => prevCount - 1);
       setVoted(true);
+      score = score-1;
     }
   }
 
@@ -23,6 +24,7 @@ const Comment = ({
     if (!voted) {
       setCount((prevCount) => prevCount + 1);
       setVoted(true);
+      score=score+1;
     }
   }
   return (
