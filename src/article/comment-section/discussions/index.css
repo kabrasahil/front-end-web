@@ -20,6 +20,7 @@
     margin: 10px 0;
     padding: 10px;
   } */
+<<<<<<< Updated upstream
 .comment-container {
   background-color: #171616;
   border: 1px solid #1a1a1b;
@@ -152,6 +153,144 @@
   font-weight: bold;
 }
 /* .comment-reply-btn {
+=======
+  .comment-container {
+    background-color:#1c1917;
+    border: 1px solid #1a1a1b;
+    border-radius: 40px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04), 0 2px 6px rgba(0, 0, 0, 0.1);
+    margin: 10px 0;
+    padding-right:10px;
+    padding-left:10px;
+  }
+  .comment-header {
+    display: flex;
+    justify-content: space-between;
+    padding:3px;
+    /* margin-bottom: 10px; */
+  }
+  .comment-image{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-left: 20px;
+    margin-top: 10px;
+    padding:2px
+  }
+  .comment-score{
+    color: white;
+  }
+  .comment-author {
+    color:#c6c8ca;
+    font-weight: bold;
+    text-decoration: none;
+    text-align: left;
+    margin-top: 15px;
+    margin-left: 10px;
+  }
+  
+  .flex-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    /* margin-bottom: 10px; */
+  }
+  
+  .comment-upvote {
+    color: #7f8182;
+    cursor: pointer;
+    
+    /* margin-right: 10px; */
+  }
+  
+  .comment-upvote:hover {
+    color: #0079d3;
+  }
+  
+  .comment-downvote {
+    color: #7f8182;
+    cursor: pointer;
+    margin-right: 10px;
+    margin-left: 40px;
+  }
+  
+  .comment-downvote:hover {
+    color: #0079d3;
+  }
+  
+  
+  
+  .comment-message {
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 10px;
+    color: #b2b4b6;
+  }
+  
+  .comment-footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+  /* remove the box around the delete button */
+  
+  
+  .comment-delete-btn{
+    /* color: #555; */
+    cursor: pointer;
+    border : none;
+    /* background-color: #fff ; */
+    color: #7f8182;
+    background-color:#1a1a1b;
+    font-weight: bolder;
+    margin-left:40px;
+  
+  }
+  
+  .reply-message-input{
+    border: 2px solid #313233;
+    background-color: #1a1a1b;
+    border-radius: 40px;
+    /* box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1); */
+    display: block;
+    font-size: 14px;
+    margin-bottom: 10px;
+    /* margin-left:35px; */
+    padding: 10px;
+    width: 100%;
+    color: aliceblue;
+  }
+  .comment-form-message{
+    border: 2px solid #313233;
+    background-color: #1a1a1b;
+    border-radius: 4px;
+    /* box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1); */
+    display: block;
+    font-size: 14px;
+    margin-bottom: 10px;
+    margin-left:35px;
+    padding: 10px;
+    width: 100%;
+    color: aliceblue;
+  }
+  
+  .comment-delete-btn:hover {
+    /* color: #d9d9d9; */
+  }
+  /* make the reply button round and don;t give a box around it */
+  .comment-reply-btn {
+    color: #7f8182;
+    cursor: pointer;
+    text-decoration: none;
+    margin-left: 40px;
+    border-radius: 50%;
+    border: none;
+    background-color:#1a1a1b;
+    font-weight: bold;
+  }
+  /* .comment-reply-btn {
+>>>>>>> Stashed changes
     color: #0079d3;
     cursor: pointer;
     text-decoration: none;
