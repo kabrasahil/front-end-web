@@ -32,6 +32,7 @@ import ComingSoon from "./comingSoon/ComingSoon";
 import { isPlainObject } from "@tiptap/react";
 import { SERVER_URL } from "./config";
 import Notification from "./notifications/Notification";
+import SubtopicHome from "./articles_home/subtopics/SubtopicHome";
 
 export const UserContext = React.createContext({});
 
@@ -73,12 +74,15 @@ function IgtsWebsite() {
         <Routes>
           <Route exact path="/blogs" element={<ArticlesHome />} />
           <Route exact path="/blogs/:id" element={<Article />} />
+          <Route exact path="/blogs/subtopic/:id" element={<SubtopicHome />} />
+
           <Route exact path="/login" element={<LoginPage />} />
           <Route path="/dashboard/*" element={<Dashboard />} />
           <Route exact path="/" element={<Navigate to="/home" />} />
           <Route exact path="/home" element={<Home />} />
           <Route exact path="/about" element={<AboutUs />} />
           <Route exact path="/igts" element={<AboutIgts />} />
+          <Route exact path="/editor/:blog_id" element={<Editor />} />
           <Route exact path="/editor" element={<Editor />} />
           <Route exact path="/privacy" element={<PrivacyPolicy />} />
           <Route exact path="/terms" element={<Terms />} />

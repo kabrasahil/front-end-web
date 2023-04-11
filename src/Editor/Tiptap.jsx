@@ -174,10 +174,10 @@ const MenuBar = ({ editor }) => {
   );
 };
 
-const TipTap = ({ setDesc }) => {
-  const [content, setContent] = useState("");
-  const [heading, setHeading] = useState("");
-  const [thumbnail, setThumbnail] = useState("");
+const TipTap = ({ setDesc, desc }) => {
+  const [content, setContent] = useState(desc.content);
+  const [heading, setHeading] = useState(desc.heading);
+  const [thumbnail, setThumbnail] = useState(desc.thumbnail);
 
   useEffect(() => {
     setDesc({
