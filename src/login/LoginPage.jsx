@@ -1,8 +1,21 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import LoginCard from "./LoginCard";
 import background from "./background.png";
+import { UserContext } from "../App";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const LoginPage = () => {
+  const { user, setUser } = useContext(UserContext);
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    console.log(user);
+    if (user) {
+      navigate("/dashboard");
+    }
+  }, [user]);
+
   return (
     <section
       className="bg-stone-900  bg-center bg-cover  min-h-screen"

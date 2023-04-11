@@ -16,7 +16,7 @@ const ArticleCard = ({ post }) => {
               className="mt-8 mr-4 h-14 w-14 lg:h-8 lg:w-8 rounded-full bg-gray-50"
             />
             <p className="mt-8 font-sans font-bold  text-2xl lg:text-sm   text-gray-400">
-              <a href={post.author.href}>
+              <a>
                 <span className="relative inset-0" />
                 {post.author.name}
               </a>
@@ -40,13 +40,17 @@ const ArticleCard = ({ post }) => {
             </p>
           </div>
 
-          <div className="mt-10 ">
-            <a
-              href={post.category.href}
-              className="relative text-lg lg:text-sm z-10 rounded-full bg-stone-600 py-1.5 px-3 font-medium text-gray-200 hover:bg-gray-100 z-40 relative"
-            >
-              {post.category.title}
-            </a>
+          <div className="mt-10 flex ">
+            {post.subtopics.map((el) => {
+              return (
+                <a
+                  href={el.href}
+                  className="relative text-lg lg:text-sm z-10 rounded-full bg-stone-600 py-1.5 px-3 font-medium text-gray-200 hover:bg-gray-100 z-40 relative mx-2 hover:text-gray-700"
+                >
+                  {el.title}
+                </a>
+              );
+            })}
           </div>
         </div>
 

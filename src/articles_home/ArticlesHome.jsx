@@ -1,6 +1,7 @@
 import React from "react";
 import ArticleList from "./AtricleList";
 import BlogHeading from "./BlogHeading";
+import Topics from "./Topics";
 
 const ArticlesHome = () => {
   return (
@@ -8,7 +9,10 @@ const ArticlesHome = () => {
       <div className="w-full bg-gray-900">
         <BlogHeading />
       </div>
-      <ArticleList />
+      <div className="flex px-4 pt-4">
+        <ArticleList />
+        <Topics />
+      </div>
     </div>
   );
 };

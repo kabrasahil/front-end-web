@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { SERVER_URL } from "../config";
 
 export default function HomeUpdates() {
-  const data = [
+  const [data, setData] = useState([
     {
       type: "Blog",
       description:
@@ -47,7 +48,38 @@ export default function HomeUpdates() {
       title: "Bored Apes Yatch Club New Sale Game",
       link: "#",
     },
-  ];
+  ]);
+
+  const fetchHighlights = async () => {
+    try {
+      const response = await fetch(`${SERVER_URL}/api/home/highlights`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        if (data.success) {
+          // Assuming setData is defined elsewhere
+          setData(data);
+        }
+      } else {
+        throw new Error("Network response was not ok.");
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  useEffect(() => {
+    fetchHighlights();
+  }, []);
+
+  useEffect(() => {
+    setData(data.slice(0, 5));
+  }, [data]);
 
   return (
     <div className="my-20">
@@ -65,9 +97,7 @@ export default function HomeUpdates() {
             >
               <img
                 alt="Developer"
-                src={
-                  "https://d1csarkz8obe9u.cloudfront.net/posterpreviews/tech-party-motion-poster-design-template-b63c68de5d78628b1350ae504aa4fc7d_screen.jpg?ts=1567082379"
-                }
+                src={image}
                 class="lg:absolute sm:relative md:relative  rounded-xl aspect-square overflow-hidden inset-0 h-full w-full  object-cover opacity-75 transition-opacity lg:group-hover:blur-sm lg:group-hover:opacity-40"
               />
 

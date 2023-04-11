@@ -1,8 +1,6 @@
-import "./topics.css";
-// import image as "./src/download.png";
-// import download image
-// import image from "./download.png";
-function topics() {
+import React from "react";
+
+function Topics() {
   return (
     //  make background color rgb(17 17 17)
     <div className="w-1/3 flex-auto bg-stone-900 flex-wrap px-1">
@@ -81,7 +79,7 @@ function topics() {
               href="#"
               className="inline-block px-4 py-1 rounded-2xl  bg-zinc-800 hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-white"
             >
-                Psychology
+              Psychology
             </a>
           </li>
           <li className="mr-2 py-2">
@@ -89,7 +87,7 @@ function topics() {
               href="#"
               className="inline-block px-4 py-1 rounded-2xl  bg-zinc-800 hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-white"
             >
-                Politics
+              Politics
             </a>
           </li>
           <li className="mr-2 py-2">
@@ -97,7 +95,7 @@ function topics() {
               href="#"
               className="inline-block px-4 py-1 rounded-2xl  bg-zinc-800 hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-white"
             >
-                History
+              History
             </a>
           </li>
           <li className="mr-2 py-2">
@@ -114,4 +112,4 @@ function topics() {
   );
 }
 
-export default topics;
+export default Topics;

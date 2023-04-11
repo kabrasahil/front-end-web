@@ -1,15 +1,15 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import logo from "./../home/assets/igts-white-logo.png";
+import { useNavigate } from "react-router-dom";
+import Notification from "../notifications/Notification";
+import { SERVER_URL } from "../config";
 const LoginCard = () => {
   const [hasAccount, setHasAccount] = useState(true);
 
   const [fname, setFname] = useState("");
   const [lname, setLname] = useState("");
   const [lnameEmpty, setLnameEmpty] = useState(false);
-
-  const [phone, setPhone] = useState("");
-  const [invalidPhone, setInvalidPhone] = useState(false);
 
   const [emailR, setEmailR] = useState("");
   const [emailL, setEmailL] = useState("");
@@ -22,9 +22,6 @@ const LoginCard = () => {
 
   const [confirmPassword, setConfirmPassword] = useState("");
   const [passDontMatch, setPassDontMatch] = useState(false);
-
-  const [organization, setOrgainization] = useState("");
-  const [organizationEmpty, setOrgainizationEmpty] = useState(false);
 
   const [termsAndConditions, setTermsAndCondition] = useState(false);
   const [termsAndConditionsUnchecked, setTermsAndConditionUnchecked] =
@@ -47,8 +44,176 @@ const LoginCard = () => {
       },
     },
   };
+
+  const navigate = useNavigate();
+
+  function validatePhoneNumber(phoneNumber) {
+    const regex = /^\d{10}$/; // regular expression to match 10 digits
+
+    return regex.test(phoneNumber);
+  }
+
+  function validateEmail(email) {
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // regular expression for email validation
+
+    return regex.test(email);
+  }
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    const response = await fetch(`${SERVER_URL}/api/login`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ emailL, passwordL }),
+    });
+
+    if (response.ok) {
+      const data = await response.json();
+      console.log(data);
+      if (data.success) {
+        navigate("/");
+      } else {
+        console.log("here");
+        setShowNotification([
+          ...showNotification,
+          {
+            type: "error",
+            message: "Username or password is incorrect",
+          },
+        ]);
+        setSignInFailed([true, "Username or password is incorrect"]);
+      }
+    } else {
+      console.log("here");
+      setShowNotification([
+        ...showNotification,
+        {
+          type: "error",
+          message: "Something went wrong",
+        },
+      ]);
+      setSignInFailed([true, "Something went wrong. Please try again later."]);
+    }
+  };
+
+  const [showNotification, setShowNotification] = useState([]);
+
+  const handleRegister = async (e) => {
+    e.preventDefault();
+
+    // Validate input fields
+    if (!lname) setLnameEmpty(true);
+    if (!validateEmail(emailR)) setInvalidEmail(true);
+    if (passwordR.length < 8) setInvalidPass(true);
+    if (passwordR !== confirmPassword) setPassDontMatch(true);
+    if (!privacyPolicy) setPrivacyPolicyUnchecked(true);
+    if (!termsAndConditions) setTermsAndConditionUnchecked(true);
+
+    if (
+      !(
+        lnameEmpty &&
+        invalidEmail &&
+        invalidPass &&
+        passDontMatch &&
+        privacyPolicyUnchecked &&
+        termsAndConditionsUnchecked
+      )
+    ) {
+      setSignUpFailed([true, "Please fill the required fields"]);
+      return;
+    }
+
+    // Send registration data to backend
+    const registerData = {
+      name: {
+        first_name: fname,
+        last_name: lname,
+      },
+      email: emailR,
+      password: passwordR,
+    };
+
+    try {
+      const response = await fetch(`${SERVER_URL}/api/register`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(registerData),
+      });
+      const data = await response.json();
+      if (data.success) {
+        // Registration successful
+        setHasAccount(true);
+        setShowNotification([
+          ...showNotification,
+          {
+            message: "Registration successful!",
+            type: "success",
+          },
+        ]);
+      } else if (data.success === false) {
+        // Registration failed
+        setSignUpFailed([true, data.message]);
+        setShowNotification([
+          ...showNotification,
+          {
+            message: data.message,
+            type: "error",
+          },
+        ]);
+      } else {
+        setSignUpFailed([
+          true,
+          "An error occurred while registering. Please try again later.",
+        ]);
+        setShowNotification([
+          ...showNotification,
+          {
+            message:
+              "An error occurred while registering. Please try again later.",
+            type: "error",
+          },
+        ]);
+      }
+    } catch (error) {
+      console.error("Error registering user:", error);
+      setShowNotification([
+        ...showNotification,
+        {
+          message:
+            "An error occurred while registering. Please try again later.",
+          type: "error",
+        },
+      ]);
+    }
+  };
+
+  const handleGLogin = async (e) => {
+    e.preventDefault();
+  };
+  const handleGRegister = async (e) => {
+    e.preventDefault();
+  };
+
+  useEffect(() => {
+    console.log("here");
+  }, [showNotification]);
+
+  console.log(showNotification);
   return (
     <motion.div animate={hasAccount ? "small" : "big"} variants={variants}>
+      <div className="fixed lg:top-32 sm:top-48 md:top-48 left-10">
+        {showNotification.map((el) => {
+          return (
+            <Notification
+              title={el.type}
+              message={el.message}
+              color={el.type}
+            />
+          );
+        })}
+      </div>
       <div
         className="lg:w-[650px] sm:w-[800px] md:w-[800px] bg-stone-900 rounded-lg lg:p-30 sm:p-10 md:p-10  flex flex-col justify-center lg:gap-y-2 sm:gap-y-10 md:gap-y-10"
         style={{
@@ -84,6 +249,7 @@ const LoginCard = () => {
             <button
               type="button"
               className="text-white  bg-blue-500 hover:bg-blue-600 focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg lg:text-base sm:text-3xl md:text-3xl px-5 lg:py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55 mr-2 mb-2 gap-x-3 w-full justify-center sm:py-5 md:py-5"
+              onClick={handleGLogin}
             >
               <svg
                 className="lg:w-4 lg:h-4 sm:w-8 sm:h-8 md:w-8 md:h-8 mr-2 -ml-1 "
@@ -133,11 +299,12 @@ const LoginCard = () => {
             <button
               type="button"
               className=" text-white bg-gradient-to-r font-medium rounded-lg lg:text-base lg:px-5 lg:py-2.5 sm:text-3xl md:text-3xl sm:py-5 md:py-5 text-center inline-flex items-center mr-2 mb-2 gap-x-3 w-full justify-center mt-5 bg-gradient-to-r  to-pink-500 from-blue-400 hover:to-pink-600 hover:from-blue-500"
+              onClick={handleLogin}
             >
               Sign In
             </button>
             {signInFailed[0] ? (
-              <span className="text-sm text-red-600">
+              <span className=" sm:text-2xl md:text-2xl lg:text-base text-red-600">
                 {" "}
                 *Sign in failed: {signInFailed[1]}
               </span>
@@ -153,6 +320,7 @@ const LoginCard = () => {
             <button
               type="button"
               className="text-white bg-blue-500 hover:bg-blue-600 focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg lg:lg:text-base sm:text-3xl md:text-3xl sm:text-3xl md:text-3xl px-5 lg:py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55 mr-2 mb-2 gap-x-3 w-full justify-center sm:py-5"
+              onClick={handleGRegister}
             >
               <svg
                 className="lg:w-4 lg:h-4 sm:w-8 sm:h-8 md:w-8 md:h-8 mr-2 -ml-1 "
@@ -205,21 +373,6 @@ const LoginCard = () => {
               </div>
             </div>
 
-            <div>
-              <input
-                type="tel"
-                className={`bg-stone-800  lg:p-3 sm:p-5 md:p-5 text-gray-400  focus:outline focus:outline-gray-600 lg:text-base sm:text-3xl md:text-3xl rounded-lg focus:0 block w-full p-2.5 ${
-                  invalidPhone
-                    ? "outline outline-1 outline-red-600 text-red-500"
-                    : ""
-                }`}
-                placeholder="Phone Number"
-                value={invalidPhone ? "*Invalid Phone Number" : phone}
-                onChange={(e) => setPhone(e.target.value)}
-                onClick={(e) => setInvalidPhone(false)}
-              />
-            </div>
-
             <div className="relative">
               <input
                 type="Email"
@@ -267,23 +420,6 @@ const LoginCard = () => {
                 }
                 onChange={(e) => setConfirmPassword(e.target.value)}
                 onClick={(e) => setPassDontMatch(false)}
-              />
-            </div>
-            <div className="relative flex gap-x-3">
-              <input
-                type="text"
-                name="organization"
-                className={`bg-stone-800  lg:p-3 sm:p-5 md:p-5  text-gray-400  focus:outline focus:outline-gray-600 lg:text-base sm:text-3xl md:text-3xl rounded-lg focus:0 block w-full p-2.5 ${
-                  organizationEmpty
-                    ? "outline outline-1 outline-red-600 text-red-500"
-                    : ""
-                }`}
-                placeholder="Organization / College"
-                value={
-                  organizationEmpty ? "*This is a required field" : organization
-                }
-                onChange={(e) => setOrgainization(e.target.value)}
-                onClick={(e) => setOrgainizationEmpty(false)}
               />
             </div>
 
@@ -355,11 +491,12 @@ const LoginCard = () => {
             <button
               type="button"
               className=" text-white bg-gradient-to-r   to-pink-500 from-blue-400 hover:to-pink-600 hover:from-blue-500 focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg lg:text-base lg:px-5 lg:py-2.5 sm:text-3xl md:text-3xl sm:py-5 md:py-5 text-center inline-flex items-center mr-2 mb-2 gap-x-3 w-full justify-center mt-5"
+              onClick={handleRegister}
             >
               Sign Up
             </button>
             {signUpFailed[0] ? (
-              <span className="text-red-600">
+              <span className="text-red-600 sm:text-2xl md:text-2xl lg:text-base">
                 *sign up failed: {signUpFailed[1]}
               </span>
             ) : (

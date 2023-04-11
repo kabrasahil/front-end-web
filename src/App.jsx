@@ -1,4 +1,5 @@
 import "./App.css";
+import React from "react";
 import Editor from "./Editor/Editor";
 // import Discussions from './article/comment-section/discussions/Discussions';
 import Terms from "./privacy and terms/terms";
@@ -24,13 +25,43 @@ import AboutUs from "./about/AboutUs";
 import AboutIgts from "./about/AboutIgts";
 import NotFound from "./notFound/NotFound";
 
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import ReactPlayer from "react-player";
 import LoadingScreen from "./loading_screen/LoadingScreen";
 import ComingSoon from "./comingSoon/ComingSoon";
 import { isPlainObject } from "@tiptap/react";
+import { SERVER_URL } from "./config";
+import Notification from "./notifications/Notification";
+
+export const UserContext = React.createContext({});
 
 function IgtsWebsite() {
+  const { user, setUser } = useContext(UserContext);
+
+  const fetchUser = async () => {
+    try {
+      const token = localStorage.getItem("jwt"); // retrieve JWT from localStorage
+      const response = await fetch(`${SERVER_URL}/api/user`, {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${token}`, // include JWT in the request header
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      const data = await response.json();
+      if (data.success) setUser(data);
+    } catch (error) {
+      console.error("Error fetching user data:", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchUser();
+  }, []);
+
   return (
     <Router>
       <div className="bg-stone-900 h-full">
@@ -38,6 +69,7 @@ function IgtsWebsite() {
           <Navbar />
         </section>
         {/* <Announcement /> */}
+
         <Routes>
           <Route exact path="/blogs" element={<ArticlesHome />} />
           <Route exact path="/blogs/:id" element={<Article />} />
@@ -68,9 +100,11 @@ const App = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 1000); // Change 3000 to the number of milliseconds you want to show the loading screen
+    window.addEventListener("load", (e) => {
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 1000);
+    }); // Change 3000 to the number of milliseconds you want to show the loading screen
   }, []);
 
   return (
