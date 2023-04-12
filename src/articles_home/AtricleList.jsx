@@ -92,9 +92,9 @@ const ArticleList = () => {
   }, []);
 
   return (
-    <div className=" ">
-      <div className="  md:mx-20 sm:mx-5">
-        <div className="mt-10 grid gap-y-14 w-fit justify-items-center">
+    <div className="w-full">
+      <div className="md:mx-19 sm:mx-5">
+        <div className=" mt-10 grid gap-y-14 justify-items-center">
           {posts.map((el) => {
             return <ArticleCard post={el} />;
           })}

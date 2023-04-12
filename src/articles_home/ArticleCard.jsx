@@ -62,7 +62,7 @@ const ArticleCard = ({ post }) => {
             <img
               src={post.thumbnail}
               alt=""
-              className=" bg-gray-50 h-full w-full aspect-square object-cover rounded-2xl overflow-hidden aspect-square"
+              className=" bg-gray-50 h-full w-full object-cover rounded-2xl overflow-hidden aspect-square"
             />
           </div>
         ) : (
