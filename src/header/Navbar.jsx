@@ -1,11 +1,14 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./Navbar.css";
 import { motion } from "framer-motion";
 import { MenuButton } from "./MenuButton";
 import logo from "./../home/assets/igts-white-logo.png";
 import { Link } from "react-router-dom";
+import { UserContext } from "../App";
 
 const Navbar = () => {
+  const { user, setUser } = useContext(UserContext);
+
   const links = [
     { name: "Blogs", to: "/blogs", id: 1 },
     { name: "Events", to: "/events", id: 3 },
@@ -110,32 +113,38 @@ const Navbar = () => {
             // variants={sideVariants}
             className="flex content-center h-10 my-auto ml-auto mr-10"
           >
-            <Link
-              to="#_"
-              class="relative inline-flex items-center justify-start inline-block px-5 py-3 overflow-hidden font-bold rounded-full group sm:hidden lg:inline-flex"
-            >
-              <span class="w-32 h-32 rotate-45 translate-x-12 -translate-y-2 absolute left-0 top-0 bg-red opacity-[3%]"></span>
-              <span class="absolute -top-2 left-0 w-72 h-72 transition-all duration-500 ease-in-out rotate-45 -translate-x-64 -translate-y-16 bg-gradient-to-r to-pink-300 to-pink-500 from-pink-700 opacity-100 group-hover:translate-x-0"></span>
+            {user ? (
+              <Link
+                href="/dashboard"
+                class="relative inline-flex items-center justify-start inline-block px-5 py-3 sm:px-10 md:px-10 sm:py-6 md:py-6 overflow-hidden font-bold rounded-full group"
+              >
+                <span class="w-32 h-32 rotate-45 translate-x-12 -translate-y-2 absolute left-0 top-0 bg-red opacity-[3%]"></span>
+                <span class="absolute top-5 -left-16 w-96 h-80 transition-all duration-500 ease-in-out rotate-45 -translate-x-64 -translate-y-16 bg-gradient-to-r to-blue-100 to-blue-100 from-blue-800 opacity-100 group-hover:translate-x-0"></span>
 
-              <span class="flex relative w-full text-left  transition-colors duration-200 ease-in-out group-hover:!text-gray-100">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={1.5}
-                  stroke="currentColor"
-                  className="w-6 h-6 mr-5 text-pink-400"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M11.25 4.5l7.5 7.5-7.5 7.5m-6-15l7.5 7.5-7.5 7.5"
-                  />
-                </svg>
-                <span className="text-gray-100">Get Started</span>
-              </span>
-              <span class="absolute inset-0 border-2 border-pink-500 rounded-full"></span>
-            </Link>
+                <span class="flex relative w-full text-left  transition-colors duration-200 ease-in-out group-hover:!text-gray-100">
+                  <span className="text-gray-100 sm:text-3xl md:text-3xl lg:text-base">
+                    user.name.lname
+                  </span>
+                </span>
+                <span class="absolute inset-0 border-2 border-blue-500 rounded-full"></span>
+              </Link>
+            ) : (
+              <Link
+                href="/login"
+                class="relative inline-flex items-center justify-start inline-block px-5 py-3 sm:px-10 md:px-10 sm:py-6 md:py-6 overflow-hidden font-bold rounded-full group"
+              >
+                <span class="w-32 h-32 rotate-45 translate-x-12 -translate-y-2 absolute left-0 top-0 bg-red opacity-[3%]"></span>
+                <span class="absolute top-5 -left-16 w-96 h-80 transition-all duration-500 ease-in-out rotate-45 -translate-x-64 -translate-y-16 bg-gradient-to-r to-pink-300 to-pink-500 from-pink-700 opacity-100 group-hover:translate-x-0"></span>
+
+                <span class="flex relative w-full text-left  transition-colors duration-200 ease-in-out group-hover:!text-gray-100">
+                  <span className="text-gray-100 sm:text-3xl md:text-3xl lg:text-base">
+                    Get Started
+                  </span>
+                </span>
+                <span class="absolute inset-0 border-2 border-pink-500 rounded-full"></span>
+              </Link>
+            )}
+
             <div
               className="flex flex-row content-center lg:hidden sm:block md:block cursor-pointer"
               onClick={() => {
