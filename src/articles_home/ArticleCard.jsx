@@ -5,13 +5,10 @@ const ArticleCard = ({ post }) => {
   console.log(post);
   return (
     <article
-<<<<<<< Updated upstream
-      key={post._id}
-      className="lg:w-3/4 flex article-card flex-col items-start justify-between pb-8 px-12 lg:px-10 sm:py-6 lg:py-10 rounded-xl bg-stone-900 "
-=======
+      
+      
       key={post.id}
       className="lg:w-5/6 flex article-card flex-col items-start justify-between pb-8 px-12 lg:px-10 sm:py-6 lg:py-10 rounded-xl bg-stone-900 "
->>>>>>> Stashed changes
     >
       <div className="flex flex-row">
         <div className="">
