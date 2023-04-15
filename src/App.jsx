@@ -38,14 +38,13 @@ export const UserContext = React.createContext({});
 
 function IgtsWebsite() {
   const { user, setUser } = useContext(UserContext);
-
   const fetchUser = async () => {
     try {
       const token = localStorage.getItem("jwt"); // retrieve JWT from localStorage
       const response = await fetch(`${SERVER_URL}/api/user`, {
         method: "GET",
         headers: {
-          Authorization: `Bearer ${token}`, // include JWT in the request header
+          Authorization: token, // include JWT in the request header
         },
       });
 
@@ -53,7 +52,9 @@ function IgtsWebsite() {
         throw new Error("Network response was not ok");
       }
       const data = await response.json();
-      if (data.success) setUser(data);
+      if (data.success) {
+        setUser(data._doc);
+      }
     } catch (error) {
       console.error("Error fetching user data:", error);
     }
@@ -62,6 +63,10 @@ function IgtsWebsite() {
   useEffect(() => {
     fetchUser();
   }, []);
+
+  useEffect(() => {
+    console.log(user);
+  }, [user]);
 
   return (
     <Router>
