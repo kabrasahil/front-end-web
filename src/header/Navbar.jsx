@@ -4,10 +4,12 @@ import { motion } from "framer-motion";
 import { MenuButton } from "./MenuButton";
 import logo from "./../home/assets/igts-white-logo.png";
 import { Link } from "react-router-dom";
-import { UserContext } from "../App";
+import { Context } from "../context/Context";
 
 const Navbar = () => {
-  const { user, setUser } = useContext(UserContext);
+  const user = useContext(Context);
+
+  console.log(user);
 
   const links = [
     { name: "Blogs", to: "/blogs", id: 1 },
@@ -122,8 +124,14 @@ const Navbar = () => {
                 <span class="absolute top-5 -left-16 w-96 h-80 transition-all duration-500 ease-in-out rotate-45 -translate-x-64 -translate-y-16 bg-gradient-to-r to-blue-100 to-blue-100 from-blue-800 opacity-100 group-hover:translate-x-0"></span>
 
                 <span class="flex relative w-full text-left  transition-colors duration-200 ease-in-out group-hover:!text-gray-100">
-                  <span className="text-gray-100 sm:text-3xl md:text-3xl lg:text-base">
-                    user.name.lname
+                  <span className="text-gray-100 sm:text-3xl md:text-3xl lg:text-base flex items-end">
+                    <img
+                      src={user.pfp_url}
+                      alt=""
+                      srcset=""
+                      className="h-8 w-8 rounded-full object-cover border-2 border-pink-300"
+                    />{" "}
+                    <div className="ml-2">{user.name.last_name}</div>
                   </span>
                 </span>
                 <span class="absolute inset-0 border-2 border-blue-500 rounded-full"></span>

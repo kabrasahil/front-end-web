@@ -1,39 +1,211 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, Navigate, Route, Routes, useLocation } from "react-router-dom";
+import { SERVER_URL } from "../config";
+import { Context } from "../context/Context";
+import MinimalDialogBox from "../notifications/MinimalDialogBox";
+import Notification from "../notifications/Notification";
 
-const EditProfile = ({ user }) => {
-  const [fname, setFname] = useState("");
-  const [lname, setLname] = useState("");
+const EditProfile = () => {
+  const user = useContext(Context);
+
+  function validateEmail(email) {
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // regular expression for email validation
+
+    return regex.test(email);
+  }
+  function validatePhone(phoneNumber) {
+    // Define the regex pattern for phone number validation
+    const pattern = /^\+?(\d{2})?\d{10}$/;
+
+    // Use the pattern to match the phone number
+    const match = pattern.test(phoneNumber);
+
+    // If there's a match, the phone number is valid
+    return match;
+  }
+
+  console.log(user);
+
+  const [fname, setFname] = useState(
+    user ? (user.name.first_name ? user.name.first_name : "") : ""
+  );
+  const [lname, setLname] = useState(user ? user.name.last_name : "");
   const [lnameEmpty, setLnameEmpty] = useState(false);
 
-  const [phone, setPhone] = useState("");
+  const [phone, setPhone] = useState(
+    user ? (user.phone ? user.phone : "") : ""
+  );
   const [invalidPhone, setInvalidPhone] = useState(false);
 
-  const [emailR, setEmailR] = useState("");
+  const [emailR, setEmailR] = useState(
+    user ? (user.email ? user.email : "") : ""
+  );
   const [invalidEmail, setInvalidEmail] = useState(false);
 
-  const [organization, setOrgainization] = useState("");
+  const [organization, setOrgainization] = useState(
+    user ? (user.organization ? user.organization : "") : ""
+  );
   const [organizationEmpty, setOrgainizationEmpty] = useState(false);
 
   useEffect(() => {
-    console.log(user);
-    if (!user) return;
-    setFname(user.firstName);
-    setEmailR(user.email);
-    setLname(user.lastName);
-    setPhone(user.phoneNumber);
-    setOrgainization(user.organization);
+    if (user) {
+      setFname(user.name.first_name ? user.name.first_name : "");
+      setLname(user.name.last_name ? user.name.last_name : "");
+      setPhone(user.phone ? user.phone : "");
+      setEmailR(user.email ? user.email : "");
+      setOrgainization(user.organization ? user.organization : "");
+    }
   }, [user]);
+
+  const [error, setError] = useState([false, ""]);
+  const [notification, setNotification] = useState([]);
+
+  const changePfp = async (e) => {
+    e.preventDefault();
+    setNotification([
+      ...notification,
+      { type: "success", message: "Uploading profile picture" },
+    ]);
+    if (
+      !e.target.files[0].type.endsWith("jpeg") &&
+      !e.target.files[0].type.endsWith("png")
+    ) {
+      setNotification([
+        ...notification,
+        { type: "error", message: "Only upload valid images" },
+      ]);
+    }
+    console.log("here");
+    var reader = new FileReader();
+    reader.readAsDataURL(e.target.files[0]);
+    reader.onload = async (e) => {
+      const uploadData = reader.result;
+      console.log("here223");
+      try {
+        const token = localStorage.getItem("jwt");
+        const response = await fetch(`${SERVER_URL}/api/user/editprofilepic`, {
+          method: "PUT",
+          headers: {
+            Authorization: token, // include JWT in the request header
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ data: uploadData }),
+        });
+        if (response.ok) {
+          const data = await response.json();
+          if (data.success) {
+            window.location.reload();
+          } else {
+            setNotification([
+              ...notification,
+              {
+                type: "error",
+                message: data.message,
+              },
+            ]);
+          }
+        }
+      } catch (error) {
+        console.log(`Error : ${error}`);
+        setNotification([...notification, { type: "error", message: error }]);
+      }
+    };
+  };
+  const updateProfile = async (e) => {
+    e.preventDefault();
+
+    const updatedData = {
+      name: {
+        first_name: fname,
+        last_name: lname,
+      },
+      email: emailR,
+      phone: phone,
+      organization: organization,
+    };
+
+    let flag = false;
+
+    if (!organization || organization.length === 0) {
+      setOrgainizationEmpty(true);
+      flag = true;
+    }
+    if (!lname || lname.length === 0) {
+      setLnameEmpty(true);
+      flag = true;
+    }
+    if (!validateEmail(emailR)) {
+      setInvalidEmail(true);
+      flag = true;
+    }
+    if (!validatePhone(phone)) {
+      console.log("here");
+      setInvalidPhone(true);
+      flag = true;
+    }
+
+    if (flag) {
+      setError([true, "Fill All Valid Fields"]);
+      return;
+    }
+    setError([false, ""]);
+
+    console.log(updatedData);
+
+    // write a request to backend with the updated data
+    try {
+      console.log("body", JSON.stringify(updatedData));
+
+      const token = localStorage.getItem("jwt");
+      const response = await fetch(`${SERVER_URL}/api/user/editprofile`, {
+        method: "PUT",
+        headers: {
+          Authorization: token, // include JWT in the request header
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(updatedData),
+      });
+      if (response.ok) {
+        const data = await response.json();
+        if (data.success) {
+          window.location.reload();
+        } else {
+          setNotification([
+            ...notification,
+            {
+              type: "error",
+              message: data.message,
+            },
+          ]);
+        }
+      }
+    } catch (error) {
+      console.log(`Error : ${error}`);
+      setNotification([...notification, { type: "error", message: error }]);
+    }
+  };
 
   return (
     <>
+      <div className="fixed lg:top-32 sm:top-48 md:top-48 left-10">
+        {notification.map((el) => {
+          return (
+            <Notification
+              title={el.type}
+              message={el.message}
+              color={el.type}
+            />
+          );
+        })}
+      </div>
+
       <form
         action=""
         className="lg:flex sm:flex md:flex flex-row mb-20  gap-x-10 !items-center sm:justify-center md:justify-center lg:justify-start lg:ml-20 sm:ml-0 md:ml-0"
       >
         <img
           class="sm:w-56 sm:h-56 md:w-56 md:h-56 lg:h-32 lg:w-32 object-cover p-1 rounded-full ring-2 ring-pink-300 "
-          src="https://media.istockphoto.com/id/877076656/vector/panda-icon-vector.jpg?s=612x612&w=0&k=20&c=x9bRZQ22kYi5uLjYNwvZjEzR-ClGed8ESc8Cj9_PAdU="
+          src={user ? user.pfp_url : ""}
           alt="Bordered avatar"
         ></img>
         <button
@@ -50,9 +222,7 @@ const EditProfile = ({ user }) => {
           accept="image/*"
           class="hidden"
           id="update-profile-pic"
-          onChange={(e) => {
-            // submit form
-          }}
+          onChange={changePfp}
         />{" "}
       </form>
       <form
@@ -91,7 +261,11 @@ const EditProfile = ({ user }) => {
               placeholder={`Last Name`}
               value={lnameEmpty ? `*This is a required field` : lname}
               onChange={(e) => setLname(e.target.value)}
-              onClick={() => {
+              onClick={(e) => {
+                if (lnameEmpty) {
+                  setLname("");
+                }
+
                 setLnameEmpty(false);
               }}
             />
@@ -114,7 +288,10 @@ const EditProfile = ({ user }) => {
             placeholder="Phone Number"
             value={invalidPhone ? "*Invalid Phone Number" : phone}
             onChange={(e) => setPhone(e.target.value)}
-            onClick={(e) => setInvalidPhone(false)}
+            onClick={(e) => {
+              if (invalidPhone) setPhone("");
+              setInvalidPhone(false);
+            }}
           />
         </div>
 
@@ -135,6 +312,7 @@ const EditProfile = ({ user }) => {
             value={invalidEmail ? "*Invalid Email" : emailR}
             onChange={(e) => setEmailR(e.target.value)}
             onClick={(e) => {
+              if (invalidEmail) setEmailR("");
               setInvalidEmail(false);
             }}
           />
@@ -183,17 +361,29 @@ const EditProfile = ({ user }) => {
               organizationEmpty ? "*This is a required field" : organization
             }
             onChange={(e) => setOrgainization(e.target.value)}
-            onClick={(e) => setOrgainizationEmpty(false)}
+            onClick={(e) => {
+              if (organizationEmpty) setOrgainization("");
+              setOrgainizationEmpty(false);
+            }}
           />
         </div>
         <div className="flex justify-end">
           <button
             type="button"
             class="text-slate-100 rounded-2xl bg-gradient-to-r from-blue-400 to-pink-400 font-bold rounded-lg sm:text-3xl sm:px-10 sm:py-5 md:text-3xl md:px-10 md:py-5 lg:text-base lg:px-5 lg:py-2.5 mb-10 text-center h-full rounded-xl"
+            onClick={updateProfile}
           >
             Update Profile
           </button>
         </div>
+        {error[0] ? (
+          <span className=" sm:text-2xl md:text-2xl lg:text-base text-red-600">
+            {" "}
+            *update attempt failed: {error[1]}
+          </span>
+        ) : (
+          <></>
+        )}
       </form>
     </>
   );
@@ -210,9 +400,69 @@ const ChangePassword = () => {
   const [passDontMatch, setPassDontMatch] = useState(false);
 
   const [showPassword, setShowPassword] = useState(false);
+  const [notification, setNotification] = useState([]);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (oldPass.length < 8) setOldPassWrong(true);
+    if (newPass.length < 8) setInvalidPass(true);
+    if (newPass != confirmPass) setPassDontMatch(true);
+
+    if (oldPass.length < 8 || newPass != confirmPass || newPass.length < 8) {
+      return;
+    }
+
+    try {
+      const token = localStorage.getItem("jwt");
+      const response = await fetch(`${SERVER_URL}/api/user/editpassword`, {
+        method: "POST",
+        headers: {
+          Authorization: token, // include JWT in the request header
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ old_pass: oldPass, new_pass: newPass }),
+      });
+      if (response.ok) {
+        const data = await response.json();
+        if (data.success) {
+          setNotification([
+            ...notification,
+            { type: "success", message: data.message },
+          ]);
+        } else {
+          setNotification([
+            ...notification,
+            {
+              type: "error",
+              message: data.message,
+            },
+          ]);
+        }
+      }
+
+      setOldPass("");
+      setConfirmPass("");
+      setNewPass("");
+    } catch (error) {
+      console.log(`Error : ${error}`);
+      setNotification([...notification, { type: "error", message: error }]);
+    }
+  };
 
   return (
     <div>
+      <div className="fixed lg:top-32 sm:top-48 md:top-48 left-10">
+        {notification.map((el) => {
+          return (
+            <Notification
+              title={el.type}
+              message={el.message}
+              color={el.type}
+            />
+          );
+        })}
+      </div>
+
       <div className="flex items-center gap-x-5 w-full  px-20">
         <form
           action=""
@@ -239,7 +489,7 @@ const ChangePassword = () => {
               onChange={(e) => {
                 setOldPass(e.target.value);
               }}
-              onClick={() => setOldPass(false)}
+              onClick={() => setOldPassWrong(false)}
             />
           </div>
           <div className="flex flex-col w-full">
@@ -313,6 +563,7 @@ const ChangePassword = () => {
             <button
               type="button"
               class="text-slate-100 rounded-2xl bg-gradient-to-r from-blue-400 to-pink-400 font-bold rounded-lg sm:text-3xl sm:px-10 sm:py-5 md:text-3xl md:px-10 md:py-5 lg:text-base lg:px-5 lg:py-2.5 text-center h-full rounded-xl !my-auto"
+              onClick={handleSubmit}
             >
               Update Password
             </button>
@@ -324,8 +575,76 @@ const ChangePassword = () => {
 };
 
 const DeleteAccount = () => {
+  const [dialogBox, setDialogBox] = useState(false);
+
+  const handle = (flag) => {
+    if (!flag) {
+      setDialogBox(false);
+    } else {
+      handleSubmit();
+    }
+  };
+
+  const [notification, setNotification] = useState([]);
+
+  const handleSubmit = async () => {
+    console.log('here');
+    try {
+      const token = localStorage.getItem("jwt");
+      const response = await fetch(`${SERVER_URL}/api/user/delete`, {
+        method: "POST",
+        headers: {
+          Authorization: token, // include JWT in the request header
+          "Content-Type": "application/json",
+        },
+      });
+      if (response.ok) {
+        const data = await response.json();
+        if (data.success) {
+          window.location.href("/");
+        } else {
+          setNotification([
+            ...notification,
+            {
+              type: "error",
+              message: data.message,
+            },
+          ]);
+        }
+      }
+    } catch (error) {
+      console.log(`Error : ${error}`);
+      setNotification([...notification, { type: "error", message: error }]);
+    }
+  };
+
   return (
     <div class="rounded-lg mx-20 mt-20 flex flex-col  justify-center items-center">
+      {dialogBox ? (
+        <>
+          <MinimalDialogBox
+            handleSubmit={handle}
+            prompt={
+              "Are you certain that you wish to delete your account? Please note that once this action is taken, there will be no option to reverse it."
+            }
+          />
+        </>
+      ) : (
+        <></>
+      )}
+
+      <div className="fixed lg:top-32 sm:top-48 md:top-48 left-10">
+        {notification.map((el) => {
+          return (
+            <Notification
+              title={el.type}
+              message={el.message}
+              color={el.type}
+            />
+          );
+        })}
+      </div>
+
       <p class="text-gray-200 lg:text-lg sm:text-4xl md:text-4xl sm:leading-loose md:leading-loose mb-4 p-4">
         {" "}
         Before proceeding, please be aware that deleting your account is a
@@ -335,6 +654,9 @@ const DeleteAccount = () => {
       <button
         type="button"
         class="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br  font-medium rounded-lg text-sm lg:px-5 lg:py-2.5 sm:px-10 md:py-5 sm:px-10 md:py-5 text-center mr-2 mb-2 ml-6 w-max lg:text-lg md:text-4xl sm:text-4xl lg:my-4 md:my-6 sm:my-6"
+        onClick={() => {
+          setDialogBox(true);
+        }}
       >
         Delete Account
       </button>
@@ -343,20 +665,13 @@ const DeleteAccount = () => {
 };
 
 const MyProfile = () => {
-  const [user, setUser] = useState({
-    firstName: "John",
-    lastName: "Doe",
-    phoneNumber: "555-1234",
-    email: "johndoe@example.com",
-    organizationName: "Acme Corporation",
-  });
-
+  const user = useContext(Context);
   const [links, setLinks] = useState([
     {
       title: "Edit Profile",
       link: "/dashboard/profile/edit",
       active: false,
-      component: <EditProfile user={user} />,
+      component: <EditProfile />,
     },
     {
       title: "Password",
@@ -373,7 +688,7 @@ const MyProfile = () => {
   ]);
 
   const currentPath = useLocation().pathname;
-  let toRender = <EditProfile user={user} />;
+  let toRender = <EditProfile />;
 
   const newLinks = links;
 
@@ -419,7 +734,9 @@ const MyProfile = () => {
       <div className="lg:ml-24 lg:!mt-14 lg:!mb-12 sm:my-24 md:my-24 sm:text-center md:text-center lg:text-left">
         <p>
           <span className="text-gray-400 lg:text-xl sm:text-5xl md:text-5xl">
-            {user.firstName + " " + user.lastName + " /"}
+            {user
+              ? user.name.first_name + " " + user.name.last_name + " /"
+              : ""}
           </span>
           <span className="text-gray-200 lg:text-3xl sm:text-7xl md:text-7xl ml-4">
             {links.find((x) => x.link == currentPath)

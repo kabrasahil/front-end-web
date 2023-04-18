@@ -1,12 +1,13 @@
 import React, { useContext } from "react";
 import { UserContext } from "../App";
+import { Context } from "../context/Context";
 import logo from "./assets/igts-white-logo.png";
 import "./Home.css";
 
 const IntroHome = () => {
   console.log(logo);
 
-  const { user, setUser } = useContext(UserContext);
+  const user = useContext(Context);
   return (
     <div
       className="flex flex-col items-center justify-center lg:h-80 sm:h-screen md:h-screen md:gap-y-16 sm:gap-y-16"
@@ -37,8 +38,8 @@ const IntroHome = () => {
           href="/dashboard"
           class="mt-10 relative inline-flex items-center justify-start inline-block px-5 py-3 sm:px-10 md:px-10 sm:py-6 md:py-6 overflow-hidden font-bold rounded-full group"
         >
-          <span class="w-32 h-32 rotate-45 translate-x-12 -translate-y-2 absolute left-0 top-0 bg-red opacity-[3%]"></span>
-          <span class="absolute top-5 -left-16 w-96 h-80 transition-all duration-500 ease-in-out rotate-45 -translate-x-64 -translate-y-16 bg-gradient-to-r to-blue-100 to-blue-100 from-blue-800 opacity-100 group-hover:translate-x-0"></span>
+          <span class="w-40 h-32 rotate-45 translate-x-12 -translate-y-2 absolute left-0 top-0 bg-red opacity-[3%]"></span>
+          <span class="absolute top-2 -left-16 w-96 h-80 transition-all duration-500 ease-in-out rotate-45 -translate-x-64 -translate-y-16 bg-gradient-to-r to-blue-100 to-blue-100 from-blue-800 opacity-100 group-hover:translate-x-0"></span>
 
           <span class="flex relative w-full text-left  transition-colors duration-200 ease-in-out group-hover:!text-gray-100">
             <svg

@@ -174,19 +174,14 @@ const MenuBar = ({ editor }) => {
   );
 };
 
-const TipTap = ({ setDesc, desc }) => {
-  const [content, setContent] = useState(desc.content);
-  const [heading, setHeading] = useState(desc.heading);
-  const [thumbnail, setThumbnail] = useState(desc.thumbnail);
-
-  useEffect(() => {
-    setDesc({
-      heading: `<h1>${heading}</h1>`,
-      content,
-      thumbnail: '<img src="' + thumbnail + '" alt="check"><hr>',
-    });
-  }, [content, heading, thumbnail]);
-
+const TipTap = ({
+  content,
+  thumbnail,
+  heading,
+  setContent,
+  setThumbnail,
+  setHeading,
+}) => {
   const editor = useEditor({
     extensions: [
       Document,
@@ -209,8 +204,7 @@ const TipTap = ({ setDesc, desc }) => {
       }),
       Link,
     ],
-    content: `
-    `,
+    content: "",
     editorProps: {
       attributes: {
         class:
@@ -222,6 +216,11 @@ const TipTap = ({ setDesc, desc }) => {
       setContent(html);
     },
   });
+
+  useEffect(() => {
+    console.log("content", content);
+    if (editor) editor.commands.setContent(content);
+  }, [editor, content]);
 
   return (
     <div className="w-full h-full bg-white">

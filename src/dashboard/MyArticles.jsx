@@ -37,7 +37,13 @@ export default function Dashboard_MyArticles() {
           </span>
         </p>
       </div>
-      <button className="text-slate-100 my-8 py-3 px-7 rounded-2xl bg-gradient-to-r from-blue-400 to-pink-400">
+      <button
+        className="text-slate-100 my-8 py-3 px-7 rounded-2xl bg-gradient-to-r from-blue-400 to-pink-400"
+        onClick={(e) => {
+          console.log("here");
+          window.location.href = "/editor";
+        }}
+      >
         Create New Article
       </button>
 
@@ -60,22 +66,58 @@ export default function Dashboard_MyArticles() {
         </div>
 
         <div className="text-slate-100 my-5">
-          {data.map((d) => {
+          {data.map((d, i) => {
             return (
               <div
-                key={d.id}
+                key={i}
                 className="lg:px-10 md:px-10 px-5 items-center my-5 bg-stone-800 rounded-2xl h-12 flex justify-between hover:bg-stone-700"
               >
                 <button>
-                  <span className="mr-2 lg:mr-5 md:mr-3">{d.id}.</span>
+                  <span className="mr-2 lg:mr-5 md:mr-3">{i + 1}.</span>
                   {d.title}
                 </button>
                 <p className="text-slate-400">
-                  {moment.utc(d.datetime).local().startOf("seconds").fromNow()}
+                  {moment.utc(d.createdAt).local().startOf("seconds").fromNow()}
                 </p>
-                <div className="flex flex-row gap-5 text-slate-200 ">
-                  <i className="fa-solid fa-thumbs-up hover:text-stone-100" />
-                  <i className="fa-solid fa-arrow-up-right-dots hover:text-stone-100" />
+                <div className="flex flex-row gap-5 text-slate-200">
+                  <div className="relative">
+                    <i
+                      className="fa-solid fa-thumbs-up hover:text-stone-100 !cursor-pointer"
+                      onMouseEnter={(e) => {
+                        document.getElementById("likes-" + i).style.display =
+                          "block";
+                      }}
+                      onMouseLeave={(e) => {
+                        document.getElementById("likes-" + i).style.display =
+                          "none";
+                      }}
+                    />
+                    <span
+                      id={`likes-${i}`}
+                      className="absolute top-6 -left-5 p-4 text-gray-300 bg-stone-500 text-xs font-bold rounded-lg hidden "
+                    >
+                      {d.likes} likes
+                    </span>
+                  </div>
+                  <div className="relative">
+                    <i
+                      className="fa-solid fa-arrow-up-right-dots hover:text-stone-100  cursor-pointer"
+                      onMouseEnter={(e) => {
+                        document.getElementById("views-" + i).style.display =
+                          "block";
+                      }}
+                      onMouseLeave={(e) => {
+                        document.getElementById("views-" + i).style.display =
+                          "none";
+                      }}
+                    />
+                    <span
+                      className="absolute top-6 -left-5 p-4 text-gray-300 bg-stone-600 text-xs font-bold rounded-lg hidden"
+                      id={`views-${i}`}
+                    >
+                      {d.views} views
+                    </span>
+                  </div>
                 </div>
               </div>
             );

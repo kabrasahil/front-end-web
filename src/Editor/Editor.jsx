@@ -6,10 +6,12 @@ import DOMPurify from "dompurify";
 import { useNavigate, useParams } from "react-router-dom";
 import { SERVER_URL } from "../config";
 import { UserContext } from "../App";
+import DialogBox from "./DialogBox";
 
 function Editor() {
-  const [desc, setDesc] = useState({ heading: "", thumbnail: "", content: "" });
-
+  const [content, setContent] = useState("");
+  const [heading, setHeading] = useState("");
+  const [thumbnail, setThumbnail] = useState("");
   // possible scenerios
 
   // 1. new article editor empty useParams
@@ -17,36 +19,39 @@ function Editor() {
   // 2. old draft editor non empty useParams
 
   const blog_id = useParams().blog_id;
-  const { user, setUser } = useContext(UserContext);
+  const user = useContext(UserContext);
 
   const navigate = useNavigate();
   useEffect(() => {
-    if (
-      !user ||
-      !user.role ||
-      user.role !== "ADMIN" ||
-      user.role !== "EDITOR"
-    ) {
-      navigate("/404");
+    if (user && user.role) {
+      console.log("here user - ", user);
+      if (user.role !== "ADMIN" || user.role !== "EDITOR") {
+        console.log(user.role);
+        navigate("/404");
+      }
     }
   }, [user]);
 
   const fetchDraft = async () => {
-    const response = fetch(`${SERVER_URL}/api/blog/${blog_id}`, {
+    const token = localStorage.getItem("jwt");
+    const response = await fetch(`${SERVER_URL}/api/blog/${blog_id}/draft`, {
       method: "GET",
       headers: {
+        Authorization: token,
         "Content-Type": "application/json",
       },
     });
 
     if (response.ok) {
       const data = await response.json();
+      console.log("blog", data);
       if (data.success === true) {
-        setDesc({
-          heading: data.title,
-          thumbnail: data.thumbnail,
-          content: data.content,
-        });
+        setContent(data._doc.content);
+        setHeading(data._doc.title);
+        setThumbnail(data._doc.thumbnail);
+        setSubtopics(data._doc.subtopics);
+      } else {
+        navigate("/404");
       }
     }
   };
@@ -55,22 +60,116 @@ function Editor() {
     if (blog_id) fetchDraft();
   }, []);
 
+  const [saveDialogBox, setSaveDialogBox] = useState(false);
+  const [submitDialogBox, setSubmitDialogBox] = useState(false);
+
+  const handleSave = async () => {
+    setSaveDialogBox(true);
+  };
+
+  const handleSubmit = async () => {
+    setSubmitDialogBox(true);
+  };
 
   // send requests to backend
-  const onSave = async () => {};
+  const onSave = async (flag) => {
+    if (flag === false) {
+      setSaveDialogBox(false);
+    } else {
+      const blogData = {
+        subtopics,
+        content,
+        title: heading,
+        thumbnail,
+      };
+      if (blog_id) blogData.blog_id = blog_id;
+      const token = localStorage.getItem("jwt");
+      const response = await fetch(`${SERVER_URL}/api/editor/save`, {
+        method: "POST",
+        headers: {
+          Authorization: token, // include JWT in the request header
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(blogData),
+      });
+      if (response.ok) {
+        const data = await response.json();
+        if (data.success) {
+          window.location.href = "/editor/" + data._doc._id;
+        }
+      }
+    }
+  };
 
-  const onSubmit = async () => {};
-
+  const onSubmit = async (flag) => {
+    if (flag === false) {
+      setSubmitDialogBox(false);
+    } else {
+      const blogData = {
+        subtopics,
+        content,
+        title: heading,
+        thumbnail,
+      };
+      if (blog_id) blogData.blog_id = blog_id;
+      const token = localStorage.getItem("jwt");
+      const response = await fetch(`${SERVER_URL}/api/editor/publish`, {
+        method: "POST",
+        headers: {
+          Authorization: token, // include JWT in the request header
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(blogData),
+      });
+      if (response.ok) {
+        const data = await response.json();
+        if (data.success) {
+          window.location.href = "/blogs/" + data._doc._id;
+        }
+      }
+    }
+  };
+  const [subtopics, setSubtopics] = useState([]);
   return (
     <div className="!h-max">
+      {saveDialogBox ? (
+        <>
+          <DialogBox
+            subtopics={subtopics}
+            setSubtopics={setSubtopics}
+            handleSubmit={onSave}
+          />
+        </>
+      ) : (
+        <></>
+      )}
+      {submitDialogBox ? (
+        <>
+          <DialogBox
+            handleSubmit={onSubmit}
+            subtopics={subtopics}
+            setSubtopics={setSubtopics}
+          />
+        </>
+      ) : (
+        <></>
+      )}
+
       <div className="mt-16 flex flex-row h-full  min-h-[800px] w-full">
-        <TipTap setDesc={setDesc} desc={desc} />
+        <TipTap
+          setContent={setContent}
+          content={content}
+          heading={heading}
+          setHeading={setHeading}
+          thumbnail={thumbnail}
+          setThumbnail={setThumbnail}
+        />
         <div className="flex justify-center gap-7 w-full h-full">
           <div
             className="!w-full !h-full m-10 sm:mx-0  prose-h1:font-sans rounded-xl dark:bg-stone-900 shadow-[0_0_60px_20px_rgb(0,0,0,0.22)] p-10 pt-0 prose prose-stone prose-headings:!text-white dark:prose-invert lg:prose-xl prose-img:mx-auto prose-img:rounded-xl prose-a:text-indigo-600 hover:prose-a:text-indigo-400 editor-output"
             dangerouslySetInnerHTML={{
               __html: DOMPurify.sanitize(
-                desc.heading + desc.thumbnail + desc.content
+                `<h1>${heading}</h1>` + `<img src="${thumbnail}" />` + content
               ),
             }}
           ></div>
@@ -80,12 +179,14 @@ function Editor() {
         <button
           type="button"
           class="text-white bg-gray-600 hover:bg-gray-700 px-10 py-2 rounded-xl font-extrabold m-4 w-1/3 text-center justify-center"
+          onClick={handleSave}
         >
           Save
         </button>
         <button
           type="button"
           class="text-white bg-green-600 hover:bg-green-700 px-10 py-2 rounded-xl font-extrabold m-4 w-1/3 text-center justify-center"
+          onClick={handleSubmit}
         >
           Submit
         </button>{" "}

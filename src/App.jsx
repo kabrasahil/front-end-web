@@ -33,11 +33,12 @@ import { isPlainObject } from "@tiptap/react";
 import { SERVER_URL } from "./config";
 import Notification from "./notifications/Notification";
 import SubtopicHome from "./articles_home/subtopics/SubtopicHome";
+import { Context } from "./context/Context";
 
 export const UserContext = React.createContext({});
 
 function IgtsWebsite() {
-  const { user, setUser } = useContext(UserContext);
+  const [user, setUser] = useState();
   const fetchUser = async () => {
     try {
       const token = localStorage.getItem("jwt"); // retrieve JWT from localStorage
@@ -71,35 +72,41 @@ function IgtsWebsite() {
   return (
     <Router>
       <div className="bg-stone-900 h-full">
-        <section className="">
-          <Navbar />
-        </section>
-        {/* <Announcement /> */}
+        <Context.Provider value={user}>
+          <section className="">
+            <Navbar />
+          </section>
+          {/* <Announcement /> */}
 
-        <Routes>
-          <Route exact path="/blogs" element={<ArticlesHome />} />
-          <Route exact path="/blogs/:id" element={<Article />} />
-          <Route exact path="/blogs/subtopic/:id" element={<SubtopicHome />} />
+          <Routes>
+            <Route exact path="/blogs" element={<ArticlesHome />} />
+            <Route exact path="/blogs/:id" element={<Article />} />
+            <Route
+              exact
+              path="/blogs/subtopic/:id"
+              element={<SubtopicHome />}
+            />
 
-          <Route exact path="/login" element={<LoginPage />} />
-          <Route path="/dashboard/*" element={<Dashboard />} />
-          <Route exact path="/" element={<Navigate to="/home" />} />
-          <Route exact path="/home" element={<Home />} />
-          <Route exact path="/about" element={<AboutUs />} />
-          <Route exact path="/igts" element={<AboutIgts />} />
-          <Route exact path="/editor/:blog_id" element={<Editor />} />
-          <Route exact path="/editor" element={<Editor />} />
-          <Route exact path="/privacy" element={<PrivacyPolicy />} />
-          <Route exact path="/terms" element={<Terms />} />
+            <Route exact path="/login" element={<LoginPage />} />
+            <Route path="/dashboard/*" element={<Dashboard />} />
+            <Route exact path="/" element={<Navigate to="/home" />} />
+            <Route exact path="/home" element={<Home />} />
+            <Route exact path="/about" element={<AboutUs />} />
+            <Route exact path="/igts" element={<AboutIgts />} />
+            <Route exact path="/editor/:blog_id" element={<Editor />} />
+            <Route exact path="/editor" element={<Editor />} />
+            <Route exact path="/privacy" element={<PrivacyPolicy />} />
+            <Route exact path="/terms" element={<Terms />} />
 
-          <Route exact path="/games" element={<ComingSoon />} />
-          <Route exact path="/events" element={<ComingSoon />} />
-          <Route exact path="/merchandise" element={<ComingSoon />} />
-          <Route path="/*" element={<NotFound />} />
-        </Routes>
-        <section className="">
-          <Footer />
-        </section>
+            <Route exact path="/games" element={<ComingSoon />} />
+            <Route exact path="/events" element={<ComingSoon />} />
+            <Route exact path="/merchandise" element={<ComingSoon />} />
+            <Route path="/*" element={<NotFound />} />
+          </Routes>
+          <section className="">
+            <Footer />
+          </section>
+        </Context.Provider>
       </div>
     </Router>
   );
