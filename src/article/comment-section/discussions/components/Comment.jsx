@@ -1,36 +1,105 @@
 import React, { useState } from "react";
-
+import { useParams } from "react-router-dom";
+import { SERVER_URL } from "../../../../config";
 const Comment = ({
   author,
   message,
   image,
   score,
-  onDelete,
-  onReply,
   isReply,
+  comment_id,
+  parent_id,
+  isUserCommenter,
+  isUserVoted,
+  userVote,
+  onReply,
+  fetchComments,
 }) => {
-  const [count, setCount] = useState(score);
-  const [voted, setVoted] = useState(false);
-
-  function decreaseCount() {
-    if (!voted) {
-      setCount((prevCount) => prevCount - 1);
-      setVoted(true);
-      score = score-1;
+  const blog_id = useParams().id;
+  const downVote = async () => {
+    const token = localStorage.getItem("jwt");
+    const response = await fetch(
+      `${SERVER_URL}/api/comment/${comment_id}/downvote`,
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: token,
+        },
+      }
+    );
+    if (response.ok) {
+      const data = await response.json();
+      if (data.success) {
+        fetchComments();
+      }
     }
-  }
+  };
 
-  function increaseCount() {
-    if (!voted) {
-      setCount((prevCount) => prevCount + 1);
-      setVoted(true);
-      score=score+1;
+  const upVote = async () => {
+    const token = localStorage.getItem("jwt");
+    const response = await fetch(
+      `${SERVER_URL}/api/comment/${comment_id}/upvote`,
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: token,
+        },
+      }
+    );
+    if (response.ok) {
+      const data = await response.json();
+      if (data.success) {
+        console.log("here");
+        fetchComments();
+      }
     }
-  }
+  };
+
+  const onDeleteReply = async () => {
+    const token = localStorage.getItem("jwt");
+    const response = await fetch(
+      `${SERVER_URL}/api/comment/${parent_id}/${comment_id}/deletereply`,
+      {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: token,
+        },
+      }
+    );
+    if (response.ok) {
+      const data = await response.json();
+      if (data.success) {
+        fetchComments();
+      }
+    }
+  };
+
+  const onDelete = async () => {
+    const token = localStorage.getItem("jwt");
+    const response = await fetch(
+      `${SERVER_URL}/api/comment/${blog_id}/${comment_id}/deletecomment`,
+      {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: token,
+        },
+      }
+    );
+    if (response.ok) {
+      const data = await response.json();
+      if (data.success) {
+        fetchComments();
+      }
+    }
+  };
+
   return (
     <div className={`comment-container ${isReply ? "comment-reply" : ""}`}>
       <div className="comment-header">
-        {/* <img className="comment-image" src={image} alt="user" /> */}
         <div className="flex-container">
           <img className="comment-image" src={image} alt="user" />
           <h3 className="comment-author">{author}</h3>
@@ -38,17 +107,32 @@ const Comment = ({
       </div>
       <p className="comment-message">{message}</p>
 
-      <button className="comment-delete-btn" onClick={onDelete}>
-        <i className="fa fa-trash"></i>
-      </button>
+      {isUserCommenter ? (
+        <button
+          className="comment-delete-btn mr-4"
+          onClick={isReply ? onDeleteReply : onDelete}
+        >
+          <i className="fa fa-trash"></i>
+        </button>
+      ) : (
+        <></>
+      )}
       {!isReply && (
         <>
-          <button className="comment-downvote" onClick={decreaseCount}>
-            <i className="fa fa-circle-down"></i>
+          <button className="mr-2" onClick={downVote}>
+            <i
+              className={`fa fa-circle-down  text-gray-600 ${
+                isUserVoted && !userVote ? "!text-blue-500" : ""
+              }`}
+            ></i>
           </button>
-          <span className="comment-score">{count}&nbsp;&nbsp;</span>
-          <button className="comment-upvote" onClick={increaseCount}>
-            <i className="fa fa-circle-up"></i>
+          <span className="comment-score">{score}&nbsp;&nbsp;</span>
+          <button className="" onClick={upVote}>
+            <i
+              className={` fa fa-circle-up text-gray-600 ${
+                isUserVoted && userVote ? "!text-red-500" : ""
+              }`}
+            ></i>
           </button>
         </>
       )}
