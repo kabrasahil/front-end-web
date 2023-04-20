@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { SERVER_URL } from "../config";
+import { Context } from "../context/Context";
 import ArticleContent from "./articleContent/ArticleContent";
 import Discussions from "./comment-section/discussions/Discussions";
 
@@ -10,7 +11,7 @@ const Article = () => {
   const [content, setContent] = useState("");
 
   const [blog, setBlog] = useState();
-
+  const user = useContext(Context);
   const blog_id = useParams().id;
   const navigate = useNavigate();
   const fetchBlog = async () => {
@@ -38,7 +39,7 @@ const Article = () => {
   const [liked, setLiked] = useState(false);
   useEffect(() => {
     fetchBlog();
-  }, []);
+  }, [user]);
 
   const [editor, setEditor] = useState();
 

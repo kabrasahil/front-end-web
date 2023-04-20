@@ -1,12 +1,11 @@
+import DOMPurify from "dompurify";
 import React from "react";
 import "./ArticleCard.css";
-
+import Moment from "react-moment";
 const ArticleCard = ({ post }) => {
   console.log(post);
   return (
     <article
-      
-      
       key={post.id}
       className="lg:w-5/6 flex article-card flex-col items-start justify-between pb-8 px-12 lg:px-10 sm:py-6 lg:py-10 rounded-xl bg-stone-900 "
     >
@@ -14,7 +13,7 @@ const ArticleCard = ({ post }) => {
         <div className="">
           <div className="flex flex-row items-center">
             <img
-              src={post.editor.pgp_url}
+              src={post.editor.pfp_url}
               alt=""
               className="mt-8 mr-4 h-14 w-14 lg:h-8 lg:w-8 rounded-full bg-gray-50"
             />
@@ -27,7 +26,7 @@ const ArticleCard = ({ post }) => {
 
             <div className="mt-8 font-sans font-bold text-2xl lg:text-sm   ml-16">
               <time dateTime={post.createdAt} className="text-gray-400">
-                {post.createdAt}
+                <Moment fromNow>{post.createdAt}</Moment>
               </time>
             </div>
           </div>
@@ -38,16 +37,19 @@ const ArticleCard = ({ post }) => {
                 {post.title}
               </a>
             </h3>
-            <p className="mt-5 sm:text-3xl md:text-3xl lg:text-lg font-bold text-gray-400 line-clamp-3">
-              {post.content.slice(0, 200)}
-            </p>
+            <p
+              className="mt-5 sm:text-3xl md:text-3xl lg:text-lg font-bold text-gray-400 line-clamp-3"
+              dangerouslySetInnerHTML={{
+                __html: DOMPurify.sanitize(post.content.slice(0, 200)) + "...",
+              }}
+            ></p>
           </div>
 
           <div className="mt-10 flex ">
             {post.subtopics.map((el) => {
               return (
                 <a
-                  href={+"/blogs/subtopic" + el.subtopic_id}
+                  href={"/blogs/subtopic/" + el.subtopic_id}
                   className="relative text-lg lg:text-sm z-10 rounded-full bg-stone-600 py-1.5 px-3 font-medium text-gray-200 hover:bg-gray-100 relative mx-2 hover:text-gray-700"
                 >
                   {el.name}

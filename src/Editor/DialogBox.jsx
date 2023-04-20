@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { SERVER_URL } from "../config";
 
 const DialogBox = ({ handleSubmit, subtopics, setSubtopics }) => {
@@ -50,6 +50,10 @@ const DialogBox = ({ handleSubmit, subtopics, setSubtopics }) => {
     }
   };
 
+  useEffect(() => {
+    console.log("subtopics", subtopics);
+  }, [subtopics]);
+
   return (
     <div className="fixed top-0 left-0 right-0 bottom-0 flex items-center justify-center h-full w-full z-50">
       <div
@@ -98,9 +102,14 @@ const DialogBox = ({ handleSubmit, subtopics, setSubtopics }) => {
               <div
                 className="bg-gray-300 border-t-2 border-gray-400 text-gray-800 text-center hover:bg-gray-400 cursor-pointer min-w-full"
                 onClick={(e) => {
+                  console.log("hh");
                   setSearchTerm("");
                   setRecommendations([]);
-                  setSubtopics([...subtopics, el]);
+                  console.log(el);
+                  setSubtopics([
+                    ...subtopics,
+                    { name: el.name, subtopic_id: el._id },
+                  ]);
                 }}
               >
                 {el.name}

@@ -181,6 +181,7 @@ const TipTap = ({
   setContent,
   setThumbnail,
   setHeading,
+  success
 }) => {
   const editor = useEditor({
     extensions: [
@@ -218,9 +219,11 @@ const TipTap = ({
   });
 
   useEffect(() => {
-    console.log("content", content);
-    if (editor) editor.commands.setContent(content);
-  }, [editor, content]);
+
+    if (editor) 
+      editor.commands.setContent(content);
+
+    }, [editor,success]);
 
   return (
     <div className="w-full h-full bg-white">

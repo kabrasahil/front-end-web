@@ -32,6 +32,8 @@ function Editor() {
     }
   }, [user]);
 
+  const [success, setSuccess] = useState();
+
   const fetchDraft = async () => {
     const token = localStorage.getItem("jwt");
     const response = await fetch(`${SERVER_URL}/api/blog/${blog_id}/draft`, {
@@ -50,6 +52,7 @@ function Editor() {
         setHeading(data._doc.title);
         setThumbnail(data._doc.thumbnail);
         setSubtopics(data._doc.subtopics);
+        setSuccess(true);
       } else {
         navigate("/404");
       }
@@ -163,6 +166,7 @@ function Editor() {
           setHeading={setHeading}
           thumbnail={thumbnail}
           setThumbnail={setThumbnail}
+          success={success}
         />
         <div className="flex justify-center gap-7 w-full h-full">
           <div

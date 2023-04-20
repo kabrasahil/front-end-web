@@ -1,33 +1,29 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import CommentList from "./components/CommentList";
 import CommentForm from "./components/CommentForm";
 import "./index.css";
 import { SERVER_URL } from "../../../config";
 import { useParams } from "react-router-dom";
+import { Context } from "../../../context/Context";
 // import image from my-app\src\profileIcon_mgukerzbivna1.jpg
 // import samyak from "./profileIcon_mgukerzbivna1.jpg";
 
 function Discussions() {
   const blog_id = useParams().id;
+
+  const user = useContext(Context);
+
   const fetchComments = async () => {
-    const token = localStorage.getItem("jwt");
     let response = {};
-    if (token) {
-      response = await fetch(`${SERVER_URL}/api/blog/${blog_id}/comments`, {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: token,
-        },
-      });
-    } else {
-      response = await fetch(`${SERVER_URL}/api/blog/${blog_id}/comments`, {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-    }
+    const token = localStorage.getItem("jwt");
+    console.log("i am here");
+    response = await fetch(`${SERVER_URL}/api/blog/${blog_id}/comments`, {
+      method: "GET",
+      headers: {
+        Authorization: token,
+        "Content-Type": "application/json",
+      },
+    });
 
     if (response.ok) {
       const data = await response.json();
@@ -39,7 +35,7 @@ function Discussions() {
 
   useEffect(() => {
     fetchComments();
-  }, []);
+  }, [user]);
 
   let [comments, setComments] = useState([]);
 

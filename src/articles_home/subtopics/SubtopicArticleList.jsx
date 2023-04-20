@@ -6,48 +6,6 @@ import ArticleCard from "../ArticleCard";
 const SubtopicArticleList = () => {
   const [pge_no, setPge_no] = useState(0);
   const [posts, setPosts] = useState([
-    {
-      _id: 1,
-      title: "Boost your conversion rate",
-      href: "#",
-      content: "",
-      date: "Mar 16, 2020",
-      createdAt: Date.now(),
-      subtopics: [{ name: "Marketing", subtopic_id: "#" }],
-      editor: {
-        name: "Michael Foster",
-        pfp_url:
-          "https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-      },
-      thumbnail: "sdasafas",
-    },
-    {
-      _id: 1,
-      title: "Boost your conversion rate",
-      content: "",
-      createdAt: Date.now(),
-      subtopics: [{ name: "Marketing", subtopic_id: "#" }],
-      editor: {
-        name: "Michael Foster",
-        pfp_url:
-          "https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-      },
-      thumbnail: "sdasafas",
-    },
-    {
-      _id: 1,
-      title: "Boost your conversion rate",
-      content: "",
-      createdAt: Date.now(),
-      subtopics: [{ name: "Marketing", subtopic_id: "#" }],
-      editor: {
-        name: "Michael Foster",
-        pfp_url:
-          "https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-      },
-      thumbnail: "sdasafas",
-    },
-
     // More posts...
   ]);
 
@@ -94,9 +52,9 @@ const SubtopicArticleList = () => {
   }, []);
 
   return (
-    <div className=" ">
-      <div className=" lg:px-24 md:mx-24 sm:mx-5">
-        <div className="mx-auto mt-10 grid gap-y-14 w-fit">
+    <div className="w-full">
+      <div className="md:mx-19 sm:mx-5">
+        <div className=" mt-10 grid gap-y-14 justify-items-center">
           {posts.map((el) => {
             return <ArticleCard post={el} />;
           })}

@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { SERVER_URL } from "../../config";
+import ArticleList from "../AtricleList";
 import BlogHeading from "../BlogHeading";
+import Topics from "../Topics";
 import SubtopicArticleList from "./SubtopicArticleList";
 const SubtopicHome = () => {
   const [subtopic, setSubtopic] = useState({
@@ -26,7 +28,7 @@ const SubtopicHome = () => {
       if (response.ok) {
         const subtopic = await response.json();
         if (subtopic.success === true) {
-          setSubtopic(subtopic);
+          setSubtopic(subtopic._doc);
         }
       }
     } catch (error) {
@@ -38,17 +40,24 @@ const SubtopicHome = () => {
   }, []);
 
   return (
-    <div className="flex flex-col ml-auto mr-auto justify-center items-center pt-24 pb-48">
+    <div className="flex flex-col  mr-auto justify-center items-center pt-24 pb-48">
       <div className="w-full bg-gray-900">
         <BlogHeading />
       </div>
-
       <div className="w-full bg-stone-900 text-gray-500 text-center font-bold italic sm:text-xl md:text-xl lg:text-lg">
         #{subtopic ? subtopic.name : ""}
       </div>
 
-      <div className="flex px-4 pt-4">
-        <SubtopicArticleList />
+      <div className="flex  flex-row justify-center">
+        <div className="flex flex-1 pt-4 flex-grow ">
+          <SubtopicArticleList />
+          {/* <Topics /> */}
+        </div>
+        <div className="flex pt-4 flex-initial w-1/4 mt-20 pr-20 relative lg:block md:hidden sm:hidden">
+          <div className="sticky top-40 h-fit">
+            <Topics />
+          </div>
+        </div>
       </div>
     </div>
   );
