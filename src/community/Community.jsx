@@ -1,7 +1,7 @@
 import React from 'react'
-import instagramMockup from '../assets/images/instagramMockup.jpg';
-import facebookMockup from '../assets/images/facebookMockup.jpg';
-import linkedinMockup from '../assets/images/linkedinMockup.jpg';
+import instagramMockup from './assets/images/instagramMockup.jpg';
+import facebookMockup from './assets/images/facebookMockup.jpg';
+import linkedinMockup from './assets/images/linkedinMockup.jpg';
 
 
 export default function Community() {
