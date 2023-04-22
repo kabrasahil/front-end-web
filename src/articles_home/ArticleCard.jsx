@@ -7,9 +7,9 @@ const ArticleCard = ({ post }) => {
   return (
     <article
       key={post.id}
-      className="lg:w-5/6 flex article-card flex-col items-start justify-between pb-8 px-12 lg:px-10 sm:py-6 lg:py-10 rounded-xl bg-stone-900 "
+      className="lg:w-5/6 flex article-card flex-col items-start justify-between pb-8 px-12 lg:px-10 sm:py-6 lg:py-10 rounded-xl bg-stone-900"
     >
-      <div className="flex flex-row">
+      <div className="flex flex-row w-full">
         <div className="">
           <div className="flex flex-row items-center">
             <img
@@ -60,7 +60,7 @@ const ArticleCard = ({ post }) => {
         </div>
 
         {post.thumbnail ? (
-          <div className="sm:hidden md:hidden lg:block ml-10 h-3/4 w-3/4 aspect-square mt-auto mb-auto ">
+          <div className="sm:hidden md:hidden lg:block ml-10 h-3/4 w-2/4 aspect-square mt-auto">
             <img
               src={post.thumbnail}
               alt=""

@@ -9,7 +9,7 @@ const ArticlesHome = () => {
       <div className="w-full bg-gray-900">
         <BlogHeading />
       </div>
-      <div className="flex  flex-row justify-center">
+      <div className="flex  flex-row justify-center w-full">
         <div className="flex flex-1 pt-4 flex-grow ">
           <ArticleList />
           {/* <Topics /> */}

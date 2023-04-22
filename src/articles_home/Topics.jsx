@@ -3,7 +3,25 @@ import { SERVER_URL } from "../config";
 import "./ArticleCard.css";
 
 function Topics() {
-  const [subtopics, setSubtopics] = useState([]);
+  const [subtopics, setSubtopics] = useState([
+    {
+      id: 1,
+      name: "Sample Subtopic 1",
+    },
+    {
+      id: 1,
+      name: "Sample Subtopic 1",
+    },
+    
+    {
+      id: 1,
+      name: "Sample Subtopic 1",
+    },
+    
+    
+  
+    
+  ]);
 
   const fetchSubtopics = async () => {
     const response = await fetch(`${SERVER_URL}/api/subtopic/all`, {
@@ -26,7 +44,7 @@ function Topics() {
 
   return (
     //  make background color rgb(17 17 17)
-    <div className="flex-auto bg-stone-900 flex-wrap h-fit topics rounded-lg">
+    <div className="flex-auto bg-stone-900 flex-wrap h-fit topics rounded-lg w-fit">
       <h2 className="text-slate-200 text-xl font font-sans my-auto mx-auto px-3 py-2.5">
         Recommended Topics
       </h2>
@@ -36,7 +54,7 @@ function Topics() {
           {subtopics.map((el, i) => {
             console.log("subtopic", el);
             return (
-              <li className="mr-2 py-2.5">
+              <li className="mr-2 py-2.5 w-max">
                 <a
                   href={`/blogs/subtopic/${el._id}`}
                   className="relative text-lg lg:text-sm z-10 rounded-full bg-stone-600 py-1.5 px-3 font-medium text-gray-200 hover:bg-gray-100 z-40 relative mx-2 hover:text-gray-700"

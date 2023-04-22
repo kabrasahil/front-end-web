@@ -7,6 +7,40 @@ const SubtopicArticleList = () => {
   const [pge_no, setPge_no] = useState(0);
   const [posts, setPosts] = useState([
     // More posts...
+    {
+      id: 1,
+      editor: {
+        name: "John Smith",
+        pfp_url: "https://example.com/john-smith.jpg",
+      },
+      title: "Sample Article 1",
+      content: "<p>This is the content of the first sample article.</p>",
+      subtopics: [
+        {
+          subtopic_id: "sample-subtopic-1",
+          name: "Sample Subtopic 1",
+        },
+      ],
+      createdAt: "2022-04-22T12:34:56.000Z",
+      thumbnail: "https://example.com/sample-article-1-thumbnail.jpg",
+    },
+    {
+      id: 2,
+      editor: {
+        name: "Jane Doe",
+        pfp_url: "https://example.com/jane-doe.jpg",
+      },
+      title: "Sample Article 2",
+      content: "<p>This is the content of the second sample article.</p>",
+      subtopics: [
+        {
+          subtopic_id: "sample-subtopic-2",
+          name: "Sample Subtopic 2",
+        },
+      ],
+      createdAt: "2022-04-23T12:34:56.000Z",
+      thumbnail: "https://example.com/sample-article-2-thumbnail.jpg",
+    },
   ]);
 
   const subtopic_id = useParams().id;
