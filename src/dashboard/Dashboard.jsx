@@ -1,5 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { Navigate, Outlet, Route, Routes, useLocation } from "react-router-dom";
+import {
+  Navigate,
+  Outlet,
+  Route,
+  Routes,
+  useLocation,
+  useNavigate,
+} from "react-router-dom";
 import SideBar from "./SideBar";
 import MyProfile from "./MyProfile";
 import MyArticles from "./MyArticles";
@@ -7,11 +14,32 @@ import ManageUsers from "./ManageUsers";
 import ManageArticles from "./ManageArticles";
 import "./Dashboard.css";
 import BottomBar from "./BottomBar";
+import { SERVER_URL } from "../config";
 
 const Dashboard = () => {
   const a = useLocation().pathname;
 
   let toRender = <MyProfile />;
+
+  const navigate = useNavigate();
+  const logout = async () => {
+    // const token = localStorage.getItem("jwt");
+    // const response = await fetch(`${SERVER_URL}/api/user/logout`, {
+    //   method: "GET",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //     Authorization: token,
+    //   },
+    // });
+    // if (response.ok) {
+    //   const data = await response.json();
+    //   if (data.success) {
+    //     navigate("/");
+    //   }
+    // }
+    localStorage.removeItem("jwt");
+    window.location.href = "/";
+  };
 
   if (a === "/dashboard" || a == "/dashboard/") {
     toRender = <Navigate to="/dashboard/profile" />;
@@ -28,6 +56,17 @@ const Dashboard = () => {
       break;
     case "/dashboard/manageusers":
       toRender = <ManageUsers />;
+      break;
+
+    case "/dashboard/logout":
+      logout();
+      break;
+    default:
+      toRender = (
+        <>
+          <Navigate to="/404" />
+        </>
+      );
       break;
   }
 

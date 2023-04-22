@@ -24,7 +24,7 @@ const LoginForm = ({ showNotification, setShowNotification }) => {
       console.log(data);
       if (data.success) {
         localStorage.setItem("jwt", data.token);
-        navigate("/");
+        window.location.href = "/";
       } else {
         console.log("here");
         setShowNotification([

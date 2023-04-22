@@ -185,14 +185,14 @@ function Editor() {
           class="text-white bg-gray-600 hover:bg-gray-700 px-10 py-2 rounded-xl font-extrabold m-4 w-1/3 text-center justify-center"
           onClick={handleSave}
         >
-          Save
+          Save as Draft
         </button>
         <button
           type="button"
           class="text-white bg-green-600 hover:bg-green-700 px-10 py-2 rounded-xl font-extrabold m-4 w-1/3 text-center justify-center"
           onClick={handleSubmit}
         >
-          Submit
+          Publish Blog
         </button>{" "}
       </div>
     </div>

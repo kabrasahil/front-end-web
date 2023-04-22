@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { Context } from "../context/Context";
 
 const users = [
   {
@@ -15,20 +16,16 @@ const users = [
 ];
 
 const ManageUsers = () => {
-  const [user, setUser] = useState({
-    firstName: "John",
-    lastName: "Doe",
-    phoneNumber: "555-1234",
-    email: "johndoe@example.com",
-    organizationName: "Acme Corporation",
-  });
-
+  const user = useContext(Context);
+  const [searchResult, setSearchResult] = useState();
   return (
     <div className="h-full w-full m-10">
       <div className="lg:ml-24 lg:mt-14 lg:mb-12 sm:my-24 md:my-24 text-left">
         <p>
           <span className="text-gray-400 lg:text-xl text-xl md:text-2xl">
-            {user.firstName + " " + user.lastName + " /"}
+            {user
+              ? user.name.first_name + " " + user.name.last_name + " /"
+              : ""}
           </span>
           <span className="text-gray-200 2xl:text-3xl text-3xl md:text-5xl ml-4">
             Manage Users
@@ -47,7 +44,7 @@ const ManageUsers = () => {
       </div>
 
       <div className="text-slate-100 my-5 mx-5 grid grid-cols-1 lg:grid-cols-3 gap-0">
-        {users.map((d) => {
+        {/* {users.map((d) => {
           return (
             <div
               key={d.id}
@@ -169,7 +166,14 @@ const ManageUsers = () => {
               </div>
             </div>
           );
-        })}
+        })} */}
+
+        {searchResult ? <>
+        
+        
+        
+        
+        </> : <></>}
       </div>
     </div>
   );

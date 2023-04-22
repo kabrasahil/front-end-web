@@ -5,25 +5,26 @@ const DialogBox = ({ handleSubmit, subtopics, setSubtopics }) => {
   const [searchTerm, setSearchTerm] = useState("");
   const [recommendations, setRecommendations] = useState([]);
 
-  const handleSearch = async (query) => {
-    try {
-      const response = await fetch(
-        `${SERVER_URL}/api/subtopic?search=${query}`,
-        {
-          method: "GET",
-        }
-      );
-      if (response.ok) {
-        const data = await response.json();
-        if (data.success) {
-          console.log(data);
-          setRecommendations(data.subtopicList);
-        }
+const handleSearch = async (query) => {
+  try {
+    const encodedQuery = encodeURIComponent(query); // encode the query parameter
+    const response = await fetch(
+      `${SERVER_URL}/api/subtopic?search=${encodedQuery}`,
+      {
+        method: "GET",
       }
-    } catch (error) {
-      console.log(error);
+    );
+    if (response.ok) {
+      const data = await response.json();
+      if (data.success) {
+        console.log(data);
+        setRecommendations(data.subtopicList);
+      }
     }
-  };
+  } catch (error) {
+    console.log(error);
+  }
+};
 
   const handleAddSubtopic = async () => {
     const token = localStorage.getItem("jwt");
