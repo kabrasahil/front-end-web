@@ -48,7 +48,7 @@ const SubtopicHome = () => {
         #{subtopic ? subtopic.name : ""}
       </div>
 
-      <div className="flex  flex-row justify-center">
+      <div className="flex  flex-row justify-center w-full">
         <div className="flex flex-1 pt-4 flex-grow ">
           <SubtopicArticleList />
           {/* <Topics /> */}
