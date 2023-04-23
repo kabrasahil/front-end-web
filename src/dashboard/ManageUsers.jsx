@@ -1,23 +1,56 @@
 import React, { useContext, useState } from "react";
 import { Context } from "../context/Context";
-
-const users = [
-  {
-    id: 1,
-    firstName: "Vishal",
-    lastName: "Jatia",
-    phoneNumber: "515-1144",
-    email: "vishalj@example.com",
-    organizationName: "Acme Corporation",
-    profilePic:
-      "https://decider.com/wp-content/uploads/2017/03/the-godfather.jpg?quality=80&strip=all",
-    role: "admin",
-  },
-];
+import { SERVER_URL } from "../config";
 
 const ManageUsers = () => {
   const user = useContext(Context);
   const [searchResult, setSearchResult] = useState();
+  const [searchQuery, setSearchQuery] = useState("");
+  const [role, setRole] = useState(searchResult ? searchResult.role : null);
+
+  const handleRoleChange = async (event) => {
+    const token = localStorage.getItem("jwt");
+    const response = await fetch(`${SERVER_URL}/api/admin/updaterole`, {
+      method: "PUT",
+      headers: {
+        Authorization: token,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        user_id: searchResult._id,
+        new_role: event.target.value,
+      }),
+    });
+    if (response.ok) {
+      const data = await response.json();
+      if (data.success) {
+        setRole(event.target.value);
+      }
+    }
+  };
+
+  const handleSearch = async () => {
+    const encodedQuery = encodeURIComponent(searchQuery); // encode the query parameter
+    const token = localStorage.getItem("jwt");
+    const response = await fetch(
+      `${SERVER_URL}/api/admin/searchuser?search=${encodedQuery}`,
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: token,
+        },
+      }
+    );
+    if (response.ok) {
+      const data = await response.json();
+      if (data.success) {
+        setSearchResult(data.user);
+        setRole(data.user.role);
+      }
+    }
+  };
+
   return (
     <div className="h-full w-full m-10">
       <div className="lg:ml-24 lg:mt-14 lg:mb-12 sm:my-24 md:my-24 text-left">
@@ -33,147 +66,100 @@ const ManageUsers = () => {
         </p>
       </div>
       <div className="items-center bg-stone-800 rounded-xl py-1 px-3 pr-0 flex lg:w-1/3 my-5 mx-5">
-        <i
-          className="fa-solid fa-magnifying-glass"
-          style={{ color: "#94a3b8" }}
-        />
+        <button
+          className="bg-transparent cursor-pointer"
+          onClick={handleSearch}
+        >
+          <i
+            className="fa-solid fa-magnifying-glass"
+            style={{ color: "#94a3b8" }}
+          />
+        </button>
         <input
           placeholder="Enter Email Id"
           className="text-slate-100 text rounded-xl flex-1 px-4 py-1 bg-stone-800 focus:outline-0 lg:w-1/3 focus:outline-none"
+          value={searchQuery}
+          onChange={(e) => {
+            setSearchQuery(e.target.value);
+          }}
         />
       </div>
 
-      <div className="text-slate-100 my-5 mx-5 grid grid-cols-1 lg:grid-cols-3 gap-0">
-        {/* {users.map((d) => {
-          return (
-            <div
-              key={d.id}
-              className="lg:px-10 md:px-10 px-5 py-5 items-center my-2 lg:my-5 bg-stone-900 rounded-2xl w-full lg:w-[90%] text-left hover:bg-stone-800 flex gap-5 shadow-[0_0_60px_20px_rgb(0,0,0,0.32)]"
-            >
-              <a className="cursor-pointer" href="#">
-                <img
-                  className="rounded-full w-32 aspect-square object-cover"
-                  src={d.profilePic}
-                  alt="profile picture"
-                />
-              </a>
-              <div className="flex flex-col gap-3">
-                <a className="cursor-pointer" href="#">
-                  <h1 className="text-2xl text-slate-100">
-                    {d.firstName + " " + d.lastName}
-                  </h1>
-                </a>
-                <p className="text-slate-300">{d.email}</p>
-                <p className="text-blue-400">
-                  Current Role: <span className="text-slate-100">{d.role}</span>
+      <div className="text-gray-100 my-5 mx-5">
+        {searchResult ? (
+          <div className="bg-gray-800 rounded-lg p-6 flex flex-col items-center">
+            {searchResult.pfp_url && (
+              <img
+                src={searchResult.pfp_url}
+                alt="profile"
+                className="w-24 h-24 rounded-full border-4 border-pink-500 mb-4"
+              />
+            )}
+            <h2 className="text-2xl font-bold text-center text-white mb-2">
+              {`${searchResult.name.first_name} ${searchResult.name.last_name}`}
+            </h2>
+            <div className="flex flex-col items-center w-full">
+              <label htmlFor="email" className="text-lg text-pink-500 mb-1">
+                Email:
+              </label>
+              <p id="email" className="text-lg text-center mb-4">
+                {searchResult.email}
+              </p>
+            </div>
+            {searchResult.phone && (
+              <div className="flex flex-col items-center w-full">
+                <label htmlFor="phone" className="text-lg text-pink-500 mb-1">
+                  Phone:
+                </label>
+                <p id="phone" className="text-lg text-center mb-4">
+                  {searchResult.phone}
                 </p>
-                <div>
-                  <button
-                    id="dropdownRadioButton"
-                    data-dropdown-toggle="dropdownDefaultRadio"
-                    className="text-white bg-stone-700 hover:bg-stone-800 focus:outline-none font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-stone-600 dark:hover:bg-stone-700"
-                    type="button"
+              </div>
+            )}
+            {searchResult.organization && (
+              <div className="flex flex-col items-center w-full">
+                <label
+                  htmlFor="organization"
+                  className="text-lg text-pink-500 mb-1"
+                >
+                  Organization:
+                </label>
+                <p id="organization" className="text-lg text-center mb-4">
+                  {searchResult.organization}
+                </p>
+              </div>
+            )}
+            <div className="w-full">
+              <label htmlFor="role" className="text-lg text-pink-500 mb-1">
+                Role:
+              </label>
+              <div className="relative">
+                <select
+                  id="role"
+                  name="role"
+                  value={role}
+                  onChange={handleRoleChange}
+                  className="w-full bg-gray-700 border border-pink-500 text-pink-500 py-2 px-3 rounded focus:outline-none focus:bg-gray-600 focus:border-pink-700 appearance-none"
+                >
+                  <option value="REGULAR">Regular</option>
+                  <option value="ADMIN">Admin</option>
+                  <option value="EDITOR">Editor</option>
+                </select>
+                <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-pink-500">
+                  <svg
+                    className="fill-current h-4 w-4"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
                   >
-                    Change Role{" "}
-                    <svg
-                      className="w-4 h-4 ml-2"
-                      aria-hidden="true"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M19 9l-7 7-7-7"
-                      ></path>
-                    </svg>
-                  </button>
-
-                  <div
-                    id="dropdownDefaultRadio"
-                    className="z-10 hidden w-48 bg-white divide-y divide-stone-100 rounded-lg shadow dark:bg-stone-700 dark:divide-stone-600"
-                  >
-                    <ul
-                      className="p-3 space-y-3 text-sm text-stone-700 dark:text-stone-200"
-                      aria-labelledby="dropdownRadioButton"
-                    >
-                      <li>
-                        <div className="flex items-center">
-                          <input
-                            id="default-radio-1"
-                            type="radio"
-                            value=""
-                            name="default-radio"
-                            className="w-4 h-4 text-stone-600 bg-stone-100 border-stone-300 focus:ring-stone-500 dark:focus:ring-stone-600 dark:ring-offset-stone-700 dark:focus:ring-offset-stone-700 focus:ring-2 dark:bg-stone-600 dark:border-stone-500"
-                          />
-                          <label
-                            htmlFor="default-radio-1"
-                            className="ml-2 text-sm font-medium text-stone-900 dark:text-stone-300"
-                          >
-                            User
-                          </label>
-                        </div>
-                      </li>
-                      <li>
-                        <div className="flex items-center">
-                          <input
-                            checked
-                            id="default-radio-2"
-                            type="radio"
-                            value=""
-                            name="default-radio"
-                            className="w-4 h-4 text-stone-600 bg-stone-100 border-stone-300 focus:ring-stone-500 dark:focus:ring-stone-600 dark:ring-offset-stone-700 dark:focus:ring-offset-stone-700 focus:ring-2 dark:bg-stone-600 dark:border-stone-500"
-                          />
-                          <label
-                            htmlFor="default-radio-2"
-                            className="ml-2 text-sm font-medium text-stone-900 dark:text-stone-300"
-                          >
-                            Admin
-                          </label>
-                        </div>
-                      </li>
-                      <li>
-                        <div className="flex items-center">
-                          <input
-                            id="default-radio-3"
-                            type="radio"
-                            value=""
-                            name="default-radio"
-                            className="w-4 h-4 text-stone-600 bg-stone-100 border-stone-300 focus:ring-stone-500 dark:focus:ring-stone-600 dark:ring-offset-stone-700 dark:focus:ring-offset-stone-700 focus:ring-2 dark:bg-stone-600 dark:border-stone-500"
-                          />
-                          <label
-                            htmlFor="default-radio-3"
-                            className="ml-2 text-sm font-medium text-stone-900 dark:text-stone-300"
-                          >
-                            Moderator
-                          </label>
-                        </div>
-                      </li>
-                    </ul>
-                    <div className="py-2">
-                      <a
-                        href="#"
-                        className="block px-4 py-2 text-sm dark:text-red-600 text-center hover:bg-stone-100 dark:hover:bg-stone-600 dark:hover:text-white"
-                      >
-                        Remove
-                      </a>
-                    </div>
-                  </div>
+                    <path d="M10 12L4 6h12l-6 6z" />
+                  </svg>
                 </div>
               </div>
             </div>
-          );
-        })} */}
-
-        {searchResult ? <>
-        
-        
-        
-        
-        </> : <></>}
+          </div>
+        ) : (
+          <></>
+        )}
       </div>
     </div>
   );

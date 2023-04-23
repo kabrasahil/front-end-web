@@ -45,6 +45,8 @@ const Dashboard = () => {
     toRender = <Navigate to="/dashboard/profile" />;
   }
 
+  console.log(a);
+
   switch (a) {
     case "/dashboard/blogs":
       toRender = <MyArticles />;
@@ -60,13 +62,6 @@ const Dashboard = () => {
 
     case "/dashboard/logout":
       logout();
-      break;
-    default:
-      toRender = (
-        <>
-          <Navigate to="/404" />
-        </>
-      );
       break;
   }
 

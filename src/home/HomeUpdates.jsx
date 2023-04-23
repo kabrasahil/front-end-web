@@ -2,53 +2,7 @@ import React, { useEffect, useState } from "react";
 import { SERVER_URL } from "../config";
 
 export default function HomeUpdates() {
-  const [data, setData] = useState([
-    {
-      type: "Blog",
-      description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, nobis? Architecto perferendis, accusantium quibusdam dolore ad obcaecati maxime explicabo at ab aut ipsa illo voluptatem asperiores voluptates, cum suscipit repudiandae?",
-      image:
-        "https://instagram.fdel11-2.fna.fbcdn.net/v/t51.2885-15/327590825_214953080892210_7335381751730104556_n.webp?stp=dst-jpg_e35&_nc_ht=instagram.fdel11-2.fna.fbcdn.net&_nc_cat=106&_nc_ohc=BIbrZsnSk84AX_dW5qr&edm=ACWDqb8BAAAA&ccb=7-5&ig_cache_key=MzAyNDAyMjg5NTY5MDU2OTQ2NA%3D%3D.2-ccb7-5&oh=00_AfDzIKsVoJ0oEfour2q49F1W3oKKfFn3iGOsPTmLBQkYiA&oe=641A80DC&_nc_sid=1527a3",
-      title: "Bored Apes Yatch Club New Sale Game",
-      link: "#",
-    },
-    {
-      type: "Blog",
-      description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, nobis? Architecto perferendis, accusantium quibusdam dolore ad obcaecati maxime explicabo at ab aut ipsa illo voluptatem asperiores voluptates, cum suscipit repudiandae?",
-      image:
-        "https://instagram.fdel11-2.fna.fbcdn.net/v/t51.2885-15/327590825_214953080892210_7335381751730104556_n.webp?stp=dst-jpg_e35&_nc_ht=instagram.fdel11-2.fna.fbcdn.net&_nc_cat=106&_nc_ohc=BIbrZsnSk84AX_dW5qr&edm=ACWDqb8BAAAA&ccb=7-5&ig_cache_key=MzAyNDAyMjg5NTY5MDU2OTQ2NA%3D%3D.2-ccb7-5&oh=00_AfDzIKsVoJ0oEfour2q49F1W3oKKfFn3iGOsPTmLBQkYiA&oe=641A80DC&_nc_sid=1527a3",
-      title: "Bored Apes Yatch Club New Sale Game",
-      link: "#",
-    },
-    {
-      type: "Blog",
-      description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, nobis? Architecto perferendis, accusantium quibusdam dolore ad obcaecati maxime explicabo at ab aut ipsa illo voluptatem asperiores voluptates, cum suscipit repudiandae?",
-      image:
-        "https://instagram.fdel11-2.fna.fbcdn.net/v/t51.2885-15/327590825_214953080892210_7335381751730104556_n.webp?stp=dst-jpg_e35&_nc_ht=instagram.fdel11-2.fna.fbcdn.net&_nc_cat=106&_nc_ohc=BIbrZsnSk84AX_dW5qr&edm=ACWDqb8BAAAA&ccb=7-5&ig_cache_key=MzAyNDAyMjg5NTY5MDU2OTQ2NA%3D%3D.2-ccb7-5&oh=00_AfDzIKsVoJ0oEfour2q49F1W3oKKfFn3iGOsPTmLBQkYiA&oe=641A80DC&_nc_sid=1527a3",
-      title: "Bored Apes Yatch Club New Sale Game",
-      link: "#",
-    },
-    {
-      type: "Blog",
-      description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, nobis? Architecto perferendis, accusantium quibusdam dolore ad obcaecati maxime explicabo at ab aut ipsa illo voluptatem asperiores voluptates, cum suscipit repudiandae?",
-      image:
-        "https://instagram.fdel11-2.fna.fbcdn.net/v/t51.2885-15/327590825_214953080892210_7335381751730104556_n.webp?stp=dst-jpg_e35&_nc_ht=instagram.fdel11-2.fna.fbcdn.net&_nc_cat=106&_nc_ohc=BIbrZsnSk84AX_dW5qr&edm=ACWDqb8BAAAA&ccb=7-5&ig_cache_key=MzAyNDAyMjg5NTY5MDU2OTQ2NA%3D%3D.2-ccb7-5&oh=00_AfDzIKsVoJ0oEfour2q49F1W3oKKfFn3iGOsPTmLBQkYiA&oe=641A80DC&_nc_sid=1527a3",
-      title: "Bored Apes Yatch Club New Sale Game",
-      link: "#",
-    },
-    {
-      type: "Blog",
-      description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, nobis? Architecto perferendis, accusantium quibusdam dolore ad obcaecati maxime explicabo at ab aut ipsa illo voluptatem asperiores voluptates, cum suscipit repudiandae?",
-      image:
-        "https://instagram.fdel11-2.fna.fbcdn.net/v/t51.2885-15/327590825_214953080892210_7335381751730104556_n.webp?stp=dst-jpg_e35&_nc_ht=instagram.fdel11-2.fna.fbcdn.net&_nc_cat=106&_nc_ohc=BIbrZsnSk84AX_dW5qr&edm=ACWDqb8BAAAA&ccb=7-5&ig_cache_key=MzAyNDAyMjg5NTY5MDU2OTQ2NA%3D%3D.2-ccb7-5&oh=00_AfDzIKsVoJ0oEfour2q49F1W3oKKfFn3iGOsPTmLBQkYiA&oe=641A80DC&_nc_sid=1527a3",
-      title: "Bored Apes Yatch Club New Sale Game",
-      link: "#",
-    },
-  ]);
+  const [data, setData] = useState([]);
 
   const fetchHighlights = async () => {
     try {
@@ -63,7 +17,7 @@ export default function HomeUpdates() {
         const data = await response.json();
         if (data.success) {
           // Assuming setData is defined elsewhere
-          setData(data);
+          setData(data.highlights.slice(0, 5));
         }
       } else {
         throw new Error("Network response was not ok.");
@@ -77,10 +31,6 @@ export default function HomeUpdates() {
     fetchHighlights();
   }, []);
 
-  useEffect(() => {
-    setData(data.slice(0, 5));
-  }, [data]);
-
   return (
     <div className="my-20">
       <h1 class="text-center mb-20 text-gray-500 mr-auto ml-auto lg:text-7xl sm:text-8xl md:text-8xl font-extrabold leading-none tracking-tight md:text-6xl lg:text-7xl">
@@ -88,16 +38,16 @@ export default function HomeUpdates() {
       </h1>
 
       <div className=" grid lg:mx-80 md:mx-40 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-3 lg:gap-5   sm:gap-16 md:gap-16">
-        {data.map(({ image, title, type, description, link }) => {
+        {data.map(({ thumbnail, title, type, description, id }) => {
           return (
             <a
-              href={link}
-              class="group relative block bg-black rounded-xl w-full aspect-square"
+              href={type === "blog" ? "/blogs/" + id : ""}
+              className="group relative block bg-black rounded-xl w-full aspect-square"
               style={{ boxShadow: "0 0px 40px -1px rgba(0, 0, 0, 0.6)" }}
             >
               <img
                 alt="Developer"
-                src={image}
+                src={thumbnail}
                 class="lg:absolute sm:relative md:relative  rounded-xl aspect-square overflow-hidden inset-0 h-full w-full  object-cover opacity-75 transition-opacity lg:group-hover:blur-sm lg:group-hover:opacity-40"
               />
 
@@ -112,9 +62,10 @@ export default function HomeUpdates() {
 
                 <div class="mt-3">
                   <div class="translate-y-8 transform lg:opacity-0 transition-all lg:group-hover:translate-y-0 lg:group-hover:opacity-100">
-                    <p class="lg:text-base lg:h-[7rem] md:text-3xl sm:text-xl text-white overflow-hidden text-ellipsis">
-                      {description}
-                    </p>
+                    <p
+                      class="lg:text-base lg:h-[7rem] md:text-3xl sm:text-xl text-white overflow-hidden text-ellipsis"
+                      dangerouslySetInnerHTML={{ __html: description + "..." }}
+                    ></p>
                   </div>
                 </div>
               </div>
