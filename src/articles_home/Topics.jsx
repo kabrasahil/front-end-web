@@ -44,12 +44,12 @@ function Topics() {
 
   return (
     //  make background color rgb(17 17 17)
-    <div className="flex-auto bg-stone-900 flex-wrap h-fit topics rounded-lg w-fit">
+    <div className="flex-auto bg-stone-900 flex-wrap h-fit topics rounded-lg w-fit py-5 px-3">
       <h2 className="text-slate-200 text-xl font font-sans my-auto mx-auto px-3 py-2.5">
         Recommended Topics
       </h2>
 
-      <div className="flex flex-wrap justify-between px-4 pb-2">
+      <div className="flex flex-wrap justify-between px-2 pb-2">
         <ul className="flex flex-wrap text-sm font-medium text-center text-white font-sans dark:text-gray-400 justify justify-normal">
           {subtopics.map((el, i) => {
             console.log("subtopic", el);
