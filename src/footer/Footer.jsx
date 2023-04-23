@@ -7,7 +7,7 @@ const Footer = () => {
       <div className="p-4 sm:p-6 flex flex-1 mr-auto">
         {/* <div className="md:flex md:justify-evenly flex flex-wrap"> */}
         <div className="mb-5">
-          <a href="" className="flex items-center mb-5">
+          <a href="/igts" className="flex items-center mb-5">
             <img
               src={image}
               className="h-16 lg:mr-3 rounded-full"
@@ -20,7 +20,7 @@ const Footer = () => {
           </a>
           <span className="lg:text-base sm:text-2xl md:text-2xl text-zinc-200 sm:text-left dark:text-zinc-400 font-extrabold">
             © 2023{" "}
-            <a href="https://google.com/" className="hover:underline">
+            <a href="/igts" className="hover:underline">
               IGTS™
             </a>
             . All Rights Reserved.
@@ -36,12 +36,18 @@ const Footer = () => {
           <div className="sm:flex sm:items-center sm:justify-between">
             <ul className="text-zinc-600 dark:text-zinc-600">
               <li className="mb-2">
-                <a href="#" className="hover:underline  sm:text-xl md:text-xl">
+                <a
+                  href="/privacy"
+                  className="hover:underline  sm:text-xl md:text-xl"
+                >
                   Privacy Policy
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:underline  sm:text-xl md:text-xl">
+                <a
+                  href="/terms"
+                  className="hover:underline  sm:text-xl md:text-xl"
+                >
                   Terms &amp; Conditions
                 </a>
               </li>

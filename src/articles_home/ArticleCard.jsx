@@ -18,7 +18,7 @@ const ArticleCard = ({ post }) => {
               className="mt-8 mr-4 h-14 w-14 lg:h-8 lg:w-8 rounded-full bg-gray-50"
             />
             <p className="mt-8 font-sans font-bold  text-2xl lg:text-sm   text-gray-400">
-              <a>
+              <a href="">
                 <span className="relative inset-0" />
                 {post.editor.name}
               </a>
@@ -32,7 +32,7 @@ const ArticleCard = ({ post }) => {
           </div>
           <div className="mt-8 group relative">
             <h3 className="realtive lg:my-6 sm:my-16 font-sans text-4xl lg:text-3xl  font-extrabold leading-6 text-gray-200 ">
-              <a href={"/" + post._id}>
+              <a href={"/blogs/" + post._id}>
                 <span className="absolute inset-0" />
                 {post.title}
               </a>
