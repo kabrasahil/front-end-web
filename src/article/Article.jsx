@@ -70,22 +70,22 @@ const Article = () => {
     <div className="lg:pt-24 sm:pt-48 md:pt-48">
       {/* article place the share button in it */}
 
-      <div className="flex flex-row items-center justify-start mx-96">
+      <div className="flex flex-row items-center justify-start mx-[16vw]">
         <div className="flex items-center w-max">
           <img
             src={editor ? editor.pfp_url : ""}
             alt=""
-            className="mt-8 mr-4 h-24 w-24 lg:h-16 lg:w-16 rounded-full bg-gray-50"
+            className="mt-8 mr-4 h-10 aspect-square lg:h-16 lg:w-16 rounded-full bg-gray-50"
           />
-          <p className="mt-8 font-sans font-bold  text-2xl lg:text-2xl lg:ml-2   text-gray-400">
+        </div>
+        <div className="font-sans font-bold text-2xl lg:text-sm ml-5 flex flex-col gap-1">
+          <p className="mt-8 font-sans font-bold text-xl lg:text-xl text-gray-400">
             <a>
               <span className="relative inset-0" />
-              {editor ? editor.name.first_name + editor.name.last_name : ""}
+              {editor ? editor.name.first_name + " " + editor.name.last_name : ""}
             </a>
           </p>
-        </div>
-        <div className="mt-8 font-sans font-bold text-2xl lg:text-sm   ml-16">
-          <time dateTime={blog ? blog.createdAt : ""} className="text-gray-400">
+          <time dateTime={blog ? blog.createdAt : ""} className="text-gray-400 font-light">
             {blog ? blog.createdAt : ""}
           </time>
         </div>
