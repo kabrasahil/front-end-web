@@ -24,7 +24,7 @@ export default function Home1() {
           voluptatum, impedit atque?
         </p>
         <Link to="/about">
-        <ScrollToTop />
+        
 
           <button className="flex justify-center bg-gradient-to-r from-indigo-500 to-blue-400 text-white font-medium text-lg w-44 rounded-full h-10 !text-center  lg:text-lg sm:text-2xl md:text-2xl sm:w-56 md:w-56  lg:w-44">
             <div> Learn more </div>
