@@ -116,8 +116,7 @@ const Navbar = () => {
             className="flex content-center h-10 my-auto ml-auto mr-10"
           >
             {user ? (
-              <Link
-                to="/dashboard"
+              <a href="/dashboard" 
                 class="relative inline-flex items-center justify-start inline-block px-5 py-3 sm:px-10 md:px-10 sm:py-6 md:py-6 overflow-hidden font-bold rounded-full group"
               >
                 {/* <span class="w-32 h-32 rotate-45 translate-x-12 -translate-y-2 absolute left-0 top-0 bg-red opacity-[3%]"></span>
@@ -135,7 +134,7 @@ const Navbar = () => {
                 {/* </span>
                 </span>
                 <span class="absolute inset-0 border-2 border-blue-500 rounded-full"></span> */}
-              </Link>
+              </a>
             ) : (
               <Link
                 to="/login"

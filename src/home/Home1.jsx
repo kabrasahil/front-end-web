@@ -2,6 +2,9 @@ import React from "react";
 import image from "./assets/images/editor.png";
 import "./Home1.css";
 import information from "./assets/information.png";
+import { Link } from 'react-router-dom';
+import ScrollToTop from '../ScrollToTop.jsx';
+
 
 export default function Home1() {
   return (
@@ -20,9 +23,13 @@ export default function Home1() {
           iure, voluptatum quisquam vitae. Ab maxime dolore sint unde
           voluptatum, impedit atque?
         </p>
-        <button className="flex justify-center bg-gradient-to-r from-indigo-500 to-blue-400 text-white font-medium text-lg w-44 rounded-full h-10 !text-center  lg:text-lg sm:text-2xl md:text-2xl sm:w-56 md:w-56  lg:w-44">
-          <div> Learn more </div>
-        </button>
+        <Link to="/about">
+        <ScrollToTop />
+
+          <button className="flex justify-center bg-gradient-to-r from-indigo-500 to-blue-400 text-white font-medium text-lg w-44 rounded-full h-10 !text-center  lg:text-lg sm:text-2xl md:text-2xl sm:w-56 md:w-56  lg:w-44">
+            <div> Learn more </div>
+          </button>
+        </Link>
       </div>
 
       <div></div>
