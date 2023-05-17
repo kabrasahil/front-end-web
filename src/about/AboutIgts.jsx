@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Headings from "./Headings";
 
 const AboutIgts = () => {
+  useEffect(() => {
+    window.scrollTo(0,0);
+  },[]);
+  
   return (
     <div className="min-h-screen pt-10 flex flex-col items-center">
       <Headings

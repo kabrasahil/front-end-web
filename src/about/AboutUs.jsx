@@ -1,7 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Headings from "./Headings";
 
 const AboutUs = () => {
+  useEffect(() => {
+    window.scrollTo(0,0);
+  },[]);
   const [techTeam, setTechTeam] = useState([
     {
       name: "John W. Smith",

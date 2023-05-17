@@ -73,10 +73,14 @@ export default function HomeUpdates() {
           );
         })}
         <div className="w-full h-full text-center text-slate-100 flex flex-col gap-3 ">
-          <button className="lg:p-0 w-full h-full bg-stone-800 shadow-md shadow-black hover:bg-stone-700 rounded-2xl items-center text-gray-300 lg:text-4xl sm:text-5xl md:text-5xl sm:py-24 flex justify-center">
+          <button className="lg:p-0 w-full h-full bg-stone-800 shadow-md shadow-black hover:bg-stone-700 rounded-2xl items-center text-gray-300 lg:text-4xl sm:text-5xl md:text-5xl sm:py-24 flex justify-center"
+            onClick={() => window.location.href = "/blogs"}
+            >
             Blogs
           </button>
-          <button className="lg:p-0 w-full h-full bg-stone-800 shadow-md shadow-black hover:bg-stone-700 rounded-2xl text-gray-300 lg:text-4xl sm:text-5xl md:text-5xl sm:py-24 flex justify-center">
+          <button className="lg:p-0 w-full h-full bg-stone-800 shadow-md shadow-black hover:bg-stone-700 rounded-2xl text-gray-300 lg:text-4xl sm:text-5xl md:text-5xl sm:py-24 flex justify-center"
+            onClick={() => window.location.href = "/events"}
+                      >
             Events
           </button>
         </div>

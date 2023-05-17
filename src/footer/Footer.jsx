@@ -58,7 +58,7 @@ const Footer = () => {
       <div className="p-4 sm:p-6 mr-auto sm:my-auto md:my-auto lg:mb-auto lg:mt-0">
         <div className="flex lg:flex-row sm:flex-col md:flex-col mt-4 gap-y-4 gap-x-4 sm:justify-center lg:text-base sm:text-xl md:text-2xl">
           <a
-            href="#"
+            href="https://www.facebook.com/igts.nsit/"
             className="text-gray-300 hover:text-gray-500 dark:hover:text-white"
           >
             <svg
@@ -76,7 +76,7 @@ const Footer = () => {
             <span className="sr-only">Facebook page</span>
           </a>
           <a
-            href="#"
+            href="https://www.instagram.com/igts_nsut/?hl=en"
             className="text-gray-300 hover:text-gray-500 dark:hover:text-white"
           >
             <svg
@@ -108,7 +108,7 @@ const Footer = () => {
             <span className="sr-only">Twitter page</span>
           </a>
           <a
-            href="#"
+            href="https://github.com/indian-game-theory-society-nsut"
             className="text-gray-300 hover:text-gray-500 dark:hover:text-white"
           >
             <svg

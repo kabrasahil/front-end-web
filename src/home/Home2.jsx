@@ -1,6 +1,8 @@
 import React from "react";
 import image from "./assets/images/Desktop1.png";
 import "./Home2.css";
+import { Link } from 'react-router-dom';
+
 
 export default function Home2() {
   return (
@@ -26,9 +28,11 @@ export default function Home2() {
           iure, voluptatum quisquam vitae. Ab maxime dolore sint unde
           voluptatum, impedit atque?
         </p>
-        <button className="flex justify-center bg-gradient-to-r  from-pink-900 to-pink-700 text-white font-medium lg:text-lg sm:text-2xl md:text-2xl sm:w-56 md:w-56 lg:w-44 rounded-full h-10 !text-center sm:ml-auto md:ml-auto lg:ml-1">
-          <div> Learn more </div>
-        </button>
+        <Link to="/igts">
+          <button className="flex justify-center bg-gradient-to-r  from-pink-900 to-pink-700 text-white font-medium lg:text-lg sm:text-2xl md:text-2xl sm:w-56 md:w-56 lg:w-44 rounded-full h-10 !text-center sm:ml-auto md:ml-auto lg:ml-1">
+            <div> Learn more </div>
+          </button>
+        </Link>
       </div>
 
       <div></div>
