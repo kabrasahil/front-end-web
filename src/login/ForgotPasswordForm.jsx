@@ -42,13 +42,12 @@ const ForgotPasswordForm= ({
     }else{
       setPassUpdateFailed([false, ""]);
 
-     
-      const res = await fetch(`${SERVER_URL}/api/user/${id.id}/${id.token}/${passwordR}`,{
+      const res = await fetch(`${SERVER_URL}/api/user/changepassword/${id.id}/${id.token}`,{
         method:"POST",
-        header:{
+        headers:{
           "Content-Type":"application/json"
         },
-        body:JSON.stringify(passwordR)
+        body:JSON.stringify({password:passwordR})
       })
 
       const data = await res.json();
