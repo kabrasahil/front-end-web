@@ -4,6 +4,10 @@ import logo from "./../home/assets/igts-white-logo.png";
 import { useNavigate } from "react-router-dom";
 import Notification from "../notifications/Notification";
 import { SERVER_URL } from "../config";
+import { redirect } from "next/dist/server/api-utils";
+import { Navigate } from "react-router-dom";
+
+
 
 const ForgotPasswordForm= ({
   id,
@@ -59,6 +63,10 @@ const ForgotPasswordForm= ({
           ...showNotification,
           { type: "success", message: data.message },
         ]);
+
+        setTimeout(()=>{
+          navigate("/login")
+        },2000)
       } else {
         setShowNotification([
           ...showNotification,
