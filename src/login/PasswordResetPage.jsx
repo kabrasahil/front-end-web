@@ -3,10 +3,9 @@ import LoginCard from "./LoginCard";
 import background from "./background.png";
 import { UserContext } from "../App";
 import { useLocation, useNavigate } from "react-router-dom";
-import PasswordReset from "./PasswordResetPage";
-import ForgotPassword from "./PasswordResetCard";
+import PasswordResetCard from "./PasswordResetCard";
 
-const LoginPage = () => {
+const PasswordResetPage = () => {
   const { user, setUser } = useContext(UserContext);
 
   const navigate = useNavigate();
@@ -27,11 +26,11 @@ const LoginPage = () => {
     >
       <div className="w-screen h-screen flex flex-col lg:pt-20 justify-center lg:items-end backdrop-blur-2xl ">
         <div className="flex justify-center items-center lg:!mr-24 ">
-          <LoginCard />
+          <PasswordResetCard />
         </div>
       </div>
     </section>
   );
 };
 
-export default LoginPage;
+export default PasswordResetPage;

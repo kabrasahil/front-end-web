@@ -20,6 +20,8 @@ import {
 } from "react-router-dom";
 import Article from "./article/Article";
 import LoginPage from "./login/LoginPage";
+import PasswordResetPage from "./login/PasswordResetPage";
+import ForgotPasswordPage from "./login/ForgotPasswordPage";
 import Dashboard from "./dashboard/Dashboard";
 import AboutUs from "./about/AboutUs";
 import AboutIgts from "./about/AboutIgts";
@@ -89,6 +91,8 @@ function IgtsWebsite() {
             />
 
             <Route exact path="/login" element={<LoginPage />} />
+            <Route exact path="/password-reset" element={<PasswordResetPage />} />
+            <Route exact path="/forgotpassword/:id/:token" element={<ForgotPasswordPage />} />
             <Route path="/dashboard/*" element={<Dashboard />} />
             <Route exact path="/" element={<Navigate to="/home" />} />
             <Route exact path="/home" element={<Home />} />

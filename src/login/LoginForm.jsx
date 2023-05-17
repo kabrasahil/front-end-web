@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Outlet, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import logo from "./../home/assets/igts-white-logo.png";
 import { useNavigate } from "react-router-dom";
@@ -112,12 +113,19 @@ const LoginForm = ({ showNotification, setShowNotification }) => {
           onChange={(e) => setPasswordL(e.target.value)}
         />
       </div>
+      
       <button
         type="button"
-        className=" text-white bg-gradient-to-r font-medium rounded-lg lg:text-base lg:px-5 lg:py-2.5 sm:text-3xl md:text-3xl sm:py-5 md:py-5 text-center inline-flex items-center mr-2 mb-2 gap-x-3 w-full justify-center mt-5 bg-gradient-to-r  to-pink-500 from-blue-400 hover:to-pink-600 hover:from-blue-500"
+        className=" text-white bg-gradient-to-r font-medium rounded-lg lg:text-base lg:px-5 lg:py-2.5 sm:text-3xl md:text-3xl sm:py-5 md:py-5 text-center inline-flex items-center mr-2 gap-x-3 w-full justify-center mt-5 bg-gradient-to-r  to-pink-500 from-blue-400 hover:to-pink-600 hover:from-blue-500"
         onClick={handleLogin}
       >
         Sign In
+      </button>
+      <button
+        type="button"
+        className=" text-white font-medium rounded-lg lg:text-base lg:px-5 lg:py-2.5 sm:text-3xl md:text-3xl sm:py-5 md:py-5 text-center inline-flex items-center  gap-x-3 w-full hover:text-blue-200 hover:shadow-md"
+      >
+      <Link to="/password-reset">Forgot Password?</Link>
       </button>
       {signInFailed[0] ? (
         <span className=" sm:text-2xl md:text-2xl lg:text-base text-red-600">
