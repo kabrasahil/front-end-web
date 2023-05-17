@@ -339,7 +339,7 @@ const EditProfile = () => {
             to="/dashboard/profile/changepassword"
             className="text-gray-600 w-full text-center  lg:text-base md:text-3xl sm:text-3xl sm:mb-4 md:mb-4 !underline"
           >
-            update password
+            Update Password
           </Link>
         </div>
         <div className="flex flex-col w-full">

@@ -20,6 +20,8 @@ import {
 } from "react-router-dom";
 import Article from "./article/Article";
 import LoginPage from "./login/LoginPage";
+import PasswordResetPage from "./login/PasswordResetPage";
+import ForgotPasswordPage from "./login/ForgotPasswordPage";
 import Dashboard from "./dashboard/Dashboard";
 import AboutUs from "./about/AboutUs";
 import AboutIgts from "./about/AboutIgts";
@@ -34,7 +36,8 @@ import { SERVER_URL } from "./config";
 import Notification from "./notifications/Notification";
 import SubtopicHome from "./articles_home/subtopics/SubtopicHome";
 import { Context } from "./context/Context";
-// import Community from "./community/Community";
+import Community from "./community/Community";
+import Events from "./events/Events";
 
 export const UserContext = React.createContext({});
 
@@ -89,6 +92,8 @@ function IgtsWebsite() {
             />
 
             <Route exact path="/login" element={<LoginPage />} />
+            <Route exact path="/password-reset" element={<PasswordResetPage />} />
+            <Route exact path="/forgotpassword/:id/:token" element={<ForgotPasswordPage />} />
             <Route path="/dashboard/*" element={<Dashboard />} />
             <Route exact path="/" element={<Navigate to="/home" />} />
             <Route exact path="/home" element={<Home />} />
@@ -98,7 +103,7 @@ function IgtsWebsite() {
             <Route exact path="/editor" element={<Editor />} />
             <Route exact path="/privacy" element={<PrivacyPolicy />} />
             <Route exact path="/terms" element={<Terms />} />
-            {/* <Route exact path="/community" element={<Community />} /> */}
+            <Route exact path="/community" element={<Community />} />
 
             <Route exact path="/games" element={<ComingSoon />} />
             <Route exact path="/events" element={<ComingSoon />} />
