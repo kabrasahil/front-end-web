@@ -64,8 +64,8 @@ export default function EventsTab() {
                         <div className='w-[70vw]  shadow-[0_0_50px_10px_rgb(0,0,0)] lg:mt-24 my-10 rounded-xl flex lg:flex-row flex-col-reverse justify-between object-cover '>
                             <div className={' w-[40vw] text-white py-5 pl-5 lg:!py-10 lg:!pl-10 !pr-0 lg:p-10 z-10 '}>
                                 <h1 className='text-2xl lg:text-5xl font-bold'>{event_title}</h1>
-                                <p className='text-md lg:text-xl pt-2 lg:pt-10 font-light'>Starts in</p>
-                                <p className='text-slate-200 text-xl lg:text-3xl my-0 lg:my-3 font-semibold'>{Remtime}</p>
+                                <p className='absolute lg:static text-md lg:text-xl pt-2 lg:pt-10 font-light translate-x-[58vw] lg:translate-x-0 translate-y-[-2.5rem] lg:translate-y-0'>Starts in</p>
+                                <p className='absolute lg:static text-slate-200 text-xl lg:text-3xl my-0 lg:my-3 font-semibold translate-x-[57vw] lg:translate-x-0 translate-y-[-0.5rem] lg:translate-y-0'>{Remtime}</p>
                                 <div className="translate-x-[0px] lg:translate-x-[20px] w-[50vw] items-center mt-4 lg:my-8 py-1 lg:py-5 shadow-[0_0_5px_-10px_rgb(0,0,0)] text-white bg-gray-700 bg-clip-padding rounded-xl backdrop-filter backdrop-blur-lg bg-opacity-20 flex">
                                     <div className='flex'>
                                         <div className='text-center flex flex-col gap-2 px-2 lg:px-10 border-r border-slate-600'>

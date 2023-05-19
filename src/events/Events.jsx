@@ -16,12 +16,12 @@ export default function Events() {
             <img src={ufo} className="absolute hidden lg:block mx-auto object-cover translate-y-[15vh] translate-x-170vh] w-[10vw] mt-[6rem] rotate-[-10deg] " />
             <img src={ufo} className="absolute hidden lg:block mx-auto object-cover  translate-y-[20vh] translate-x-[20vh] w-[20vw] mt-[6rem] rotate-[20deg]" />
             
-            <section className="mt-[20rem] lg:mt-[45rem] w-full flex justify-center">
+            <section className="mt-[15rem] lg:mt-[45rem] w-full flex justify-center">
                 <EventsTab />
             </section>
 
-            <img src={planet1} className="absolute hidden lg:block w-[10rem] lg:w-[30rem] right-[15%] top-[0rem] lg:top-[-10vh] translate-x-[20vw] " />
-            <img src={planet2} className="absolute hidden lg:block w-[20rem] left-[-150px] top-[-2rem] lg:top-[10rem] m-0 left-[-400px] lg:w-[50rem] rotate-[-30deg]" />
+            <img src={planet1} className="absolute hidden lg:inline w-[6rem] lg:w-[20rem] right-[15%] top-[0rem] lg:top-[0vh] translate-x-[15vw] " />
+            <img src={planet2} className="absolute hidden lg:block w-[20rem]  top-[-2rem] lg:top-[10rem] m-0 left-[-400px] lg:w-[50rem] rotate-[-30deg]" />
             
         </div>
     )
