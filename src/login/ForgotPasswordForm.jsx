@@ -74,7 +74,7 @@ const ForgotPasswordForm= ({
             type: "error",
             message: data.message,
           },
-        ]);
+        ]);  
       }
       
     }

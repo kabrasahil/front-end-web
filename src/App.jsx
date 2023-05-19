@@ -8,6 +8,7 @@ import Navbar from "./header/Navbar";
 import Home from "./home/Home";
 import PrivacyPolicy from "./privacy and terms/privacy-policy";
 import Tiptap from "./Editor/Tiptap";
+import EventCreationPage from "./Event Creation Form/EventCreationPage";
 import ShareButton from "./article/shareButton/ShareButtons";
 import ArticleContent from "./article/articleContent/ArticleContent";
 import ArticlesHome from "./articles_home/ArticlesHome";
@@ -101,6 +102,7 @@ function IgtsWebsite() {
             <Route exact path="/igts" element={<AboutIgts />} />
             <Route exact path="/editor/:blog_id" element={<Editor />} />
             <Route exact path="/editor" element={<Editor />} />
+            <Route exact path="/Event-creation" element={<EventCreationPage/>} />
             <Route exact path="/privacy" element={<PrivacyPolicy />} />
             <Route exact path="/terms" element={<Terms />} />
             <Route exact path="/community" element={<Community />} />
