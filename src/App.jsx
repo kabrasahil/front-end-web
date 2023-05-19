@@ -108,7 +108,7 @@ function IgtsWebsite() {
             <Route exact path="/community" element={<Community />} />
 
             <Route exact path="/games" element={<ComingSoon />} />
-            <Route exact path="/events" element={<ComingSoon />} />
+            <Route exact path="/events" element={<Events />} />
             <Route exact path="/merchandise" element={<ComingSoon />} />
             <Route path="/*" element={<NotFound />} />
           </Routes>
