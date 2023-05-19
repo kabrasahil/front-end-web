@@ -9,7 +9,7 @@ import EventCreationForm3 from "./EventCreationForm3";
 import EventCreationForm2 from "./EventCreationForm2";
 const EventCreationCard = () => {
   const [hasAccount, setHasAccount] = useState(true);
-  const [form,setform] = useState(2);
+  const [form,setform] = useState(0);
   const [content, setContent] = useState("");
 
   const variants = {
