@@ -61,7 +61,7 @@ export default function EventsTab() {
             {event.map(({ event_title, date, time, date_time, location, main_poster, HTML, event_moderators, active, registrations_open, registrations, created_by }) => {
                 return (
                     <div >
-                        <div className='w-[70vw]  shadow-[0_0_50px_10px_rgb(0,0,0)]  my-10 rounded-xl flex lg:flex-row flex-col-reverse justify-between object-cover '>
+                        <div className='w-[70vw]  shadow-[0_0_50px_10px_rgb(0,0,0)] lg:mt-24 my-10 rounded-xl flex lg:flex-row flex-col-reverse justify-between object-cover '>
                             <div className={' w-[40vw] text-white py-5 pl-5 lg:!py-10 lg:!pl-10 !pr-0 lg:p-10 z-10 '}>
                                 <h1 className='text-2xl lg:text-5xl font-bold'>{event_title}</h1>
                                 <p className='text-md lg:text-xl pt-2 lg:pt-10 font-light'>Starts in</p>
