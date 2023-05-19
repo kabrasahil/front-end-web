@@ -210,7 +210,7 @@ const EditProfile = () => {
         ></img>
         <button
           type="button"
-          class="text-slate-100 rounded-2xl bg-gradient-to-r from-blue-400 to-pink-400 font-bold rounded-lg sm:text-3xl sm:px-10 sm:py-5 md:text-3xl md:px-10 md:py-5 lg:text-base lg:px-5 lg:py-2.5 text-center h-full rounded-xl !my-auto"
+          class="bg-gradient-to-r from-blue-400 to-pink-500 shadow-md shadow-gray-800 focus:shadow-sm focus:shadow-gray-700 hover:shadow-lg hover:shadow-gray-900 hover:to-pink-600 hover:from-blue-500  focus:to-pink-600 focus:from-blue-500  rounded-full lg:px-5 px-5 lg:py-2 py-1 lg:mr-5 text-xs lg:text-lg font-normal lg:font-bold block  lg:block text-white"
           onClick={(e) => {
             document.getElementById("update-profile-pic").click();
           }}
@@ -562,7 +562,7 @@ const ChangePassword = () => {
 
             <button
               type="button"
-              class="text-slate-100 rounded-2xl bg-gradient-to-r from-blue-400 to-pink-400 font-bold rounded-lg sm:text-3xl sm:px-10 sm:py-5 md:text-3xl md:px-10 md:py-5 lg:text-base lg:px-5 lg:py-2.5 text-center h-full rounded-xl !my-auto"
+              class="bg-gradient-to-r from-blue-400 to-pink-500 shadow-md shadow-gray-800 focus:shadow-sm focus:shadow-gray-700 hover:shadow-lg hover:shadow-gray-900 hover:to-pink-600 hover:from-blue-500  focus:to-pink-600 focus:from-blue-500  rounded-full lg:px-5 px-5 lg:py-2 py-1 lg:mr-5 text-xs lg:text-lg font-normal lg:font-bold block  lg:block text-white"
               onClick={handleSubmit}
             >
               Update Password

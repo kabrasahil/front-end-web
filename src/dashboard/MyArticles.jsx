@@ -93,7 +93,7 @@ export default function Dashboard_MyArticles() {
         </p>
       </div>
       <button
-        className="text-slate-100 my-8 py-3 px-7 rounded-2xl bg-gradient-to-r from-blue-400 to-pink-400"
+        className="bg-gradient-to-r from-blue-400 to-pink-500 shadow-md shadow-gray-800 focus:shadow-sm focus:shadow-gray-700 hover:shadow-lg hover:shadow-gray-900 hover:to-pink-600 hover:from-blue-500  focus:to-pink-600 focus:from-blue-500  rounded-full lg:px-5 px-5 lg:py-2 py-1 lg:mr-5 text-xs lg:text-lg font-normal lg:font-bold block  lg:block text-white"
         onClick={(e) => {
           console.log("here");
           window.location.href = "/editor";
