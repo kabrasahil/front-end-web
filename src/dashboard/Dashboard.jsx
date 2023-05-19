@@ -12,6 +12,7 @@ import MyProfile from "./MyProfile";
 import MyArticles from "./MyArticles";
 import ManageUsers from "./ManageUsers";
 import ManageArticles from "./ManageArticles";
+import MyEvents from "./MyEvents";
 import "./Dashboard.css";
 import BottomBar from "./BottomBar";
 import { SERVER_URL } from "../config";
@@ -52,6 +53,10 @@ const Dashboard = () => {
       toRender = <MyArticles />;
 
       break;
+      case "/dashboard/events":
+        toRender = <MyEvents />;
+  
+        break;
     case "/dashboard/manageblogs":
       toRender = <ManageArticles />;
 

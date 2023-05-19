@@ -24,6 +24,7 @@ const SideBar = () => {
         setLinks([
           { title: "My Profile", link: "/dashboard/profile", active: false },
           { title: "My Blogs", link: "/dashboard/blogs", active: false },
+          { title: "Manage Events", link: "/dashboard/events", active: false },
           {
             title: "Manage Blogs",
             link: "/dashboard/manageblogs",
