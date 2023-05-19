@@ -3,8 +3,8 @@ import Headings from "./Headings";
 
 const AboutUs = () => {
   useEffect(() => {
-    window.scrollTo(0,0);
-  },[]);
+    window.scrollTo(0, 0);
+  }, []);
   const [techTeam, setTechTeam] = useState([
     {
       name: "John W. Smith",
@@ -106,10 +106,10 @@ const AboutUs = () => {
       </h1>
 
       <p className=" prose lg:text-xl md:text-3xl sm:text-3xl sm:mx-3 md:mx-3 text-center pb-8  text-slate-400">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla fuga
-        reprehenderit neque sit id fugiat provident architecto veritatis
-        excepturi, necessitatibus, aut doloremque molestiae repudiandae ut quam
-        blanditiis nihil cum voluptates?
+        The Creative Minds Behind the Indian Game Theory Society Website! These
+        individuals have poured their expertise, creativity, and passion into
+        crafting a remarkable online platform for our esteemed society. Allow us
+        to present our dedicated team:
       </p>
 
       <div class="grid gap-8 pt-16 lg:gap-16 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3">
@@ -150,10 +150,9 @@ const AboutUs = () => {
       </h1>
 
       <p className=" prose lg:text-xl md:text-3xl sm:text-3xl sm:mx-3 md:mx-3 text-center pb-8  text-slate-400">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla fuga
-        reprehenderit neque sit id fugiat provident architecto veritatis
-        excepturi, necessitatibus, aut doloremque molestiae repudiandae ut quam
-        blanditiis nihil cum voluptates?
+        Uniting game theory enthusiasts, fostering collaboration, and advancing
+        its practical applications through events, workshops, and discussions.
+        Join us in exploring strategic decision-making!
       </p>
       <img
         class="h-96 card-shadow-black transition-all duration-300 rounded-xl cursor-pointer filter lg:grayscale lg:hover:grayscale-0 shadow-2xl shadow-gray-800 m-5"
@@ -161,10 +160,7 @@ const AboutUs = () => {
         alt="image description"
       />
       <p className="  prose lg:text-xl md:text-3xl sm:text-3xl sm:mx-3 md:mx-3 text-center pb-8 pt-8  text-slate-400">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla fuga
-        reprehenderit neque sit id fugiat provident architecto veritatis
-        excepturi, necessitatibus, aut doloremque molestiae repudiandae ut quam
-        blanditiis nihil cum voluptates?
+      Explore our curated collection of articles, case studies, and research papers that delve into various aspects of strategic decision-making. Engage in thought-provoking discussions on our online forums, where you can exchange ideas and perspectives with fellow enthusiasts. Whether you are a student, researcher, or simply curious about game theory, IGTS provides a platform to expand your knowledge and connect with others who share your passion
       </p>
     </div>
   );

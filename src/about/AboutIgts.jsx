@@ -59,17 +59,17 @@ const AboutIgts = () => {
       </h1>
 
       <p className=" prose lg:text-xl md:text-3xl sm:text-3xl sm:mx-3 md:mx-3 text-center pb-8  text-slate-400">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla fuga
-        reprehenderit neque sit id fugiat provident architecto veritatis
-        excepturi, necessitatibus, aut doloremque molestiae repudiandae ut quam
-        blanditiis nihil cum voluptates?
+      The branch of social science that studies strategic decision making is called game theory. The games in this theory range from chess to child-rearing, from tennis to business takeovers, and from advertising to arms control.
       </p>
 
       <img
-        class="h-96 card-shadow-black transition-all duration-300 rounded-xl cursor-pointer filter lg:grayscale lg:hover:grayscale-0 shadow-2xl shadow-gray-800 m-5"
-        src="https://drive.google.com/uc?export=view&id=1I8LBraLkRdRLWp2f9mNzsnip6ujxO3LZ"
+        class="h-96 w-1/3 card-shadow-black transition-all duration-300 rounded-xl cursor-pointer filter  shadow-2xl shadow-gray-800 m-5"
+        src="https://anticap.files.wordpress.com/2011/08/postuniversitycartoongametheory.jpg"
         alt="image description"
       />
+      <p className=" prose lg:text-xl md:text-3xl sm:text-3xl sm:mx-3 md:mx-3 text-center pb-8  text-slate-400">
+The Monty Hall Problem      </p>
+
     </div>
   );
 };

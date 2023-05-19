@@ -17,11 +17,7 @@ export default function Home1() {
           The Indian Game Theory Society
         </h2>
         <p className="text-slate-300 font-thin lg:text-lg sm:text-2xl md:text-2xl text-justified">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem,
-          dolores maiores vel iste quae iusto sed at neque, facere doloribus
-          tempora rerum ipsam fugiat commodi similique praesentium expedita
-          iure, voluptatum quisquam vitae. Ab maxime dolore sint unde
-          voluptatum, impedit atque?
+        The Indian Game Theory Society was founded by Mr.Manoj Gadia on 30th December, 2015. It was founded with the motive of promoting the understanding of Game Theory and Strategic Thinking. We aim to start our chapters in all the universities and colleges all over India, helping students to learn the very concept of Game Theory and its application. We aim to expand our knowledge by applying it in real life scenarios and business decisions.
         </p>
         <Link to="/about">
         
