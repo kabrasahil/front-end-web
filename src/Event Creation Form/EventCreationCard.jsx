@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import logo from "./../home/assets/igts-white-logo.png";
 import { useNavigate } from "react-router-dom";
@@ -7,10 +7,36 @@ import { SERVER_URL } from "../config";
 import EventCreationForm1 from "./EventCreationForm1";
 import EventCreationForm3 from "./EventCreationForm3";
 import EventCreationForm2 from "./EventCreationForm2";
+import { Context } from "../context/Context";
 const EventCreationCard = () => {
   const [hasAccount, setHasAccount] = useState(true);
+  const [signUpFailed, setSignUpFailed] = useState(true);
   const [form,setform] = useState(0);
+
+
   const [content, setContent] = useState("");
+  const [contentEmpty,setContentEmpty]=useState(false);
+
+  const [members,setMembers]=useState(["example@gmail.com"]);
+  const [membersEmpty,setMembersEmpty]=useState(false);
+
+
+  const [title,setTitle]=useState("");
+  const [titleEmpty,setTitleEmpty]=useState(false);
+
+  const [datetime,setDatetime]=useState("");
+  const [datetimeEmpty,setDatetimeEmpty]=useState(false);
+
+
+
+  const [location,setLocation]=useState("");
+  const [locationEmpty,setLocationEmpty]=useState(false);
+
+
+  const [posterURL,setPosterURL]=useState("");
+  const [posterURLEmpty,setPosterURLEmpty]=useState(false);
+
+  const user = useContext(Context)
 
   const variants = {
     small: {
@@ -24,7 +50,7 @@ const EventCreationCard = () => {
       },
     },
   };
-
+  const navigate = useNavigate();
 
   const setNext=()=>{
     setform(form+1)
@@ -37,7 +63,115 @@ const EventCreationCard = () => {
     document.body.scrollTop = 0 // For Safari
   document.documentElement.scrollTop = 0
   }
+
+  const saveContent= async (e) => {
+    e.preventDefault();
+
+    setContentEmpty(false);
+setTitleEmpty(false);
+setContentEmpty(false);
+setDatetimeEmpty(false);
+setLocationEmpty(false);
+setPosterURLEmpty(false);
+setMembersEmpty(false);
+
+    // Validate input fields
+    if (!title) setTitleEmpty(true);
+    if (!content) setContentEmpty(true);
+    if (!datetime) setDatetimeEmpty(true);
+    if (!location) setLocationEmpty(true);
+    if (!posterURL) setPosterURLEmpty(true);
+    if (!members) setMembersEmpty(true);
+    if (
+      contentEmpty||
+      datetimeEmpty||
+      locationEmpty||
+      membersEmpty||
+      posterURLEmpty||
+      titleEmpty
+    ) {
+      setSignUpFailed([true, "Please fill the required fields"]);
+
+      return;
+    }
+    setSignUpFailed([false, ""]);
+    // Send registration data to backend
+    const registerData = {
+      event_title: title,
+      date_time: datetime,
+      location: location,
+      main_poster: posterURL,
+      details: content,
   
+      event_moderators: members,
+
+    };
+    console.log(registerData)
+    try {
+
+      const token = localStorage.getItem("jwt");
+
+      // console.log(token);
+      const response = await fetch(`${SERVER_URL}/api/event/createevent`, {
+        method: "POST",
+        headers: {
+          Authorization: token,
+          "Content-Type": "application/json",
+        },
+        user:{user},
+        body: JSON.stringify(registerData),
+      });
+      const data = await response.json();
+      if (data.success) {
+        // Registration successful
+        setHasAccount(true);
+        setShowNotification([
+          ...showNotification,
+          {
+            message: "Event Creation successful!",
+            type: "success",
+          },
+        ]);
+
+        // localStorage.setItem("jwt", response.token);
+        // navigate("/");
+        
+      } else if (data.success === false) {
+        // Registration failed
+        setSignUpFailed([true, data.message]);
+        setShowNotification([
+          ...showNotification,
+          {
+            message: data.message,
+            type: "error",
+          },
+        ]);
+      } else {
+        setSignUpFailed([
+          true,
+          "An error occurred while registering. Please try again later.",
+        ]);
+        setShowNotification([
+          ...showNotification,
+          {
+            message:
+              "An error occurred while registering. Please try again later.",
+            type: "error",
+          },
+        ]);
+      }
+    } catch (error) {
+      console.error("Error registering user:", error);
+      setShowNotification([
+        ...showNotification,
+        {
+          message:
+            "An error occurred while registering. Please try again later.",
+          type: "error",
+        },
+      ]);
+    }
+  };
 
   const [showNotification, setShowNotification] = useState([]);
   return (
@@ -76,6 +210,14 @@ const EventCreationCard = () => {
         {form===0 ? (<EventCreationForm1
           content={content}
           setContent={setContent}
+          title={title}
+          setTitle={setTitle}
+          datetime={datetime}
+          setDatetime={setDatetime}
+          location={location}
+          setLocation={setLocation}
+          posterURL={posterURL}
+          setPosterURL={setPosterURL}
           />):(<></>)}
           
         {form==1?(<EventCreationForm2
@@ -83,7 +225,10 @@ const EventCreationCard = () => {
           setContent={setContent}
           />):(<></>)}
           
-         {form==2? (<EventCreationForm3></EventCreationForm3>):(<></>)
+         {form==2? (<EventCreationForm3
+          members={members}
+          setMembers={setMembers}
+         />):(<></>)
          }
 
 
@@ -108,7 +253,7 @@ const EventCreationCard = () => {
       {form === 2?(<button
         type="button"
         className="block text-white bg-green-600 hover:bg-green-700 px-10 py-2 rounded-xl font-extrabold m-4 w-1/3 text-center justify-center"
-        onClick={setNext}
+        onClick={saveContent}
       >
         Save Event
       </button>):(<></>)}

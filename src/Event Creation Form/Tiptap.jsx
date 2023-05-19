@@ -178,11 +178,7 @@ const MenuBar = ({ editor }) => {
 
 const TipTap = ({
   content,
-  thumbnail,
-  heading,
   setContent,
-  setThumbnail,
-  setHeading,
   success
 }) => {
   const editor = useEditor({

@@ -8,9 +8,8 @@ import DialogBox from './DialogBox';
 
 
 
-function EventCreationForm3({clickedNext, setClickedNext, content, setContent}){
+function EventCreationForm3({clickedNext, setClickedNext, content, setContent,members,setMembers}){
   const [item,setItem]=useState("");
-  const [members,setMembers]=useState(["example@gmail.com"]);
 
   const addMem=()=>{
     setMembers((oldMembers)=>{
