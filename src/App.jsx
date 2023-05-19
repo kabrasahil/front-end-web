@@ -39,6 +39,7 @@ import SubtopicHome from "./articles_home/subtopics/SubtopicHome";
 import { Context } from "./context/Context";
 import Community from "./community/Community";
 import Events from "./events/Events";
+import ViewParticipants from "./Event Creation Form/ViewParticipants";
 
 export const UserContext = React.createContext({});
 
@@ -102,7 +103,9 @@ function IgtsWebsite() {
             <Route exact path="/igts" element={<AboutIgts />} />
             <Route exact path="/editor/:blog_id" element={<Editor />} />
             <Route exact path="/editor" element={<Editor />} />
-            <Route exact path="/Event-creation" element={<EventCreationPage/>} />
+            <Route exact path="/Event-creation" element={<EventCreationPage />} />
+            <Route exact path="/:id/viewparticipants" element={<ViewParticipants />} />
+
             <Route exact path="/privacy" element={<PrivacyPolicy />} />
             <Route exact path="/terms" element={<Terms />} />
             <Route exact path="/community" element={<Community />} />
