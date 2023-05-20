@@ -10,6 +10,7 @@ import Notification from "../notifications/Notification";
 import { SERVER_URL } from "../config";
 const EventCreationForm1 = ({ content, setContent, title, setTitle, datetime, setDatetime, location, setLocation, posterURL, setPosterURL }) => {
 
+  setDatetime(datetime.split('T')[0])
 
   return (
     <form

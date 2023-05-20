@@ -1,36 +1,9 @@
 import React, { useState, useRef } from 'react';
+import { SERVER_URL } from '../config';
+import { useEffect } from 'react';
 export default function EventsTab() {
     const Ref = useRef(null);
-    const [event, setEvent] = useState([
-        {
-            event_title: "Strata",
-            date: "17/05/23",
-            time: "23:00:00",
-            date_time: Date("Jul 25, 2021 16:37:52"),
-            location: "NSUT",
-            main_poster: "https://www.mokshansut.com/_next/image?url=https%3A%2F%2Fodlfyjrswlruygfdauic.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fevent-banner%2F6bcc6feb-3699-4258-8447-705164ebbfbbbanner_strata.png&w=1920&q=75",
-            HTML: "#",
-            event_moderators: [],
-            active: true,
-            registrations_open: true,
-            registrations: [],
-            created_by: "12345"
-        },
-        {
-            event_title: "Strata",
-            date: "17/05/23",
-            time: "23:00:00",
-            date_time: Date("Jul 25, 2021 16:37:52"),
-            location: "NSUT",
-            main_poster: "https://res.cloudinary.com/dwzmsvp7f/image/fetch/q_75,f_auto,w_800/https%3A%2F%2Fmedia.insider.in%2Fimage%2Fupload%2Fc_crop%2Cg_custom%2Fv1678695284%2Fwxxyylzqnbdn2pdwream.png",
-            HTML: "#",
-            event_moderators: [],
-            active: true,
-            registrations_open: false,
-            registrations: [],
-            created_by: "12345"
-        }
-    ])
+    const [event, setEvent] = useState([])
     const [Remtime, setRemTime] = useState('00:00:00');
 
     const getTimeRemaining = (e) => {
@@ -42,6 +15,47 @@ export default function EventsTab() {
             total, hours, minutes, seconds
         };
     }
+
+    const [pge_no, setPge_no] = useState(0);
+
+
+    const fetchEvents = async () => {
+        const response = await fetch(`${SERVER_URL}/api/event/getevents/${pge_no}`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+
+        if (response.ok) {
+            const data = await response.json();
+            if (data.success) {
+                setEvent([...event, ...data.events]);
+            }
+        }
+
+    }
+
+    useEffect(() => {
+        fetchEvents();
+    }, [pge_no])
+
+
+    useEffect(() => {
+
+        window.addEventListener("scroll", () => {
+            // Calculate the distance between the bottom of the page and the current scroll position
+            const distanceToBottom =
+                document.documentElement.offsetHeight -
+                (window.innerHeight + window.scrollY);
+
+            // Check if the user has reached the bottom of the page
+            if (distanceToBottom <= 0) {
+                setPge_no(pge_no + 1);
+            }
+        });
+
+    }, [])
 
     const startTimer = (e) => {
         let { total, hours, minutes, seconds }
@@ -58,7 +72,7 @@ export default function EventsTab() {
     // const [mouseover,setMouseover] = useState(false);
     return (
         <div className='flex flex-col'>
-            {event.map(({ event_title, date, time, date_time, location, main_poster, HTML, event_moderators, active, registrations_open, registrations, created_by }) => {
+            {event.map(({ event_title, _id, date, time, date_time, location, main_poster, HTML, event_moderators, active, registrations_open, registrations, created_by }) => {
                 return (
                     <div >
                         <div className='w-[70vw]  shadow-[0_0_50px_10px_rgb(0,0,0)] lg:mt-24 my-10 rounded-xl flex lg:flex-row flex-col-reverse justify-between object-cover '>
@@ -84,12 +98,12 @@ export default function EventsTab() {
                                             <h1 className='text-xs lg:text-lg font-semibold'>Registrations</h1>
                                             <div className={(registrations_open) ? "w-2 h-2 lg:w-5 lg:h-5 rounded-full bg-green-500" : "w-2 h-2 lg:w-5 lg:h-5 rounded-full bg-red-500"}></div>
                                         </div>
-                                        
+
                                     </div>
-                                    <a href={HTML} className='bg-gradient-to-r from-blue-400 to-pink-500 shadow-md shadow-slate-800 focus:shadow-sm focus:shadow-slate-700 hover:shadow-lg hover:shadow-slate-900 hover:to-pink-600 hover:from-blue-500  focus:to-pink-600 focus:from-blue-500  rounded-full lg:px-10 px-5 lg:py-2 py-1 lg:mr-5 text-xs lg:text-lg font-normal lg:font-bold block  lg:block'>
+                                    <a href={`/events/${_id}`} className='bg-gradient-to-r from-blue-400 to-pink-500 shadow-md shadow-slate-800 focus:shadow-sm focus:shadow-slate-700 hover:shadow-lg hover:shadow-slate-900 hover:to-pink-600 hover:from-blue-500  focus:to-pink-600 focus:from-blue-500  rounded-full lg:px-10 px-5 lg:py-2 py-1 lg:mr-5 text-xs lg:text-lg font-normal lg:font-bold block  lg:block'>
                                         Check
                                     </a>
-                                    
+
                                 </div>
                             </div>
 
