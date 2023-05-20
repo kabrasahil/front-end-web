@@ -267,7 +267,7 @@ const EventPage = () => {
 
                         <div className='m-10 w-3/4 card-shadow-black p-16'>
 
-                            <EventRegisterForm
+                            {user ? <EventRegisterForm
                                 event={event}
                                 fname={fname}
                                 setFname={setFname}
@@ -292,7 +292,17 @@ const EventPage = () => {
                                 organizationRollNumber={organizationRollNumber}
                                 setOrganizationRollNumber={setOrganizationRollNumber}
                                 handleSubmit={handleSubmit}
-                            />
+                            /> : <>
+                                <div className='flex justify-center'>
+                                    <button
+                                        type="button"
+                                        className=" text-white bg-gradient-to-r   to-pink-500 from-blue-400 hover:to-pink-600 hover:from-blue-500 focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg lg:text-base lg:px-5 lg:py-2.5 sm:text-3xl md:text-3xl sm:py-5 md:py-5 text-center inline-flex items-center mr-2 mb-2 gap-x-3  justify-center mt-5 w-1/2 lg:w-1/4"
+                                        onClick={() => { window.location.href = '/login' }}
+                                    >
+                                        Log In
+                                    </button>
+                                </div>
+                            </>}
 
 
 

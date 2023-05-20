@@ -7,8 +7,8 @@ const AboutUs = () => {
   }, []);
   const [techTeam, setTechTeam] = useState([
     {
-      name: "John W. Smith",
-      post: "Developer",
+      name: "Parikshit Dabas",
+      post: "Lead Developer",
       avatar:
         "https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/jese-leos.png",
       socials: [
@@ -18,8 +18,8 @@ const AboutUs = () => {
       ],
     },
     {
-      name: "John W. Smith",
-      post: "Developer",
+      name: "Vishal Jatia",
+      post: "Lead Developer",
       avatar:
         "https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/jese-leos.png",
       socials: [
@@ -29,8 +29,8 @@ const AboutUs = () => {
       ],
     },
     {
-      name: "John W. Smith",
-      post: "Developer",
+      name: "Pragun Bansal",
+      post: "Lead Developer",
       avatar:
         "https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/jese-leos.png",
       socials: [
@@ -40,30 +40,8 @@ const AboutUs = () => {
       ],
     },
     {
-      name: "John W. Smith",
-      post: "Developer",
-      avatar:
-        "https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/jese-leos.png",
-      socials: [
-        { icon: "instagram", url: "https://www.instagram.com/igts_nsut" },
-        { icon: "github", url: "https://www.github.com/igts_nsut" },
-        { icon: "linkedin", url: "https://www.linkedin.com/igts_nsut" },
-      ],
-    },
-    {
-      name: "John W. Smith",
-      post: "Developer",
-      avatar:
-        "https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/jese-leos.png",
-      socials: [
-        { icon: "instagram", url: "https://www.instagram.com/igts_nsut" },
-        { icon: "github", url: "https://www.github.com/igts_nsut" },
-        { icon: "linkedin", url: "https://www.linkedin.com/igts_nsut" },
-      ],
-    },
-    {
-      name: "John W. Smith",
-      post: "Developer",
+      name: "Samyak Jain",
+      post: "Lead Developer",
       avatar:
         "https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/jese-leos.png",
       socials: [
@@ -112,7 +90,7 @@ const AboutUs = () => {
         to present our dedicated team:
       </p>
 
-      <div class="grid gap-8 pt-16 lg:gap-16 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3">
+      <div class="grid gap-8 pt-16 lg:gap-16 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2">
         {techTeam.map((el, i) => {
           return (
             <div class="text-center text-gray-500 dark:text-gray-400">
@@ -160,7 +138,7 @@ const AboutUs = () => {
         alt="image description"
       />
       <p className="  prose lg:text-xl md:text-3xl sm:text-3xl sm:mx-3 md:mx-3 text-center pb-8 pt-8  text-slate-400">
-      Explore our curated collection of articles, case studies, and research papers that delve into various aspects of strategic decision-making. Engage in thought-provoking discussions on our online forums, where you can exchange ideas and perspectives with fellow enthusiasts. Whether you are a student, researcher, or simply curious about game theory, IGTS provides a platform to expand your knowledge and connect with others who share your passion
+        Explore our curated collection of articles, case studies, and research papers that delve into various aspects of strategic decision-making. Engage in thought-provoking discussions on our online forums, where you can exchange ideas and perspectives with fellow enthusiasts. Whether you are a student, researcher, or simply curious about game theory, IGTS provides a platform to expand your knowledge and connect with others who share your passion
       </p>
     </div>
   );

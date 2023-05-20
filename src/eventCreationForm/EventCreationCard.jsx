@@ -167,20 +167,31 @@ const EventCreationCard = () => {
       const token = localStorage.getItem("jwt");
 
       // console.log(token);
-      const response = await fetch(`${SERVER_URL}/api/event/createevent`, {
-        method: "POST",
-        headers: {
-          Authorization: token,
-          "Content-Type": "application/json",
-        },
-        user: { user },
-        body: JSON.stringify(registerData),
-      });
-
+      let response;
+      if (!event_id) {
+        response = await fetch(`${SERVER_URL}/api/event/createevent`, {
+          method: "POST",
+          headers: {
+            Authorization: token,
+            "Content-Type": "application/json",
+          },
+          user: { user },
+          body: JSON.stringify(registerData),
+        });
+      } else {
+        response = await fetch(`${SERVER_URL}/api/event/${event_id}/update`, {
+          method: "POST",
+          headers: {
+            Authorization: token,
+            "Content-Type": "application/json",
+          },
+          user: { user },
+          body: JSON.stringify(registerData),
+        });
+      }
       const data = await response.json();
       if (data.success) {
         // Registration successful
-        setHasAccount(true);
         setShowNotification([
           ...showNotification,
           {
@@ -188,13 +199,10 @@ const EventCreationCard = () => {
             type: "success",
           },
         ]);
-
-        // localStorage.setItem("jwt", response.token);
-        // navigate("/");
+        window.location.href = '/dashboard/events'
 
       } else if (data.success === false) {
         // Registration failed
-        setSignUpFailed([true, data.message]);
         setShowNotification([
           ...showNotification,
           {
