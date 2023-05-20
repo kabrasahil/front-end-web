@@ -8,6 +8,7 @@ import EventCreationForm1 from "./EventCreationForm1";
 import EventCreationForm3 from "./EventCreationForm3";
 import EventCreationForm2 from "./EventCreationForm2";
 import { Context } from "../context/Context";
+import { isDeepStrictEqual } from "util";
 const EventCreationCard = () => {
   const [hasAccount, setHasAccount] = useState(true);
   const [signUpFailed, setSignUpFailed] = useState(true);
@@ -24,9 +25,12 @@ const EventCreationCard = () => {
   const [title,setTitle]=useState("");
   const [titleEmpty,setTitleEmpty]=useState(false);
 
-  const [datetime,setDatetime]=useState("");
-  const [datetimeEmpty,setDatetimeEmpty]=useState(false);
-
+  const [date,setDate]=useState("");
+  const [dateEmpty,setDateEmpty]=useState(false);
+  
+  
+    const [time,setTime]=useState("");
+    const [timeEmpty,setTimeEmpty]=useState(false);
 
 
   const [location,setLocation]=useState("");
@@ -70,7 +74,8 @@ const EventCreationCard = () => {
     setContentEmpty(false);
 setTitleEmpty(false);
 setContentEmpty(false);
-setDatetimeEmpty(false);
+setDateEmpty(false);
+setTimeEmpty(false);
 setLocationEmpty(false);
 setPosterURLEmpty(false);
 setMembersEmpty(false);
@@ -78,13 +83,15 @@ setMembersEmpty(false);
     // Validate input fields
     if (!title) setTitleEmpty(true);
     if (!content) setContentEmpty(true);
-    if (!datetime) setDatetimeEmpty(true);
+    if (!date) setDateEmpty(true);
+    if (!time) setTimeEmpty(true);
     if (!location) setLocationEmpty(true);
     if (!posterURL) setPosterURLEmpty(true);
     if (!members) setMembersEmpty(true);
     if (
       contentEmpty||
-      datetimeEmpty||
+      timeEmpty||
+      dateEmpty||
       locationEmpty||
       membersEmpty||
       posterURLEmpty||
@@ -95,6 +102,10 @@ setMembersEmpty(false);
       return;
     }
     setSignUpFailed([false, ""]);
+
+    const datetime = new Date(`${date}T${time}:00`);
+    const isoDateString = datetime.toISOString();
+    console.log(datetime,isoDateString)
     // Send registration data to backend
     const registerData = {
       event_title: title,
@@ -122,6 +133,7 @@ setMembersEmpty(false);
         body: JSON.stringify(registerData),
       });
       const data = await response.json();
+      // console.log(data);
       if (data.success) {
         // Registration successful
         setHasAccount(true);
@@ -212,8 +224,10 @@ setMembersEmpty(false);
           setContent={setContent}
           title={title}
           setTitle={setTitle}
-          datetime={datetime}
-          setDatetime={setDatetime}
+          date={date}
+          setDate={setDate}
+          time={time}
+          setTime={setTime}
           location={location}
           setLocation={setLocation}
           posterURL={posterURL}
