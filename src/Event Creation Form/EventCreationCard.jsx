@@ -40,7 +40,7 @@ const EventCreationCard = () => {
   const [posterURL, setPosterURL] = useState("");
   const [posterURLEmpty, setPosterURLEmpty] = useState(false);
 
-
+  const [datetime,setDatetime]=useState("");
 
 
   const event_id = useParams().id;
@@ -58,6 +58,7 @@ const EventCreationCard = () => {
 
     if (response.ok) {
       const data = await response.json();
+      console.log(data)
       if (data.success) {
         setTitle(data.event.event_title);
         setContent(data.event.details);
@@ -140,13 +141,13 @@ setMembersEmpty(false);
     }
     setSignUpFailed([false, ""]);
 
-    const datetime = new Date(`${date}T${time}:00`);
-    const isoDateString = datetime.toISOString();
-    console.log(datetime,isoDateString)
+    const datentime = new Date(`${date}T${time}:00`);
+    const isoDateString = datentime.toISOString();
+    // console.log(datentime,isoDateString)
     // Send registration data to backend
     const registerData = {
       event_title: title,
-      date_time: datetime,
+      date_time: datentime,
       location: location,
       main_poster: posterURL,
       details: content,
