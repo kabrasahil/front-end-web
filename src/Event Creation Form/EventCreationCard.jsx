@@ -8,6 +8,7 @@ import EventCreationForm1 from "./EventCreationForm1";
 import EventCreationForm3 from "./EventCreationForm3";
 import EventCreationForm2 from "./EventCreationForm2";
 import { Context } from "../context/Context";
+import { isDeepStrictEqual } from "util";
 const EventCreationCard = () => {
   const [hasAccount, setHasAccount] = useState(true);
   const [signUpFailed, setSignUpFailed] = useState(true);
@@ -24,19 +25,22 @@ const EventCreationCard = () => {
   const [title, setTitle] = useState("");
   const [titleEmpty, setTitleEmpty] = useState(false);
 
-  const [datetime, setDatetime] = useState("");
-  const [datetimeEmpty, setDatetimeEmpty] = useState(false);
+  const [date,setDate]=useState("");
+  const [dateEmpty,setDateEmpty]=useState(false);
+  
+  
+    const [time,setTime]=useState("");
+    const [timeEmpty,setTimeEmpty]=useState(false);
 
 
-
-  const [location, setLocation] = useState("");
-  const [locationEmpty, setLocationEmpty] = useState(false);
+  const [location,setLocation]=useState("");
+  const [locationEmpty,setLocationEmpty]=useState(false);
 
 
   const [posterURL, setPosterURL] = useState("");
   const [posterURLEmpty, setPosterURLEmpty] = useState(false);
 
-
+  const [datetime,setDatetime]=useState("");
 
 
   const event_id = useParams().id;
@@ -54,6 +58,7 @@ const EventCreationCard = () => {
 
     if (response.ok) {
       const data = await response.json();
+      console.log(data)
       if (data.success) {
         setTitle(data.event.event_title);
         setContent(data.event.details);
@@ -105,26 +110,29 @@ const EventCreationCard = () => {
     e.preventDefault();
 
     setContentEmpty(false);
-    setTitleEmpty(false);
-    setContentEmpty(false);
-    setDatetimeEmpty(false);
-    setLocationEmpty(false);
-    setPosterURLEmpty(false);
-    setMembersEmpty(false);
+setTitleEmpty(false);
+setContentEmpty(false);
+setDateEmpty(false);
+setTimeEmpty(false);
+setLocationEmpty(false);
+setPosterURLEmpty(false);
+setMembersEmpty(false);
 
     // Validate input fields
     if (!title) setTitleEmpty(true);
     if (!content) setContentEmpty(true);
-    if (!datetime) setDatetimeEmpty(true);
+    if (!date) setDateEmpty(true);
+    if (!time) setTimeEmpty(true);
     if (!location) setLocationEmpty(true);
     if (!posterURL) setPosterURLEmpty(true);
     if (!members) setMembersEmpty(true);
     if (
-      contentEmpty ||
-      datetimeEmpty ||
-      locationEmpty ||
-      membersEmpty ||
-      posterURLEmpty ||
+      contentEmpty||
+      timeEmpty||
+      dateEmpty||
+      locationEmpty||
+      membersEmpty||
+      posterURLEmpty||
       titleEmpty
     ) {
       setSignUpFailed([true, "Please fill the required fields"]);
@@ -132,14 +140,17 @@ const EventCreationCard = () => {
       return;
     }
     setSignUpFailed([false, ""]);
+
+    const datentime = new Date(`${date}T${time}:00`);
+    const isoDateString = datentime.toISOString();
+    // console.log(datentime,isoDateString)
     // Send registration data to backend
     const registerData = {
       event_title: title,
-      date_time: datetime,
+      date_time: datentime,
       location: location,
       main_poster: posterURL,
       details: content,
-
       event_moderators: members,
 
     };
@@ -159,6 +170,7 @@ const EventCreationCard = () => {
         body: JSON.stringify(registerData),
       });
       const data = await response.json();
+      // console.log(data);
       if (data.success) {
         // Registration successful
         setHasAccount(true);
@@ -249,8 +261,10 @@ const EventCreationCard = () => {
           setContent={setContent}
           title={title}
           setTitle={setTitle}
-          datetime={datetime}
-          setDatetime={setDatetime}
+          date={date}
+          setDate={setDate}
+          time={time}
+          setTime={setTime}
           location={location}
           setLocation={setLocation}
           posterURL={posterURL}
@@ -273,14 +287,14 @@ const EventCreationCard = () => {
 
           {form != 0 ? (<button
             type="button"
-            className=" text-white bg-gradient-to-r font-medium rounded-lg lg:text-base lg:px-5 lg:py-2.5 sm:text-3xl md:text-3xl sm:py-5 md:py-5 text-center inline-flex items-center mr-2 gap-x-3 w-full justify-center mt-5 bg-gradient-to-r  to-pink-500 from-blue-400 hover:to-pink-600 hover:from-blue-500"
+            className=" text-white bg-gradient-to-r font-medium rounded-lg lg:text-base lg:px-5 lg:py-2.5 sm:text-3xl md:text-3xl sm:py-5 md:py-5 text-center inline-flex items-center mr-2 gap-x-3 w-full justify-center mt-5   to-pink-500 from-blue-400 hover:to-pink-600 hover:from-blue-500"
             onClick={resetNext}
           >
             Back
           </button>) : (<></>)}
           {form != 2 ? (<button
             type="button"
-            className=" text-white bg-gradient-to-r font-medium rounded-lg lg:text-base lg:px-5 lg:py-2.5 sm:text-3xl md:text-3xl sm:py-5 md:py-5 text-center inline-flex items-center mr-2 gap-x-3 w-full justify-center mt-5 bg-gradient-to-r  to-pink-500 from-blue-400 hover:to-pink-600 hover:from-blue-500"
+            className=" text-white bg-gradient-to-r font-medium rounded-lg lg:text-base lg:px-5 lg:py-2.5 sm:text-3xl md:text-3xl sm:py-5 md:py-5 text-center inline-flex items-center mr-2 gap-x-3 w-full justify-center mt-5 to-pink-500 from-blue-400 hover:to-pink-600 hover:from-blue-500"
             onClick={setNext}
           >
             Next

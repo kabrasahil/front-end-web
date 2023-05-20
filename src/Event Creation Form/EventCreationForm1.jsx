@@ -8,7 +8,7 @@ import logo from "./../home/assets/igts-white-logo.png";
 import { useNavigate } from "react-router-dom";
 import Notification from "../notifications/Notification";
 import { SERVER_URL } from "../config";
-const EventCreationForm1 = ({ content, setContent, title, setTitle, datetime, setDatetime, location, setLocation, posterURL, setPosterURL }) => {
+const EventCreationForm1 = ({content,setContent,title,setTitle,date,setDate,time,setTime,location,setLocation,posterURL,setPosterURL}) => {
 
   setDatetime(datetime.split('T')[0])
 
@@ -32,8 +32,17 @@ const EventCreationForm1 = ({ content, setContent, title, setTitle, datetime, se
           type="date"
           className="bg-stone-800 w-2/3 lg:p-3 lg:p-3 sm:p-5 md:p-5  text-gray-400  focus:outline focus:outline-gray-600 lg:text-base sm:text-3xl md:text-3xl rounded-lg focus:0 block w-full p-2.5"
           placeholder="Date"
-          value={datetime}
-          onChange={(e) => { setDatetime(e.target.value) }}
+          value={date}
+          onChange={(e)=>{setDate(e.target.value)}}
+        />
+      </div>
+      <div className="relative">
+        <input
+          type="time"
+          className="bg-stone-800 w-2/3 lg:p-3 lg:p-3 sm:p-5 md:p-5  text-gray-400  focus:outline focus:outline-gray-600 lg:text-base sm:text-3xl md:text-3xl rounded-lg focus:0 block w-full p-2.5"
+          placeholder="Time"
+          value={time}
+          onChange={(e)=>{setTime(e.target.value)}}
         />
       </div>
       <div className="relative">
