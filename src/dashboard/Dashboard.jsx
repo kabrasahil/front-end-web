@@ -12,7 +12,7 @@ import MyProfile from "./MyProfile";
 import MyArticles from "./MyArticles";
 import ManageUsers from "./ManageUsers";
 import ManageArticles from "./ManageArticles";
-import MyEvents from "./MyEvents";
+import MyEvents from "./ManageEvents";
 import "./Dashboard.css";
 import BottomBar from "./BottomBar";
 import { SERVER_URL } from "../config";
