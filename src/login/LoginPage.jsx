@@ -1,13 +1,13 @@
 import React, { useContext, useEffect } from "react";
 import LoginCard from "./LoginCard";
 import background from "./background.png";
-import { UserContext } from "../App";
 import { useLocation, useNavigate } from "react-router-dom";
 import PasswordReset from "./PasswordResetPage";
 import ForgotPassword from "./PasswordResetCard";
+import { Context } from "../context/Context";
 
 const LoginPage = () => {
-  const { user, setUser } = useContext(UserContext);
+  const user = useContext(Context);
 
   const navigate = useNavigate();
 

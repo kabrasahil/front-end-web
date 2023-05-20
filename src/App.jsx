@@ -42,7 +42,6 @@ import Events from "./events/Events";
 import ViewParticipants from "./eventCreationForm/ViewParticipants";
 import EventPage from "./eventsPage/EventPage";
 
-export const UserContext = React.createContext({});
 
 function IgtsWebsite() {
   const [user, setUser] = useState();

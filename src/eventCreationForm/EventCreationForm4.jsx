@@ -1,10 +1,4 @@
 import { useContext, useEffect, useState } from 'react';
-import TipTap from './Tiptap';
-import DOMPurify from 'dompurify';
-import { useNavigate, useParams } from 'react-router-dom';
-import { SERVER_URL } from '../config';
-import { UserContext } from '../App';
-import DialogBox from './DialogBox';
 
 
 

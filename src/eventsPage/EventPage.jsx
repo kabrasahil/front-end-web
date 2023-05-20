@@ -2,9 +2,9 @@ import React, { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { SERVER_URL } from '../config';
 import DOMPurify from "dompurify";
-import { UserContext } from '../App';
 import EventGallery from './EventGallery';
 import EventRegisterForm from './EventRegisterForm';
+import { Context } from '../context/Context';
 
 const EventPage = () => {
     const event_id = useParams().id;
@@ -56,7 +56,6 @@ const EventPage = () => {
     }, []);
 
 
-    const { user, setUser } = useContext(UserContext);
 
 
     const fetchTicket = async () => {
@@ -84,14 +83,34 @@ const EventPage = () => {
 
     }
 
+    const user = useContext(Context);
+
 
     useEffect(() => {
+
+
+        console.log('user', user);
 
         if (event && event.registered) {
             // fetch the ticket
             fetchTicket();
         }
-    }, [event])
+
+        if (event && !event.registered && user) {
+
+
+            console.log('here');
+            setFname(user.name.first_name);
+            setLname(user.name.last_name);
+            setEmailR(user.email);
+            setPhone(user.phone);
+            setOrganization(user.organization);
+
+
+
+        }
+
+    }, [event, user])
 
 
     function validateEmail(email) {
@@ -118,7 +137,7 @@ const EventPage = () => {
             lnameEmpty(true);
             flag = true;
         } if (!organization || organization.length === 0) {
-            organizationEmpty(true);
+            setOrganizationEmpty(true);
             flag = true;
         }
 
@@ -150,7 +169,7 @@ const EventPage = () => {
         }
         const token = localStorage.getItem('jwt');
         if (!event.registered) {
-            const response = await fetch(`${SERVER_URL}/api/event/register`, {
+            const response = await fetch(`${SERVER_URL}/api/event/${event_id}/register`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -163,7 +182,7 @@ const EventPage = () => {
                 if (data.success) window.location.reload();
             }
         } else {
-            const response = await fetch(`${SERVER_URL}/api/event/editregistration`, {
+            const response = await fetch(`${SERVER_URL}/api/event/${event_id}/editregistration`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',

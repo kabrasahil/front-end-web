@@ -5,8 +5,8 @@ import TipTap from "./Tiptap";
 import DOMPurify from "dompurify";
 import { useNavigate, useParams } from "react-router-dom";
 import { SERVER_URL } from "../config";
-import { UserContext } from "../App";
 import DialogBox from "./DialogBox";
+import { Context } from "../context/Context";
 
 function Editor() {
   const [content, setContent] = useState("");
@@ -19,7 +19,7 @@ function Editor() {
   // 2. old draft editor non empty useParams
 
   const blog_id = useParams().blog_id;
-  const user = useContext(UserContext);
+  const user = useContext(Context);
 
   const navigate = useNavigate();
   useEffect(() => {

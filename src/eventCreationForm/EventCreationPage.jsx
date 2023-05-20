@@ -1,8 +1,5 @@
 import React, { useContext, useEffect } from "react";
 import background from "./background.png";
-import { UserContext } from "../App";
-import { useLocation, useNavigate, useParams } from "react-router-dom";
-import EventCreationForm from "./EventCreationForm1";
 import EventCreationCard from "./EventCreationCard";
 
 const EventCreationPage = () => {

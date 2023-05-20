@@ -1,13 +1,11 @@
 import React, { useContext, useEffect } from "react";
 import LoginCard from "./LoginCard";
 import background from "./background.png";
-import { UserContext } from "../App";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import ForgotPasswordCard from "./ForgotPasswordCard";
 import { SERVER_URL } from "../config";
 
 const ForgotPasswordPage = () => {
-//   const { user, setUser } = useContext(UserContext);
 
   const{id,token}=useParams();
   const navigate = useNavigate();

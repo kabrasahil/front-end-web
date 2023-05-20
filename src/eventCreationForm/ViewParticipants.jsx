@@ -2,9 +2,9 @@ import React, { useContext, useEffect, useState } from 'react'
 
 import { v4 as uuidv4 } from 'uuid';
 import { saveAs } from 'file-saver';
-import { UserContext } from '../App';
 import { SERVER_URL } from '../config';
 import { useNavigate, useParams } from 'react-router-dom';
+import { Context } from '../context/Context';
 
 
 const ViewParticipants = () => {
@@ -37,7 +37,7 @@ const ViewParticipants = () => {
         // Add more users here...
     ]);
 
-    const user = useContext(UserContext);
+    const user = useContext(Context);
 
     const navigate = useNavigate();
 
