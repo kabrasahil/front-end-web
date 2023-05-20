@@ -72,7 +72,12 @@ export default function EventsTab() {
     // const [mouseover,setMouseover] = useState(false);
     return (
         <div className='flex flex-col'>
-            {event.map(({ event_title, _id, date, time, date_time, location, main_poster, HTML, event_moderators, active, registrations_open, registrations, created_by }) => {
+            {event.map(({ event_title, _id, date_time, location, main_poster, HTML, event_moderators, active, registrations_open, registrations, created_by }) => {
+
+                const d = new Date(date_time);
+                const date = d.toLocaleDateString();
+                const time = d.toLocaleTimeString();
+
                 return (
                     <div >
                         <div className='w-[70vw]  shadow-[0_0_50px_10px_rgb(0,0,0)] lg:mt-24 my-10 rounded-xl flex lg:flex-row flex-col-reverse justify-between object-cover '>

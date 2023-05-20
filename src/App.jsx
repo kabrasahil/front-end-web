@@ -8,7 +8,7 @@ import Navbar from "./header/Navbar";
 import Home from "./home/Home";
 import PrivacyPolicy from "./privacy and terms/privacy-policy";
 import Tiptap from "./Editor/Tiptap";
-import EventCreationPage from "./Event Creation Form/EventCreationPage";
+import EventCreationPage from "./eventCreationForm/EventCreationPage";
 import ShareButton from "./article/shareButton/ShareButtons";
 import ArticleContent from "./article/articleContent/ArticleContent";
 import ArticlesHome from "./articles_home/ArticlesHome";
@@ -39,7 +39,7 @@ import SubtopicHome from "./articles_home/subtopics/SubtopicHome";
 import { Context } from "./context/Context";
 import Community from "./community/Community";
 import Events from "./events/Events";
-import ViewParticipants from "./Event Creation Form/ViewParticipants";
+import ViewParticipants from "./eventCreationForm/ViewParticipants";
 import EventPage from "./eventsPage/EventPage";
 
 export const UserContext = React.createContext({});

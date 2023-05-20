@@ -8,7 +8,7 @@ import EventCreationForm1 from "./EventCreationForm1";
 import EventCreationForm3 from "./EventCreationForm3";
 import EventCreationForm2 from "./EventCreationForm2";
 import { Context } from "../context/Context";
-import { isDeepStrictEqual } from "util";
+
 const EventCreationCard = () => {
   const [hasAccount, setHasAccount] = useState(true);
   const [signUpFailed, setSignUpFailed] = useState(true);
@@ -25,22 +25,22 @@ const EventCreationCard = () => {
   const [title, setTitle] = useState("");
   const [titleEmpty, setTitleEmpty] = useState(false);
 
-  const [date,setDate]=useState("");
-  const [dateEmpty,setDateEmpty]=useState(false);
-  
-  
-    const [time,setTime]=useState("");
-    const [timeEmpty,setTimeEmpty]=useState(false);
+  const [date, setDate] = useState("");
+  const [dateEmpty, setDateEmpty] = useState(false);
 
 
-  const [location,setLocation]=useState("");
-  const [locationEmpty,setLocationEmpty]=useState(false);
+  const [time, setTime] = useState("");
+  const [timeEmpty, setTimeEmpty] = useState(false);
+
+
+  const [location, setLocation] = useState("");
+  const [locationEmpty, setLocationEmpty] = useState(false);
 
 
   const [posterURL, setPosterURL] = useState("");
   const [posterURLEmpty, setPosterURLEmpty] = useState(false);
 
-  const [datetime,setDatetime]=useState("");
+  const [datetime, setDatetime] = useState("");
 
 
   const event_id = useParams().id;
@@ -110,13 +110,13 @@ const EventCreationCard = () => {
     e.preventDefault();
 
     setContentEmpty(false);
-setTitleEmpty(false);
-setContentEmpty(false);
-setDateEmpty(false);
-setTimeEmpty(false);
-setLocationEmpty(false);
-setPosterURLEmpty(false);
-setMembersEmpty(false);
+    setTitleEmpty(false);
+    setContentEmpty(false);
+    setDateEmpty(false);
+    setTimeEmpty(false);
+    setLocationEmpty(false);
+    setPosterURLEmpty(false);
+    setMembersEmpty(false);
 
     // Validate input fields
     if (!title) setTitleEmpty(true);
@@ -127,12 +127,12 @@ setMembersEmpty(false);
     if (!posterURL) setPosterURLEmpty(true);
     if (!members) setMembersEmpty(true);
     if (
-      contentEmpty||
-      timeEmpty||
-      dateEmpty||
-      locationEmpty||
-      membersEmpty||
-      posterURLEmpty||
+      contentEmpty ||
+      timeEmpty ||
+      dateEmpty ||
+      locationEmpty ||
+      membersEmpty ||
+      posterURLEmpty ||
       titleEmpty
     ) {
       setSignUpFailed([true, "Please fill the required fields"]);
