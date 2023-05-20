@@ -151,7 +151,6 @@ setMembersEmpty(false);
       location: location,
       main_poster: posterURL,
       details: content,
-
       event_moderators: members,
 
     };

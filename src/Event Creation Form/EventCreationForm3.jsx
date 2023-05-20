@@ -47,7 +47,7 @@ function EventCreationForm3({clickedNext, setClickedNext, content, setContent,me
           <div class="mb-4">
             <div class="mt-4 flex">
               <input
-                className="focus:0 block w-3/4 w-full rounded-lg bg-stone-800  p-2.5  text-gray-400 focus:outline focus:outline-gray-600 sm:p-5 sm:text-3xl md:p-5 md:text-3xl lg:p-3 lg:p-3 lg:text-base"
+                className="focus:0 block w-3/4 w-full rounded-lg bg-stone-800  p-2.5  text-gray-400 focus:outline focus:outline-gray-600 sm:p-5 sm:text-3xl md:p-5 md:text-3xl lg:p-3 lg:text-base"
                 placeholder="Member Email"
                 value={item}
                 onChange={(e) => {setItem(e.target.value)}}
