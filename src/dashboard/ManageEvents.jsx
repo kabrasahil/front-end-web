@@ -98,7 +98,7 @@ const ManageEvents = () => {
       ...prevState,
       [eventId]: {
         ...prevState[eventId],
-        event: val,
+        active: val,
       },
     }));
 
@@ -126,6 +126,7 @@ const ManageEvents = () => {
   const handleViewParticipants = (eventId) => {
     // Handle the logic to view participants for the given blogId
     console.log("View participants for blogId:", eventId);
+    window.open(`/${eventId}/viewparticipants`, '_blank');
   };
 
   return (
@@ -159,7 +160,7 @@ const ManageEvents = () => {
           {data.map((d, i) => {
             const isChecked = checkedMap[d._id] || {
               registration: false,
-              event: false,
+              active: false,
             };
 
             console.log(isChecked);
@@ -200,13 +201,13 @@ const ManageEvents = () => {
                     />
                   </div>
                   <div className="relative">
-                    {isChecked.event ? (
+                    {isChecked.active ? (
                       <span className="mr-2">Enable event</span>
                     ) : (
                       <span className="mr-2">Disable event</span>
                     )}
                     <ReactSwitch
-                      checked={isChecked.event}
+                      checked={isChecked.active}
                       onChange={(val) => handleEventChange(d._id, val)}
                     />
                   </div>
