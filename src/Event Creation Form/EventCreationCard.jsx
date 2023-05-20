@@ -9,6 +9,7 @@ import EventCreationForm3 from "./EventCreationForm3";
 import EventCreationForm2 from "./EventCreationForm2";
 import { Context } from "../context/Context";
 import { isDeepStrictEqual } from "util";
+import EventCreationForm4 from "./EventCreationForm4";
 const EventCreationCard = () => {
   const [hasAccount, setHasAccount] = useState(true);
   const [signUpFailed, setSignUpFailed] = useState(true);
@@ -20,7 +21,9 @@ const EventCreationCard = () => {
 
   const [members, setMembers] = useState([]);
   const [membersEmpty, setMembersEmpty] = useState(false);
-
+  
+  const [photos, setPhotos] = useState([]);
+  const [photosEmpty, setPhotosEmpty] = useState(false);
 
   const [title, setTitle] = useState("");
   const [titleEmpty, setTitleEmpty] = useState(false);
@@ -66,6 +69,7 @@ const EventCreationCard = () => {
         setDatetime(data.event.date_time);
         setLocation(data.event.location);
         setPosterURL(data.event.main_poster);
+        setPhotos(data.event.event_photos)
       } else console.log(data)
     }
 
@@ -117,6 +121,7 @@ setTimeEmpty(false);
 setLocationEmpty(false);
 setPosterURLEmpty(false);
 setMembersEmpty(false);
+setPhotosEmpty(false);
 
     // Validate input fields
     if (!title) setTitleEmpty(true);
@@ -126,6 +131,7 @@ setMembersEmpty(false);
     if (!location) setLocationEmpty(true);
     if (!posterURL) setPosterURLEmpty(true);
     if (!members) setMembersEmpty(true);
+    if(!photos) setPhotosEmpty(true);
     if (
       contentEmpty||
       timeEmpty||
@@ -133,7 +139,8 @@ setMembersEmpty(false);
       locationEmpty||
       membersEmpty||
       posterURLEmpty||
-      titleEmpty
+      titleEmpty||
+      photosEmpty
     ) {
       setSignUpFailed([true, "Please fill the required fields"]);
 
@@ -152,6 +159,7 @@ setMembersEmpty(false);
       main_poster: posterURL,
       details: content,
       event_moderators: members,
+      event_photos:photos,
 
     };
     console.log(registerData)
@@ -169,8 +177,8 @@ setMembersEmpty(false);
         user: { user },
         body: JSON.stringify(registerData),
       });
+      
       const data = await response.json();
-      // console.log(data);
       if (data.success) {
         // Registration successful
         setHasAccount(true);
@@ -282,6 +290,12 @@ setMembersEmpty(false);
         />) : (<></>)
         }
 
+        {form == 3 ? (<EventCreationForm4
+          photos={photos}
+          setPhotos={setPhotos}
+        />) : (<></>)
+        }
+
 
         <div className="flex flex-row">
 
@@ -292,7 +306,7 @@ setMembersEmpty(false);
           >
             Back
           </button>) : (<></>)}
-          {form != 2 ? (<button
+          {form != 3 ? (<button
             type="button"
             className=" text-white bg-gradient-to-r font-medium rounded-lg lg:text-base lg:px-5 lg:py-2.5 sm:text-3xl md:text-3xl sm:py-5 md:py-5 text-center inline-flex items-center mr-2 gap-x-3 w-full justify-center mt-5 to-pink-500 from-blue-400 hover:to-pink-600 hover:from-blue-500"
             onClick={setNext}
@@ -301,7 +315,7 @@ setMembersEmpty(false);
           </button>) : (<></>)}
         </div>
         <div className="flex justify-center items-center">
-          {form === 2 ? (<button
+          {form === 3 ? (<button
             type="button"
             className="block text-white bg-green-600 hover:bg-green-700 px-10 py-2 rounded-xl font-extrabold m-4 w-1/3 text-center justify-center"
             onClick={saveContent}
