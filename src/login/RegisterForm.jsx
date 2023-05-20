@@ -143,7 +143,7 @@ const RegisterForm = ({
     >
       <button
         type="button"
-        className="text-white bg-blue-500 hover:bg-blue-600 focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg lg:lg:text-base sm:text-3xl md:text-3xl sm:text-3xl md:text-3xl px-5 lg:py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55 mr-2 mb-2 gap-x-3 w-full justify-center sm:py-5"
+        className="text-white bg-blue-500 hover:bg-blue-600 focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg lg:lg:text-base sm:text-3xl md:text-3xl px-5 lg:py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55 mr-2 mb-2 gap-x-3 w-full justify-center sm:py-5"
         onClick={handleGRegister}
       >
         <svg

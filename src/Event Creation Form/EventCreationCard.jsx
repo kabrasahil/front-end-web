@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import logo from "./../home/assets/igts-white-logo.png";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Notification from "../notifications/Notification";
 import { SERVER_URL } from "../config";
 import EventCreationForm1 from "./EventCreationForm1";
@@ -12,18 +12,18 @@ import { isDeepStrictEqual } from "util";
 const EventCreationCard = () => {
   const [hasAccount, setHasAccount] = useState(true);
   const [signUpFailed, setSignUpFailed] = useState(true);
-  const [form,setform] = useState(0);
+  const [form, setform] = useState(0);
 
 
   const [content, setContent] = useState("");
-  const [contentEmpty,setContentEmpty]=useState(false);
+  const [contentEmpty, setContentEmpty] = useState(false);
 
-  const [members,setMembers]=useState(["example@gmail.com"]);
-  const [membersEmpty,setMembersEmpty]=useState(false);
+  const [members, setMembers] = useState([]);
+  const [membersEmpty, setMembersEmpty] = useState(false);
 
 
-  const [title,setTitle]=useState("");
-  const [titleEmpty,setTitleEmpty]=useState(false);
+  const [title, setTitle] = useState("");
+  const [titleEmpty, setTitleEmpty] = useState(false);
 
   const [date,setDate]=useState("");
   const [dateEmpty,setDateEmpty]=useState(false);
@@ -37,8 +37,45 @@ const EventCreationCard = () => {
   const [locationEmpty,setLocationEmpty]=useState(false);
 
 
-  const [posterURL,setPosterURL]=useState("");
-  const [posterURLEmpty,setPosterURLEmpty]=useState(false);
+  const [posterURL, setPosterURL] = useState("");
+  const [posterURLEmpty, setPosterURLEmpty] = useState(false);
+
+
+
+
+  const event_id = useParams().id;
+
+  // fetch event details
+  const fetchEvent = async () => {
+    const token = localStorage.getItem('jwt');
+    const response = await fetch(`${SERVER_URL}/api/event/${event_id}/draft`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: token
+      }
+    })
+
+    if (response.ok) {
+      const data = await response.json();
+      if (data.success) {
+        setTitle(data.event.event_title);
+        setContent(data.event.details);
+        setMembers(data.event.event_moderators);
+        setDatetime(data.event.date_time);
+        setLocation(data.event.location);
+        setPosterURL(data.event.main_poster);
+      } else console.log(data)
+    }
+
+  }
+
+  useEffect(() => {
+    if (event_id)
+      fetchEvent();
+  }, []);
+
+
 
   const user = useContext(Context)
 
@@ -56,19 +93,19 @@ const EventCreationCard = () => {
   };
   const navigate = useNavigate();
 
-  const setNext=()=>{
-    setform(form+1)
+  const setNext = () => {
+    setform(form + 1)
     document.body.scrollTop = 0// For Safari
-  document.documentElement.scrollTop = 0
+    document.documentElement.scrollTop = 0
   }
 
-  const resetNext=()=>{
-    setform(form-1)
+  const resetNext = () => {
+    setform(form - 1)
     document.body.scrollTop = 0 // For Safari
-  document.documentElement.scrollTop = 0
+    document.documentElement.scrollTop = 0
   }
 
-  const saveContent= async (e) => {
+  const saveContent = async (e) => {
     e.preventDefault();
 
     setContentEmpty(false);
@@ -113,7 +150,7 @@ setMembersEmpty(false);
       location: location,
       main_poster: posterURL,
       details: content,
-  
+
       event_moderators: members,
 
     };
@@ -129,7 +166,7 @@ setMembersEmpty(false);
           Authorization: token,
           "Content-Type": "application/json",
         },
-        user:{user},
+        user: { user },
         body: JSON.stringify(registerData),
       });
       const data = await response.json();
@@ -147,7 +184,7 @@ setMembersEmpty(false);
 
         // localStorage.setItem("jwt", response.token);
         // navigate("/");
-        
+
       } else if (data.success === false) {
         // Registration failed
         setSignUpFailed([true, data.message]);
@@ -212,14 +249,14 @@ setMembersEmpty(false);
               className="text-gray-300 "
               style={{ filter: "drop-shadow(0px 0px 1px #fff)" }}
             >
-              {form ===0 ?  "Create Event":""}
-              {form ===1 ?  "Enter The Details About The Event":""}
-              {form ===2 ?  "Add Event Members":""}
+              {form === 0 ? "Create Event" : ""}
+              {form === 1 ? "Enter The Details About The Event" : ""}
+              {form === 2 ? "Add Event Members" : ""}
             </span>
           </h1>
         </div>
-        
-        {form===0 ? (<EventCreationForm1
+
+        {form === 0 ? (<EventCreationForm1
           content={content}
           setContent={setContent}
           title={title}
@@ -232,46 +269,46 @@ setMembersEmpty(false);
           setLocation={setLocation}
           posterURL={posterURL}
           setPosterURL={setPosterURL}
-          />):(<></>)}
-          
-        {form==1?(<EventCreationForm2
+        />) : (<></>)}
+
+        {form == 1 ? (<EventCreationForm2
           content={content}
           setContent={setContent}
-          />):(<></>)}
-          
-         {form==2? (<EventCreationForm3
+        />) : (<></>)}
+
+        {form == 2 ? (<EventCreationForm3
           members={members}
           setMembers={setMembers}
-         />):(<></>)
-         }
+        />) : (<></>)
+        }
 
 
-         <div className="flex flex-row">
-      
-      {form!=0?(<button
-        type="button"
-        className=" text-white bg-gradient-to-r font-medium rounded-lg lg:text-base lg:px-5 lg:py-2.5 sm:text-3xl md:text-3xl sm:py-5 md:py-5 text-center inline-flex items-center mr-2 gap-x-3 w-full justify-center mt-5 bg-gradient-to-r  to-pink-500 from-blue-400 hover:to-pink-600 hover:from-blue-500"
-        onClick={resetNext}
-      >
-        Back
-      </button>):(<></>)}
-      {form != 2?(<button
-        type="button"
-        className=" text-white bg-gradient-to-r font-medium rounded-lg lg:text-base lg:px-5 lg:py-2.5 sm:text-3xl md:text-3xl sm:py-5 md:py-5 text-center inline-flex items-center mr-2 gap-x-3 w-full justify-center mt-5 bg-gradient-to-r  to-pink-500 from-blue-400 hover:to-pink-600 hover:from-blue-500"
-        onClick={setNext}
-      >
-        Next
-      </button>):(<></>)}
-      </div>
-      <div className="flex justify-center items-center">
-      {form === 2?(<button
-        type="button"
-        className="block text-white bg-green-600 hover:bg-green-700 px-10 py-2 rounded-xl font-extrabold m-4 w-1/3 text-center justify-center"
-        onClick={saveContent}
-      >
-        Save Event
-      </button>):(<></>)}
-      </div>
+        <div className="flex flex-row">
+
+          {form != 0 ? (<button
+            type="button"
+            className=" text-white bg-gradient-to-r font-medium rounded-lg lg:text-base lg:px-5 lg:py-2.5 sm:text-3xl md:text-3xl sm:py-5 md:py-5 text-center inline-flex items-center mr-2 gap-x-3 w-full justify-center mt-5   to-pink-500 from-blue-400 hover:to-pink-600 hover:from-blue-500"
+            onClick={resetNext}
+          >
+            Back
+          </button>) : (<></>)}
+          {form != 2 ? (<button
+            type="button"
+            className=" text-white bg-gradient-to-r font-medium rounded-lg lg:text-base lg:px-5 lg:py-2.5 sm:text-3xl md:text-3xl sm:py-5 md:py-5 text-center inline-flex items-center mr-2 gap-x-3 w-full justify-center mt-5 to-pink-500 from-blue-400 hover:to-pink-600 hover:from-blue-500"
+            onClick={setNext}
+          >
+            Next
+          </button>) : (<></>)}
+        </div>
+        <div className="flex justify-center items-center">
+          {form === 2 ? (<button
+            type="button"
+            className="block text-white bg-green-600 hover:bg-green-700 px-10 py-2 rounded-xl font-extrabold m-4 w-1/3 text-center justify-center"
+            onClick={saveContent}
+          >
+            Save Event
+          </button>) : (<></>)}
+        </div>
       </div>
     </motion.div>
   );

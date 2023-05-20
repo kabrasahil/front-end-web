@@ -40,6 +40,7 @@ import { Context } from "./context/Context";
 import Community from "./community/Community";
 import Events from "./events/Events";
 import ViewParticipants from "./Event Creation Form/ViewParticipants";
+import EventPage from "./eventsPage/EventPage";
 
 export const UserContext = React.createContext({});
 
@@ -103,7 +104,9 @@ function IgtsWebsite() {
             <Route exact path="/igts" element={<AboutIgts />} />
             <Route exact path="/editor/:blog_id" element={<Editor />} />
             <Route exact path="/editor" element={<Editor />} />
-            <Route exact path="/Event-creation" element={<EventCreationPage />} />
+            <Route exact path="/event-creation" element={<EventCreationPage />} />
+            <Route exact path="/event-creation/:id" element={<EventCreationPage />} />
+
             <Route exact path="/:id/viewparticipants" element={<ViewParticipants />} />
 
             <Route exact path="/privacy" element={<PrivacyPolicy />} />
@@ -112,6 +115,8 @@ function IgtsWebsite() {
 
             <Route exact path="/games" element={<ComingSoon />} />
             <Route exact path="/events" element={<Events />} />
+            <Route exact path="/events/:id" element={<EventPage />} />
+
             <Route exact path="/merchandise" element={<ComingSoon />} />
             <Route path="/*" element={<NotFound />} />
           </Routes>
