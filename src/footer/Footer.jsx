@@ -1,6 +1,11 @@
 import React from "react";
 import image from "./../home/assets/igts-white-logo.png";
 
+import { slideIn } from "../utils/motion";
+import { motion } from "framer-motion";
+import { EarthCanvas } from "../canvas";
+
+
 const Footer = () => {
   return (
     <footer className="bg-stone-900 flex flex-row mx-auto justify-center items-start container lg:container-xs lg:px-72">
@@ -55,7 +60,14 @@ const Footer = () => {
           </div>
         </div>
       </div>
+      
       <div className="p-4 sm:p-6 mr-auto sm:my-auto md:my-auto lg:mb-auto lg:mt-0">
+      <motion.div
+      variants={slideIn("right", "tween", 0.2, 1)}
+      className="xl:flex-1 xl:h-auto h-[550px]"
+    >
+      <EarthCanvas />
+    </motion.div>
         <div className="flex lg:flex-row sm:flex-col md:flex-col mt-4 gap-y-4 gap-x-4 sm:justify-center lg:text-base sm:text-xl md:text-2xl">
           <a
             href="https://www.facebook.com/igts.nsit/"

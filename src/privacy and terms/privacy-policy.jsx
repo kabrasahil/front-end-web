@@ -1,65 +1,149 @@
 import React from "react";
-function PrivacyPolicy(){
-    return <div className=" !w-full prose dark:prose-invert prose-headings:underline m-auto">
-    <div className="content-center justify-center pt-20">
-    <h1>Privacy Policy of <span class="website_url">IGTS NSUT</span></h1>
 
-    <p>At <span class="IGTS_NSUT">igts nsut</span>, we collect and manage user data according to the following Privacy Policy.</p>
-    <ul>
- <li><h3>Data Collected</h3>
-    
-    <p>We collect information you provide directly to us. For example, we collect information when you create an account, subscribe, participate in any interactive features of our services, fill out a form, request customer support or otherwise communicate with us. The types of information we may collect include your name, email address, postal address, credit card information and other contact or identifying information you choose to provide.</p>
-    
-    <p>We collect anonymous data from every visitor of the Website to monitor traffic and fix bugs. For example, we collect information like web requests, the data sent in response to such requests, the Internet Protocol address, the browser type, the browser language, and a timestamp for the request.</p>
-    
-    <p>We also use various technologies to collect information, and this may include sending cookies to your computer. Cookies are small data files stored on your hard drive or in your device memory that helps us to improve our services and your experience, see which areas and features of our services are popular and count visits. We may also collect information using web beacons (also known as "tracking pixels"). Web beacons are electronic images that may be used in our services or emails and to track count visits or understand usage and campaign effectiveness. Our Privacy Policy was created with the help of the <a href="https://www.termsfeed.com/blog/sample-privacy-policy-template/">Privacy Policy Template/Example</a>.</p>
-    
-    </li><li><h3>Use of the Data</h3>
-    
-    <p>We only use your personal information to provide you the <span class="website_name">igts nsut</span> services or to communicate with you about the Website or the services.</p>
-    
-    <p>We employ industry standard techniques to protect against unauthorized access of data about you that we store, including personal information.</p>
-    
-    <p>We do not share personal information you have provided to us without your consent, unless:</p>
-    
-    <ul>
-    <li>Doing so is appropriate to carry out your own request</li>
-    <li>We believe it's needed to enforce our legal agreements or that is legally required</li>
-    <li>We believe it's needed to detect, prevent or address fraud, security or technical issues</li>
-    </ul>
-    
-    </li><li><h3>Sharing of Data</h3>
-    
-    <p>We don't share your personal information with third parties. Aggregated, anonymized data is periodically transmitted to external services to help us improve the Website and service.</p>
-    
-    <p>We may allow third parties to provide analytics services. These third parties may use cookies, web beacons and other technologies to collect information about your use of the services and other websites, including your IP address, web browser, pages viewed, time spent on pages, links clicked and conversion information.</p>
-    
-    <p>We also use social buttons provided by services like Twitter, Google+, LinkedIn and Facebook. Your use of these third party services is entirely optional. We are not responsible for the privacy policies and/or practices of these third party services, and you are responsible for reading and understanding those third party services' privacy policies.</p>
-    
-    </li><li><h3>Cookies</h3>
-    
-    <p>We may use cookies on our site to remember your preferences.</p>
-    
-    </li><li><h3>Opt-Out, Communication Preferences</h3>
-    
-    <p>You may modify your communication preferences and/or opt-out from specific communications at any time. Please specify and adjust your preferences.</p>
-    
-    </li><li><h3>Security</h3>
-    
-    <p>We take reasonable steps to protect personally identifiable information from loss, misuse, and unauthorized access, disclosure, alteration, or destruction. But, you should keep in mind that no Internet transmission is ever completely secure or error-free. In particular, email sent to or from the Sites may not be secure.</p>
-    
-    </li><li><h3>About Children</h3>
-    
-    <p>The Website is not intended for children under the age of 13. We do not knowingly collect personally identifiable information via the Website from visitors in this age group.</p>
-    
-    </li><li><h3>Changes to the Privacy Policy</h3>
-    
-    <p>We may amend this Privacy Policy from time to time. Use of information we collect now is subject to the Privacy Policy in effect at the time such information is used.</p>
-    
-    <p>If we make major changes in the way we collect or use information, we will notify you by posting an announcement on the Website or sending you an email.</p>
-    </li></ul>
-</div>
-</div>
+function PrivacyPolicy() {
+  return (
+    <div className="!w-full prose dark:prose-invert prose-headings:underline m-auto">
+      <div className="content-center justify-center pt-20">
+        <h1>
+          Privacy Policy of{" "}
+          <span className="website_url">The Indian Game Theory Society</span>
+        </h1>
+        <p>
+          At{" "}
+          <span className="game_theory_club">
+            The Indian Game Theory Society
+          </span>
+          , we collect and manage user data according to the following Privacy
+          Policy.
+        </p>
+        <ul>
+          <li>
+            <h3>Data Collected</h3>
+
+            <p>
+              We collect information you provide directly to us. For example, we
+              collect information when you join the society, participate in any
+              events or activities, fill out a registration form, or otherwise
+              communicate with us. The types of information we may collect
+              include your name, email address, contact number, and other
+              contact or identifying information you choose to provide.
+            </p>
+
+            <p>
+              We collect anonymous data from every visitor of our website to
+              monitor traffic and improve our services. For example, we collect
+              information like web requests, the data sent in response to such
+              requests, the Internet Protocol address, the browser type, the
+              browser language, and a timestamp for the request.
+            </p>
+
+            <p>
+              We may also use various technologies, such as cookies, to collect
+              information that helps us improve our services and enhance your
+              experience. Cookies are small data files stored on your hard drive
+              or in your device memory. They enable us to recognize your browser
+              or device, remember your preferences, and provide personalized
+              content and advertisements.
+            </p>
+          </li>
+          <li>
+            <h3>Use of the Data</h3>
+
+            <p>
+              We only use your personal information to provide you with
+              information about The Indian Game Theory Society, to organize
+              society activities and events, and to communicate with you
+              regarding society matters.
+            </p>
+
+            <p>
+              We employ industry-standard techniques to protect your personal
+              information from unauthorized access or disclosure.
+            </p>
+
+            <p>
+              We do not share personal information with third parties without
+              your consent unless it is necessary to fulfill your specific
+              requests, to enforce our legal agreements, or to comply with legal
+              obligations.
+            </p>
+          </li>
+          <li>
+            <h3>Sharing of Data</h3>
+
+            <p>
+              We do not share your personal information with third parties.
+              Aggregated, anonymized data may be periodically transmitted to
+              external services to help us improve the Website and services.
+            </p>
+
+            <p>
+              We may allow third parties to provide analytics services. These
+              third parties may use cookies, web beacons, and other technologies
+              to collect information about your use of the services and other
+              websites, including your IP address, web browser, pages viewed,
+              time spent on pages, links clicked, and conversion information.
+            </p>
+
+            <p>
+              We also use social buttons provided by services like Twitter,
+              Google+, LinkedIn, and Facebook. Your use of these third-party
+              services is entirely optional. We are not responsible for the
+              privacy policies and practices of these third-party services, and
+              you are responsible for reading and understanding their privacy
+              policies.
+            </p>
+          </li>
+          <li>
+            <h3>Cookies</h3>
+
+            <p>We may use cookies on our site to remember your preferences.</p>
+          </li>
+          <li>
+            <h3>Opt-Out, Communication Preferences</h3>
+
+            <p>
+              You may modify your communication preferences and opt-out of
+              specific communications at any time. Please contact us to specify
+              your preferences.
+            </p>
+          </li>
+          <li>
+            <h3>Security</h3>
+
+            <p>
+              We take reasonable steps to protect your personally identifiable
+              information from loss, misuse, and unauthorized access,
+              disclosure, alteration, or destruction. However, please be aware
+              that no security measures can guarantee complete protection of
+              your information.
+            </p>
+          </li>
+          <li>
+            <h3>About Children</h3>
+
+            <p>
+              The Indian Game Theory Society is intended for individuals who are
+              of legal age according to NSUT policies. We do not knowingly
+              collect personally identifiable information from individuals below
+              the legal age.
+            </p>
+          </li>
+          <li>
+            <h3>Changes to the Privacy Policy</h3>
+
+            <p>
+              We may update this Privacy Policy from time to time. Any changes
+              we make will be posted on our website or communicated to you
+              through other appropriate channels. Your continued use of our
+              services after any modifications to the Privacy Policy will
+              signify your acceptance of the updated terms.
+            </p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  );
 }
 
 export default PrivacyPolicy;

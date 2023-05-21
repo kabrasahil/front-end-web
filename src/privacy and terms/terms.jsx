@@ -1,65 +1,134 @@
 import React from "react";
-function Terms(){
-    return <div className=" !w-full prose dark:prose-invert prose-headings:underline m-auto ">
-    <div className="content-center justify-center pt-20">
-    <h1>Terms & Conditions of <span class="website_url">IGTS NSUT</span></h1>
 
-    <p>At <span class="IGTS_NSUT">igts nsut</span>, we collect and manage user data according to the following Privacy Policy.</p>
-    <ul>
- <li><h3>Data Collected</h3>
-    
-    <p>We collect information you provide directly to us. For example, we collect information when you create an account, subscribe, participate in any interactive features of our services, fill out a form, request customer support or otherwise communicate with us. The types of information we may collect include your name, email address, postal address, credit card information and other contact or identifying information you choose to provide.</p>
-    
-    <p>We collect anonymous data from every visitor of the Website to monitor traffic and fix bugs. For example, we collect information like web requests, the data sent in response to such requests, the Internet Protocol address, the browser type, the browser language, and a timestamp for the request.</p>
-    
-    <p>We also use various technologies to collect information, and this may include sending cookies to your computer. Cookies are small data files stored on your hard drive or in your device memory that helps us to improve our services and your experience, see which areas and features of our services are popular and count visits. We may also collect information using web beacons (also known as "tracking pixels"). Web beacons are electronic images that may be used in our services or emails and to track count visits or understand usage and campaign effectiveness. Our Privacy Policy was created with the help of the <a href="https://www.termsfeed.com/blog/sample-privacy-policy-template/">Privacy Policy Template/Example</a>.</p>
-    
-    </li><li><h3>Use of the Data</h3>
-    
-    <p>We only use your personal information to provide you the <span class="website_name">igts nsut</span> services or to communicate with you about the Website or the services.</p>
-    
-    <p>We employ industry standard techniques to protect against unauthorized access of data about you that we store, including personal information.</p>
-    
-    <p>We do not share personal information you have provided to us without your consent, unless:</p>
-    
-    <ul>
-    <li>Doing so is appropriate to carry out your own request</li>
-    <li>We believe it's needed to enforce our legal agreements or that is legally required</li>
-    <li>We believe it's needed to detect, prevent or address fraud, security or technical issues</li>
-    </ul>
-    
-    </li><li><h3>Sharing of Data</h3>
-    
-    <p>We don't share your personal information with third parties. Aggregated, anonymized data is periodically transmitted to external services to help us improve the Website and service.</p>
-    
-    <p>We may allow third parties to provide analytics services. These third parties may use cookies, web beacons and other technologies to collect information about your use of the services and other websites, including your IP address, web browser, pages viewed, time spent on pages, links clicked and conversion information.</p>
-    
-    <p>We also use social buttons provided by services like Twitter, Google+, LinkedIn and Facebook. Your use of these third party services is entirely optional. We are not responsible for the privacy policies and/or practices of these third party services, and you are responsible for reading and understanding those third party services' privacy policies.</p>
-    
-    </li><li><h3>Cookies</h3>
-    
-    <p>We may use cookies on our site to remember your preferences.</p>
-    
-    </li><li><h3>Opt-Out, Communication Preferences</h3>
-    
-    <p>You may modify your communication preferences and/or opt-out from specific communications at any time. Please specify and adjust your preferences.</p>
-    
-    </li><li><h3>Security</h3>
-    
-    <p>We take reasonable steps to protect personally identifiable information from loss, misuse, and unauthorized access, disclosure, alteration, or destruction. But, you should keep in mind that no Internet transmission is ever completely secure or error-free. In particular, email sent to or from the Sites may not be secure.</p>
-    
-    </li><li><h3>About Children</h3>
-    
-    <p>The Website is not intended for children under the age of 13. We do not knowingly collect personally identifiable information via the Website from visitors in this age group.</p>
-    
-    </li><li><h3>Changes to the Privacy Policy</h3>
-    
-    <p>We may amend this Privacy Policy from time to time. Use of information we collect now is subject to the Privacy Policy in effect at the time such information is used.</p>
-    
-    <p>If we make major changes in the way we collect or use information, we will notify you by posting an announcement on the Website or sending you an email.</p>
-    </li></ul>
-</div>
-</div>
+function Terms() {
+  return (
+    <div className="!w-full prose dark:prose-invert prose-headings:underline m-auto">
+      <div className="content-center justify-center pt-20">
+        <h1>
+          Terms & Conditions of{" "}
+          <span className="website_url">The Indian Game Theory Society</span>
+        </h1>
+        <p>
+          At <span className="IGTS_NSUT">The Indian Game Theory Society</span>,
+          we are committed to protecting your privacy and ensuring a safe and
+          enjoyable experience for all our members. By accessing and using our
+          services, you agree to comply with the following Terms and Conditions.
+        </p>
+        <ul>
+          <li>
+            <h3>Membership and User Data</h3>
+
+            <p>
+              When you create an account or become a member of The Indian Game
+              Theory Society, you are responsible for providing accurate and
+              complete information. This may include your name, email address,
+              contact number, and any other required details. We collect and use
+              this data solely for the purpose of providing our services and
+              communicating with you.
+            </p>
+
+            <p>
+              We respect your privacy and will not share your personal
+              information with third parties without your consent, except as
+              required by law or as necessary to fulfill our obligations to you.
+            </p>
+          </li>
+          <li>
+            <h3>Code of Conduct</h3>
+
+            <p>
+              The Indian Game Theory Society promotes a respectful and inclusive
+              community. By participating in our activities, events, and
+              discussions, you agree to abide by the following guidelines:
+            </p>
+
+            <ul>
+              <li>Respect the opinions and ideas of fellow members.</li>
+              <li>
+                Avoid engaging in any form of harassment, discrimination, or
+                offensive behavior.
+              </li>
+              <li>Refrain from sharing inappropriate or offensive content.</li>
+              <li>
+                Adhere to the rules and guidelines set forth by The Indian Game
+                Theory Society in all interactions.
+              </li>
+              <li>
+                Contribute positively to the growth and development of the
+                society.
+              </li>
+            </ul>
+
+            <p>
+              Failure to comply with these guidelines may result in disciplinary
+              actions, including but not limited to warnings, temporary
+              suspension, or permanent removal from the society.
+            </p>
+          </li>
+          <li>
+            <h3>Intellectual Property</h3>
+
+            <p>
+              The Indian Game Theory Society respects intellectual property
+              rights. Members should not use or distribute any copyrighted
+              materials without obtaining the necessary permissions or licenses.
+              Any content shared within the society should be original or
+              properly attributed to the rightful owner.
+            </p>
+
+            <p>
+              By submitting or sharing any content, including but not limited to
+              articles, research papers, presentations, or software, you grant
+              The Indian Game Theory Society a non-exclusive, royalty-free,
+              worldwide license to use, reproduce, modify, adapt, publish,
+              translate, distribute, and display the content for promotional and
+              educational purposes.
+            </p>
+          </li>
+          <li>
+            <h3>Disclaimer and Limitation of Liability</h3>
+
+            <p>
+              The Indian Game Theory Society provides its services on an "as is"
+              and "as available" basis. We make no warranties or
+              representations, express or implied, regarding the accuracy,
+              completeness, reliability, or availability of our services.
+            </p>
+
+            <p>
+              In no event shall The Indian Game Theory Society or its officers,
+              members, or affiliates be liable for any direct, indirect,
+              incidental, special, or consequential damages arising out of or in
+              connection with your use of our services, even if advised of the
+              possibility of such damages.
+            </p>
+          </li>
+          <li>
+            <h3>Governing Law</h3>
+
+            <p>
+              These Terms and Conditions shall be governed by and construed in
+              accordance with the laws of India. Any dispute arising out of or
+              in connection with these terms shall be subject to the exclusive
+              jurisdiction of the courts in Delhi, India.
+            </p>
+          </li>
+          <li>
+            <h3>Changes to the Terms and Conditions</h3>
+
+            <p>
+              The Indian Game Theory Society reserves the right to modify or
+              update these Terms and Conditions at any time. Any changes will be
+              communicated to you through our website or other appropriate
+              channels. Your continued use of our services after the changes
+              will constitute your acceptance of the modified Terms and
+              Conditions.
+            </p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  );
 }
 
 export default Terms;
