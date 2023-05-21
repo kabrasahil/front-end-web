@@ -41,7 +41,13 @@ export default function HomeUpdates() {
         {data.map(({ thumbnail, title, type, description, id }) => {
           return (
             <a
-              href={type === "blog" ? "/blogs/" + id : ""}
+              href={
+                type === "blog"
+                  ? "/blogs/" + id
+                  : type === "event"
+                  ? "/events/" + id
+                  : ""
+              }
               className="group relative block bg-black rounded-xl w-full aspect-square"
               style={{ boxShadow: "0 0px 40px -1px rgba(0, 0, 0, 0.6)" }}
             >
@@ -73,14 +79,16 @@ export default function HomeUpdates() {
           );
         })}
         <div className="w-full h-full text-center text-slate-100 flex flex-col gap-3 ">
-          <button className="lg:p-0 w-full h-full bg-stone-800 shadow-md shadow-black hover:bg-stone-700 rounded-2xl items-center text-gray-300 lg:text-4xl sm:text-5xl md:text-5xl sm:py-24 flex justify-center"
-            onClick={() => window.location.href = "/blogs"}
-            >
+          <button
+            className="lg:p-0 w-full h-full bg-stone-800 shadow-md shadow-black hover:bg-stone-700 rounded-2xl items-center text-gray-300 lg:text-4xl sm:text-5xl md:text-5xl sm:py-24 flex justify-center"
+            onClick={() => (window.location.href = "/blogs")}
+          >
             Blogs
           </button>
-          <button className="lg:p-0 w-full h-full bg-stone-800 shadow-md shadow-black hover:bg-stone-700 rounded-2xl text-gray-300 lg:text-4xl sm:text-5xl md:text-5xl sm:py-24 flex justify-center"
-            onClick={() => window.location.href = "/events"}
-                      >
+          <button
+            className="lg:p-0 w-full h-full bg-stone-800 shadow-md shadow-black hover:bg-stone-700 rounded-2xl text-gray-300 lg:text-4xl sm:text-5xl md:text-5xl sm:py-24 flex justify-center"
+            onClick={() => (window.location.href = "/events")}
+          >
             Events
           </button>
         </div>
