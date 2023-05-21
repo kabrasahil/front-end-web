@@ -1,6 +1,5 @@
 import React, { useContext, useEffect } from "react";
 import LoginCard from "./LoginCard";
-import background from "./background.png";
 import { useLocation, useNavigate } from "react-router-dom";
 import PasswordResetCard from "./PasswordResetCard";
 import { Context } from "../context/Context";
@@ -21,7 +20,7 @@ const PasswordResetPage = () => {
     <section
       className="bg-stone-900  bg-center bg-cover  min-h-screen"
       style={{
-        backgroundImage: `url(${background})`,
+        backgroundImage: `url(https://wallpaperaccess.com/full/2454622.jpg)`,
       }}
     >
       <div className="w-screen h-screen flex flex-col lg:pt-20 justify-center lg:items-end backdrop-blur-2xl ">
