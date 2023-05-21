@@ -1,1 +1,1 @@
-export const SERVER_URL = "https://igts-back.onrender.com:5005";
+export const SERVER_URL = "https://igts-back.onrender.com";
