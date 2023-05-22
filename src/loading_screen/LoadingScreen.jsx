@@ -5,7 +5,7 @@ const LoadingScreen = () => {
   return (
     <div className="h-screen">
       <img
-        src={logo}
+        src="https://drive.google.com/uc?export=view&id=1X8UlPf_hFZlm3kCdTfxNQINHUmgvZJrS"
         alt=""
         className="lg:w-[200px] lg:mt-[-40px] lg:ml-[-100px] sm:w-[450px] sm:ml-[-225px] sm:mt-[-95px] md:w-[450px] md:ml-[-225px] md:mt-[-95px]  left-[50%] top-[50%]  fixed object-contain"
       />

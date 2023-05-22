@@ -13,7 +13,7 @@ const IntroHome = () => {
       style={{ minHeight: "800px", minWidth: "100%" }}
     >
       <img
-        src={logo}
+        src="https://drive.google.com/uc?export=view&id=1X8UlPf_hFZlm3kCdTfxNQINHUmgvZJrS"
         alt=""
         srcset=""
         className="object-cover h-48 w-100"

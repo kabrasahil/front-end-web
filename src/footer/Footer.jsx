@@ -1,5 +1,4 @@
 import React from "react";
-import image from "./../home/assets/igts-white-logo.png";
 
 import { slideIn } from "../utils/motion";
 import { motion } from "framer-motion";
@@ -14,7 +13,7 @@ const Footer = () => {
         <div className="mb-5">
           <a href="/igts" className="flex items-center mb-5">
             <img
-              src={image}
+              src="https://drive.google.com/uc?export=view&id=1X8UlPf_hFZlm3kCdTfxNQINHUmgvZJrS"
               className="h-16 lg:mr-3 rounded-full"
               alt="IGTS Logo"
             />

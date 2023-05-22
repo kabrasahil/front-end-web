@@ -28,7 +28,7 @@ const CommentList = ({ comments, setComments, fetchComments, onReply }) => {
     }
   };
 
-  const samyak = (x) => {
+  const CommentIndex = (x) => {
     setSelectedCommentIndex(x);
   };
 
@@ -47,7 +47,7 @@ const CommentList = ({ comments, setComments, fetchComments, onReply }) => {
                 message={comment.message}
                 image={comment.pfp_url}
                 score={comment.score}
-                onReply={() => samyak(index)}
+                onReply={() => CommentIndex(index)}
                 isUserCommenter={comment.is_user_commenter}
                 isUserVoted={comment.is_user_voted}
                 userVote={comment.user_vote}

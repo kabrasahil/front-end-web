@@ -4,7 +4,6 @@ import React, { useEffect, useState } from "react";
 import TipTap from "./Tiptap";
 import { Outlet, Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import logo from "./../home/assets/igts-white-logo.png";
 import { useNavigate } from "react-router-dom";
 import Notification from "../notifications/Notification";
 import { SERVER_URL } from "../config";

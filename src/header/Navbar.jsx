@@ -86,7 +86,7 @@ const Navbar = () => {
             <Link to="/" key={0} className="nav-item w-fit">
               <div class=" w-fit">
                 <img
-                  src={logo}
+                  src="https://drive.google.com/uc?export=view&id=1X8UlPf_hFZlm3kCdTfxNQINHUmgvZJrS"
                   alt=""
                   srcset=""
                   className="object-cover ml-4 w-fit sm:h-24 md:h-32 lg:h-16"

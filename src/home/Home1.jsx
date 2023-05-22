@@ -34,7 +34,7 @@ export default function Home1() {
       <div className="w-[800px] sm:ml-auto md:ml-auto lg:ml-1">
         <img
           className="drop-shadow-2xl shadow-zinc-400 rounded-xl img-home1"
-          src={image}
+          src="https://drive.google.com/uc?export=view&id=1tCd8wn5b5SOMs3aPSWenZDkQodpDK1Lm"
           alt="about-img"
         />
       </div>

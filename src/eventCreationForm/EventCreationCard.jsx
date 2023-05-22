@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import logo from "./../home/assets/igts-white-logo.png";
 import { useNavigate, useParams } from "react-router-dom";
 import Notification from "../notifications/Notification";
 import { SERVER_URL } from "../config";

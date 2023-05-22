@@ -10,7 +10,7 @@ export default function Home2() {
       <div className="w-[800px]   sm:order-last md:order-last lg:order-first">
         <img
           className="drop-shadow-2xl shadow-zinc-400 rounded-xl img-home2"
-          src={image}
+          src="https://drive.google.com/uc?export=view&id=157v94esi57zsEWWJazRauOCgqa388MJU"
           alt="about-img"
         />
       </div>
