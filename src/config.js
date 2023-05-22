@@ -1,1 +1,1 @@
-export const SERVER_URL = "http://44.202.9.175:5005";
+export const SERVER_URL = "https://igts-2-dev.ap-south-1.elasticbeanstalk.com";
