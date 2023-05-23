@@ -49,9 +49,10 @@ const LoginCard = () => {
       window.open(data.authUrl, "_blank", `width=${width},height=${height},left=${left},top=${top}`);
 
 
-
+      const formattedUrl = SERVER_URL.replace("https://", "");
       // Open a WebSocket connection to the backend WebSocket server
-      const socket = new WebSocket('wss://' + SERVER_URL);
+      const socket = new WebSocket('wss://' + formattedUrl,
+      );
 
       // Handle received messages
       socket.onmessage = async (event) => {
