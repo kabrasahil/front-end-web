@@ -51,7 +51,7 @@ const LoginCard = () => {
 
 
       // Open a WebSocket connection to the backend WebSocket server
-      const socket = new WebSocket('ws://localhost:5005');
+      const socket = new WebSocket('wss://' + SERVER_URL);
 
       // Handle received messages
       socket.onmessage = async (event) => {
