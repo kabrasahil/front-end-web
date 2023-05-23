@@ -1,1 +1,1 @@
-export const SERVER_URL = "https://igts-2-dev.ap-south-1.elasticbeanstalk.com";
+export const SERVER_URL = "https://urchin-app-k3jip.ondigitalocean.app/";
