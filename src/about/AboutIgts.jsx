@@ -43,14 +43,11 @@ const AboutIgts = () => {
       </h1>
 
       <p className=" prose lg:text-xl md:text-3xl sm:text-3xl sm:mx-3 md:mx-3 text-center pb-8  text-slate-400">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla fuga
-        reprehenderit neque sit id fugiat provident architecto veritatis
-        excepturi, necessitatibus, aut doloremque molestiae repudiandae ut quam
-        blanditiis nihil cum voluptates?
+      We aim to find the applications of game theory in various fields like economics, politics, behavioural science and primarily computational decision making.
       </p>
       <img
         class="h-96 card-shadow-black transition-all duration-300 rounded-xl cursor-pointer filter lg:grayscale lg:hover:grayscale-0 shadow-2xl shadow-gray-800 m-5"
-        src="https://drive.google.com/uc?export=view&id=1I8LBraLkRdRLWp2f9mNzsnip6ujxO3LZ"
+        src="https://www.pokersnowie.com/blog/sites/default/files/Game%20Theory.jpg"
         alt="image description"
       />
 
