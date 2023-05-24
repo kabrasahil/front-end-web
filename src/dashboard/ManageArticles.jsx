@@ -95,15 +95,15 @@ const ManageArticles = () => {
         <div className="flex justify-end ml-3 md:gap-4">
           <div className="items-center bg-stone-800 rounded-xl py-1 px-3 pr-0 flex">
             <div>
-              <button onClick={handleSearch} className="bg-transparent">
+              <button onClick={handleSearch} className="bg-transparent p-3">
                 <i
-                  className="fa-solid fa-magnifying-glass"
+                  className="fa-solid fa-magnifying-glass text-2xl lg:text-lg"
                   style={{ color: "#94a3b8" }}
                 />
               </button>
               <input
                 placeholder="Search"
-                className="text-slate-100 text rounded-xl flex-1 px-4 py-1 bg-stone-800 focus:outline-none"
+                className="text-slate-100 text rounded-xl flex-1 px-4 py-1 bg-stone-800 focus:outline-none text-3xl lg:text-xl"
                 value={searchQuery}
                 onChange={(e) => {
                   setSearchQuery(e.target.value);
@@ -118,18 +118,18 @@ const ManageArticles = () => {
             return (
               <div
                 key={i}
-                className="lg:px-10 md:px-10 px-5 items-center my-5 bg-stone-800 rounded-2xl h-12 flex justify-between hover:bg-stone-700"
+                className="lg:px-10 md:px-10 px-5 py-10 lg:py-7 items-center my-5 bg-stone-800 rounded-2xl h-12 flex justify-between gap-10 hover:bg-stone-700"
               >
-                <button className="w-1/2" onClick={(e)=>{
+                <button className="w-1/2 text-2xl lg:text-lg " onClick={(e)=>{
                   window.location.href = '/editor/'+d._id
                 }}>
-                  <span className="mr-2 lg:mr-5 md:mr-3">{i + 1}.</span>
+                  <span className="mr-2 lg:mr-5 md:mr-3 text-2xl lg:text-lg">{i + 1}.</span>
                   {d.title}
                 </button>
                 <p className="text-slate-400">
                   {moment.utc(d.createdAt).local().startOf("seconds").fromNow()}
                 </p>
-                <div className="flex flex-row gap-5 text-slate-200 w-1/4 justify-end ml-auto">
+                <div className="flex flex-row gap-5 text-slate-200 w-1/4 justify-end ml-auto text-xl lg:text-lg">
                   <div
                     className={`relative font-bold ${
                       d.public ? "text-green-700" : "text-red-300"
@@ -140,7 +140,7 @@ const ManageArticles = () => {
 
                   <div className="relative">
                     <i
-                      className="fa-solid fa-thumbs-up hover:text-stone-100 !cursor-pointer"
+                      className="fa-solid fa-thumbs-up hover:text-stone-100 !cursor-pointer text-xl lg:text-lg"
                       onMouseEnter={(e) => {
                         document.getElementById("likes-" + i).style.display =
                           "block";
@@ -177,7 +177,7 @@ const ManageArticles = () => {
                     </span>
                   </div>
                   <div
-                    className="relative cursor-pointer"
+                    className="relative cursor-pointer text-xl lg:text-lg"
                     onClick={(e) => {
                       deleteBlog(d._id);
                     }}
