@@ -61,12 +61,12 @@ const Footer = () => {
       </div>
       
       <div className="p-4 sm:p-6 mr-auto sm:my-auto md:my-auto lg:mb-auto lg:mt-0">
-      {/* <motion.div
+      <motion.div
       variants={slideIn("right", "tween", 0.2, 1)}
       className="xl:flex-1 xl:h-auto h-[550px]"
     >
       <EarthCanvas />
-    </motion.div> */}
+    </motion.div>
         <div className="flex lg:flex-row sm:flex-col md:flex-col mt-4 gap-y-4 gap-x-4 sm:justify-center lg:text-base sm:text-xl md:text-2xl">
           <a
             href="https://www.facebook.com/igts.nsit/"
@@ -105,7 +105,7 @@ const Footer = () => {
             <span className="sr-only">Instagram page</span>
           </a>
           <a
-            href="#"
+            href="https://twitter.com/igts_nsut?t=fhBR1bycao6hFnom91GAUQ&s=09"
             className="text-gray-300 hover:text-gray-500 dark:hover:text-white"
           >
             <svg
