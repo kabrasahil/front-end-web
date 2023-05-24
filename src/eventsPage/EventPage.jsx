@@ -204,7 +204,7 @@ const EventPage = () => {
             {event && event._id && (
                 <div className="flex flex-col items-center py-8">
                     <div >
-                        <div className='w-[70vw]  shadow-[0_0_50px_10px_rgb(0,0,0)] lg:mt-24 my-10 rounded-xl flex lg:flex-row flex-col-reverse justify-between object-cover '>
+                        <div className='w-[70vw]  card-shadow-black lg:mt-24 my-10 rounded-xl flex lg:flex-row flex-col-reverse justify-between object-cover '>
                             <div className={' w-[40vw] text-white py-5 pl-5 lg:!py-10 lg:!pl-10 !pr-0 lg:p-10 z-10 flex flex-col justify-end'}>
                                 <div className='flex flex-col justify-center items-between content-between'>
                                     <h1 className='text-2xl lg:text-5xl font-bold'>{event.event_title}</h1>
@@ -246,7 +246,7 @@ const EventPage = () => {
                         </h1>
                     </div>
                     <div
-                        className="m-10 sm:mx-0 prose-h1:font-sans rounded-xl dark:bg-stone-900 shadow-[0_0_60px_20px_rgb(0,0,0,0.22)] p-10 pt-24 prose prose-stone dark:prose-invert lg:prose-xl prose-img:mx-auto prose-img:rounded-xl prose-a:text-indigo-600 hover:prose-a:text-indigo-400 w-3/4"
+                        className="m-10 sm:mx-0 prose-h1:font-sans rounded-xl dark:bg-stone-900 card-shadow-black p-10 pt-24 prose prose-stone dark:prose-invert lg:prose-xl prose-img:mx-auto prose-img:rounded-xl prose-a:text-indigo-600 hover:prose-a:text-indigo-400 w-3/4"
                         dangerouslySetInnerHTML={{
                             __html: DOMPurify.sanitize(
                                 event.details
@@ -265,7 +265,7 @@ const EventPage = () => {
                         </div>
 
 
-                        <div className='m-10 w-3/4 card-shadow-black p-16'>
+                        <div className='m-10 w-3/4 card-shadow-black py-16 rounded-xl'>
 
                             {user ? <EventRegisterForm
                                 event={event}

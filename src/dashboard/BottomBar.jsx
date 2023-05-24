@@ -246,12 +246,12 @@ const BottomBar = () => {
   }, [user]);
 
   return (
-    <div className="flex flex-row w-screen h-max flex-row items-start justify-center card-shadow-black text-gray-400 rounded-t-3xl bg-stone-900">
+    <div className="z-50 flex flex-row w-screen h-fit justify-around flex-row items-start justify-center card-shadow-black text-gray-400 rounded-t-3xl bg-stone-900">
       {links.map((el, i) => {
         return (
           <Link to={el.link} key={i} className="">
             <div
-              className={`flex flex-col items-center gap-y-6 text-center px-3 py-5 rounded-xl m-4  w-40 h-64 ${
+              className={`flex items-center justify-around px-3 py-10 rounded-xl m-4 w-40 h-fit ${
                 el.active ? "text-gray-100 outline outline-gray-300" : ""
               }`}
             >

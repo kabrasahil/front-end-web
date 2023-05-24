@@ -7,7 +7,7 @@ const ArticleCard = ({ post }) => {
   return (
     <article
       key={post.id}
-      className="lg:w-5/6 flex article-card flex-col items-start justify-between pb-8 px-12 lg:px-10 sm:py-6 lg:pt-2 lg:pb-14 rounded-xl bg-stone-900"
+      className="w-full lg:w-5/6 flex article-card flex-col items-start justify-between pb-8 px-12 lg:px-10 sm:py-6 lg:pt-2 lg:pb-14 rounded-xl bg-stone-900"
     >
       <div className="flex flex-row w-full">
         <div className="">
@@ -38,7 +38,7 @@ const ArticleCard = ({ post }) => {
               </a>
             </h3>
             <p
-              className="mt-5 sm:text-3xl md:text-3xl lg:text-lg font-bold text-gray-400 line-clamp-3"
+              className="mt-5 sm:text-3xl md:text-3xl lg:text-lg font-bold text-gray-200 line-clamp-3"
               dangerouslySetInnerHTML={{
                 __html: DOMPurify.sanitize(post.content.slice(0, 200)) + "...",
               }}

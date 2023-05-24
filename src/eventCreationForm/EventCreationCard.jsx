@@ -179,7 +179,7 @@ const EventCreationCard = () => {
         });
       } else {
         response = await fetch(`${SERVER_URL}/api/event/${event_id}/update`, {
-          method: "POST",
+          method: "PUT",
           headers: {
             Authorization: token,
             "Content-Type": "application/json",

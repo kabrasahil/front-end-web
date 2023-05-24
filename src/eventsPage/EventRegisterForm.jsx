@@ -31,7 +31,7 @@ const EventRegisterForm = ({
             className="flex flex-col lg:mx-10  lg:gap-y-6 sm:mx-20 md:mx-20 sm:gap-y-24 md:gap-y-24"
             action="#"
         >
-            <div className="relative flex lg:gap-x-20 sm:gap-x-10 md:gap-x-10">
+            <div className="relative flex gap-20  lg:gap-10 justify-between">
                 <div className="flex flex-col w-full">
                     <label
                         htmlFor="first-name"

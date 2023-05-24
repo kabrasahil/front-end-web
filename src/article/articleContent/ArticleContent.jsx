@@ -58,7 +58,7 @@ const ArticleContent = ({
   return (
     <div className="flex justify-center gap-7">
       <div
-        className="m-10 sm:mx-0 prose-h1:font-sans rounded-xl dark:bg-stone-900 shadow-[0_0_60px_20px_rgb(0,0,0,0.22)] p-10 pt-24 prose prose-stone dark:prose-invert lg:prose-xl prose-img:mx-auto prose-img:rounded-xl prose-a:text-indigo-600 hover:prose-a:text-indigo-400"
+        className="m-10 sm:mx-0 prose-h1:font-sans rounded-xl dark:bg-stone-900 shadow-[0_0_60px_20px_rgb(0,0,0,0.22)] p-10 pt-24 prose prose-invert lg:prose-xl prose-img:mx-auto prose-img:rounded-xl prose-a:text-indigo-600 hover:prose-a:text-indigo-400"
         dangerouslySetInnerHTML={{
           __html: DOMPurify.sanitize(
             `<h1>${heading}</h1>` + `<img src="${thumbnail}" />` + content

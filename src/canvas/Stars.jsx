@@ -29,8 +29,8 @@ const Stars = (props) => {
 
 const StarsCanvas = () => {
   return (
-    <div className='w-full h-auto absolute inset-0 z-[-1]'>
-      <Canvas camera={{ position: [0, 0, 1] }}>
+    <div className='w-full h-screen fixed inset-0 bg-transparent object-cover' style={{pointerEvents:'none'}}>
+      <Canvas camera={{ position: [0, 0, 1] }} style={{pointerEvents:'none',opacity:'30%',objectFit:'cover'}}>
         <Suspense fallback={null}>
           <Stars />
         </Suspense>

@@ -25,8 +25,8 @@ function Editor() {
   useEffect(() => {
     if (user && user.role) {
       console.log("here user - ", user);
-      if (user.role !== "ADMIN" || user.role !== "EDITOR") {
-        console.log(user.role);
+      if (user.role !== "ADMIN" && user.role !== "EDITOR") {
+        console.log(user.role == "ADMIN");
         navigate("/404");
       }
     }
@@ -35,6 +35,7 @@ function Editor() {
   const [success, setSuccess] = useState();
 
   const fetchDraft = async () => {
+    console.log("fetchDraft")
     const token = localStorage.getItem("jwt");
     const response = await fetch(`${SERVER_URL}/api/blog/${blog_id}/draft`, {
       method: "GET",
@@ -46,7 +47,6 @@ function Editor() {
 
     if (response.ok) {
       const data = await response.json();
-      console.log("blog", data);
       if (data.success === true) {
         setContent(data._doc.content);
         setHeading(data._doc.title);
@@ -61,6 +61,7 @@ function Editor() {
 
   useEffect(() => {
     if (blog_id) fetchDraft();
+
   }, []);
 
   const [saveDialogBox, setSaveDialogBox] = useState(false);

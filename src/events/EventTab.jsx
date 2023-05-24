@@ -112,7 +112,7 @@ export default function EventsTab() {
                                 </div>
                             </div>
 
-                            <img className='overflow-x-hidden h-[10rem] rounded-t-xl lg:rounded-r-xl lg:w-[50rem] lg:h-[25rem] object-cover z-0' alt="Event Poster" src={main_poster} />
+                            <img className='overflow-x-hidden h-[10rem] rounded-t-xl lg:rounded-r-xl lg:w-[50rem] lg:h-[25rem] object-cover z-5' alt="Event Poster" src={main_poster} />
 
                         </div>
 

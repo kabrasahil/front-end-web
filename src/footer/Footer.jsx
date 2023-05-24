@@ -18,7 +18,7 @@ const Footer = () => {
               alt="IGTS Logo"
             />
 
-            <span className="self-center lg:text-2xl sm:text-4xl md:text-4xl font-extrabold whitespace-nowrap dark:text-zinc-300 sm:hidden md:hidden lg:block">
+            <span className="self-center lg:text-2xl sm:text-4xl md:text-4xl font-extrabold whitespace-nowrap text-zinc-300 sm:hidden md:hidden lg:block">
               The Indian Game Theory Society
             </span>
           </a>
