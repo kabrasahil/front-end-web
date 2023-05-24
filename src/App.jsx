@@ -129,15 +129,15 @@ function IgtsWebsite() {
 }
 
 const App = () => {
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
-  // useEffect(() => {
-  //   window.addEventListener("load", (e) => {
-  //     setTimeout(() => {
-  //       setIsLoading(false);
-  //     }, 10);
-  //   }); // Change 3000 to the number of milliseconds you want to show the loading screen
-  // }, []);
+  useEffect(() => {
+    window.addEventListener("load", (e) => {
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 10);
+    }); // Change 3000 to the number of milliseconds you want to show the loading screen
+  }, []);
 
   return (
     <div className="bg-stone-900">
