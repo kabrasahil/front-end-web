@@ -71,7 +71,7 @@ const Article = () => {
   }, [blog]);
 
   return (
-    <div className="sm:pt-48 md:pt-48 lg:pt-24">
+    <div className="sm:pt-48 md:pt-48 lg:pt-24 min-h-screen">
       {/* article place the share button in it */}
 
       <div className="mx-[16vw] flex flex-row items-center justify-start">
