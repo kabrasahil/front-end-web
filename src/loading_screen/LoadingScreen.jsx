@@ -1,6 +1,6 @@
 import React from "react";
 import "./style.css";
-import logo from "./../home/assets/igts-white-logo.png";
+// import logo from "./../home/assets/igts-white-logo.png";
 const LoadingScreen = () => {
   return (
     <div className="h-screen">
