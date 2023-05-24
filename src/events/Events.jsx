@@ -8,7 +8,7 @@ import EventsTab from "./EventTab";
 export default function Events() {
     return (
         
-        <div className="bg-[#101010] h-screen">
+        <div className="bg-[#101010] min-h-screen">
         <div className="flex justify-center">
                 <p className='absolute top-[8.5rem] lg:top-[50vh] mx-auto !leading-normal font-extrabold text-5xl lg:text-9xl text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-pink-500'>Events</p>
                 <p className='absolute top-[12rem] lg:top-[70vh] text-slate-300 text-md lg:text-xl mx-auto'>Where boredom ends.</p>

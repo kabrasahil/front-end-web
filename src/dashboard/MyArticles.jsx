@@ -51,6 +51,7 @@ export default function Dashboard_MyArticles() {
     if (response.ok) {
       const data = await response.json();
       if (data.success) {
+        console.log("data",data)
         setData(data.blogs);
       }
     }
@@ -61,6 +62,7 @@ export default function Dashboard_MyArticles() {
   }, []);
 
   const deleteBlog = async (blog_id) => {
+    // console.log("check",blog_id)
     const token = localStorage.getItem("jwt");
     const response = await fetch(`${SERVER_URL}/api/blog/${blog_id}/delete`, {
       method: "DELETE",
@@ -72,11 +74,13 @@ export default function Dashboard_MyArticles() {
     if (response.ok) {
       const data2 = await response.json();
       if (data2.success) {
-        console.log(data.filter((el) => !el._id.equals(blog_id)));
-        setData(data.filter((el) => !el._id.equals(blog_id)));
+        console.log(data.filter((el) => el.blog_id !== (blog_id)));
+        setData(data.filter((el) => el.blog_id !== (blog_id)));
       }
     }
   };
+
+
 
   return (
     <div className="h-full w-full m-10">
@@ -134,7 +138,7 @@ export default function Dashboard_MyArticles() {
                 <button
                   className="w-1/2"
                   onClick={(e) => {
-                    window.location.href = "/editor/" + d._id;
+                    window.location.href = "/editor/" + d.blog_id;
                   }}
                 >
                   <span className="mr-2 lg:mr-5 md:mr-3">{i + 1}.</span>
@@ -193,7 +197,7 @@ export default function Dashboard_MyArticles() {
                   <div
                     className="relative cursor-pointer"
                     onClick={(e) => {
-                      deleteBlog(d._id);
+                      deleteBlog(d.blog_id);
                     }}
                   >
                     <i className="fa fa-trash"></i>

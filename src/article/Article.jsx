@@ -104,7 +104,7 @@ const Article = () => {
         fetchBlog={fetchBlog}
       />
 
-      <div className="ml-20 flex sm:mx-0 ">
+      <div className="ml-20 flex sm:mx-30 ">
         {subtopics.map(el => {
           return (
             <a

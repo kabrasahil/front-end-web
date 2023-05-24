@@ -77,7 +77,7 @@ const ManageArticles = () => {
   };
 
   return (
-    <div className="h-full w-full m-10">
+    <div className="max-h-[90%] w-full overflow-y-scroll m-10">
       <div className="lg:ml-24 lg:mt-14 lg:mb-12 sm:my-24 md:my-24 text-left">
         <p>
           <span className="text-gray-400 lg:text-xl text-xl md:text-2xl">
