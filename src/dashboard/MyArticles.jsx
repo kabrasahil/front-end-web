@@ -93,7 +93,7 @@ export default function Dashboard_MyArticles() {
         </p>
       </div>
       <button
-        className="bg-gradient-to-r from-blue-400 to-pink-500 shadow-md shadow-gray-800 focus:shadow-sm focus:shadow-gray-700 hover:shadow-lg hover:shadow-gray-900 hover:to-pink-600 hover:from-blue-500  focus:to-pink-600 focus:from-blue-500  rounded-full lg:px-5 px-5 lg:py-2 py-1 lg:mr-5 text-xs lg:text-lg font-normal lg:font-bold block  lg:block text-white"
+        className="bg-gradient-to-r from-blue-400 to-pink-500 shadow-md shadow-gray-800 focus:shadow-sm focus:shadow-gray-700 hover:shadow-lg hover:shadow-gray-900 hover:to-pink-600 hover:from-blue-500  focus:to-pink-600 focus:from-blue-500  rounded-xl lg:px-5 px-5 lg:py-2 py-1 lg:mr-5 text-2xl lg:text-lg font-normal lg:font-bold block  lg:block text-white"
         onClick={(e) => {
           console.log("here");
           window.location.href = "/editor";
@@ -103,18 +103,18 @@ export default function Dashboard_MyArticles() {
       </button>
 
       <div>
-        <div className="flex justify-end ml-3 md:gap-4">
-          <div className="items-center bg-stone-800 rounded-xl py-1 px-3 pr-0 flex">
+        <div className="flex w-full mt-10 lg:mt-5 md:gap-4">
+          <div className="items-center w-full bg-stone-800 rounded-xl py-1 px-3 pr-0 flex">
             <div>
-              <button onClick={handleSearch} className="bg-transparent">
+              <button onClick={handleSearch} className="bg-transparent p-3">
                 <i
-                  className="fa-solid fa-magnifying-glass"
+                  className="fa-solid fa-magnifying-glass text-2xl  lg:text-lg"
                   style={{ color: "#94a3b8" }}
                 />
               </button>
               <input
                 placeholder="Search"
-                className="text-slate-100 text rounded-xl flex-1 px-4 py-1 bg-stone-800 focus:outline-none"
+                className="text-slate-100 text rounded-xl flex-1 px-4 py-1 bg-stone-800 focus:outline-none text-3xl lg:text-xl"
                 value={searchQuery}
                 onChange={(e) => {
                   setSearchQuery(e.target.value);
