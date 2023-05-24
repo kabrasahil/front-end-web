@@ -33,7 +33,10 @@ const Article = () => {
         setContent(data.blog.content);
         setBlog(data.blog);
         setLiked(data.liked);
-      } else navigate("/404");
+      } else {
+        console.log("blogs not found")
+        navigate("/404");
+      }
     }
   };
   const [liked, setLiked] = useState(false);

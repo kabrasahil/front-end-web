@@ -4,7 +4,7 @@ import logo from "./assets/igts-white-logo.png";
 import "./Home.css";
 
 const IntroHome = () => {
-  console.log(logo);
+  // console.log(logo);
 
   const user = useContext(Context);
   return (
