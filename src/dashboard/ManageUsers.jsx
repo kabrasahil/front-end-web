@@ -95,12 +95,12 @@ const ManageUsers = () => {
         </p>
       </div>
       <div className="mx-5 my-5 flex items-center rounded-xl bg-stone-800 px-3 py-1 pr-0 lg:w-1/3">
-        <button className="cursor-pointer bg-transparent" onClick={handleSearch}>
-          <i className="fa-solid fa-magnifying-glass" style={{color: '#94a3b8'}} />
+        <button className="cursor-pointer bg-transparent p-3" onClick={handleSearch}>
+          <i className="fa-solid fa-magnifying-glass text-2xl lg:text-lg" style={{color: '#94a3b8'}} />
         </button>
         <input
           placeholder="Enter Email Id"
-          className="text flex-1 rounded-xl bg-stone-800 px-4 py-1 text-slate-100 focus:outline-none focus:outline-0 lg:w-1/3"
+          className="text flex-1 rounded-xl bg-stone-800 text-3xl lg:text-xl px-4 py-1 text-slate-100 focus:outline-none focus:outline-0 lg:w-1/3"
           value={searchQuery}
           onChange={e => {
             setSearchQuery(e.target.value);
