@@ -145,7 +145,7 @@ const ManageEvents = () => {
       </div>
 
       <button
-        className="bg-gradient-to-r from-blue-400 to-pink-500 shadow-md shadow-gray-800 focus:shadow-sm focus:shadow-gray-700 hover:shadow-lg hover:shadow-gray-900 hover:to-pink-600 hover:from-blue-500  focus:to-pink-600 focus:from-blue-500  rounded-full lg:px-5 px-5 lg:py-2 py-1 lg:mr-5 text-xs lg:text-lg font-normal lg:font-bold block  lg:block text-white"
+        className="bg-gradient-to-r from-blue-400 to-pink-500 shadow-md shadow-gray-800 focus:shadow-sm focus:shadow-gray-700 hover:shadow-lg hover:shadow-gray-900 hover:to-pink-600 hover:from-blue-500  focus:to-pink-600 focus:from-blue-500  rounded-xl lg:px-5 px-5 lg:py-2 py-1 lg:mr-5 text-2xl lg:text-lg font-normal lg:font-bold block  lg:block text-white"
         onClick={(e) => {
           console.log("here");
           window.location.href = "/event-creation";
@@ -168,15 +168,15 @@ const ManageEvents = () => {
             return (
               <div
                 key={i}
-                className="lg:px-10 lg:py-3 md:px-10 px-5 items-center my-5 bg-stone-800 rounded-2xl h-auto flex justify-between hover:bg-stone-700"
+                className="lg:px-10 lg:py-3 md:px-10 px-5 py-5 items-center my-5 bg-stone-800 rounded-2xl h-auto flex justify-between hover:bg-stone-700"
               >
                 <button
-                  className="w-1/4"
+                  className="w-1/4 text-2xl lg:text-lg"
                   onClick={(e) => {
                     window.location.href = "/event-creation/" + d._id;
                   }}
                 >
-                  <span className="mr-2 lg:mr-5 md:mr-3">{i + 1}.</span>
+                  <span className="mr-2 lg:mr-5 md:mr-3 text-xl lg:text-lg">{i + 1}.</span>
                   {d.event_title}
                 </button>
                 <p className="text-slate-400">
@@ -211,21 +211,23 @@ const ManageEvents = () => {
                       onChange={(val) => handleEventChange(d._id, val)}
                     />
                   </div>
-                  <div
-                    className="relative cursor-pointer"
-                    onClick={(e) => {
-                      deleteEvent(d._id);
-                    }}
-                  >
-                    <i className="fa fa-trash"></i>
-                  </div>
-                  <div
-                    className="relative cursor-pointer"
-                    onClick={(e) => {
-                      handleViewParticipants(d._id);
-                    }}
-                  >
-                    <i class="fa fa-address-book" aria-hidden="true"></i>
+                  <div className="flex flex-row gap-5 justify-center">
+                    <div
+                      className="relative cursor-pointer text-center"
+                      onClick={(e) => {
+                        deleteEvent(d._id);
+                      }}
+                    >
+                      <i className="fa fa-trash text-2xl lg:text-lg"></i>
+                    </div>
+                    <div
+                      className="relative cursor-pointer"
+                      onClick={(e) => {
+                        handleViewParticipants(d._id);
+                      }}
+                    >
+                      <i class="fa fa-address-book text-2xl lg:text-lg" aria-hidden="true"></i>
+                    </div>
                   </div>
                 </div>
               </div>
