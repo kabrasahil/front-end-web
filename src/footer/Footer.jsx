@@ -61,12 +61,12 @@ const Footer = () => {
       </div>
       
       <div className="p-4 sm:p-6 mr-auto sm:my-auto md:my-auto lg:mb-auto lg:mt-0">
-      <motion.div
+      {/* <motion.div
       variants={slideIn("right", "tween", 0.2, 1)}
       className="xl:flex-1 xl:h-auto h-[550px]"
     >
       <EarthCanvas />
-    </motion.div>
+    </motion.div> */}
         <div className="flex lg:flex-row sm:flex-col md:flex-col mt-4 gap-y-4 gap-x-4 sm:justify-center lg:text-base sm:text-xl md:text-2xl">
           <a
             href="https://www.facebook.com/igts.nsit/"
