@@ -308,7 +308,7 @@ const EventPage = () => {
 
                         </div>
 
-                    </> : event.event_photos?<>
+                    </> : event.event_photos && event.event_photos.length ? <>
 
                         {/* Event Gallery */}
 
@@ -319,7 +319,7 @@ const EventPage = () => {
                         </div>
                         <EventGallery images={event.event_photos} />
 
-                    </>:<></>}
+                    </> : <></>}
 
                 </div>
             )}
