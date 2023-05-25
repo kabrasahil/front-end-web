@@ -8,6 +8,7 @@ import EventCreationForm3 from "./EventCreationForm3";
 import EventCreationForm2 from "./EventCreationForm2";
 import { Context } from "../context/Context";
 import EventCreationForm4 from "./EventCreationForm4";
+
 const EventCreationCard = () => {
   const [hasAccount, setHasAccount] = useState(true);
   const [signUpFailed, setSignUpFailed] = useState(true);
@@ -59,15 +60,24 @@ const EventCreationCard = () => {
 
     if (response.ok) {
       const data = await response.json();
-      console.log(data)
+      console.log("data",data)
       if (data.success) {
+       
+
         setTitle(data.event.event_title);
         setContent(data.event.details);
         setMembers(data.event.event_moderators);
-        setDatetime(data.event.date_time);
         setLocation(data.event.location);
         setPosterURL(data.event.main_poster);
-        setPhotos(data.event.event_photos)
+        setPhotos(data.event.event_photos);
+        var newdate= new Date(data.event.date_time);
+        console.log("time",newdate)
+        const month=newdate.getUTCMonth()<10?"0"+newdate.getUTCMonth():newdate.getUTCMonth();
+        const daten=newdate.getUTCDate()<10?"0"+newdate.getUTCDate():newdate.getUTCDate();
+        setDate(newdate.getFullYear()+"-"+month+"-"+daten)
+        const hours=newdate.getUTCHours()<10?"0"+newdate.getUTCHours():newdate.getUTCHours();
+        const minutes=newdate.getUTCMinutes()<10?"0"+newdate.getUTCMinutes():newdate.getUTCMinutes();
+        setTime(hours+":"+minutes);
       } else console.log(data)
     }
 

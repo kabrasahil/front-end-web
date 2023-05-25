@@ -308,7 +308,7 @@ const EventPage = () => {
 
                         </div>
 
-                    </> : <>
+                    </> : event.event_photos?<>
 
                         {/* Event Gallery */}
 
@@ -317,10 +317,9 @@ const EventPage = () => {
                                 Memories
                             </h1>
                         </div>
+                        <EventGallery images={event.event_photos} />
 
-                        <EventGallery images={event.event_images} />
-
-                    </>}
+                    </>:<></>}
 
                 </div>
             )}
