@@ -75,22 +75,22 @@ const Article = () => {
     <div className="sm:pt-48 md:pt-48 lg:pt-24 min-h-screen">
       {/* article place the share button in it */}
 
-      <div className="mx-[16vw] flex flex-row items-center justify-start">
+      <div className="mx-[8vw] lg:mx-[16vw] flex flex-row items-center justify-start">
         <div className="flex w-max items-center">
           <img
             src={editor ? editor.pfp_url : ''}
             alt=""
-            className="mr-4 mt-8 aspect-square h-10 rounded-full bg-gray-50 lg:h-16 lg:w-16"
+            className="mr-4 mt-8 aspect-square h-20 rounded-full bg-gray-50 lg:h-16"
           />
         </div>
         <div className="ml-5 flex flex-col gap-1 font-sans text-2xl font-bold lg:text-sm">
-          <p className="mt-8 font-sans text-xl font-bold text-gray-400 lg:text-xl">
+          <p className="mt-8 font-sans text-3xl font-bold text-gray-400 lg:text-xl">
             <a>
               <span className="relative inset-0" />
               {editor ? editor.name.first_name + ' ' + editor.name.last_name : ''}
             </a>
           </p>
-          <time dateTime={blog ? blog.createdAt : ''} className="font-light text-gray-400">
+          <time dateTime={blog ? blog.createdAt : ''} className="font-light text-3xl lg:text-xl text-gray-400">
           <Moment fromNow>{blog ? blog.createdAt : ''}</Moment>
           </time>
         </div>
