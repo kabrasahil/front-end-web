@@ -13,7 +13,7 @@ const IntroHome = () => {
       style={{ minHeight: "800px", minWidth: "100%" }}
     >
       <img
-        src="https://drive.google.com/uc?export=view&id=1X8UlPf_hFZlm3kCdTfxNQINHUmgvZJrS"
+        src="https://res.cloudinary.com/dafqvvk91/image/upload/v1685046439/igts-white-logo_u3osk8.png"
         alt=""
         srcset=""
         className="object-cover h-48 w-100"

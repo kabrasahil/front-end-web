@@ -17,10 +17,10 @@ export default function Home1() {
           The Indian Game Theory Society
         </h2>
         <p className="text-slate-300 font-thin lg:text-lg sm:text-2xl md:text-2xl text-justified">
-        The Indian Game Theory Society was founded by Mr.Manoj Gadia on 30th December, 2015. It was founded with the motive of promoting the understanding of Game Theory and Strategic Thinking. We aim to start our chapters in all the universities and colleges all over India, helping students to learn the very concept of Game Theory and its application. We aim to expand our knowledge by applying it in real life scenarios and business decisions.
+          The Indian Game Theory Society was founded by Mr.Manoj Gadia on 30th December, 2015. It was founded with the motive of promoting the understanding of Game Theory and Strategic Thinking. We aim to start our chapters in all the universities and colleges all over India, helping students to learn the very concept of Game Theory and its application. We aim to expand our knowledge by applying it in real life scenarios and business decisions.
         </p>
         <Link to="/about">
-        
+
 
           <button className="flex justify-center bg-gradient-to-r from-indigo-500 to-blue-400 text-white font-medium text-lg w-44 rounded-full h-10 !text-center  lg:text-lg sm:text-2xl md:text-2xl sm:w-56 md:w-56  lg:w-44">
             <div> Learn more </div>
@@ -34,7 +34,7 @@ export default function Home1() {
       <div className="w-[800px] sm:ml-auto md:ml-auto lg:ml-1">
         <img
           className="drop-shadow-2xl shadow-zinc-400 rounded-xl img-home1"
-          src="https://drive.google.com/uc?export=view&id=1tCd8wn5b5SOMs3aPSWenZDkQodpDK1Lm"
+          src="https://res.cloudinary.com/dafqvvk91/image/upload/v1685046153/Desktop1_ram9av.png"
           alt="about-img"
         />
       </div>
