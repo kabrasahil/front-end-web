@@ -10,7 +10,7 @@ export default function Home2() {
       <div className="w-[800px]   sm:order-last md:order-last lg:order-first">
         <img
           className="drop-shadow-2xl shadow-zinc-400 rounded-xl img-home2"
-          src="https://drive.google.com/uc?export=view&id=157v94esi57zsEWWJazRauOCgqa388MJU"
+          src="https://res.cloudinary.com/dafqvvk91/image/upload/v1685046325/desktop2_fbn1ms.png"
           alt="about-img"
         />
       </div>
@@ -22,7 +22,7 @@ export default function Home2() {
           Game Theory?
         </h2>
         <p className="text-slate-300 font-thin lg:text-lg sm:text-2xl md:text-2xl !text-justified">
-        The branch of social science that studies strategic decision making is called game theory. The games in this theory range from chess to child-rearing, from tennis to business takeovers, and from advertising to arms control. Thinking a step ahead, understanding a situation from multiple perspectives, sensing opponents' motives, maximizing your payouts, minimizing your losses, sometimes even ensuring win-win outcomes - all these are inherent features of Game Theory.
+          The branch of social science that studies strategic decision making is called game theory. The games in this theory range from chess to child-rearing, from tennis to business takeovers, and from advertising to arms control. Thinking a step ahead, understanding a situation from multiple perspectives, sensing opponents' motives, maximizing your payouts, minimizing your losses, sometimes even ensuring win-win outcomes - all these are inherent features of Game Theory.
         </p>
         <Link to="/igts">
           <button className="flex justify-center bg-gradient-to-r  from-pink-900 to-pink-700 text-white font-medium lg:text-lg sm:text-2xl md:text-2xl sm:w-56 md:w-56 lg:w-44 rounded-full h-10 !text-center sm:ml-auto md:ml-auto lg:ml-1">

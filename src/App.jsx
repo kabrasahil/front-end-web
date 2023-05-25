@@ -134,15 +134,22 @@ const App = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 3000);
+
+    window.addEventListener('load', () => {
       setTimeout(() => {
         setIsLoading(false);
-      }, 1000);
-    }, []);
+      }, 1500);
+    })
+
+  }, []);
 
   return (
     <div>
       <div className="bg-stone-900 relative">
-        <div className="sticky-top" style={{pointerEvents: 'none'}}>
+        <div className="sticky-top" style={{ pointerEvents: 'none' }}>
           <StarsCanvas />
         </div>
         {isLoading ? (
@@ -150,7 +157,7 @@ const App = () => {
             <LoadingScreen />
           </div>
         ) : (
-          <div className="" style={{pointerEvents:'auto'}}>
+          <div className="" style={{ pointerEvents: 'auto' }}>
             <IgtsWebsite />
           </div>
         )}

@@ -86,7 +86,7 @@ const Navbar = () => {
             <Link to="/" key={0} className="nav-item w-fit">
               <div class=" w-fit">
                 <img
-                  src="https://drive.google.com/uc?export=view&id=1X8UlPf_hFZlm3kCdTfxNQINHUmgvZJrS"
+                  src="https://res.cloudinary.com/dafqvvk91/image/upload/v1685046439/igts-white-logo_u3osk8.png"
                   alt=""
                   srcset=""
                   className="object-cover ml-4 w-fit sm:h-24 md:h-32 lg:h-16"
@@ -116,7 +116,7 @@ const Navbar = () => {
             className="flex items-center gap-8 content-center h-max my-auto ml-auto mr-10"
           >
             {user ? (
-              <a href="/dashboard" 
+              <a href="/dashboard"
                 class="relative inline-flex items-center justify-start inline-block px-5 py-3 sm:px-10 md:px-10 sm:py-6 md:py-6 overflow-hidden font-bold rounded-full group"
               >
                 {/* <span class="w-32 h-32 rotate-45 translate-x-12 -translate-y-2 absolute left-0 top-0 bg-red opacity-[3%]"></span>

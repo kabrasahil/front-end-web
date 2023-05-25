@@ -13,7 +13,7 @@ const Footer = () => {
         <div className="mb-5">
           <a href="/igts" className="flex items-center mb-5">
             <img
-              src="https://drive.google.com/uc?export=view&id=1X8UlPf_hFZlm3kCdTfxNQINHUmgvZJrS"
+              src="https://res.cloudinary.com/dafqvvk91/image/upload/v1685046439/igts-white-logo_u3osk8.png"
               className="h-16 lg:mr-3 rounded-full"
               alt="IGTS Logo"
             />
@@ -59,14 +59,14 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      
+
       <div className="p-4 sm:p-6 mr-auto sm:my-auto md:my-auto lg:mb-auto lg:mt-0">
-      <motion.div
-      variants={slideIn("right", "tween", 0.2, 1)}
-      className="xl:flex-1 xl:h-auto h-[250px]"
-    >
-      <EarthCanvas />
-    </motion.div>
+        <motion.div
+          variants={slideIn("right", "tween", 0.2, 1)}
+          className="xl:flex-1 xl:h-auto h-[250px]"
+        >
+          <EarthCanvas />
+        </motion.div>
         <div className="flex lg:flex-row sm:flex-row md:flex-row mt-4 gap-y-4 gap-x-4 sm:justify-center lg:text-base sm:text-xl md:text-2xl">
           <a
             href="https://www.facebook.com/igts.nsit/"
