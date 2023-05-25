@@ -128,7 +128,7 @@ const Navbar = () => {
                   src={user.pfp_url}
                   alt=""
                   srcset=""
-                  className="h-16 aspect-square rounded-full object-cover border-pink-300 border-2"
+                  className="lg:h-10 h-16 aspect-square rounded-full object-cover border-pink-300 border-2"
                 />{" "}
                 {/* <div className="ml-2">{user.name.last_name}</div> */}
                 {/* </span>
