@@ -4,6 +4,7 @@ import { SERVER_URL } from "../config";
 import { Context } from "../context/Context";
 import ArticleContent from "./articleContent/ArticleContent";
 import Discussions from "./comment-section/discussions/Discussions";
+import Moment from "react-moment";
 
 const Article = () => {
   const [heading, setHeading] = useState("");
@@ -90,7 +91,7 @@ const Article = () => {
             </a>
           </p>
           <time dateTime={blog ? blog.createdAt : ''} className="font-light text-gray-400">
-            {blog ? blog.createdAt : ''}
+          <Moment fromNow>{blog ? blog.createdAt : ''}</Moment>
           </time>
         </div>
       </div>

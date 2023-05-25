@@ -18,10 +18,8 @@ const ArticleCard = ({ post }) => {
               className="mt-8 mr-4 h-14 w-14 lg:h-8 lg:w-8 rounded-full bg-gray-50"
             />
             <p className="mt-8 font-sans font-bold  text-2xl lg:text-sm   text-gray-400">
-              <a href="">
                 <span className="relative inset-0" />
                 {post.editor.name}
-              </a>
             </p>
 
             <div className="mt-8 font-sans font-bold text-2xl lg:text-sm   ml-16">
