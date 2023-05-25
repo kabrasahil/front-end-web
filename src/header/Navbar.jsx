@@ -138,12 +138,12 @@ const Navbar = () => {
             ) : (
               <Link
                 to="/login"
-                class="lg:flex relative inline-flex items-center justify-start inline-block px-5 py-3 sm:px-10 md:px-10 sm:py-6 md:py-6 overflow-hidden font-bold rounded-full group"
+                class="lg:flex relative h-16 lg:h-10 items-center text-center justify-start inline-block px-5 py-auto my-3 sm:px-10 md:px-10 sm:py-6 md:py-6 overflow-hidden font-bold rounded-full group"
               >
-                <span class="w-32 h-fit rotate-45 translate-x-12 -translate-y-2 absolute left-0 top-0 bg-red opacity-[3%]"></span>
+                <span class="w-32 h-32 rotate-45 translate-x-12 -translate-y-2 absolute left-0 top-0 bg-red opacity-[3%]"></span>
                 <span class="absolute top-5 -left-16 w-96 h-80 transition-all duration-500 ease-in-out rotate-45 -translate-x-64 -translate-y-16 bg-gradient-to-r to-pink-300 to-pink-500 from-pink-700 opacity-100 group-hover:translate-x-0"></span>
 
-                <span class="flex relative w-fit text-left  transition-colors duration-200 ease-in-out group-hover:!text-gray-100">
+                <span class="flex relative text-left  transition-colors duration-200 ease-in-out group-hover:!text-gray-100">
                   <span className="text-gray-100 sm:text-3xl md:text-3xl lg:text-base">
                     Get Started
                   </span>
