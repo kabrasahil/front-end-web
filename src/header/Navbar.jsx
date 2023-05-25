@@ -113,7 +113,7 @@ const Navbar = () => {
             // initial="closed"
             // animate="open"
             // variants={sideVariants}
-            className="flex content-center h-10 my-auto ml-auto mr-10"
+            className="flex items-center gap-8 content-center h-max my-auto ml-auto mr-10"
           >
             {user ? (
               <a href="/dashboard"
@@ -128,7 +128,7 @@ const Navbar = () => {
                   src={user.pfp_url}
                   alt=""
                   srcset=""
-                  className="h-10 w-10 rounded-full object-cover border-pink-300 border-2"
+                  className="h-16 aspect-square rounded-full object-cover border-pink-300 border-2"
                 />{" "}
                 {/* <div className="ml-2">{user.name.last_name}</div> */}
                 {/* </span>
@@ -138,12 +138,12 @@ const Navbar = () => {
             ) : (
               <Link
                 to="/login"
-                class="hidden lg:flex relative inline-flex items-center justify-start inline-block px-5 py-3 sm:px-10 md:px-10 sm:py-6 md:py-6 overflow-hidden font-bold rounded-full group"
+                class="lg:flex relative inline-flex items-center justify-start inline-block px-5 py-3 sm:px-10 md:px-10 sm:py-6 md:py-6 overflow-hidden font-bold rounded-full group"
               >
-                <span class="w-32 h-32 rotate-45 translate-x-12 -translate-y-2 absolute left-0 top-0 bg-red opacity-[3%]"></span>
+                <span class="w-32 h-fit rotate-45 translate-x-12 -translate-y-2 absolute left-0 top-0 bg-red opacity-[3%]"></span>
                 <span class="absolute top-5 -left-16 w-96 h-80 transition-all duration-500 ease-in-out rotate-45 -translate-x-64 -translate-y-16 bg-gradient-to-r to-pink-300 to-pink-500 from-pink-700 opacity-100 group-hover:translate-x-0"></span>
 
-                <span class="flex relative w-full text-left  transition-colors duration-200 ease-in-out group-hover:!text-gray-100">
+                <span class="flex relative w-fit text-left  transition-colors duration-200 ease-in-out group-hover:!text-gray-100">
                   <span className="text-gray-100 sm:text-3xl md:text-3xl lg:text-base">
                     Get Started
                   </span>
