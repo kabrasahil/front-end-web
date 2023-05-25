@@ -63,7 +63,7 @@ const Footer = () => {
       <div className="p-4 sm:p-6 mr-auto sm:my-auto md:my-auto lg:mb-auto lg:mt-0">
       <motion.div
       variants={slideIn("right", "tween", 0.2, 1)}
-      className="xl:flex-1 xl:h-auto h-[550px]"
+      className="xl:flex-1 xl:h-auto h-[250px]"
     >
       <EarthCanvas />
     </motion.div>
