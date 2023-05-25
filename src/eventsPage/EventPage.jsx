@@ -207,24 +207,24 @@ const EventPage = () => {
                         <div className='w-[70vw]  card-shadow-black lg:mt-24 my-10 rounded-xl flex lg:flex-row flex-col-reverse justify-between object-cover '>
                             <div className={' w-[40vw] text-white py-5 pl-5 lg:!py-10 lg:!pl-10 !pr-0 lg:p-10 z-10 flex flex-col justify-end'}>
                                 <div className='flex flex-col justify-center items-between content-between'>
-                                    <h1 className='text-2xl lg:text-5xl font-bold'>{event.event_title}</h1>
-                                    <div className="translate-x-[0px] lg:translate-x-[20px] w-[35vw] items-center mt-4 lg:my-8 py-1 lg:py-5 shadow-[0_0_5px_-10px_rgb(0,0,0)] text-white bg-gray-700 bg-clip-padding rounded-xl backdrop-filter backdrop-blur-lg bg-opacity-20 flex justify-center">
-                                        <div className='flex'>
+                                    <h1 className='text-3xl lg:text-5xl font-bold'>{event.event_title}</h1>
+                                    <div className="translate-x-[0px] lg:translate-x-[20px] w-fit p-4 lg:p-0 items-center mt-4 lg:my-8 py-1 lg:py-5 shadow-[0_0_5px_-10px_rgb(0,0,0)] text-white bg-gray-700 bg-clip-padding rounded-xl backdrop-filter backdrop-blur-lg bg-opacity-20 flex justify-center">
+                                        <div className='flex gap-3 lg:gap-0'>
                                             <div className='text-center flex flex-col gap-2 px-2 lg:px-10 border-r border-slate-600'>
-                                                <h1 className='text-xs lg:text-lg font-semibold'>Location</h1>
-                                                <p className='text-xs lg:text-md'>{event.location}</p>
+                                                <h1 className='text-xl lg:text-lg font-semibold'>Location</h1>
+                                                <p className='text-base lg:text-md'>{event.location}</p>
                                             </div>
                                             <div className='text-center flex flex-col gap-2 px-2 lg:px-10 border-r border-slate-600'>
-                                                <h1 className='text-xs lg:text-lg font-semibold'>Date</h1>
-                                                <p className='text-xs lg:text-md'>{event.date}</p>
+                                                <h1 className='text-xl lg:text-lg font-semibold'>Date</h1>
+                                                <p className='text-base lg:text-md'>{event.date}</p>
                                             </div>
                                             <div className='text-center flex flex-col gap-2 px-2 lg:px-10 border-r border-slate-600'>
-                                                <h1 className='text-xs lg:text-lg font-semibold'>Time</h1>
-                                                <p className='text-xs lg:text-md'>{event.time}</p>
+                                                <h1 className='text-xl lg:text-lg font-semibold'>Time</h1>
+                                                <p className='text-base lg:text-md'>{event.time}</p>
                                             </div>
                                             <div className=' flex flex-col gap-2 items-center px-2 lg:px-10'>
-                                                <h1 className='text-xs lg:text-lg font-semibold'>Registrations</h1>
-                                                <div className={(event.registrations_open) ? "w-2 h-2 lg:w-5 lg:h-5 rounded-full bg-green-500" : "w-2 h-2 lg:w-5 lg:h-5 rounded-full bg-red-500"}></div>
+                                                <h1 className='text-xl lg:text-lg font-semibold'>Registrations</h1>
+                                                <div className={(event.registrations_open) ? "w-4 aspect-square lg:w-5 lg:h-5 rounded-full bg-green-500" : "w-4 aspect-square lg:w-5 lg:h-5 rounded-full bg-red-500"}></div>
                                             </div>
 
                                         </div>
