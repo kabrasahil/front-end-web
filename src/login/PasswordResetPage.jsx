@@ -20,7 +20,7 @@ const PasswordResetPage = () => {
     <section
       className="bg-stone-900  bg-center bg-cover  min-h-screen"
       style={{
-        backgroundImage: `url(https://wallpaperaccess.com/full/2454622.jpg)`,
+        backgroundImage: `url(https://res.cloudinary.com/dafqvvk91/image/upload/v1685051301/moon-2048727_640_xybqx2.jpg)`,
       }}
     >
       <div className="w-screen h-screen flex flex-col lg:pt-20 justify-center lg:items-end backdrop-blur-2xl ">
