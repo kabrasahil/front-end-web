@@ -18,8 +18,8 @@ const ArticleCard = ({ post }) => {
               className="mt-8 mr-4 h-14 w-14 lg:h-8 lg:w-8 rounded-full bg-gray-50"
             />
             <p className="mt-8 font-sans font-bold  text-2xl lg:text-sm   text-gray-400">
-                <span className="relative inset-0" />
-                {post.editor.name}
+              <span className="relative inset-0" />
+              {post.editor.name}
             </p>
 
             <div className="mt-8 font-sans font-bold text-2xl lg:text-sm   ml-16">
@@ -38,7 +38,7 @@ const ArticleCard = ({ post }) => {
             <p
               className="mt-5 sm:text-3xl md:text-3xl lg:text-lg font-bold text-gray-200 line-clamp-3"
               dangerouslySetInnerHTML={{
-                __html: DOMPurify.sanitize(post.content.slice(0, 200)) + "...",
+                __html: DOMPurify.sanitize(post.content.slice(0, 500)) + "...",
               }}
             ></p>
           </div>
