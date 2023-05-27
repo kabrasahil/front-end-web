@@ -1,8 +1,9 @@
 import DOMPurify from "dompurify";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./ArticleCard.css";
 import Moment from "react-moment";
 const ArticleCard = ({ post }) => {
+
   console.log(post);
   return (
     <article
@@ -43,7 +44,7 @@ const ArticleCard = ({ post }) => {
             ></p>
           </div>
 
-          <div className="mt-10 flex ">
+          <div className="mt-10 grid-x gap-4">
             {post.subtopics.map((el) => {
               return (
                 <a

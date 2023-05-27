@@ -26,29 +26,36 @@ const LoginForm = ({ showNotification, setShowNotification }) => {
         localStorage.setItem("jwt", data.token);
         window.location.href = "/";
       } else {
+
         console.log("here");
         setShowNotification([
           ...showNotification,
           {
             type: "error",
-            message: "Username or password is incorrect",
+            message: "Something went wrong",
           },
         ]);
-        setSignInFailed([true, "Username or password is incorrect"]);
+        setSignInFailed([true, "Something went wrong. Please try again later."]);
       }
+
+
+
     } else {
+
       console.log("here");
       setShowNotification([
         ...showNotification,
         {
           type: "error",
-          message: "Something went wrong",
+          message: "Username or password is incorrect",
         },
       ]);
-      setSignInFailed([true, "Something went wrong. Please try again later."]);
-    }
-  };
+      setSignInFailed([true, "Username or password is incorrect"]);
 
+
+    };
+
+  }
 
   const [emailL, setEmailL] = useState("");
   const [passwordL, setPasswordL] = useState("");
@@ -56,7 +63,7 @@ const LoginForm = ({ showNotification, setShowNotification }) => {
   const [signInFailed, setSignInFailed] = useState([false, ""]);
 
 
- 
+
 
   useEffect(() => {
 

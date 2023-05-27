@@ -56,6 +56,8 @@ const SubtopicArticleList = () => {
       <div className="md:mx-19 sm:mx-5">
         <div className=" mt-10 grid gap-y-14 justify-items-center">
           {posts.map((el) => {
+
+            el._id = el.blog_id;
             return <ArticleCard post={el} />;
           })}
         </div>

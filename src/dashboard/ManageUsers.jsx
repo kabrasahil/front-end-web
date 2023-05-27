@@ -1,6 +1,6 @@
-import React, {useContext, useState} from 'react';
-import {Context} from '../context/Context';
-import {SERVER_URL} from '../config';
+import React, { useContext, useEffect, useState } from 'react';
+import { Context } from '../context/Context';
+import { SERVER_URL } from '../config';
 
 const ManageUsers = () => {
   const user = useContext(Context);
@@ -26,16 +26,14 @@ const ManageUsers = () => {
       const data = await response.json();
       if (data.success) {
         setRole(event.target.value);
-
         handleSearch();
       }
     }
   };
 
   const toggleSocMem = async (event) => {
-    setCheckedSoc(!event.target.checked)
+    const bool = Boolean(event.target.checked);
     const token = localStorage.getItem('jwt');
-    console.log(event.target.checked)
     const response = await fetch(`${SERVER_URL}/api/admin/updatesocmem`, {
       method: 'PUT',
       headers: {
@@ -44,15 +42,14 @@ const ManageUsers = () => {
       },
       body: JSON.stringify({
         user_id: searchResult._id,
-        society_member: !event.target.checked,
+        society_member: bool,
       }),
     });
 
     if (response.ok) {
       const data = await response.json();
       if (data.success) {
-        // setRole(event.target.value);
-        handleSearch();
+        setCheckedSoc(bool)
       }
     }
   };
@@ -78,11 +75,18 @@ const ManageUsers = () => {
       const data = await response.json();
       if (data.success) {
         setSearchResult(data.user);
-        setCheckedSoc(searchResult.society_member)
+        console.log("s", data.user.society_member);
+        setCheckedSoc(data.user.society_member)
         setRole(data.user.role);
       }
     }
   };
+
+  useEffect(() => {
+
+    console.log("c", checkedSoc)
+
+  }, [checkedSoc])
 
   return (
     <div className="m-10 h-full w-full">
@@ -96,7 +100,7 @@ const ManageUsers = () => {
       </div>
       <div className="mx-5 my-5 flex items-center rounded-xl bg-stone-800 px-3 py-1 pr-0 lg:w-1/3">
         <button className="cursor-pointer bg-transparent p-3" onClick={handleSearch}>
-          <i className="fa-solid fa-magnifying-glass text-2xl lg:text-lg" style={{color: '#94a3b8'}} />
+          <i className="fa-solid fa-magnifying-glass text-2xl lg:text-lg" style={{ color: '#94a3b8' }} />
         </button>
         <input
           placeholder="Enter Email Id"
@@ -155,16 +159,23 @@ const ManageUsers = () => {
               <p id="organization" className="mb-4 text-center text-lg">
                 {/* {searchResult.society_member ? 'true' : 'false'} */}
                 <label class="relative inline-flex items-center cursor-pointer">
-  <input type="checkbox" value={checkedSoc} checked={checkedSoc} class="sr-only peer" onClick={toggleSocMem} />
-  <div class="w-11 h-6 peer-checked:bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 after:translate-x-full peer-checked:after:translate-x-0 peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 bg-blue-600"></div>
-</label>
+                  <input
+                    type="checkbox"
+                    value={checkedSoc}
+                    checked={checkedSoc}
+                    // class="sr-only peer"
+                    onClick={toggleSocMem}
+                    {...checkedSoc ? "checked" : ''}
+                  />
+                  {/* <div class="w-11 h-6 peer-checked:bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 after:translate-x-full peer-checked:after:translate-x-0 peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 bg-blue-600"></div> */}
+                </label>
               </p>
             </div>
             <div className="w-full">
               <label htmlFor="role" className="mb-1 text-lg text-pink-500">
                 Role:
               </label>
-              
+
               <div className="relative">
                 <select
                   id="role"

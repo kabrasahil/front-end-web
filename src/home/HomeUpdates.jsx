@@ -45,8 +45,8 @@ export default function HomeUpdates() {
                 type === "blog"
                   ? "/blogs/" + id
                   : type === "event"
-                  ? "/events/" + id
-                  : ""
+                    ? "/events/" + id
+                    : ""
               }
               className="group relative block bg-black rounded-xl w-full aspect-square"
               style={{ boxShadow: "0 0px 40px -1px rgba(0, 0, 0, 0.6)" }}
@@ -70,7 +70,7 @@ export default function HomeUpdates() {
                   <div class="translate-y-8 transform lg:opacity-0 transition-all lg:group-hover:translate-y-0 lg:group-hover:opacity-100">
                     <p
                       class="lg:text-base lg:h-[7rem] md:text-3xl sm:text-xl text-white overflow-hidden text-ellipsis"
-                      dangerouslySetInnerHTML={{ __html: description + "..." }}
+                      dangerouslySetInnerHTML={{ __html: description.slice(0, 200) + "..." }}
                     ></p>
                   </div>
                 </div>

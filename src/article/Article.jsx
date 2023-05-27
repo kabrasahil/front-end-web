@@ -91,7 +91,7 @@ const Article = () => {
             </a>
           </p>
           <time dateTime={blog ? blog.createdAt : ''} className="font-light text-3xl lg:text-xl text-gray-400">
-          <Moment fromNow>{blog ? blog.createdAt : ''}</Moment>
+            <Moment fromNow>{blog ? blog.createdAt : ''}</Moment>
           </time>
         </div>
       </div>
@@ -105,12 +105,15 @@ const Article = () => {
         fetchBlog={fetchBlog}
       />
 
-      <div className="ml-20 flex sm:mx-30 ">
+      <div className="mx-20 flex justify-center items-center sm:mx-30 ">
+        <div className="text-stone-300">
+          Related:
+        </div>
         {subtopics.map(el => {
           return (
             <a
               href={'/blogs/subtopic/' + el.subtopic_id}
-              className=" relative z-10 rounded-full bg-stone-600 px-3 py-1.5 text-lg font-medium text-gray-200 hover:bg-gray-100 hover:text-gray-700 lg:text-sm">
+              className="mx-4 relative z-10 rounded-full bg-stone-600 px-3 py-1.5 text-lg font-medium text-gray-200 hover:bg-gray-100 hover:text-gray-700 lg:text-sm">
               {el.name}
             </a>
           );

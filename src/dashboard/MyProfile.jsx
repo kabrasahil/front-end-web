@@ -255,9 +255,8 @@ const EditProfile = () => {
             </label>
             <input
               type={"text"}
-              className={`block py-2.5 px-0 w-full lg:text-sm sm:text-3xl md:text-3xl text-gray-400 bg-transparent  border-b border-stone-800 focus:outline-none lg:ml-2 sm:ml-6 md:ml-6 sm:mt-4 md:mt-4 ${
-                lnameEmpty ? "!border-b border-red-600 text-red-500" : ""
-              }`}
+              className={`block py-2.5 px-0 w-full lg:text-sm sm:text-3xl md:text-3xl text-gray-400 bg-transparent  border-b border-stone-800 focus:outline-none lg:ml-2 sm:ml-6 md:ml-6 sm:mt-4 md:mt-4 ${lnameEmpty ? "!border-b border-red-600 text-red-500" : ""
+                }`}
               placeholder={`Last Name`}
               value={lnameEmpty ? `*This is a required field` : lname}
               onChange={(e) => setLname(e.target.value)}
@@ -282,9 +281,8 @@ const EditProfile = () => {
           <input
             id="phone"
             type="tel"
-            className={`block py-2.5 px-0 w-full lg:text-sm sm:text-3xl md:text-3xl text-gray-400 bg-transparent  border-b border-stone-800 focus:outline-none lg:ml-2 sm:ml-6 md:ml-6 sm:mt-4 md:mt-4 ${
-              invalidPhone ? "!border-b border-red-600 text-red-500" : ""
-            }`}
+            className={`block py-2.5 px-0 w-full lg:text-sm sm:text-3xl md:text-3xl text-gray-400 bg-transparent  border-b border-stone-800 focus:outline-none lg:ml-2 sm:ml-6 md:ml-6 sm:mt-4 md:mt-4 ${invalidPhone ? "!border-b border-red-600 text-red-500" : ""
+              }`}
             placeholder="Phone Number"
             value={invalidPhone ? "*Invalid Phone Number" : phone}
             onChange={(e) => setPhone(e.target.value)}
@@ -305,9 +303,8 @@ const EditProfile = () => {
           <input
             id="email"
             type="Email"
-            className={`block py-2.5 px-0 w-full lg:text-sm sm:text-3xl md:text-3xl text-gray-400 bg-transparent  border-b border-stone-800 focus:outline-none lg:ml-2 sm:ml-6 md:ml-6 sm:mt-4 md:mt-4 ${
-              invalidEmail ? "!border-b border-red-600 text-red-500" : ""
-            }`}
+            className={`block py-2.5 px-0 w-full lg:text-sm sm:text-3xl md:text-3xl text-gray-400 bg-transparent  border-b border-stone-800 focus:outline-none lg:ml-2 sm:ml-6 md:ml-6 sm:mt-4 md:mt-4 ${invalidEmail ? "!border-b border-red-600 text-red-500" : ""
+              }`}
             placeholder="Email"
             value={invalidEmail ? "*Invalid Email" : emailR}
             onChange={(e) => setEmailR(e.target.value)}
@@ -353,9 +350,8 @@ const EditProfile = () => {
             id="organization"
             type="text"
             name="organization"
-            className={`block py-2.5 px-0 w-full lg:text-sm sm:text-3xl md:text-3xl text-gray-400 bg-transparent  border-b border-stone-800 focus:outline-none lg:ml-2 sm:ml-6 md:ml-6 sm:mt-4 md:mt-4 ${
-              organizationEmpty ? "!border-b border-red-600 text-red-500" : ""
-            }`}
+            className={`block py-2.5 px-0 w-full lg:text-sm sm:text-3xl md:text-3xl text-gray-400 bg-transparent  border-b border-stone-800 focus:outline-none lg:ml-2 sm:ml-6 md:ml-6 sm:mt-4 md:mt-4 ${organizationEmpty ? "!border-b border-red-600 text-red-500" : ""
+              }`}
             placeholder="Organization / College"
             value={
               organizationEmpty ? "*This is a required field" : organization
@@ -479,9 +475,8 @@ const ChangePassword = () => {
             <input
               id="oldpassword"
               type={showPassword ? "text" : oldPassWrong ? "text" : "password"}
-              className={`block py-2.5 px-0 w-full lg:text-sm sm:text-3xl md:text-3xl text-gray-400 bg-transparent  border-b border-stone-800 focus:outline-none lg:ml-2 sm:ml-6 md:ml-6 sm:mt-4 md:mt-4 ${
-                oldPassWrong ? "!border-b border-red-600 text-red-500" : ""
-              }`}
+              className={`block py-2.5 px-0 w-full lg:text-sm sm:text-3xl md:text-3xl text-gray-400 bg-transparent  border-b border-stone-800 focus:outline-none lg:ml-2 sm:ml-6 md:ml-6 sm:mt-4 md:mt-4 ${oldPassWrong ? "!border-b border-red-600 text-red-500" : ""
+                }`}
               placeholder="***********"
               value={
                 oldPassWrong ? "*Old Password entered was invalid" : oldPass
@@ -503,9 +498,8 @@ const ChangePassword = () => {
             <input
               id="newpassword"
               type={showPassword ? "text" : invalidPass ? "text" : "password"}
-              className={`block py-2.5 px-0 w-full lg:text-sm sm:text-3xl md:text-3xl text-gray-400 bg-transparent  border-b border-stone-800 focus:outline-none lg:ml-2 sm:ml-6 md:ml-6 sm:mt-4 md:mt-4 ${
-                invalidPass ? "!border-b border-red-600 text-red-500" : ""
-              }`}
+              className={`block py-2.5 px-0 w-full lg:text-sm sm:text-3xl md:text-3xl text-gray-400 bg-transparent  border-b border-stone-800 focus:outline-none lg:ml-2 sm:ml-6 md:ml-6 sm:mt-4 md:mt-4 ${invalidPass ? "!border-b border-red-600 text-red-500" : ""
+                }`}
               placeholder="***********"
               value={invalidPass ? "*Invalid Password was entered" : newPass}
               onChange={(e) => {
@@ -527,9 +521,8 @@ const ChangePassword = () => {
             <input
               id="confirmpassword"
               type={showPassword ? "text" : passDontMatch ? "text" : "password"}
-              className={`block py-2.5 px-0 w-full lg:text-sm sm:text-3xl md:text-3xl text-gray-400 bg-transparent  border-b border-stone-800 focus:outline-none lg:ml-2 sm:ml-6 md:ml-6 sm:mt-4 md:mt-4 ${
-                passDontMatch ? "!border-b border-red-600 text-red-500" : ""
-              }`}
+              className={`block py-2.5 px-0 w-full lg:text-sm sm:text-3xl md:text-3xl text-gray-400 bg-transparent  border-b border-stone-800 focus:outline-none lg:ml-2 sm:ml-6 md:ml-6 sm:mt-4 md:mt-4 ${passDontMatch ? "!border-b border-red-600 text-red-500" : ""
+                }`}
               placeholder="***********"
               value={passDontMatch ? "*Passwords Don't Match" : confirmPass}
               onChange={(e) => {
@@ -601,6 +594,7 @@ const DeleteAccount = () => {
       if (response.ok) {
         const data = await response.json();
         if (data.success) {
+          localStorage.removeItem('jwt');
           window.location.href("/");
         } else {
           setNotification([
@@ -719,11 +713,10 @@ const MyProfile = () => {
             <Link
               to={el.link}
               key={i}
-              className={`text-gray-300   font-sans font-bold lg:text-base sm:text-3xl md:text-3xl sm:p-2 md:p-2 ${
-                el.active
+              className={`text-gray-300   font-sans font-bold lg:text-base sm:text-3xl md:text-3xl sm:p-2 md:p-2 ${el.active
                   ? "!text-gray-100 lg:border-b sm:border-b-2 md:border-b-2  border-cyan-300"
                   : ""
-              }`}
+                }`}
             >
               {el.title}
             </Link>
