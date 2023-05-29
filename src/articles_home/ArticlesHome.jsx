@@ -5,7 +5,7 @@ import Topics from "./Topics";
 
 const ArticlesHome = () => {
   return (
-    <div className="flex flex-col  mr-auto justify-center items-center pt-24 pb-48">
+    <div className="flex flex-col mr-auto justify-center items-center pt-24 pb-48">
       <div className="w-full bg-gray-900">
         <BlogHeading />
       </div>

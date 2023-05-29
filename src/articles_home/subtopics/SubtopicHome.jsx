@@ -40,7 +40,7 @@ const SubtopicHome = () => {
   }, []);
 
   return (
-    <div className="flex flex-col  mr-auto justify-center items-center pt-24 pb-48">
+    <div className="flex flex-col min-h-screen mr-auto justify-center items-center pt-0 lg:pt-24 pb-48 translate-y-[-17vh] lg:translate-y-0">
       <div className="w-full bg-gray-900">
         <BlogHeading />
       </div>

@@ -135,7 +135,7 @@ function Editor() {
   };
   const [subtopics, setSubtopics] = useState([]);
   return (
-    <div className="!h-max">
+    <div className="!h-max mt-32 lg:mt-10">
       {saveDialogBox ? (
         <>
           <DialogBox

@@ -261,7 +261,7 @@ const EventCreationCard = () => {
         })}
       </div>
       <div
-        className="mb-20 lg:w-[950px] sm:w-[600px] md:w-[800px] bg-stone-900 rounded-lg lg:p-30 sm:p-10 md:p-10  flex flex-col justify-center lg:gap-y-2 sm:gap-y-10 md:gap-y-10"
+        className="mt-64 lg:mt-0 mb-20 lg:w-[950px] sm:w-[600px] md:w-[800px] bg-stone-900 rounded-lg lg:p-30 sm:p-10 md:p-10  flex flex-col justify-center lg:gap-y-2 sm:gap-y-10 md:gap-y-10"
         style={{
           boxShadow: " 0 0px 40px -1px rgba(0, 0, 0, 0.6)",
         }}
