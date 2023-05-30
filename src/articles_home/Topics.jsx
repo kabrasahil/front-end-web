@@ -57,7 +57,7 @@ function Topics() {
               <li className="mr-2 py-2.5 w-max">
                 <a
                   href={`/blogs/subtopic/${el._id}`}
-                  className="relative text-lg lg:text-sm z-10 rounded-full bg-stone-600 py-1.5 px-3 font-medium text-gray-200 hover:bg-gray-100 z-40 relative mx-2 hover:text-gray-700"
+                  className="relative text-lg lg:text-sm z-10 rounded-xl bg-stone-600 py-1.5 px-3 font-medium text-gray-200 hover:bg-gray-100 z-40 relative mx-2 hover:text-gray-700"
                 >
                   {el ? el.name : ""}
                 </a>
