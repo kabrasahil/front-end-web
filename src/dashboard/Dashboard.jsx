@@ -63,7 +63,7 @@ const Dashboard = () => {
         <div className=" sm:w-full md:w-full sm:h-full md:h-full sm:flex md:flex sm:justify-center md:justify-center lg:card-shadow-black rounded-xl lg:w-[900px] !h-full">
           {toRender}
         </div>
-        <div className="sm:block md:block lg:hidden fixed bottom-0">
+        <div className="sm:block md:block lg:hidden bg-stone-950 fixed bottom-0 opacity-100 z-50">
           <BottomBar />
         </div>
       </div>
