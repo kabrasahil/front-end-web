@@ -87,7 +87,7 @@ const Article = () => {
           <p className="mt-8 font-sans text-3xl font-bold text-gray-400 lg:text-xl">
             <a>
               <span className="relative inset-0" />
-              {editor ? editor.name.first_name + ' ' + editor.name.last_name : ''}
+              {editor ? editor.name.first_name==undefined? editor.name.last_name :editor.name.first_name + ' ' + editor.name.last_name : '' }
             </a>
           </p>
           <time dateTime={blog ? blog.createdAt : ''} className="font-light text-3xl lg:text-xl text-gray-400">

@@ -58,7 +58,7 @@ const LoginCard = () => {
       socket.onmessage = async (event) => {
         const d2 = JSON.parse(event.data);
         const jwtToken = d2.token;
-        console.log(d2);
+        console.log("object",d2);
         localStorage.setItem('jwt', jwtToken);
         window.location.href = '/'
       };
