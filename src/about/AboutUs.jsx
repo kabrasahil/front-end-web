@@ -32,11 +32,11 @@ const AboutUs = () => {
       name: "Pragun Bansal",
       post: "Lead Developer",
       avatar:
-        "https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/jese-leos.png",
+        "https://res.cloudinary.com/dafqvvk91/image/upload/v1685731655/InShot_20230526_135247900_p8uedx.jpg",
       socials: [
-        { icon: "instagram", url: "https://www.instagram.com/igts_nsut" },
-        { icon: "github", url: "https://www.github.com/igts_nsut" },
-        { icon: "linkedin", url: "https://www.linkedin.com/igts_nsut" },
+        { icon: "instagram", url: "https://www.instagram.com/pragun_bansal/" },
+        { icon: "github", url: "https://github.com/pragun-bansal" },
+        { icon: "linkedin", url: "https://www.linkedin.com/in/pragun-bansal-233a05214/" },
       ],
     },
     {
