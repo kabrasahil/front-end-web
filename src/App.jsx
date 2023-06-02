@@ -13,6 +13,7 @@ import ShareButton from "./article/shareButton/ShareButtons";
 import ArticleContent from "./article/articleContent/ArticleContent";
 import ArticlesHome from "./articles_home/ArticlesHome";
 import { EarthCanvas, BallCanvas, ComputersCanvas, StarsCanvas } from "./canvas";
+import { Team } from "./pastCouncil/TeamPage";
 
 import {
   BrowserRouter as Router,
@@ -94,7 +95,7 @@ function IgtsWebsite() {
               path="/blogs/subtopic/:id"
               element={<SubtopicHome />}
             />
-
+            <Route exact path="/team" element={<Team />}/>
             <Route exact path="/login" element={<LoginPage />} />
             <Route exact path="/password-reset" element={<PasswordResetPage />} />
             <Route exact path="/forgotpassword/:id/:token" element={<ForgotPasswordPage />} />
