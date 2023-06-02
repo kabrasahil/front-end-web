@@ -21,7 +21,7 @@ const AboutUs = () => {
       name: "Vishal Jatia",
       post: "Lead Developer",
       avatar:
-        "https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/jese-leos.png",
+        "https://res.cloudinary.com/dafqvvk91/image/upload/v1685733172/Developers/IMG_20230603_002827_dw6tzc.jpg",
       socials: [
         { icon: "instagram", url: "https://www.instagram.com/igts_nsut" },
         { icon: "github", url: "https://www.github.com/igts_nsut" },
@@ -90,7 +90,7 @@ const AboutUs = () => {
         to present our dedicated team:
       </p>
 
-      <div class="grid gap-8 pt-16 lg:gap-16 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2">
+      <div class="grid gap-8 pt-16 lg:gap-16 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-4">
         {techTeam.map((el, i) => {
           return (
             <div class="text-center text-gray-500 dark:text-gray-400">
