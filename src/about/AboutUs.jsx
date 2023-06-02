@@ -32,7 +32,7 @@ const AboutUs = () => {
       name: "Pragun Bansal",
       post: "Lead Developer",
       avatar:
-        "https://res.cloudinary.com/dafqvvk91/image/upload/v1685731655/InShot_20230526_135247900_p8uedx.jpg",
+        "https://res.cloudinary.com/dafqvvk91/image/upload/v1685731655/Developers/InShot_20230526_135247900_p8uedx.jpg",
       socials: [
         { icon: "instagram", url: "https://www.instagram.com/pragun_bansal/" },
         { icon: "github", url: "https://github.com/pragun-bansal" },
@@ -43,7 +43,7 @@ const AboutUs = () => {
       name: "Samyak Jain",
       post: "Lead Developer",
       avatar:
-        "https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/jese-leos.png",
+        "https://res.cloudinary.com/dafqvvk91/image/upload/v1685734245/Developers/IMG20220210125653_2_bso5mk.jpg",
       socials: [
         { icon: "instagram", url: "https://www.instagram.com/igts_nsut" },
         { icon: "github", url: "https://www.github.com/igts_nsut" },
