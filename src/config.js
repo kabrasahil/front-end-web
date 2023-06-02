@@ -1,1 +1,1 @@
-export const SERVER_URL = "http://localhost:5005";
+export const SERVER_URL = "https://igts-app-acnj4.ondigitalocean.app";
