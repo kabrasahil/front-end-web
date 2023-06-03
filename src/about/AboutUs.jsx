@@ -23,9 +23,9 @@ const AboutUs = () => {
       avatar:
         "https://res.cloudinary.com/dafqvvk91/image/upload/v1685733172/Developers/IMG_20230603_002827_dw6tzc.jpg",
       socials: [
-        { icon: "instagram", url: "https://www.instagram.com/igts_nsut" },
-        { icon: "github", url: "https://www.github.com/igts_nsut" },
-        { icon: "linkedin", url: "https://www.linkedin.com/igts_nsut" },
+        { icon: "instagram", url: "https://www.instagram.com/v._.i_s_h_a_l/" },
+        { icon: "github", url: "https://github.com/Vishal-jatia" },
+        { icon: "linkedin", url: "https://www.linkedin.com/in/vishal-jatia-638146229/" },
       ],
     },
     {
