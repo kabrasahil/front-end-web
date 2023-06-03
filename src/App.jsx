@@ -95,7 +95,7 @@ function IgtsWebsite() {
               path="/blogs/subtopic/:id"
               element={<SubtopicHome />}
             />
-            <Route exact path="/team" element={<Team />}/>
+            {/* <Route exact path="/team" element={<Team />}/> */}
             <Route exact path="/login" element={<LoginPage />} />
             <Route exact path="/password-reset" element={<PasswordResetPage />} />
             <Route exact path="/forgotpassword/:id/:token" element={<ForgotPasswordPage />} />

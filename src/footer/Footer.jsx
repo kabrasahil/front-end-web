@@ -39,14 +39,14 @@ const Footer = () => {
           </div>
           <div className="sm:flex sm:items-center sm:justify-between">
             <ul className="text-zinc-600 dark:text-zinc-600">
-            <li className="mb-2">
+            {/* <li className="mb-2">
                 <a
                   href="/team"
                   className="hover:underline  sm:text-xl md:text-xl"
                 >
                   Our Council
                 </a>
-              </li>
+              </li> */}
               <li className="mb-2">
                 <a
                   href="/privacy"
