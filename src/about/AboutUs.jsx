@@ -10,7 +10,7 @@ const AboutUs = () => {
       name: "Parikshit Dabas",
       post: "Lead Developer",
       avatar:
-        "https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/jese-leos.png",
+        "https://res.cloudinary.com/dafqvvk91/image/upload/v1685769875/Developers/IMG-20230401-WA0043-01_hnd2wy.jpg",
       socials: [
         { icon: "instagram", url: "https://www.instagram.com/igts_nsut" },
         { icon: "github", url: "https://www.github.com/igts_nsut" },
@@ -95,7 +95,7 @@ const AboutUs = () => {
           return (
             <div class="text-center text-gray-500 dark:text-gray-400">
               <img
-                class="mx-auto mb-4 lg:w-48 lg:h-48 md:h-64 md:w-64 sm:h-64 md:w-64 rounded-full"
+                class="mx-auto mb-4 lg:w-48 lg:h-48 md:h-64 md:w-64 sm:h-64 rounded-full"
                 src={el.avatar}
                 alt="Bonnie Avatar"
               />
