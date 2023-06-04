@@ -22,6 +22,8 @@ export default function Events() {
             property="og:image"
             content="https://res.cloudinary.com/dafqvvk91/image/upload/v1685046439/igts-white-logo_u3osk8.png"
           />
+          <meta property="og:image:width" content="1200" />
+          <meta property="og:image:height" content="627" />
         </Helmet>
         <div className="flex justify-center">
           <p className="absolute top-[8.5rem] lg:top-[50vh] mx-auto !leading-normal font-extrabold text-7xl lg:text-9xl text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-pink-500">

@@ -22,6 +22,8 @@ const AboutIgts = () => {
           property="og:image"
           content="https://res.cloudinary.com/dafqvvk91/image/upload/v1685046439/igts-white-logo_u3osk8.png"
         />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="627" />
       </Helmet>
       <Headings
         title={"The Indian Game Theory Society"}

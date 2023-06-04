@@ -71,16 +71,18 @@ const Article = () => {
   useEffect(() => {
     if (blog) fetchEditor();
   }, [blog]);
+  const allSpacesRemoved = heading.replaceAll(" ", "-");
+  const sliceHeading = heading.slice(0,62);
 
   return (
     <div className="sm:pt-48 md:pt-48 lg:pt-24 min-h-screen">
       {/* article place the share button in it */}
       <Helmet>
         <title>IGTS NSUT | {heading}</title>
-        <meta property="og:title" content={"IGTS-NSUT |" + { heading }} />
+        <meta property="og:title" content={"IGTS-NSUT |" + { sliceHeading }} />
         <meta
           property="og:description"
-          content="Welcome to the official website of the IGTS college society! We are a community of passionate individuals with a shared love for gaming, economics, and math."
+          content="Welcome to the official website of the IGTS college society!"
         />
         <meta property="og:type" content="website" />
         <meta
@@ -90,6 +92,8 @@ const Article = () => {
           }
         />
         <meta property="og:image" content={thumbnail} />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="627" />
       </Helmet>
       <div className="mx-[8vw] lg:mx-[16vw] flex flex-row items-center justify-start">
         <div className="flex w-max items-center">

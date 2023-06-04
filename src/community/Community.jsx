@@ -17,6 +17,8 @@ export default function Community() {
             property="og:image"
             content="https://res.cloudinary.com/dafqvvk91/image/upload/v1685046439/igts-white-logo_u3osk8.png"
           />
+          <meta property="og:image:width" content="1200" />
+          <meta property="og:image:height" content="627" />
         </Helmet>
         <div className="text-center pt-32">
           <p className=" w-fit mx-auto !leading-normal font-extrabold text-9xl mt-10 lg:mt-0 lg:text-7xl text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-pink-500">

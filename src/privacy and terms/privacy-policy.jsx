@@ -1,8 +1,25 @@
 import React from "react";
+import { Helmet } from "react-helmet";
 
 function PrivacyPolicy() {
   return (
     <div className="!w-full prose dark:prose-invert prose-headings:underline m-auto">
+      <Helmet>
+        <title>IGTS NSUT | Privacy Policy</title>
+        <meta property="og:title" content="IGTS-NSUT | Privacy Policy" />
+        <meta
+          property="og:description"
+          content="Welcome to the official website of the IGTS college society!"
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://igtsnsut.org/privacy" />
+        <meta
+          property="og:image"
+          content="https://res.cloudinary.com/dafqvvk91/image/upload/v1685046439/igts-white-logo_u3osk8.png"
+        />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="627" />
+      </Helmet>
       <div className="content-center justify-center pt-20">
         <h1>
           Privacy Policy of{" "}
