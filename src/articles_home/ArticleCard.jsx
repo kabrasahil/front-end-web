@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import "./ArticleCard.css";
 import Moment from "react-moment";
 const ArticleCard = ({ post }) => {
-  const allSpacesRemoved = post.title.replaceAll(' ', '-');
+  const postTitle = post.title.replaceAll(' ', '-');
   console.log(post);
   return (
     <article
@@ -31,7 +31,7 @@ const ArticleCard = ({ post }) => {
           </div>
           <div className="mt-8 group relative">
             <h3 className="realtive lg:my-6 sm:my-16 font-sans text-4xl lg:text-3xl  font-extrabold leading-6 text-gray-200 ">
-              <a href={"/blogs/" + post._id+ "/"+ allSpacesRemoved}>
+              <a href={"/blogs/" + post._id+ "/"+ postTitle}>
                 <span className="absolute inset-0" />
                 {post.title}
               </a>
@@ -46,10 +46,10 @@ const ArticleCard = ({ post }) => {
 
           <div className="mt-10 flex flex-row gap-0 ">
             {post.subtopics.map((el) => {
-              const allSpacesRemoved = el.name.replaceAll(' ', '-');
+              const subtopicName = el.name.replaceAll(' ', '-');
               return (
                 <a
-                  href={"/blogs/subtopic/" + el.subtopic_id+"/"+allSpacesRemoved}
+                  href={"/blogs/subtopic/" + el.subtopic_id+"/"+subtopicName}
                   className="text-center flex justify-center text-lg lg:text-sm z-10 rounded-xl bg-stone-600 py-1.5 px-3 font-medium text-gray-200 hover:bg-gray-100 relative mx-2 hover:text-gray-700"
                 >
                   {el.name}
