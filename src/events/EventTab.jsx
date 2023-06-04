@@ -80,7 +80,7 @@ export default function EventsTab() {
         const date = d.toLocaleDateString();
         const time = d.toLocaleTimeString();
         const isEventInPast = d < new Date();
-        const allSpacesRemoved = event_title.replaceAll(' ', '-');
+        const eventTitle = event_title.replaceAll(' ', '-');
         return (
           <div key={_id}>
             <div className='w-[70vw]  shadow-[0_0_50px_10px_rgb(0,0,0)] lg:mt-24 my-10 rounded-xl flex lg:flex-row flex-col-reverse justify-between object-cover'>
@@ -113,7 +113,7 @@ export default function EventsTab() {
                       <div className={(registrations_open) ? "w-4 aspect-square lg:w-5 lg:h-5 rounded-full bg-green-500" : "w-4 aspect-square lg:w-5 lg:h-5 rounded-full bg-red-500"}></div>
                     </div>
                   </div>
-                  <a href={`/events/${_id}/${allSpacesRemoved}`} className='bg-gradient-to-r ml-5 lg:ml-0 from-blue-400 to-pink-500 shadow-md shadow-slate-800 focus:shadow-sm focus:shadow-slate-700 hover:shadow-lg hover:shadow-slate-900 hover:to-pink-600 hover:from-blue-500 focus:to-pink-600 focus:from-blue-500 rounded-full lg:px-10 px-5 lg:py-2 py-1 lg:mr-5 text-xs lg:text-lg font-normal lg:font-bold block lg:block'>
+                  <a href={`/events/${_id}/${eventTitle}`} className='bg-gradient-to-r ml-5 lg:ml-0 from-blue-400 to-pink-500 shadow-md shadow-slate-800 focus:shadow-sm focus:shadow-slate-700 hover:shadow-lg hover:shadow-slate-900 hover:to-pink-600 hover:from-blue-500 focus:to-pink-600 focus:from-blue-500 rounded-full lg:px-10 px-5 lg:py-2 py-1 lg:mr-5 text-xs lg:text-lg font-normal lg:font-bold block lg:block'>
                     Check
                   </a>
                 </div>
