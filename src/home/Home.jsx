@@ -19,7 +19,8 @@ const Home = () => {
         <meta property="og:url" content="https://igtsnsut.org/home" />
         <meta
           property="og:image"
-          content="https://drive.google.com/file/d/1MXM6MCWnpOiK7rjXjPgprH79gEPMAZTa/view?usp=sharing"
+          content="https://drive.google.com/uc?export=view&id=1MXM6MCWnpOiK7rjXjPgprH79gEPMAZTa"
+          
         />
       </Helmet>
       <div className="">
