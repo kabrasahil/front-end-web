@@ -14,7 +14,7 @@ export default function Events() {
           <meta property="og:title" content="IGTS-NSUT" />
           <meta
             property="og:description"
-            content="Welcome to the official website of the IGTS college society! We are a community of passionate individuals with a shared love for gaming, economics, and math."
+            content="Welcome to the official website of the IGTS college society!"
           />
           <meta property="og:type" content="website" />
           <meta property="og:url" content="https://igtsnsut.org/events" />

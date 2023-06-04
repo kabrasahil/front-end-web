@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
+import { Helmet } from "react-helmet";
 import { useNavigate, useParams } from "react-router-dom";
 import { SERVER_URL } from "../config";
 import { Context } from "../context/Context";
@@ -74,7 +75,22 @@ const Article = () => {
   return (
     <div className="sm:pt-48 md:pt-48 lg:pt-24 min-h-screen">
       {/* article place the share button in it */}
-
+      <Helmet>
+        <title>IGTS NSUT | {heading}</title>
+        <meta property="og:title" content={"IGTS-NSUT |" + { heading }} />
+        <meta
+          property="og:description"
+          content="Welcome to the official website of the IGTS college society! We are a community of passionate individuals with a shared love for gaming, economics, and math."
+        />
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:url"
+          content={
+            "https://igtsnsut.org/blogs/" + blog_id + "/" + allSpacesRemoved
+          }
+        />
+        <meta property="og:image" content={thumbnail} />
+      </Helmet>
       <div className="mx-[8vw] lg:mx-[16vw] flex flex-row items-center justify-start">
         <div className="flex w-max items-center">
           <img
@@ -118,7 +134,7 @@ const Article = () => {
           const subtopicName = el.name.replaceAll(" ", "-");
           return (
             <a
-              href={"/blogs/subtopic/" + el.subtopic_id+"/"+subtopicName}
+              href={"/blogs/subtopic/" + el.subtopic_id + "/" + subtopicName}
               className="mx-4 relative z-10 rounded-full bg-stone-600 px-3 py-1.5 text-lg font-medium text-gray-200 hover:bg-gray-100 hover:text-gray-700 lg:text-sm"
             >
               {el.name}

@@ -13,17 +13,17 @@ const Home = () => {
         <meta property="og:title" content="IGTS-NSUT" />
         <meta
           property="og:description"
-          content="Welcome to the official website of the IGTS college society! We are a community of passionate individuals with a shared love for gaming, economics, and math."
+          content="Welcome to the official website of the IGTS college society!"
         />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://igtsnsut.org/home" />
         <meta
           property="og:image"
-          content="https://drive.google.com/file/d/1MXM6MCWnpOiK7rjXjPgprH79gEPMAZTa/view?usp=sharing"
+          content="https://res.cloudinary.com/dafqvvk91/image/upload/v1685046439/igts-white-logo_u3osk8.png"
         />
-        <meta property='og:image:width' content='1200' />
-        <meta property='og:image:height' content='627' />
-        <meta property="og:type" content='website'/>
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="627" />
+        <meta property="og:type" content="website" />
       </Helmet>
       <div className="">
         <IntroHome />
