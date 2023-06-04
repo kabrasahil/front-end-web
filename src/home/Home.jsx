@@ -22,6 +22,8 @@ const Home = () => {
           content="https://drive.google.com/uc?export=view&id=1MXM6MCWnpOiK7rjXjPgprH79gEPMAZTa"
           
         />
+        <meta property='og:image:width' content='1200' />
+        <meta property='og:image:height' content='627' />
       </Helmet>
       <div className="">
         <IntroHome />
