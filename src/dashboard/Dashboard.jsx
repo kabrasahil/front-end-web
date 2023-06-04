@@ -66,7 +66,7 @@ const Dashboard = () => {
         <meta property="og:type" content="website" />
         <meta
           property="og:url"
-          content="http://localhost:3000/dashboard/profile/edit"
+          content="https://igtsnsut.org/dashboard/profile/edit"
         />
         <meta
           property="og:image"

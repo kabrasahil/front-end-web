@@ -16,7 +16,7 @@ const Home = () => {
           content="Welcome to the official website of the IGTS college society! We are a community of passionate individuals with a shared love for gaming, economics, and math."
         />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="http://localhost:3000/home" />
+        <meta property="og:url" content="https://igtsnsut.org/home" />
         <meta
           property="og:image"
           content="https://res.cloudinary.com/dafqvvk91/image/upload/v1685046439/igts-white-logo_u3osk8.png"
