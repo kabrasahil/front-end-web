@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Helmet } from "react-helmet";
 import Headings from "./Headings";
 
 const AboutUs = () => {
@@ -54,6 +55,20 @@ const AboutUs = () => {
 
   return (
     <div className="min-h-screen pt-10 flex flex-col items-center">
+      <Helmet>
+        <title>IGTS NSUT | About-Us</title>
+        <meta property="og:title" content="IGTS-NSUT" />
+        <meta
+          property="og:description"
+          content="Welcome to the official website of the IGTS college society! We are a community of passionate individuals with a shared love for gaming, economics, and math."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="http://localhost:3000/about" />
+        <meta
+          property="og:image"
+          content="https://res.cloudinary.com/dafqvvk91/image/upload/v1685046439/igts-white-logo_u3osk8.png"
+        />
+      </Helmet>
       <Headings
         title={"About Us"}
         subTitle={[
@@ -138,7 +153,13 @@ const AboutUs = () => {
         alt="image description"
       />
       <p className="  prose lg:text-xl md:text-3xl sm:text-3xl sm:mx-3 md:mx-3 text-center pb-8 pt-8  text-slate-400">
-        Explore our curated collection of articles, case studies, and research papers that delve into various aspects of strategic decision-making. Engage in thought-provoking discussions on our online forums, where you can exchange ideas and perspectives with fellow enthusiasts. Whether you are a student, researcher, or simply curious about game theory, IGTS provides a platform to expand your knowledge and connect with others who share your passion
+        Explore our curated collection of articles, case studies, and research
+        papers that delve into various aspects of strategic decision-making.
+        Engage in thought-provoking discussions on our online forums, where you
+        can exchange ideas and perspectives with fellow enthusiasts. Whether you
+        are a student, researcher, or simply curious about game theory, IGTS
+        provides a platform to expand your knowledge and connect with others who
+        share your passion
       </p>
     </div>
   );

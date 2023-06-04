@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Helmet } from "react-helmet";
 import {
   Navigate,
   useLocation,
@@ -55,6 +56,23 @@ const Dashboard = () => {
 
   return (
     <div className="flex  lg:justify-center lg:items-center lg:h-fit sm:h-max md:h-max sm:min-h-screen md:min-h-screen  py-40  sm:mx-auto md:mx-auto">
+      <Helmet>
+        <title>IGTS NSUT | Dashboard</title>
+        <meta property="og:title" content="IGTS-NSUT" />
+        <meta
+          property="og:description"
+          content="Welcome to the official website of the IGTS college society! We are a community of passionate individuals with a shared love for gaming, economics, and math."
+        />
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:url"
+          content="http://localhost:3000/dashboard/profile/edit"
+        />
+        <meta
+          property="og:image"
+          content="https://res.cloudinary.com/dafqvvk91/image/upload/v1685046439/igts-white-logo_u3osk8.png"
+        />
+      </Helmet>
       <div className="flex lg:flex-row sm:flex-col md:flex-col gap-x-10 sm:w-full md:w-full lg:w-max h-[1200px]">
         <div className="sm:hidden md:hidden lg:block ">
           {/* sidebar */}

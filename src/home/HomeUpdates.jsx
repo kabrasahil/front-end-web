@@ -39,14 +39,15 @@ export default function HomeUpdates() {
 
       <div className=" grid lg:mx-80 md:mx-40 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-3 lg:gap-5   sm:gap-16 md:gap-16">
         {data.map(({ thumbnail, title, type, description, id }) => {
+          const allSpacesRemoved = title.replaceAll(" ", "-");
           return (
             <a
               href={
                 type === "blog"
-                  ? "/blogs/" + id
+                  ? "/blogs/" + id + "/" + allSpacesRemoved
                   : type === "event"
-                    ? "/events/" + id
-                    : ""
+                  ? "/events/" + id + "/" + allSpacesRemoved
+                  : ""
               }
               className="group relative block bg-black rounded-xl w-full aspect-square"
               style={{ boxShadow: "0 0px 40px -1px rgba(0, 0, 0, 0.6)" }}
@@ -70,7 +71,9 @@ export default function HomeUpdates() {
                   <div class="translate-y-8 transform lg:opacity-0 transition-all lg:group-hover:translate-y-0 lg:group-hover:opacity-100">
                     <p
                       class="lg:text-base lg:h-[7rem] md:text-3xl sm:text-xl text-white overflow-hidden text-ellipsis"
-                      dangerouslySetInnerHTML={{ __html: description.slice(0, 200) + "..." }}
+                      dangerouslySetInnerHTML={{
+                        __html: description.slice(0, 200) + "...",
+                      }}
                     ></p>
                   </div>
                 </div>

@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet";
 import ArticleList from "./AtricleList";
 import BlogHeading from "./BlogHeading";
 import Topics from "./Topics";
@@ -6,6 +7,20 @@ import Topics from "./Topics";
 const ArticlesHome = () => {
   return (
     <div className="flex flex-col mr-auto justify-center items-center pt-24 pb-48">
+      <Helmet>
+        <title>IGTS NSUT | Blogs</title>
+        <meta property="og:title" content="IGTS-NSUT" />
+        <meta
+          property="og:description"
+          content="Welcome to the official website of the IGTS college society! We are a community of passionate individuals with a shared love for gaming, economics, and math."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="http://localhost:3000/blogs" />
+        <meta
+          property="og:image"
+          content="https://res.cloudinary.com/dafqvvk91/image/upload/v1685046439/igts-white-logo_u3osk8.png"
+        />
+      </Helmet>
       <div className="w-full bg-gray-900">
         <BlogHeading />
       </div>
