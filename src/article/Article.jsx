@@ -81,9 +81,11 @@ const Article = () => {
         <title>IGTS NSUT | {heading}</title>
         <meta property="og:title" content={"IGTS-NSUT |" + { sliceHeading }} />
         <meta
+          name="description"
           property="og:description"
           content="Welcome to the official website of the IGTS college society!"
         />
+
         <meta property="og:type" content="website" />
         <meta
           property="og:url"
@@ -91,7 +93,8 @@ const Article = () => {
             "https://igtsnsut.org/blogs/" + blog_id + "/" + allSpacesRemoved
           }
         />
-        <meta property="og:image" content={thumbnail} />
+        <meta name="image" property="og:image" content={thumbnail} />
+
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="627" />
       </Helmet>

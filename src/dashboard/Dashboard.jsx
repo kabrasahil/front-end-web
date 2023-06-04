@@ -60,18 +60,22 @@ const Dashboard = () => {
         <title>IGTS NSUT | Dashboard</title>
         <meta property="og:title" content="IGTS-NSUT" />
         <meta
+          name="description"
           property="og:description"
-          content="Welcome to the official website of the IGTS college society! We are a community of passionate individuals with a shared love for gaming, economics, and math."
+          content="Welcome to the official website of the IGTS college society!"
         />
+
         <meta property="og:type" content="website" />
         <meta
           property="og:url"
           content="https://igtsnsut.org/dashboard/profile/edit"
         />
         <meta
+          name="image"
           property="og:image"
           content="https://res.cloudinary.com/dafqvvk91/image/upload/v1685046439/igts-white-logo_u3osk8.png"
         />
+
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="627" />
       </Helmet>
