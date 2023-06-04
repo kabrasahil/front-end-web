@@ -53,10 +53,11 @@ function Topics() {
         <ul className="flex flex-wrap text-sm font-medium text-center text-white font-sans dark:text-gray-400 justify justify-normal">
           {subtopics.map((el, i) => {
             console.log("subtopic", el);
+            const allSpacesRemoved = el.name.replaceAll(' ', '-');
             return (
               <li className="mr-2 py-2.5 w-max">
                 <a
-                  href={`/blogs/subtopic/${el._id}`}
+                  href={`/blogs/subtopic/${el._id}/${allSpacesRemoved}`}
                   className="relative text-lg lg:text-sm z-10 rounded-xl bg-stone-600 py-1.5 px-3 font-medium text-gray-200 hover:bg-gray-100 z-40 relative mx-2 hover:text-gray-700"
                 >
                   {el ? el.name : ""}

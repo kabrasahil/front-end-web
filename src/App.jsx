@@ -89,10 +89,10 @@ function IgtsWebsite() {
 
           <Routes>
             <Route exact path="/blogs" element={<ArticlesHome />} />
-            <Route exact path="/blogs/:id" element={<Article />} />
+            <Route exact path="/blogs/:id/:title" element={<Article />} />
             <Route
               exact
-              path="/blogs/subtopic/:id"
+              path="/blogs/subtopic/:id/:subtopicTitle"
               element={<SubtopicHome />}
             />
             {/* <Route exact path="/team" element={<Team />}/> */}
@@ -117,7 +117,7 @@ function IgtsWebsite() {
 
             <Route exact path="/games" element={<ComingSoon />} />
             <Route exact path="/events" element={<Events />} />
-            <Route exact path="/events/:id" element={<EventPage />} />
+            <Route exact path="/events/:id/:title" element={<EventPage />} />
 
             <Route exact path="/merchandise" element={<ComingSoon />} />
             <Route path="/*" element={<NotFound />} />
