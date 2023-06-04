@@ -49,7 +49,7 @@ const ArticleCard = ({ post }) => {
               const subtopicName = el.name.replaceAll(' ', '-');
               return (
                 <a
-                  href={"/blogs/subtopic/" + el.subtopic_id+"/"+subtopicName}
+                  href={`/blogs/subtopic/${el.subtopic_id}/+${subtopicName}`}
                   className="text-center flex justify-center text-lg lg:text-sm z-10 rounded-xl bg-stone-600 py-1.5 px-3 font-medium text-gray-200 hover:bg-gray-100 relative mx-2 hover:text-gray-700"
                 >
                   {el.name}
