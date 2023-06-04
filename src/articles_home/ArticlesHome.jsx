@@ -21,7 +21,7 @@ const ArticlesHome = () => {
         />
         <meta
           property="og:image"
-          content="https://res.cloudinary.com/dafqvvk91/image/upload/v1685046439/igts-white-logo_u3osk8.png"
+          content="https://drive.google.com/file/d/1MXM6MCWnpOiK7rjXjPgprH79gEPMAZTa/view?usp=sharing"
         />
       </Helmet>
       <div className="w-full bg-gray-900">

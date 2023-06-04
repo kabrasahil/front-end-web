@@ -62,9 +62,12 @@ const ArticleContent = ({
     <div className="flex justify-center gap-7 mx-0 lg:mx-56">
       <Helmet>
         <title>IGTS NSUT | {heading}</title>
-        <meta property="og:title" content="IGTS-NSUT" />
+        <meta property="og:title" content={"IGTS-NSUT |" + { heading }} />
         <meta
           property="og:description"
+          dangerouslySetInnerHTML={{
+            __html: DOMPurify.sanitize(content.slice(0, 500)) + "...",
+          }}
           content="Welcome to the official website of the IGTS college society! We are a community of passionate individuals with a shared love for gaming, economics, and math."
         />
         <meta property="og:type" content="website" />
