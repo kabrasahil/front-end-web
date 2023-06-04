@@ -128,7 +128,7 @@ function Editor() {
       if (response.ok) {
         const data = await response.json();
         if (data.success) {
-          window.location.href = "/blogs/" + data._doc._id;
+          window.location.href = "/blogs/" + data._doc._id+"/" + data._doc.title;
         }
       }
     }
