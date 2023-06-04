@@ -70,7 +70,7 @@ const Dashboard = () => {
         />
         <meta
           property="og:image"
-          content="https://drive.google.com/file/d/1MXM6MCWnpOiK7rjXjPgprH79gEPMAZTa/view?usp=sharing"
+          content="https://res.cloudinary.com/dafqvvk91/image/upload/v1685046439/igts-white-logo_u3osk8.png"
         />
       </Helmet>
       <div className="flex lg:flex-row sm:flex-col md:flex-col gap-x-10 sm:w-full md:w-full lg:w-max h-[1200px]">
