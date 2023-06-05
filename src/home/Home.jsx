@@ -1,5 +1,5 @@
 import React from "react";
-import {Helmet} from "react-helmet";
+import { Helmet } from "react-helmet";
 import Home1 from "./Home1";
 import Home2 from "./Home2";
 import HomeUpdates from "./HomeUpdates";
@@ -10,22 +10,12 @@ const Home = () => {
     <div className="">
       <Helmet>
         <title>IGTS NSUT | Home</title>
-        <meta property="og:title" content="IGTS-NSUT" />
-        <meta
-          name="description"
-          property="og:description"
-          content="Welcome to the official website of the IGTS college society!"
-        />
-
-        <meta property="og:type" content="website" />
+        <meta property="og:title" content="IGTS-NSUT | Home" />
         <meta property="og:url" content="https://igtsnsut.org/home" />
-        <meta
-          name="image"
-          property="og:image"
-          content="https://res.cloudinary.com/dafqvvk91/image/upload/v1685046439/igts-white-logo_u3osk8.png"
-        />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="627" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta property="twitter:domain" content="igtsnsut.org" />
+        <meta property="twitter:url" content="https://igtsnsut.org/home" />
+        <meta name="twitter:title" content="IGTS-NSUT" />
       </Helmet>
       <div className="">
         <IntroHome />

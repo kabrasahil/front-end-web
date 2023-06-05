@@ -11,23 +11,12 @@ export default function Events() {
       <div className="bg-[#101010] min-h-screen">
         <Helmet>
           <title>IGTS NSUT | Events</title>
-          <meta property="og:title" content="IGTS-NSUT" />
-          <meta
-            name="description"
-            property="og:description"
-            content="Welcome to the official website of the IGTS college society!"
-          />
-
-          <meta property="og:type" content="website" />
+          <meta property="og:title" content="IGTS-NSUT | Events" />
           <meta property="og:url" content="https://igtsnsut.org/events" />
-          <meta
-            name="image"
-            property="og:image"
-            content="https://res.cloudinary.com/dafqvvk91/image/upload/v1685046439/igts-white-logo_u3osk8.png"
-          />
-
-          <meta property="og:image:width" content="1200" />
-          <meta property="og:image:height" content="627" />
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta property="twitter:domain" content="igtsnsut.org" />
+          <meta property="twitter:url" content="https://igtsnsut.org/events" />
+          <meta name="twitter:title" content="IGTS-NSUT | Events" />
         </Helmet>
         <div className="flex justify-center">
           <p className="absolute top-[8.5rem] lg:top-[50vh] mx-auto !leading-normal font-extrabold text-7xl lg:text-9xl text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-pink-500">

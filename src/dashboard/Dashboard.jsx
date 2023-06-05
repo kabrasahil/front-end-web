@@ -58,26 +58,18 @@ const Dashboard = () => {
     <div className="flex  lg:justify-center lg:items-center lg:h-fit sm:h-max md:h-max sm:min-h-screen md:min-h-screen  py-40  sm:mx-auto md:mx-auto">
       <Helmet>
         <title>IGTS NSUT | Dashboard</title>
-        <meta property="og:title" content="IGTS-NSUT" />
-        <meta
-          name="description"
-          property="og:description"
-          content="Welcome to the official website of the IGTS college society!"
-        />
-
-        <meta property="og:type" content="website" />
+        <meta property="og:title" content="IGTS-NSUT | Dashboard" />
         <meta
           property="og:url"
           content="https://igtsnsut.org/dashboard/profile/edit"
         />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta property="twitter:domain" content="igtsnsut.org" />
         <meta
-          name="image"
-          property="og:image"
-          content="https://res.cloudinary.com/dafqvvk91/image/upload/v1685046439/igts-white-logo_u3osk8.png"
+          property="twitter:url"
+          content="https://igtsnsut.org/dashboard/profile/edit"
         />
-
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="627" />
+        <meta name="twitter:title" content="IGTS-NSUT | Dashboard" />
       </Helmet>
       <div className="flex lg:flex-row sm:flex-col md:flex-col gap-x-10 sm:w-full md:w-full lg:w-max h-[1200px]">
         <div className="sm:hidden md:hidden lg:block ">

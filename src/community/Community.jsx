@@ -6,23 +6,12 @@ export default function Community() {
       <div className="h-[100vh] flex flex-col gap-72 lg:gap-0">
         <Helmet>
           <title>IGTS NSUT | Community</title>
-          <meta property="og:title" content="IGTS-NSUT" />
-          <meta
-            name="description"
-            property="og:description"
-            content="Welcome to the official website of the IGTS college society!"
-          />
-
-          <meta property="og:type" content="website" />
+          <meta property="og:title" content="IGTS-NSUT | Community" />
           <meta property="og:url" content="https://igtsnsut.org/community" />
-          <meta
-            name="image"
-            property="og:image"
-            content="https://res.cloudinary.com/dafqvvk91/image/upload/v1685046439/igts-white-logo_u3osk8.png"
-          />
-
-          <meta property="og:image:width" content="1200" />
-          <meta property="og:image:height" content="627" />
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta property="twitter:domain" content="igtsnsut.org" />
+          <meta property="twitter:url" content="https://igtsnsut.org/community" />
+          <meta name="twitter:title" content="IGTS-NSUT | Community" />
         </Helmet>
         <div className="text-center pt-32">
           <p className=" w-fit mx-auto !leading-normal font-extrabold text-9xl mt-10 lg:mt-0 lg:text-7xl text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-pink-500">
