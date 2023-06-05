@@ -14,12 +14,12 @@ const Home = () => {
         <meta property="og:url" content="https://igtsnsut.org/home" />
         <meta
           property="og:image"
-          content="https://res.cloudinary.com/dafqvvk91/image/upload/v1685046439/igts-white-logo_u3osk8.png"
+          content="https://res.cloudinary.com/dksdmvwch/image/upload/v1685981881/IGTS_logo_white_nflxiq.jpg"
         />
 
         <meta
           name="twitter:image"
-          content="https://res.cloudinary.com/dafqvvk91/image/upload/v1685046439/igts-white-logo_u3osk8.png"
+          content="https://res.cloudinary.com/dksdmvwch/image/upload/v1685981881/IGTS_logo_white_nflxiq.jpg"
         />
         <meta name="twitter:card" content="summary_large_image" />
         <meta property="twitter:domain" content="igtsnsut.org" />
