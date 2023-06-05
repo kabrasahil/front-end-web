@@ -7,7 +7,7 @@ import ArticleContent from "./articleContent/ArticleContent";
 import Discussions from "./comment-section/discussions/Discussions";
 import Moment from "react-moment";
 
-const Article = () => {
+const Article =  () => {
   const [heading, setHeading] = useState("");
   const [thumbnail, setThumbnail] = useState("");
   const [content, setContent] = useState("");
@@ -73,13 +73,13 @@ const Article = () => {
   }, [blog]);
   const allSpacesRemoved = heading.replaceAll(" ", "-");
   const sliceHeading = heading.slice(0,62);
-
+  // alert("https://igtsnsut.org/blogs/" + blog_id + "/" + allSpacesRemoved);
   return (
     <div className="sm:pt-48 md:pt-48 lg:pt-24 min-h-screen">
       {/* article place the share button in it */}
       <Helmet>
         <title>IGTS NSUT | {heading}</title>
-        <meta property="og:title" content={"IGTS-NSUT |" + { sliceHeading }} />
+        <meta property="og:title" content={"IGTS-NSUT |" + sliceHeading } />
         <meta
           name="description"
           property="og:description"
@@ -93,7 +93,7 @@ const Article = () => {
             "https://igtsnsut.org/blogs/" + blog_id + "/" + allSpacesRemoved
           }
         />
-        <meta name="image" property="og:image" content={thumbnail} />
+        <meta name="image" property="og:image" content={data.blog.thumbnail} />
 
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="627" />
