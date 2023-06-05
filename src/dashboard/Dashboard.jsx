@@ -1,10 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
-import {
-  Navigate,
-  useLocation,
-  useNavigate,
-} from "react-router-dom";
+import { Navigate, useLocation, useNavigate } from "react-router-dom";
 import SideBar from "./SideBar";
 import MyProfile from "./MyProfile";
 import MyArticles from "./MyArticles";
@@ -21,7 +17,6 @@ const Dashboard = () => {
 
   const navigate = useNavigate();
   const logout = async () => {
-    
     localStorage.removeItem("jwt");
     window.location.href = "/";
   };
@@ -37,10 +32,10 @@ const Dashboard = () => {
       toRender = <MyArticles />;
 
       break;
-      case "/dashboard/events":
-        toRender = <MyEvents />;
-  
-        break;
+    case "/dashboard/events":
+      toRender = <MyEvents />;
+
+      break;
     case "/dashboard/manageblogs":
       toRender = <ManageArticles />;
 
@@ -63,6 +58,16 @@ const Dashboard = () => {
           property="og:url"
           content="https://igtsnsut.org/dashboard/profile/edit"
         />
+        <meta
+          property="og:image"
+          content="https://res.cloudinary.com/dafqvvk91/image/upload/v1685046439/igts-white-logo_u3osk8.png"
+        />
+
+        <meta
+          name="twitter:image"
+          content="https://res.cloudinary.com/dafqvvk91/image/upload/v1685046439/igts-white-logo_u3osk8.png"
+        />
+
         <meta name="twitter:card" content="summary_large_image" />
         <meta property="twitter:domain" content="igtsnsut.org" />
         <meta
