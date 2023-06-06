@@ -11,7 +11,7 @@ const AboutUs = () => {
       name: "Parikshit Dabas",
       post: "Lead Developer",
       avatar:
-        "https://res.cloudinary.com/dafqvvk91/image/upload/v1685769875/Developers/IMG-20230401-WA0043-01_hnd2wy.jpg",
+        "https://res.cloudinary.com/dafqvvk91/image/upload/v1686077297/WhatsApp_Image_2023-06-06_at_09.44.31_su0wby.jpg",
       socials: [
         { icon: "instagram", url: "https://www.instagram.com/igts_nsut" },
         { icon: "github", url: "https://www.github.com/igts_nsut" },
