@@ -116,7 +116,7 @@ const Article = () => {
       <div className="mx-[8vw] lg:mx-[16vw] flex flex-row items-center justify-start">
         <div className="flex w-max items-center">
           <img
-            src={editor ? editor.pfp_url : "https://media.gettyimages.com/id/1389019209/vector/ghost-doodle-5.jpg?s=612x612&w=gi&k=20&c=rIEN506sx3wa05ezS4BEGmbXwrU1gQJYSDv_NdjeEjg="}
+            src={editor ? editor.pfp_url : ""}
             alt=""
             className="mr-4 mt-8 aspect-square h-20 rounded-full bg-gray-50 lg:h-16"
           />
@@ -129,7 +129,7 @@ const Article = () => {
                 ? editor.name.first_name == undefined
                   ? editor.name.last_name
                   : editor.name.first_name + " " + editor.name.last_name
-                : "Deleted User "}
+                : ""}
             </a>
           </p>
           <time
