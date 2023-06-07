@@ -46,9 +46,9 @@ const AboutUs = () => {
       avatar:
         "https://res.cloudinary.com/dafqvvk91/image/upload/v1685734245/Developers/IMG20220210125653_2_bso5mk.jpg",
       socials: [
-        { icon: "instagram", url: "https://www.instagram.com/igts_nsut" },
-        { icon: "github", url: "https://www.github.com/igts_nsut" },
-        { icon: "linkedin", url: "https://www.linkedin.com/igts_nsut" },
+        { icon: "instagram", url: "https://www.instagram.com/samyak15_jain/" },
+        { icon: "github", url: "https://github.com/samyak1512" },
+        { icon: "linkedin", url: "https://www.linkedin.com/in/samyak-j-488812b7/" },
       ],
     },
   ]);
