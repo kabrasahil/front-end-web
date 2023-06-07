@@ -4,7 +4,7 @@ import "./ArticleCard.css";
 import Moment from "react-moment";
 const ArticleCard = ({ post }) => {
   const postTitle = post.title.replaceAll(' ', '-');
-  console.log(post);
+  console.log("check",post);
   return (
     <article
       key={post.id}
