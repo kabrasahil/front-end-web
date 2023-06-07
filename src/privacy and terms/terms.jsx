@@ -5,22 +5,36 @@ function Terms() {
   return (
     <div className="!w-full prose dark:prose-invert prose-headings:underline m-auto">
       <Helmet>
-        <title>IGTS NSUT | Terms</title>
-        <meta property="og:title" content="IGTS-NSUT | Terms" />
+        <title>IGTS-NSUT | Terms & Conditions</title>
+        <meta
+          name="description"
+          content="Welcome to the official website of the IGTS college society! We are a community of passionate individuals with a shared love for gaming, economics, and math."
+        />
+        <meta name="keywords" content="igts nsut, terms & conditions, IGTS, nsut, game theory" />
         <meta property="og:url" content="https://igtsnsut.org/terms" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="IGTS-NSUT | Terms & Conditions" />
+        <meta
+          property="og:description"
+          content="Welcome to the official website of the IGTS college society! We are a community of passionate individuals with a shared love for gaming, economics, and math."
+        />
         <meta
           property="og:image"
           content="https://res.cloudinary.com/dksdmvwch/image/upload/v1685981881/IGTS_logo_white_nflxiq.jpg"
         />
 
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta property="twitter:domain" content="igtsnsut.org" />
+        <meta property="twitter:url" content="https://igtsnsut.org/terms" />
+        <meta name="twitter:title" content="IGTS-NSUT | Terms & Conditions" />
+        <meta
+          name="twitter:description"
+          content="Welcome to the official website of the IGTS college society! We are a community of passionate individuals with a shared love for gaming, economics, and math."
+        />
         <meta
           name="twitter:image"
           content="https://res.cloudinary.com/dksdmvwch/image/upload/v1685981881/IGTS_logo_white_nflxiq.jpg"
         />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta property="twitter:domain" content="igtsnsut.org" />
-        <meta property="twitter:url" content="https://igtsnsut.org/terms" />
-        <meta name="twitter:title" content="IGTS-NSUT | Terms" />
       </Helmet>
       <div className="content-center justify-center pt-20">
         <h1>

@@ -56,9 +56,19 @@ const AboutUs = () => {
   return (
     <div className="min-h-screen pt-10 flex flex-col items-center">
       <Helmet>
-        <title>IGTS NSUT | About-Us</title>
+        <title>IGTS-NSUT | About Us</title>
+        <meta
+          name="description"
+          content="Welcome to the official website of the IGTS college society! We are a community of passionate individuals with a shared love for gaming, economics, and math."
+        />
+        <meta name="keywords" content="igts nsut, about igts, IGTS, nsut, game theory" />
+        <meta property="og:url" content="https://igtsnsut.org/about" />
+        <meta property="og:type" content="website" />
         <meta property="og:title" content="IGTS-NSUT | About Us" />
-        <meta property="og:url" content="http://localhost:3000/about" />
+        <meta
+          property="og:description"
+          content="Welcome to the official website of the IGTS college society! We are a community of passionate individuals with a shared love for gaming, economics, and math."
+        />
         <meta
           property="og:image"
           content="https://res.cloudinary.com/dafqvvk91/image/upload/v1685737442/igts_group_photo_no6dzo.jpg"
@@ -66,8 +76,12 @@ const AboutUs = () => {
 
         <meta name="twitter:card" content="summary_large_image" />
         <meta property="twitter:domain" content="igtsnsut.org" />
-        <meta property="twitter:url" content="https://igtsnsut.org/abput" />
+        <meta property="twitter:url" content="https://igtsnsut.org/about" />
         <meta name="twitter:title" content="IGTS-NSUT | About Us" />
+        <meta
+          name="twitter:description"
+          content="Welcome to the official website of the IGTS college society! We are a community of passionate individuals with a shared love for gaming, economics, and math."
+        />
         <meta
           name="twitter:image"
           content="https://res.cloudinary.com/dafqvvk91/image/upload/v1685737442/igts_group_photo_no6dzo.jpg"

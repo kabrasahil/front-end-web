@@ -89,9 +89,9 @@ function IgtsWebsite() {
         <title>IGTS-NSUT</title>
         <meta
           name="description"
-          content="Welcome to the official website of the IGTS college society!"
+          content="Welcome to the official website of the IGTS college society! We are a community of passionate individuals with a shared love for gaming, economics, and math."
         />
-        <meta name = "keywords" content="igts nsut, IGTS, nsut, game theory" />
+        <meta name="keywords" content="igts nsut, IGTS, nsut, game theory" />
         <meta property="og:url" content="https://igtsnsut.org/home" />
         <meta property="og:type" content="website" />
         <meta property="og:title" content="IGTS-NSUT" />

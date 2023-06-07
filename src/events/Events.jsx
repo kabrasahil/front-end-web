@@ -10,22 +10,36 @@ export default function Events() {
     return (
       <div className="bg-[#101010] min-h-screen">
         <Helmet>
-          <title>IGTS NSUT | Events</title>
-          <meta property="og:title" content="IGTS-NSUT | Events" />
+          <title>IGTS-NSUT | Events</title>
+          <meta
+            name="description"
+            content="Welcome to the official website of the IGTS college society! We are a community of passionate individuals with a shared love for gaming, economics, and math."
+          />
+          <meta name="keywords" content="igts nsut events, events, IGTS, nsut, game theory" />
           <meta property="og:url" content="https://igtsnsut.org/events" />
+          <meta property="og:type" content="website" />
+          <meta property="og:title" content="IGTS-NSUT | Events" />
+          <meta
+            property="og:description"
+            content="Welcome to the official website of the IGTS college society! We are a community of passionate individuals with a shared love for gaming, economics, and math."
+          />
           <meta
             property="og:image"
             content="https://res.cloudinary.com/dksdmvwch/image/upload/v1685981881/IGTS_logo_white_nflxiq.jpg"
           />
 
-          <meta
-            name="twitter:image"
-            content="https://res.cloudinary.com/dksdmvwch/image/upload/v1685981881/IGTS_logo_white_nflxiq.jpg"
-          />
           <meta name="twitter:card" content="summary_large_image" />
           <meta property="twitter:domain" content="igtsnsut.org" />
           <meta property="twitter:url" content="https://igtsnsut.org/events" />
           <meta name="twitter:title" content="IGTS-NSUT | Events" />
+          <meta
+            name="twitter:description"
+            content="Welcome to the official website of the IGTS college society! We are a community of passionate individuals with a shared love for gaming, economics, and math."
+          />
+          <meta
+            name="twitter:image"
+            content="https://res.cloudinary.com/dksdmvwch/image/upload/v1685981881/IGTS_logo_white_nflxiq.jpg"
+          />
         </Helmet>
         <div className="flex justify-center">
           <p className="absolute top-[8.5rem] lg:top-[50vh] mx-auto !leading-normal font-extrabold text-7xl lg:text-9xl text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-pink-500">
