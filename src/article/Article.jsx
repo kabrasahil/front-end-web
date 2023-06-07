@@ -79,12 +79,23 @@ const Article = () => {
       {/* article place the share button in it */}
       <Helmet>
         <title>IGTS NSUT | {heading}</title>
-        <meta property="og:title" content={"IGTS-NSUT |" + sliceHeading} />
+        <meta
+          name="description"
+          content="Welcome to the official website of the IGTS college society! We are a community of passionate individuals with a shared love for gaming, economics, and math."
+        />
+        <meta name="keywords" content={"igts nsut, igts blogs, IGTS, nsut, game theory, " + heading} />
+
         <meta
           property="og:url"
           content={
             "https://igtsnsut.org/blogs/" + blog_id + "/" + allSpacesRemoved
           }
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content={"IGTS-NSUT |" + sliceHeading} />
+        <meta
+          property="og:description"
+          content="Welcome to the official website of the IGTS college society! We are a community of passionate individuals with a shared love for gaming, economics, and math."
         />
         <meta property="og:image" content={thumbnail} />
         <meta name="twitter:card" content="summary_large_image" />
@@ -96,6 +107,10 @@ const Article = () => {
           }
         />
         <meta name="twitter:title" content={"IGTS-NSUT |" + sliceHeading} />
+        <meta
+          name="twitter:description"
+          content="Welcome to the official website of the IGTS college society! We are a community of passionate individuals with a shared love for gaming, economics, and math."
+        />
         <meta name="twitter:image" content={thumbnail} />
       </Helmet>
       <div className="mx-[8vw] lg:mx-[16vw] flex flex-row items-center justify-start">

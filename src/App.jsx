@@ -1,5 +1,6 @@
 import "./App.css";
 import React from "react";
+import { Helmet } from "react-helmet";
 import Editor from "./Editor/Editor";
 // import Discussions from './article/comment-section/discussions/Discussions';
 import Terms from "./privacy and terms/terms";
@@ -12,7 +13,12 @@ import EventCreationPage from "./eventCreationForm/EventCreationPage";
 import ShareButton from "./article/shareButton/ShareButtons";
 import ArticleContent from "./article/articleContent/ArticleContent";
 import ArticlesHome from "./articles_home/ArticlesHome";
-import { EarthCanvas, BallCanvas, ComputersCanvas, StarsCanvas } from "./canvas";
+import {
+  EarthCanvas,
+  BallCanvas,
+  ComputersCanvas,
+  StarsCanvas,
+} from "./canvas";
 import { Team } from "./pastCouncil/TeamPage";
 
 import {
@@ -44,7 +50,6 @@ import Community from "./community/Community";
 import Events from "./events/Events";
 import ViewParticipants from "./eventCreationForm/ViewParticipants";
 import EventPage from "./eventsPage/EventPage";
-
 
 function IgtsWebsite() {
   const [user, setUser] = useState();
@@ -80,6 +85,38 @@ function IgtsWebsite() {
 
   return (
     <Router>
+      <Helmet>
+        <title>IGTS-NSUT</title>
+        <meta
+          name="description"
+          content="Welcome to the official website of the IGTS college society! We are a community of passionate individuals with a shared love for gaming, economics, and math."
+        />
+        <meta name="keywords" content="igts nsut, IGTS, nsut, game theory" />
+        <meta property="og:url" content="https://igtsnsut.org" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="IGTS-NSUT" />
+        <meta
+          property="og:description"
+          content="Welcome to the official website of the IGTS college society! We are a community of passionate individuals with a shared love for gaming, economics, and math."
+        />
+        <meta
+          property="og:image"
+          content="https://res.cloudinary.com/dksdmvwch/image/upload/v1685981881/IGTS_logo_white_nflxiq.jpg"
+        />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta property="twitter:domain" content="igtsnsut.org" />
+        <meta property="twitter:url" content="https://igtsnsut.org" />
+        <meta name="twitter:title" content="IGTS-NSUT" />
+        <meta
+          name="twitter:description"
+          content="Welcome to the official website of the IGTS college society! We are a community of passionate individuals with a shared love for gaming, economics, and math."
+        />
+        <meta
+          name="twitter:image"
+          content="https://res.cloudinary.com/dksdmvwch/image/upload/v1685981881/IGTS_logo_white_nflxiq.jpg"
+        />
+      </Helmet>
       <div className="">
         <Context.Provider value={user}>
           <section className="">
@@ -97,8 +134,16 @@ function IgtsWebsite() {
             />
             {/* <Route exact path="/team" element={<Team />}/> */}
             <Route exact path="/login" element={<LoginPage />} />
-            <Route exact path="/password-reset" element={<PasswordResetPage />} />
-            <Route exact path="/forgotpassword/:id/:token" element={<ForgotPasswordPage />} />
+            <Route
+              exact
+              path="/password-reset"
+              element={<PasswordResetPage />}
+            />
+            <Route
+              exact
+              path="/forgotpassword/:id/:token"
+              element={<ForgotPasswordPage />}
+            />
             <Route path="/dashboard/*" element={<Dashboard />} />
             <Route exact path="/" element={<Navigate to="/home" />} />
             <Route exact path="/home" element={<Home />} />
@@ -106,10 +151,22 @@ function IgtsWebsite() {
             <Route exact path="/igts" element={<AboutIgts />} />
             <Route exact path="/editor/:blog_id" element={<Editor />} />
             <Route exact path="/editor" element={<Editor />} />
-            <Route exact path="/event-creation" element={<EventCreationPage />} />
-            <Route exact path="/event-creation/:id" element={<EventCreationPage />} />
+            <Route
+              exact
+              path="/event-creation"
+              element={<EventCreationPage />}
+            />
+            <Route
+              exact
+              path="/event-creation/:id"
+              element={<EventCreationPage />}
+            />
 
-            <Route exact path="/:id/viewparticipants" element={<ViewParticipants />} />
+            <Route
+              exact
+              path="/:id/viewparticipants"
+              element={<ViewParticipants />}
+            />
 
             <Route exact path="/privacy" element={<PrivacyPolicy />} />
             <Route exact path="/terms" element={<Terms />} />
@@ -139,18 +196,17 @@ const App = () => {
       setIsLoading(false);
     }, 3000);
 
-    window.addEventListener('load', () => {
+    window.addEventListener("load", () => {
       setTimeout(() => {
         setIsLoading(false);
       }, 1500);
-    })
-
+    });
   }, []);
 
   return (
     <div>
       <div className="bg-stone-900 relative">
-        <div className="sticky-top" style={{ pointerEvents: 'none' }}>
+        <div className="sticky-top" style={{ pointerEvents: "none" }}>
           <StarsCanvas />
         </div>
         {isLoading ? (
@@ -158,7 +214,7 @@ const App = () => {
             <LoadingScreen />
           </div>
         ) : (
-          <div className="" style={{ pointerEvents: 'auto' }}>
+          <div className="" style={{ pointerEvents: "auto" }}>
             <IgtsWebsite />
           </div>
         )}
