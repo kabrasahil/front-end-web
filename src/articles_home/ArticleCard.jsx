@@ -5,10 +5,6 @@ import Moment from "react-moment";
 const ArticleCard = ({ post }) => {
   const postTitle = post.title.replaceAll(' ', '-');
   console.log(post);
-
-  const editorName = post.editor ? post.editor.name : "Deleted User";
-  const editorImage = post.editor ? post.editor.pfp_url : "https://media.gettyimages.com/id/1389019209/vector/ghost-doodle-5.jpg?s=612x612&w=gi&k=20&c=rIEN506sx3wa05ezS4BEGmbXwrU1gQJYSDv_NdjeEjg=";
-
   return (
     <article
       key={post.id}
@@ -18,13 +14,13 @@ const ArticleCard = ({ post }) => {
         <div className="">
           <div className="flex flex-row items-center">
             <img
-              src={editorImage}
+              src={post.editor.pfp_url}
               alt=""
               className="mt-8 mr-4 h-14 w-14 lg:h-8 lg:w-8 rounded-full bg-gray-50"
             />
             <p className="mt-8 font-sans font-bold  text-2xl lg:text-sm   text-gray-400">
               <span className="relative inset-0" />
-              {editorName}
+              {post.editor.name}
             </p>
 
             <div className="mt-8 font-sans font-bold text-2xl lg:text-sm   ml-16">
