@@ -92,7 +92,7 @@ function IgtsWebsite() {
           content="Welcome to the official website of the IGTS college society! We are a community of passionate individuals with a shared love for gaming, economics, and math."
         />
         <meta name="keywords" content="igts nsut, IGTS, nsut, game theory" />
-        <meta property="og:url" content="https://igtsnsut.org/home" />
+        <meta property="og:url" content="https://igtsnsut.org" />
         <meta property="og:type" content="website" />
         <meta property="og:title" content="IGTS-NSUT" />
         <meta
@@ -106,7 +106,7 @@ function IgtsWebsite() {
 
         <meta name="twitter:card" content="summary_large_image" />
         <meta property="twitter:domain" content="igtsnsut.org" />
-        <meta property="twitter:url" content="https://igtsnsut.org/home" />
+        <meta property="twitter:url" content="https://igtsnsut.org" />
         <meta name="twitter:title" content="IGTS-NSUT" />
         <meta
           name="twitter:description"
