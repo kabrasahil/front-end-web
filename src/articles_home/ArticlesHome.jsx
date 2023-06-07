@@ -11,7 +11,7 @@ const ArticlesHome = () => {
         <title>IGTS NSUT | Blogs</title>
         <meta property="og:title" content="IGTS-NSUT | Blogs" />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="http://https://igtsnsut.org/blogs" />
+        <meta property="og:url" content="https://igtsnsut.org/blogs" />
         <meta
           name="image"
           property="og:image"
