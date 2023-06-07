@@ -93,7 +93,7 @@ export default function Community() {
             />
           </a>
           <button className="w-[30rem] h-[10rem] flex gap-10 lg:gap-0 px-10 justify-center lg:w-fit lg:h-fit text-slate-50 bg-gradient-to-r from-blue-400 to-pink-500 shadow-[0_0_60px_40px_rgb(0,0,0,0.32)] py-5 rounded-full lg:absolute lg:bottom-10 mx-0 lg:mx-auto opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity delay-100">
-            <i className="fa-brands fa-linkedin mr-1"></i> Join linkedIn
+            <i className="fa-brands fa-linkedin mr-1"></i> Join LinkedIn
           </button>
         </div>
       </div>
