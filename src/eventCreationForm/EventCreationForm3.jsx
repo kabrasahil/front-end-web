@@ -3,7 +3,7 @@ import { useContext, useEffect, useState } from 'react';
 
 
 
-function EventCreationForm3({ clickedNext, setClickedNext, content, setContent, members, setMembers }) {
+function EventCreationForm3({ members, setMembers }) {
   const [item, setItem] = useState("");
 
   const addMem = () => {
