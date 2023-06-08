@@ -21,7 +21,7 @@ export default function Community() {
           property="og:description"
           content="Welcome to the official website of the IGTS college society! We are a community of passionate individuals with a shared love for gaming, economics, and math."
         />
-        y
+        
         <meta
           property="og:image"
           content="https://res.cloudinary.com/dksdmvwch/image/upload/v1685981881/IGTS_logo_white_nflxiq.jpg"
