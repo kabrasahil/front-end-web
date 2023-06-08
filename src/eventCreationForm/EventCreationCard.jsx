@@ -72,8 +72,10 @@ const EventCreationCard = () => {
         setPhotos(data.event.event_photos);
         var newdate= new Date(data.event.date_time);
         console.log("time",newdate)
-        var month=newdate.getUTCMonth()<10?"0"+newdate.getUTCMonth():newdate.getUTCMonth();
-        month = month+1;
+        var tempMonth = newdate.getUTCMonth();
+        tempMonth = Number(tempMonth)+1;
+        var month=tempMonth<10?"0"+tempMonth:tempMonth;
+        
         const daten=newdate.getDate()<10?"0"+newdate.getDate():newdate.getDate();
         setDate(newdate.getFullYear()+"-"+month+"-"+daten)
         const hours=newdate.getHours()<10?"0"+newdate.getHours():newdate.getHours();
