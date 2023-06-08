@@ -35,7 +35,7 @@ function PrivacyPolicy() {
           content="https://res.cloudinary.com/dksdmvwch/image/upload/v1685981881/IGTS_logo_white_nflxiq.jpg"
         />{" "}
       </Helmet>
-      <div className="content-center justify-center pt-20">
+      <div className="content-center justify-center pt-20 text-white">
         <h1>
           Privacy Policy of{" "}
           <span className="website_url">The Indian Game Theory Society</span>
