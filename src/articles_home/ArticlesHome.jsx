@@ -1,5 +1,5 @@
 import React from "react";
-import { Helmet } from "react-helmet-async";
+import { Helmet } from "react-helmet";
 import ArticleList from "./AtricleList";
 import BlogHeading from "./BlogHeading";
 import Topics from "./Topics";

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Helmet } from "react-helmet-async";
+import { Helmet } from "react-helmet";
 import { Navigate, useLocation, useNavigate } from "react-router-dom";
 import SideBar from "./SideBar";
 import MyProfile from "./MyProfile";

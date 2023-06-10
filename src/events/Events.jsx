@@ -1,5 +1,5 @@
 import React from "react";
-import { Helmet } from "react-helmet-async";
+import { Helmet } from "react-helmet";
 import blob from "./blob.png";
 import planet1 from "./planet1.png"
 import planet2 from "./planet2.png"
