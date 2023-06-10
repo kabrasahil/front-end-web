@@ -209,7 +209,7 @@ const App = () => {
         <div className="sticky-top" style={{ pointerEvents: "none" }}>
           <StarsCanvas />
         </div>
-        {isLoading ? (
+        {/* {isLoading ? (
           <div>
             <LoadingScreen />
           </div>
@@ -217,7 +217,8 @@ const App = () => {
           <div className="" style={{ pointerEvents: "auto" }}>
             <IgtsWebsite />
           </div>
-        )}
+        )} */}
+        <IgtsWebsite />
       </div>
     </div>
   );
