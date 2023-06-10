@@ -1,5 +1,5 @@
 import React from "react";
-import { Helmet } from "react-helmet-async";
+import { Helmet } from "react-helmet";
 import Home1 from "./Home1";
 import Home2 from "./Home2";
 import HomeUpdates from "./HomeUpdates";

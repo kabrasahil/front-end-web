@@ -1,6 +1,6 @@
 import "./App.css";
 import React from "react";
-import { Helmet } from "react-helmet-async";
+import { Helmet } from "react-helmet";
 import Editor from "./Editor/Editor";
 // import Discussions from './article/comment-section/discussions/Discussions';
 import Terms from "./privacy and terms/terms";
