@@ -257,7 +257,7 @@ const TipTap = ({
       <MenuBar editor={editor} />
       <EditorContent
         editor={editor}
-        className="outline-none h-full overflow-scroll"
+        className="outline-none h-full overflow-scroll ml-4"
       />
     </div>
   );

@@ -94,7 +94,7 @@ export default function EventsTab() {
                     </time>
                   )}
                 </p>
-                <div className="translate-x-[0px] lg:translate-x-[20px] w-fit p-4 lg:p-0 items-center mt-4 lg:my-8 py-1 lg:py-5 shadow-[0_0_5px_-10px_rgb(0,0,0)] text-white bg-gray-700 bg-clip-padding rounded-xl backdrop-filter backdrop-blur-lg bg-opacity-20 flex">
+                <div className="translate-x-[0px]  w-fit p-4 lg:p-0 items-center mt-4 lg:my-8 py-1 lg:py-5 shadow-[0_0_5px_-10px_rgb(0,0,0)] text-white bg-gray-700  rounded-xl backdrop-filter backdrop-blur-lg bg-opacity-20 flex">
                   <div className='flex'>
                     <div className='text-center flex flex-col gap-2 px-5 lg:px-10 border-r border-slate-600'>
                       <h1 className='text-xl lg:text-lg font-semibold'>Location</h1>

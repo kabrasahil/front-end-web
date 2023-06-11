@@ -135,14 +135,16 @@ function Editor() {
   };
   const [subtopics, setSubtopics] = useState([]);
   return (
-    <div className="!h-max mt-32 lg:mt-10">
+    <div className="!h-max mt-32 lg:mt-10 ml-2">
       {saveDialogBox ? (
         <>
+        {/* <div className="ml-20"> */}
           <DialogBox
             subtopics={subtopics}
             setSubtopics={setSubtopics}
             handleSubmit={onSave}
           />
+          {/* </div> */}
         </>
       ) : (
         <></>
@@ -159,7 +161,7 @@ function Editor() {
         <></>
       )}
 
-      <div className="mt-16 flex flex-row h-full  min-h-[800px] w-full">
+      <div className="mt-16 flex flex-row h-full  min-h-[800px] w-full !text-white">
         <TipTap
           setContent={setContent}
           content={content}
@@ -171,7 +173,7 @@ function Editor() {
         />
         <div className="flex justify-center gap-7 w-full h-full">
           <div
-            className="!w-full !h-full m-10 sm:mx-0  prose-h1:font-sans rounded-xl dark:bg-stone-900 shadow-[0_0_60px_20px_rgb(0,0,0,0.22)] p-10 pt-0 prose prose-stone prose-headings:!text-white dark:prose-invert lg:prose-xl prose-img:mx-auto prose-img:rounded-xl prose-a:text-indigo-600 hover:prose-a:text-indigo-400 editor-output"
+            className="!w-full!h-full m-10 pl-10 !text-white sm:mx-0  prose-h1:font-sans rounded-xl dark:bg-stone-900 shadow-[0_0_60px_20px_rgb(0,0,0,0.22)] p-10 pt-0 prose prose-stone prose-headings:!text-white dark:prose-invert lg:prose-xl prose-img:mx-auto prose-img:rounded-xl prose-a:text-indigo-600 hover:prose-a:text-indigo-400 editor-output"
             dangerouslySetInnerHTML={{
               __html: DOMPurify.sanitize(
                 `<h1>${heading}</h1>` + `<img src="${thumbnail}" />` + content
