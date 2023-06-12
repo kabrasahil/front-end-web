@@ -7,6 +7,14 @@ function MetaDecorators({ title, description, image }) {
     <Helmet>
       <title>{title}</title>
       <meta name="description" content={description} />
+      <link
+        rel="canonical"
+        href={
+          "https://igtsnsut.org" +
+          window.location.pathname +
+          window.location.search
+        }
+      />
       <meta
         name="keywords"
         content="igts nsut, igtsnsut, igts, nsut , IGTSNSUT, IGTS, NSUT"
