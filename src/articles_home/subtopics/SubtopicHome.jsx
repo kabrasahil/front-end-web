@@ -44,7 +44,7 @@ const SubtopicHome = () => {
       <div className="w-full bg-gray-900">
         <BlogHeading />
       </div>
-      <div className="w-full bg-stone-900 text-gray-500 text-center font-bold italic sm:text-xl md:text-xl lg:text-lg">
+      <div className="w-full bg-[#101010] text-gray-500 text-center font-bold italic sm:text-xl md:text-xl lg:text-lg">
         #{subtopic ? subtopic.name : ""}
       </div>
 

@@ -8,7 +8,7 @@ const ArticleCard = ({ post }) => {
   return (
     <article
       key={post.id}
-      className="w-full lg:w-5/6 flex article-card flex-col items-start justify-between pb-8 px-12 lg:px-10 sm:py-6 lg:pt-2 lg:pb-14 rounded-xl bg-stone-900"
+      className="w-full lg:w-5/6 flex article-card flex-col items-start justify-between pb-8 px-12 lg:px-10 sm:py-6 lg:pt-2 lg:pb-14 rounded-xl bg-[#101010]"
     >
       <div className="flex flex-row w-full">
         <div className="">

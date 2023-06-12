@@ -121,7 +121,7 @@ const BottomBar = () => {
   }, [user]);
 
   return (
-    <div className="flex flex-row w-screen h-fit items-start justify-center card-shadow-black text-gray-400 rounded-t-3xl bg-stone-900 ! relative z-[+50]">
+    <div className="flex flex-row w-screen h-fit items-start justify-center card-shadow-black text-gray-400 rounded-t-3xl bg-[#101010] ! relative z-[+50]">
       {links.map((el, i) => {
         return (
           <Link to={el.link} key={i} className="">

@@ -205,7 +205,7 @@ const App = () => {
 
   return (
     <div>
-      <div className="bg-stone-900 relative">
+      <div className="bg-[#101010] relative">
         <div className="sticky-top" style={{ pointerEvents: "none" }}>
           <StarsCanvas />
         </div>

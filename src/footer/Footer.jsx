@@ -7,7 +7,7 @@ import { EarthCanvas } from "../canvas";
 
 const Footer = () => {
   return (
-    <footer className="bg-stone-900 flex flex-row mx-auto justify-center items-start container lg:container-xs lg:px-72">
+    <footer className="width-[100vw] bg-[#101010] flex flex-row mx-auto justify-center items-start container w-fit">
       <div className="p-4 sm:p-6 flex flex-1 mr-auto">
         {/* <div className="md:flex md:justify-evenly flex flex-wrap"> */}
         <div className="mb-5">
@@ -47,7 +47,7 @@ const Footer = () => {
                   Our Council
                 </a>
               </li> */}
-              <li className="mb-2">
+              <li className="">
                 <a
                   href="/privacy"
                   className="hover:underline  sm:text-xl md:text-xl"
@@ -61,6 +61,15 @@ const Footer = () => {
                   className="hover:underline  sm:text-xl md:text-xl"
                 >
                   Terms &amp; Conditions
+                </a>
+              </li>
+              <li className="">
+                <a
+                  href="mailto:igts@nsut.ac.in"
+                  className="hover:underline  sm:text-xl md:text-xl"
+                >
+                  Contact Us
+                  
                 </a>
               </li>
             </ul>

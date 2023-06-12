@@ -173,7 +173,7 @@ function Editor() {
         />
         <div className="flex justify-center gap-7 w-full h-full">
           <div
-            className="!w-full!h-full m-10 pl-10 !text-white sm:mx-0  prose-h1:font-sans rounded-xl dark:bg-stone-900 shadow-[0_0_60px_20px_rgb(0,0,0,0.22)] p-10 pt-0 prose prose-stone prose-headings:!text-white dark:prose-invert lg:prose-xl prose-img:mx-auto prose-img:rounded-xl prose-a:text-indigo-600 hover:prose-a:text-indigo-400 editor-output"
+            className="!w-full!h-full m-10  !text-white sm:mx-0  prose-h1:font-sans rounded-xl dark:bg-[#101010] shadow-[0_0_60px_20px_rgb(0,0,0,0.22)] p-10 pt-0 prose prose-stone prose-headings:!text-white dark:prose-invert lg:prose-xl prose-img:mx-auto prose-img:rounded-xl prose-a:text-indigo-600 hover:prose-a:text-indigo-400 editor-output"
             dangerouslySetInnerHTML={{
               __html: DOMPurify.sanitize(
                 `<h1>${heading}</h1>` + `<img src="${thumbnail}" />` + content

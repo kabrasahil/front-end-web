@@ -70,7 +70,7 @@ const Navbar = () => {
   return (
     <div className="">
       <nav
-        className={`navbar-main navbar-font bg-stone-900 text-gray-400 conatainer w-100 fixed z-40 top-0 card-shadow-black`}
+        className={`navbar-main navbar-font bg-[#101010] text-gray-400 conatainer w-100 fixed z-40 top-0 card-shadow-black`}
         style={{ width: "100%", boxShadow: topNavShadow }}
       >
         <motion.aside
@@ -171,7 +171,7 @@ const Navbar = () => {
           style={{ zIndex: "-10", position: "relative" }}
         >
           <div
-            className="ml-auto pt-10 mr-auto bg-stone-900 flex flex-col gap-y-1 sm:flex md:flex sm:border-0 md:border-0 lg:hidden navbar-main border-b-4 border-x-2 border-gray-500"
+            className="ml-auto pt-10 mr-auto bg-[#101010] flex flex-col gap-y-1 sm:flex md:flex sm:border-0 md:border-0 lg:hidden navbar-main border-b-4 border-x-2 border-gray-500"
             style={{
               width: "100%",
               borderRadius: "0px 0px 10px 10px",

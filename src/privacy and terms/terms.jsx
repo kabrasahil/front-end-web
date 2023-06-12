@@ -36,7 +36,7 @@ function Terms() {
           content="https://res.cloudinary.com/dksdmvwch/image/upload/v1685981881/IGTS_logo_white_nflxiq.jpg"
         />
       </Helmet>
-      <div className="content-center justify-center pt-20 text-white">
+      <div className="content-center justify-center pt-40 text-white">
         <h1>
           Terms & Conditions of{" "}
           <span className="website_url">The Indian Game Theory Society</span>

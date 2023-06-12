@@ -44,7 +44,7 @@ function Topics() {
 
   return (
     //  make background color rgb(17 17 17)
-    <div className="flex-auto bg-stone-900 flex-wrap h-fit topics rounded-lg w-fit py-5 px-3">
+    <div className="flex-auto bg-[#101010] flex-wrap h-fit topics rounded-lg w-fit py-5 px-3">
       <h2 className="text-slate-200 text-xl font font-sans my-auto mx-auto px-3 py-2.5">
         Recommended Topics
       </h2>

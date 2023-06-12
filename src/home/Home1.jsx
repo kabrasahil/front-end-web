@@ -8,7 +8,7 @@ import ScrollToTop from '../ScrollToTop.jsx';
 
 export default function Home1() {
   return (
-    <div className="flex lg:flex-row sm:flex-col md:flex-col gap-10 lg:justify-center lg:items-center py-12 px-8 overflow-x-hidden bg-stone-900">
+    <div className="flex lg:flex-row sm:flex-col md:flex-col gap-10 lg:justify-center lg:items-center py-12 px-8 overflow-x-hidden bg-[#101010]">
       <div className="flex flex-col gap-5 lg:w-96 sm:w-fit md:w-fit sm:p-6 md:p-6 lg:p-0  sm:px-20 md:px-20">
         <h3 className=" flex lg:text-2xl sm:text-4xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-indigo-500">
           About Us
