@@ -81,7 +81,6 @@ const Article = () => {
       <MetaDecorators
         title={heading}
         description="Welcome to the official website of the IGTS college society! We are a community of passionate individuals with a shared love for gaming, economics, and math."
-        url={"https://igtsnsut.org/blogs/" + blog_id + "/" + allSpacesRemoved}
         image={thumbnail}
       />
       <div className="mx-[8vw] lg:mx-[16vw] flex flex-row items-center justify-start">

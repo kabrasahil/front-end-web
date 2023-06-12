@@ -8,7 +8,6 @@ export default function Community() {
       <MetaDecorators
         title="IGTS-NSUT | Community"
         description="Welcome to the Community page of IGTS-NSUT! We are a vibrant community of game theory enthusiasts, united by our passion for strategic decision-making."
-        url="https://igtsnsut.org/community"
         image="https://res.cloudinary.com/dksdmvwch/image/upload/v1685981881/IGTS_logo_white_nflxiq.jpg"
       />
       <div className="text-center pt-32">

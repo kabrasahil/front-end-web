@@ -13,7 +13,6 @@ const AboutIgts = () => {
       <MetaDecorators
         title="IGTS-NSUT | About IGTS"
         description="Welcome to the official website of the IGTS college society! We are a community of passionate individuals with a shared love for gaming, economics, and math."
-        url="https://igtsnsut.org/igts"
         image="https://www.pokersnowie.com/blog/sites/default/files/Game%20Theory.jpg"
       />
       <Headings

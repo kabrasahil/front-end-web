@@ -13,7 +13,6 @@ export default function Events() {
         <MetaDecorators
           title="IGTS-NSUT | Events"
           description="At IGTS_NSUT we are delighted to present an exciting lineup of events that aim to explore the fascinating world of game theory and its practical applications."
-          url="https://igtsnsut.org/events"
           image="https://res.cloudinary.com/dksdmvwch/image/upload/v1685981881/IGTS_logo_white_nflxiq.jpg"
         />
         <div className="flex justify-center">

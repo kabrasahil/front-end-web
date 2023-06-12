@@ -59,7 +59,6 @@ const AboutUs = () => {
       <MetaDecorators
         title="IGTS-NSUT | About Us"
         description="Welcome to the official website of the IGTS college society! We are a community of passionate individuals with a shared love for gaming, economics, and math."
-        url="https://igtsnsut.org/about"
         image="https://res.cloudinary.com/dafqvvk91/image/upload/v1685737442/igts_group_photo_no6dzo.jpg"
       />
       <Headings

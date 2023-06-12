@@ -55,7 +55,6 @@ const Dashboard = () => {
       <MetaDecorators
         title="IGTS-NSUT | Dashboard"
         description="Welcome to the official website of the IGTS college society! We are a community of passionate individuals with a shared love for gaming, economics, and math."
-        url="https://igtsnsut.org/dashboard/profile"
         image="https://res.cloudinary.com/dksdmvwch/image/upload/v1685981881/IGTS_logo_white_nflxiq.jpg"
       />
       <div className="flex lg:flex-row sm:flex-col md:flex-col gap-x-10 sm:w-full md:w-full lg:w-max h-[1200px]">

@@ -11,7 +11,6 @@ const ArticlesHome = () => {
       <MetaDecorators
         title="IGTS-NSUT | Blogs"
         description="Welcome to the Blogs Home page of IGTS-NSUT! Explore our collection of insightful and thought-provoking blogs that delve into the world of game theory."
-        url="https://igtsnsut.org/blogs"
         image="https://res.cloudinary.com/dksdmvwch/image/upload/v1685981881/IGTS_logo_white_nflxiq.jpg"
       />
       <div className="w-full bg-gray-900">

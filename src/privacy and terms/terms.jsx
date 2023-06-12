@@ -8,7 +8,6 @@ function Terms() {
       <MetaDecorators
         title="IGTS-NSUT | Terms & Conditions"
         description="Welcome to the official website of the IGTS college society! We are a community of passionate individuals with a shared love for gaming, economics, and math."
-        url="https://igtsnsut.org/terms"
         image="https://res.cloudinary.com/dksdmvwch/image/upload/v1685981881/IGTS_logo_white_nflxiq.jpg"
       />
       <div className="content-center justify-center pt-20 text-white">
