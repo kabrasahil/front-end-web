@@ -9,6 +9,7 @@ import ManageArticles from "./ManageArticles";
 import MyEvents from "./ManageEvents";
 import "./Dashboard.css";
 import BottomBar from "./BottomBar";
+import MetaDecorators from "../MetaDecorator";
 
 const Dashboard = () => {
   const a = useLocation().pathname;
@@ -51,38 +52,12 @@ const Dashboard = () => {
 
   return (
     <div className="flex  lg:justify-center lg:items-center lg:h-fit sm:h-max md:h-max sm:min-h-screen md:min-h-screen  py-40  sm:mx-auto md:mx-auto">
-      <Helmet>
-        <title>IGTS-NSUT | Dashboard</title>
-        <meta
-          name="description"
-          content="Welcome to the official website of the IGTS college society! We are a community of passionate individuals with a shared love for gaming, economics, and math."
-        />
-        <meta name="keywords" content="igts nsut, dashboard, IGTS, nsut, game theory" />
-        <meta property="og:url" content="https://igtsnsut.org/dashboard" />
-        <meta property="og:type" content="website" />
-        <meta property="og:title" content="IGTS-NSUT | Dashboard" />
-        <meta
-          property="og:description"
-          content="Welcome to the official website of the IGTS college society! We are a community of passionate individuals with a shared love for gaming, economics, and math."
-        />
-        <meta
-          property="og:image"
-          content="https://res.cloudinary.com/dksdmvwch/image/upload/v1685981881/IGTS_logo_white_nflxiq.jpg"
-        />
-
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta property="twitter:domain" content="igtsnsut.org" />
-        <meta property="twitter:url" content="https://igtsnsut.org/dashboard" />
-        <meta name="twitter:title" content="IGTS-NSUT | Dashboard" />
-        <meta
-          name="twitter:description"
-          content="Welcome to the official website of the IGTS college society! We are a community of passionate individuals with a shared love for gaming, economics, and math."
-        />
-        <meta
-          name="twitter:image"
-          content="https://res.cloudinary.com/dksdmvwch/image/upload/v1685981881/IGTS_logo_white_nflxiq.jpg"
-        />
-      </Helmet>
+      <MetaDecorators
+        title="IGTS-NSUT | Dashboard"
+        description="Welcome to the official website of the IGTS college society! We are a community of passionate individuals with a shared love for gaming, economics, and math."
+        url="https://igtsnsut.org/dashboard/profile"
+        image="https://res.cloudinary.com/dksdmvwch/image/upload/v1685981881/IGTS_logo_white_nflxiq.jpg"
+      />
       <div className="flex lg:flex-row sm:flex-col md:flex-col gap-x-10 sm:w-full md:w-full lg:w-max h-[1200px]">
         <div className="sm:hidden md:hidden lg:block ">
           {/* sidebar */}

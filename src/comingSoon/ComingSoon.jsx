@@ -1,8 +1,16 @@
 import React from "react";
+import MetaDecorators from "../MetaDecorator";
 
 const ComingSoon = () => {
   return (
     <div>
+      <MetaDecorators
+        title="IGTS-NSUT | Work under progress"
+        description="Welcome to the official website of the IGTS college society! We are a community of passionate individuals with a shared love for gaming, economics, and math."
+        url="https://igtsnsut.org/games"
+        image="https://res.cloudinary.com/dksdmvwch/image/upload/v1685981881/IGTS_logo_white_nflxiq.jpg"
+      />
+
       <div className="m-auto h-screen flex flex-col justify-center items-center">
         <svg
           className="lg:h-64 sm:h-96 md:h-96 object-contain"
