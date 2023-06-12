@@ -55,11 +55,11 @@ export default function HomeUpdates() {
               <img
                 alt="Developer"
                 src={thumbnail}
-                class="lg:absolute sm:relative md:relative  rounded-xl aspect-square overflow-hidden inset-0 h-full w-full  object-cover opacity-75 transition-opacity lg:group-hover:blur-sm lg:group-hover:opacity-40"
+                class="lg:absolute sm:relative md:relative  rounded-xl aspect-square overflow-hidden inset-0 h-full w-full  object-cover opacity-75 transition-opacity lg:opacity-50 lg:group-hover:blur-sm lg:group-hover:opacity-40"
               />
 
               <div class="lg:absolute lg:flex flex-col content-between p-4 sm:p-16 lg:p-8">
-                <p class="lg:text-xl sm:text-2xl md:text-2xl font-bold uppercase tracking-widest text-pink-500">
+                <p class="lg:text-xl sm:text-2xl md:text-2xl font-extrabold uppercase tracking-widest text-pink-600">
                   {type}
                 </p>
 
