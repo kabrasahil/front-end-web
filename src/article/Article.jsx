@@ -6,6 +6,7 @@ import { Context } from "../context/Context";
 import ArticleContent from "./articleContent/ArticleContent";
 import Discussions from "./comment-section/discussions/Discussions";
 import Moment from "react-moment";
+import MetaDecorators from "../MetaDecorator";
 
 const Article = () => {
   const [heading, setHeading] = useState("");
@@ -77,46 +78,19 @@ const Article = () => {
   return (
     <div className="sm:pt-48 md:pt-48 lg:pt-24 min-h-screen">
       {/* article place the share button in it */}
-      <Helmet>
-        <title>IGTS NSUT | {heading}</title>
-        <meta
-          name="description"
-          content="Welcome to the official website of the IGTS college society! We are a community of passionate individuals with a shared love for gaming, economics, and math."
-        />
-        <meta name="keywords" content={"igts nsut, igts blogs, IGTS, nsut, game theory, " + heading} />
-
-        <meta
-          property="og:url"
-          content={
-            "https://igtsnsut.org/blogs/" + blog_id + "/" + allSpacesRemoved
-          }
-        />
-        <meta property="og:type" content="website" />
-        <meta property="og:title" content={"IGTS-NSUT |" + sliceHeading} />
-        <meta
-          property="og:description"
-          content="Welcome to the official website of the IGTS college society! We are a community of passionate individuals with a shared love for gaming, economics, and math."
-        />
-        <meta property="og:image" content={thumbnail} />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta property="twitter:domain" content="igtsnsut.org" />
-        <meta
-          property="twitter:url"
-          content={
-            "https://igtsnsut.org/blogs/" + blog_id + "/" + allSpacesRemoved
-          }
-        />
-        <meta name="twitter:title" content={"IGTS-NSUT |" + sliceHeading} />
-        <meta
-          name="twitter:description"
-          content="Welcome to the official website of the IGTS college society! We are a community of passionate individuals with a shared love for gaming, economics, and math."
-        />
-        <meta name="twitter:image" content={thumbnail} />
-      </Helmet>
+      <MetaDecorators
+        title={heading}
+        description="Welcome to the official website of the IGTS college society! We are a community of passionate individuals with a shared love for gaming, economics, and math."
+        image={thumbnail}
+      />
       <div className="mx-[8vw] lg:mx-[16vw] flex flex-row items-center justify-start">
         <div className="flex w-max items-center">
           <img
-            src={editor ? editor.pfp_url : "https://media.gettyimages.com/id/1389019209/vector/ghost-doodle-5.jpg?s=612x612&w=gi&k=20&c=rIEN506sx3wa05ezS4BEGmbXwrU1gQJYSDv_NdjeEjg="}
+            src={
+              editor
+                ? editor.pfp_url
+                : "https://media.gettyimages.com/id/1389019209/vector/ghost-doodle-5.jpg?s=612x612&w=gi&k=20&c=rIEN506sx3wa05ezS4BEGmbXwrU1gQJYSDv_NdjeEjg="
+            }
             alt=""
             className="mr-4 mt-8 aspect-square h-20 rounded-full bg-gray-50 lg:h-16"
           />

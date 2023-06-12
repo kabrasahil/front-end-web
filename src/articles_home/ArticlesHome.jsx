@@ -3,29 +3,16 @@ import { Helmet } from "react-helmet";
 import ArticleList from "./AtricleList";
 import BlogHeading from "./BlogHeading";
 import Topics from "./Topics";
+import MetaDecorators from "../MetaDecorator";
 
 const ArticlesHome = () => {
   return (
     <div className="flex flex-col mr-auto justify-center items-center pt-24 pb-48">
-      <Helmet>
-        <title>IGTS NSUT | Blogs</title>
-        <meta property="og:title" content="IGTS-NSUT | Blogs" />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://igtsnsut.org/blogs" />
-        <meta
-          name="image"
-          property="og:image"
-          content="https://res.cloudinary.com/dksdmvwch/image/upload/v1685981881/IGTS_logo_white_nflxiq.jpg"
-        />
-        <meta
-          name="twitter:image"
-          content="https://res.cloudinary.com/dafqvvk91/image/upload/v1685046439/igts-white-logo_u3osk8.png"
-        />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta property="twitter:domain" content="igtsnsut.org" />
-        <meta property="twitter:url" content="https://igtsnsut.org/blogs" />
-        <meta name="twitter:title" content="IGTS-NSUT | Blogs" />
-      </Helmet>
+      <MetaDecorators
+        title="IGTS-NSUT | Blogs"
+        description="Welcome to the Blogs Home page of IGTS-NSUT! Explore our collection of insightful and thought-provoking blogs that delve into the world of game theory."
+        image="https://res.cloudinary.com/dksdmvwch/image/upload/v1685981881/IGTS_logo_white_nflxiq.jpg"
+      />
       <div className="w-full bg-gray-900">
         <BlogHeading />
       </div>

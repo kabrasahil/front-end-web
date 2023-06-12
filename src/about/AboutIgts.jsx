@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { Helmet } from "react-helmet";
 import Headings from "./Headings";
+import MetaDecorators from "../MetaDecorator";
 
 const AboutIgts = () => {
   useEffect(() => {
@@ -9,38 +10,11 @@ const AboutIgts = () => {
   
   return (
     <div className="min-h-screen pt-10 flex flex-col items-center">
-      <Helmet>
-        <title>IGTS-NSUT | About IGTS</title>
-        <meta
-          name="description"
-          content="Welcome to the official website of the IGTS college society! We are a community of passionate individuals with a shared love for gaming, economics, and math."
-        />
-        <meta name="keywords" content="igts nsut, about igts, IGTS, nsut, game theory" />
-        <meta property="og:url" content="https://igtsnsut.org/igts" />
-        <meta property="og:type" content="website" />
-        <meta property="og:title" content="IGTS-NSUT | About IGTS" />
-        <meta
-          property="og:description"
-          content="Welcome to the official website of the IGTS college society! We are a community of passionate individuals with a shared love for gaming, economics, and math."
-        />
-        <meta
-          property="og:image"
-          content="https://www.pokersnowie.com/blog/sites/default/files/Game%20Theory.jpg"
-        />
-
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta property="twitter:domain" content="igtsnsut.org" />
-        <meta property="twitter:url" content="https://igtsnsut.org/igts" />
-        <meta name="twitter:title" content="IGTS-NSUT | About IGTS" />
-        <meta
-          name="twitter:description"
-          content="Welcome to the official website of the IGTS college society! We are a community of passionate individuals with a shared love for gaming, economics, and math."
-        />
-        <meta
-          name="twitter:image"
-          content="https://www.pokersnowie.com/blog/sites/default/files/Game%20Theory.jpg"
-        />
-      </Helmet>
+      <MetaDecorators
+        title="IGTS-NSUT | About IGTS"
+        description="Welcome to the official website of the IGTS college society! We are a community of passionate individuals with a shared love for gaming, economics, and math."
+        image="https://www.pokersnowie.com/blog/sites/default/files/Game%20Theory.jpg"
+      />
       <Headings
         title={"The Indian Game Theory Society"}
         subTitle={[

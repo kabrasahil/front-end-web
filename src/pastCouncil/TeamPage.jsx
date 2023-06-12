@@ -1,8 +1,15 @@
+import MetaDecorators from "../MetaDecorator";
 import TeamGrid from "./TeamGrid";
 
 export const Team = () => {
     return (
       <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20 mt-[20px]">
+        <MetaDecorators
+          title="IGTS-NSUT | Team"
+          description="Welcome to the official website of the IGTS college society! We are a community of passionate individuals with a shared love for gaming, economics, and math."
+          image="https://res.cloudinary.com/dksdmvwch/image/upload/v1685981881/IGTS_logo_white_nflxiq.jpg"
+        />
+
         <div className="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
           <div>
             <p className="inline-block px-3 py-px mb-4 text-lg font-semibold tracking-wider text-white uppercase rounded-full bg-teal-accent-400">
@@ -27,10 +34,9 @@ export const Team = () => {
                     <circle cx="1" cy="1" r=".7" />
                   </pattern>
                 </defs>
-                
               </svg>
               <span className="relative">Welcome</span>
-            </span>{' '}
+            </span>{" "}
             our talented team of professionals
           </h2>
           <p className="text-base text-gray-400 md:text-lg">
@@ -38,7 +44,7 @@ export const Team = () => {
             accusantium doloremque rem aperiam, eaque ipsa quae.
           </p>
         </div>
-       <TeamGrid></TeamGrid>
+        <TeamGrid></TeamGrid>
       </div>
     );
   };
