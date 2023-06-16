@@ -26,7 +26,10 @@ const ArticleList = () => {
       if (response.ok) {
         const data = await response.json();
         if (data.success) {
-          setPosts([...posts, ...data.blogs]);
+          const sortedBlogs = data.blogs.sort((a, b) => {
+            return new Date(b.createdAt) - new Date(a.createdAt);
+          });
+          setPosts([...posts, ...sortedBlogs]);
         }
       } else {
         throw new Error("Network response was not ok.");
