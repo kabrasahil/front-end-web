@@ -138,7 +138,7 @@ function Editor() {
     <div className="!h-max mt-32 lg:mt-10 ml-2">
       {saveDialogBox ? (
         <>
-        {/* <div className="ml-20"> */}
+          {/* <div className="ml-20"> */}
           <DialogBox
             subtopics={subtopics}
             setSubtopics={setSubtopics}
@@ -190,13 +190,15 @@ function Editor() {
         >
           Save as Draft
         </button>
-        <button
-          type="button"
-          class="text-white bg-green-600 hover:bg-green-700 px-10 py-2 rounded-xl font-extrabold m-4 w-1/3 text-center justify-center"
-          onClick={handleSubmit}
-        >
-          Publish Blog
-        </button>{" "}
+        {user?.role === "ADMIN" && user?.role !== "EDITOR" && (
+          <button
+            type="button"
+            className="text-white bg-green-600 hover:bg-green-700 px-10 py-2 rounded-xl font-extrabold m-4 w-1/3 text-center justify-center"
+            onClick={handleSubmit}
+          >
+            Publish Blog
+          </button>
+        )}
       </div>
     </div>
   );
