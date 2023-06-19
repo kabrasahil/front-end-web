@@ -4,7 +4,7 @@ import MetaDecorators from "../MetaDecorator";
 
 function Terms() {
   return (
-    <div className="!w-full prose dark:prose-invert prose-headings:underline m-auto">
+    <div className="!w-full prose dark:prose-invert prose-headings:underline m-auto mt-20 md:mt-16 lg:mt-10">
       <MetaDecorators
         title="IGTS-NSUT | Terms & Conditions"
         description="Welcome to the official website of the IGTS college society! We are a community of passionate individuals with a shared love for gaming, economics, and math."

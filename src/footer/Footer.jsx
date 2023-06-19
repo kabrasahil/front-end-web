@@ -32,15 +32,15 @@ const Footer = () => {
             . All Rights Reserved.
           </span>
           <div className="mb-3">
-            <p className="text-zinc-500 lg:text-base sm:text-xl md:text-xl mt-3">
+            <p className="text-zinc-400 lg:text-base sm:text-xl md:text-xl mt-3">
               All trademarks, logos, and brand names are{" "}
             </p>
-            <p className="text-zinc-500 lg:text-base sm:text-xl md:text-xl">
+            <p className="text-zinc-400 lg:text-base sm:text-xl md:text-xl">
               property of their respective owners.
             </p>
           </div>
           <div className="sm:flex sm:items-center sm:justify-between">
-            <ul className="text-zinc-600 dark:text-zinc-600">
+            <ul className="text-zinc-500 dark:text-zinc-500">
               {/* <li className="mb-2">
                 <a
                   href="/team"
@@ -52,7 +52,7 @@ const Footer = () => {
               <li className="">
                 <a
                   href="/privacy"
-                  className="hover:text-zinc-500 sm:text-xl md:text-base"
+                  className="hover:text-zinc-400 text-xl lg:text-base"
                 >
                   Privacy Policy
                 </a>
@@ -60,7 +60,7 @@ const Footer = () => {
               <li>
                 <a
                   href="/terms"
-                  className="hover:text-zinc-500  sm:text-xl md:text-base"
+                  className="hover:text-zinc-400  text-xl lg:text-base"
                 >
                   Terms &amp; Conditions
                 </a>
@@ -68,7 +68,7 @@ const Footer = () => {
               <li className="">
                 <a
                   href="mailto:igts@nsut.ac.in"
-                  className="hover:underline text-zinc-400 mt-10 sm:text-xl md:text-xl hover:text-[#eb4899]"
+                  className="hover:underline text-zinc-400 text-2xl lg:text-xl hover:text-[#eb4899]"
                 >
                   igts@nsut.ac.in
                 </a>
