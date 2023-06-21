@@ -24,9 +24,7 @@ function Editor() {
   const navigate = useNavigate();
   useEffect(() => {
     if (user && user.role) {
-      console.log("here user - ", user);
       if (user.role !== "ADMIN" && user.role !== "EDITOR") {
-        console.log(user.role == "ADMIN");
         navigate("/404");
       }
     }
