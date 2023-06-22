@@ -69,7 +69,6 @@ function Editor() {
 
   const handleSave = async () => {
     setSaveDialogBox(true);
-    redirect("/dashboard/blogs");
   };
 
   const handleSubmit = async () => {
