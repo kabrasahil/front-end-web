@@ -7,8 +7,11 @@ import { useNavigate, useParams } from "react-router-dom";
 import { SERVER_URL } from "../config";
 import DialogBox from "./DialogBox";
 import { Context } from "../context/Context";
+import Notification from "../notifications/Notification";
 
+// toast.configure();
 function Editor() {
+  const [showNotification, setShowNotification] = useState([]);
   const [content, setContent] = useState("");
   const [heading, setHeading] = useState("");
   const [thumbnail, setThumbnail] = useState("");
@@ -59,7 +62,6 @@ function Editor() {
 
   useEffect(() => {
     if (blog_id) fetchDraft();
-    
   }, []);
 
   const [saveDialogBox, setSaveDialogBox] = useState(false);
@@ -98,6 +100,14 @@ function Editor() {
       if (response.ok) {
         const data = await response.json();
         if (data.success) {
+          setShowNotification([
+            ...showNotification,
+            {
+              message:
+                "Draft has been successfully sent to the admin for review🙌",
+              type: "success",
+            },
+          ]);
           window.location.href = "/dashboard/blogs";
         }
       }
@@ -136,6 +146,17 @@ function Editor() {
   const [subtopics, setSubtopics] = useState([]);
   return (
     <div className="!h-max mt-32 lg:mt-10 ml-2">
+      <div className="fixed lg:top-32 sm:top-48 md:top-48 left-10">
+        {showNotification.map((el) => {
+          return (
+            <Notification
+              title={el.type}
+              message={el.message}
+              color={el.type}
+            />
+          );
+        })}
+      </div>
       {saveDialogBox ? (
         <>
           {/* <div className="ml-20"> */}
