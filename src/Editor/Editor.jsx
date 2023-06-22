@@ -35,7 +35,7 @@ function Editor() {
   const [success, setSuccess] = useState();
 
   const fetchDraft = async () => {
-    console.log("fetchDraft")
+    console.log("fetchDraft");
     const token = localStorage.getItem("jwt");
     const response = await fetch(`${SERVER_URL}/api/blog/${blog_id}/draft`, {
       method: "GET",
@@ -61,7 +61,7 @@ function Editor() {
 
   useEffect(() => {
     if (blog_id) fetchDraft();
-
+    
   }, []);
 
   const [saveDialogBox, setSaveDialogBox] = useState(false);
@@ -69,6 +69,7 @@ function Editor() {
 
   const handleSave = async () => {
     setSaveDialogBox(true);
+    redirect("/dashboard/blogs");
   };
 
   const handleSubmit = async () => {
@@ -99,7 +100,7 @@ function Editor() {
       if (response.ok) {
         const data = await response.json();
         if (data.success) {
-          window.location.href = "/editor/" + data._doc._id;
+          window.location.href = "/dashboard/blogs";
         }
       }
     }
@@ -128,7 +129,8 @@ function Editor() {
       if (response.ok) {
         const data = await response.json();
         if (data.success) {
-          window.location.href = "/blogs/" + data._doc._id+"/" + data._doc.title;
+          window.location.href =
+            "/blogs/" + data._doc._id + "/" + data._doc.title;
         }
       }
     }
