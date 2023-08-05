@@ -86,6 +86,31 @@ const AboutUs = () => {
         a supportive and inclusive community.
       </p>
 
+
+
+      <h1 className="text-center  text-gray-400  lg:text-4xl md:text-6xl sm:text-6xl font-semibold pt-20 pb-4">
+        Meet IGTS
+      </h1>
+
+      <p className=" prose lg:text-xl md:text-3xl sm:text-3xl sm:mx-3 md:mx-3 text-center pb-8  text-slate-400">
+        Uniting game theory enthusiasts, fostering collaboration, and advancing
+        its practical applications through events, workshops, and discussions.
+        Join us in exploring strategic decision-making!
+      </p>
+      <img
+        class="h-96 card-shadow-black transition-all duration-300 rounded-xl cursor-pointer filter lg:grayscale lg:hover:grayscale-0 shadow-2xl shadow-gray-800 m-5"
+        src="https://res.cloudinary.com/dafqvvk91/image/upload/v1685737442/igts_group_photo_no6dzo.jpg"
+        alt="image description"
+      />
+      <p className="  prose lg:text-xl md:text-3xl sm:text-3xl sm:mx-3 md:mx-3 text-center pb-8 pt-8  text-slate-400">
+        Explore our curated collection of articles, case studies, and research
+        papers that delve into various aspects of strategic decision-making.
+        Engage in thought-provoking discussions on our online forums, where you
+        can exchange ideas and perspectives with fellow enthusiasts. Whether you
+        are a student, researcher, or simply curious about game theory, IGTS
+        provides a platform to expand your knowledge and connect with others who
+        share your passion
+      </p>
       <h1 className="text-center  text-gray-400  lg:text-4xl md:text-6xl sm:text-6xl font-semibold pt-20 pb-4  ">
         Meet Our Developers
       </h1>
@@ -129,31 +154,9 @@ const AboutUs = () => {
           );
         })}
       </div>
-
-      <h1 className="text-center  text-gray-400  lg:text-4xl md:text-6xl sm:text-6xl font-semibold pt-20 pb-4">
-        Meet IGTS
-      </h1>
-
-      <p className=" prose lg:text-xl md:text-3xl sm:text-3xl sm:mx-3 md:mx-3 text-center pb-8  text-slate-400">
-        Uniting game theory enthusiasts, fostering collaboration, and advancing
-        its practical applications through events, workshops, and discussions.
-        Join us in exploring strategic decision-making!
-      </p>
-      <img
-        class="h-96 card-shadow-black transition-all duration-300 rounded-xl cursor-pointer filter lg:grayscale lg:hover:grayscale-0 shadow-2xl shadow-gray-800 m-5"
-        src="https://res.cloudinary.com/dafqvvk91/image/upload/v1685737442/igts_group_photo_no6dzo.jpg"
-        alt="image description"
-      />
-      <p className="  prose lg:text-xl md:text-3xl sm:text-3xl sm:mx-3 md:mx-3 text-center pb-8 pt-8  text-slate-400">
-        Explore our curated collection of articles, case studies, and research
-        papers that delve into various aspects of strategic decision-making.
-        Engage in thought-provoking discussions on our online forums, where you
-        can exchange ideas and perspectives with fellow enthusiasts. Whether you
-        are a student, researcher, or simply curious about game theory, IGTS
-        provides a platform to expand your knowledge and connect with others who
-        share your passion
-      </p>
     </div>
+
+    
   );
 };
 
