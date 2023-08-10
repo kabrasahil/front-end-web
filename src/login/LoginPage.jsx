@@ -17,7 +17,7 @@ const LoginPage = () => {
 
   return (
     <section
-      className="bg-stone-900  bg-center bg-cover  min-h-screen"
+      className="bg-[#101010]  bg-center bg-cover  min-h-screen"
       style={{
         backgroundImage: `url(https://res.cloudinary.com/dafqvvk91/image/upload/v1685051301/moon-2048727_640_xybqx2.jpg)`,
       }}

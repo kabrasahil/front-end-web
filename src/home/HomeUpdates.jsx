@@ -39,14 +39,15 @@ export default function HomeUpdates() {
 
       <div className=" grid lg:mx-80 md:mx-40 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-3 lg:gap-5   sm:gap-16 md:gap-16">
         {data.map(({ thumbnail, title, type, description, id }) => {
+          const allSpacesRemoved = title.replaceAll(" ", "-");
           return (
             <a
               href={
                 type === "blog"
-                  ? "/blogs/" + id
+                  ? "/blogs/" + id + "/" + allSpacesRemoved
                   : type === "event"
-                    ? "/events/" + id
-                    : ""
+                  ? "/events/" + id + "/" + allSpacesRemoved
+                  : ""
               }
               className="group relative block bg-black rounded-xl w-full aspect-square"
               style={{ boxShadow: "0 0px 40px -1px rgba(0, 0, 0, 0.6)" }}
@@ -54,11 +55,11 @@ export default function HomeUpdates() {
               <img
                 alt="Developer"
                 src={thumbnail}
-                class="lg:absolute sm:relative md:relative  rounded-xl aspect-square overflow-hidden inset-0 h-full w-full  object-cover opacity-75 transition-opacity lg:group-hover:blur-sm lg:group-hover:opacity-40"
+                class="lg:absolute sm:relative md:relative  rounded-xl aspect-square overflow-hidden inset-0 h-full w-full  object-cover  transition-opacity lg:opacity-50 lg:blur-[2px] lg:group-hover:blur-sm lg:group-hover:opacity-40"
               />
 
-              <div class="lg:absolute lg:flex flex-col content-between p-4 sm:p-16 lg:p-8">
-                <p class="lg:text-xl sm:text-2xl md:text-2xl font-bold uppercase tracking-widest text-pink-500">
+              <div class="lg:absolute lg:flex flex-col content-between p-4 sm:p-16 lg:p-8 ">
+                <p class="lg:text-xl sm:text-2xl md:text-2xl font-black uppercase tracking-widest text-pink-500 drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] lg:opacity-100 ">
                   {type}
                 </p>
 
@@ -70,7 +71,9 @@ export default function HomeUpdates() {
                   <div class="translate-y-8 transform lg:opacity-0 transition-all lg:group-hover:translate-y-0 lg:group-hover:opacity-100">
                     <p
                       class="lg:text-base lg:h-[7rem] md:text-3xl sm:text-xl text-white overflow-hidden text-ellipsis"
-                      dangerouslySetInnerHTML={{ __html: description.slice(0, 200) + "..." }}
+                      dangerouslySetInnerHTML={{
+                        __html: description.slice(0, 200) + "...",
+                      }}
                     ></p>
                   </div>
                 </div>

@@ -40,11 +40,11 @@ const SubtopicHome = () => {
   }, []);
 
   return (
-    <div className="flex flex-col  mr-auto justify-center items-center pt-24 pb-48">
+    <div className="flex flex-col min-h-screen mr-auto justify-center items-center pt-0 lg:pt-24 pb-48 translate-y-[-17vh] lg:translate-y-0">
       <div className="w-full bg-gray-900">
         <BlogHeading />
       </div>
-      <div className="w-full bg-stone-900 text-gray-500 text-center font-bold italic sm:text-xl md:text-xl lg:text-lg">
+      <div className="w-full bg-[#101010] text-gray-500 text-center font-bold italic sm:text-xl md:text-xl lg:text-lg">
         #{subtopic ? subtopic.name : ""}
       </div>
 

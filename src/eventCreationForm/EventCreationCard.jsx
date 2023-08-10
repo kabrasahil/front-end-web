@@ -72,11 +72,14 @@ const EventCreationCard = () => {
         setPhotos(data.event.event_photos);
         var newdate= new Date(data.event.date_time);
         console.log("time",newdate)
-        const month=newdate.getUTCMonth()<10?"0"+newdate.getUTCMonth():newdate.getUTCMonth();
-        const daten=newdate.getUTCDate()<10?"0"+newdate.getUTCDate():newdate.getUTCDate();
+        var tempMonth = newdate.getUTCMonth();
+        tempMonth = Number(tempMonth)+1;
+        var month=tempMonth<10?"0"+tempMonth:tempMonth;
+        
+        const daten=newdate.getDate()<10?"0"+newdate.getDate():newdate.getDate();
         setDate(newdate.getFullYear()+"-"+month+"-"+daten)
-        const hours=newdate.getUTCHours()<10?"0"+newdate.getUTCHours():newdate.getUTCHours();
-        const minutes=newdate.getUTCMinutes()<10?"0"+newdate.getUTCMinutes():newdate.getUTCMinutes();
+        const hours=newdate.getHours()<10?"0"+newdate.getHours():newdate.getHours();
+        const minutes=newdate.getMinutes()<10?"0"+newdate.getMinutes():newdate.getMinutes();
         setTime(hours+":"+minutes);
       } else console.log(data)
     }
@@ -138,8 +141,8 @@ const EventCreationCard = () => {
     if (!time) setTimeEmpty(true);
     if (!location) setLocationEmpty(true);
     if (!posterURL) setPosterURLEmpty(true);
-    if (!members) setMembersEmpty(true);
-    if (!photos) setPhotosEmpty(true);
+    if (members.length == 0) setMembersEmpty(true);
+    if (photos.length == 0) setPhotosEmpty(true);
     if (
       contentEmpty ||
       timeEmpty ||
@@ -151,7 +154,13 @@ const EventCreationCard = () => {
       photosEmpty
     ) {
       setSignUpFailed([true, "Please fill the required fields"]);
-
+      setShowNotification([
+        ...showNotification,
+        {
+          message: "Please Fill all the required fields",
+          type: "Error",
+        },
+      ]);
       return;
     }
     setSignUpFailed([false, ""]);
@@ -216,7 +225,7 @@ const EventCreationCard = () => {
           ...showNotification,
           {
             message: data.message,
-            type: "error",
+            type: "Error",
           },
         ]);
       } else {
@@ -229,7 +238,7 @@ const EventCreationCard = () => {
           {
             message:
               "An error occurred while registering. Please try again later.",
-            type: "error",
+            type: "Error",
           },
         ]);
       }
@@ -240,7 +249,7 @@ const EventCreationCard = () => {
         {
           message:
             "An error occurred while registering. Please try again later.",
-          type: "error",
+          type: "Error",
         },
       ]);
     }
@@ -261,7 +270,7 @@ const EventCreationCard = () => {
         })}
       </div>
       <div
-        className="mb-20 lg:w-[950px] sm:w-[600px] md:w-[800px] bg-stone-900 rounded-lg lg:p-30 sm:p-10 md:p-10  flex flex-col justify-center lg:gap-y-2 sm:gap-y-10 md:gap-y-10"
+        className="mt-64 lg:mt-0 mb-20 lg:w-[950px] sm:w-[600px] md:w-[800px] bg-[#101010] rounded-lg lg:p-30 sm:p-10 md:p-10  flex flex-col justify-center lg:gap-y-2 sm:gap-y-10 md:gap-y-10"
         style={{
           boxShadow: " 0 0px 40px -1px rgba(0, 0, 0, 0.6)",
         }}

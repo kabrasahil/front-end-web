@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 
 import { slideIn } from "../utils/motion";
 import { motion } from "framer-motion";
@@ -6,8 +6,10 @@ import { EarthCanvas } from "../canvas";
 
 
 const Footer = () => {
+  const year = new Date().getFullYear();
+
   return (
-    <footer className="bg-stone-900 flex flex-row mx-auto justify-center items-start container lg:container-xs lg:px-72">
+    <footer className="width-[100vw] bg-[#101010] flex flex-row mx-auto justify-center items-start container w-fit">
       <div className="p-4 sm:p-6 flex flex-1 mr-auto">
         {/* <div className="md:flex md:justify-evenly flex flex-wrap"> */}
         <div className="mb-5">
@@ -23,26 +25,34 @@ const Footer = () => {
             </span>
           </a>
           <span className="lg:text-base sm:text-2xl md:text-2xl text-zinc-200 sm:text-left dark:text-zinc-400 font-extrabold">
-            © 2023{" "}
+            © {year}{" "}
             <a href="/igts" className="hover:underline">
               IGTS™
             </a>
             . All Rights Reserved.
           </span>
           <div className="mb-3">
-            <p className="text-zinc-500 lg:text-base sm:text-xl md:text-xl mt-3">
+            <p className="text-zinc-400 lg:text-base sm:text-xl md:text-xl mt-3">
               All trademarks, logos, and brand names are{" "}
             </p>
-            <p className="text-zinc-500 lg:text-base sm:text-xl md:text-xl">
+            <p className="text-zinc-400 lg:text-base sm:text-xl md:text-xl">
               property of their respective owners.
             </p>
           </div>
           <div className="sm:flex sm:items-center sm:justify-between">
-            <ul className="text-zinc-600 dark:text-zinc-600">
-              <li className="mb-2">
+            <ul className="text-zinc-500 dark:text-zinc-500">
+              {/* <li className="mb-2">
+                <a
+                  href="/team"
+                  className="hover:underline  sm:text-xl md:text-xl"
+                >
+                  Our Council
+                </a>
+              </li> */}
+              <li className="">
                 <a
                   href="/privacy"
-                  className="hover:underline  sm:text-xl md:text-xl"
+                  className="hover:text-zinc-400 text-xl lg:text-base"
                 >
                   Privacy Policy
                 </a>
@@ -50,9 +60,17 @@ const Footer = () => {
               <li>
                 <a
                   href="/terms"
-                  className="hover:underline  sm:text-xl md:text-xl"
+                  className="hover:text-zinc-400  text-xl lg:text-base"
                 >
                   Terms &amp; Conditions
+                </a>
+              </li>
+              <li className="">
+                <a
+                  href="mailto:igts@nsut.ac.in"
+                  className="hover:underline text-zinc-400 text-2xl lg:text-xl hover:text-[#eb4899]"
+                >
+                  igts@nsut.ac.in
                 </a>
               </li>
             </ul>

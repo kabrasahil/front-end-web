@@ -200,7 +200,7 @@ const EventPage = () => {
     }
 
     return (
-        <div className="min-h-screen bg-stone-900 text-gray-300 pt-24">
+        <div className="min-h-screen bg-[#101010] text-gray-300 pt-24">
             {event && event._id && (
                 <div className="flex flex-col items-center py-8">
                     <div >
@@ -246,7 +246,7 @@ const EventPage = () => {
                         </h1>
                     </div>
                     <div
-                        className="m-10 sm:mx-0 prose-h1:font-sans rounded-xl dark:bg-stone-900 card-shadow-black p-10 pt-24 prose prose-stone dark:prose-invert lg:prose-xl prose-img:mx-auto prose-img:rounded-xl prose-a:text-indigo-600 hover:prose-a:text-indigo-400 w-3/4"
+                        className="m-10 sm:mx-0 prose-h1:font-sans rounded-xl bg-[#101010] card-shadow-black p-10 pt-24 prose prose-stone dark:prose-invert lg:prose-xl prose-img:mx-auto prose-img:rounded-xl prose-a:text-indigo-600 hover:prose-a:text-indigo-400 w-3/4"
                         dangerouslySetInnerHTML={{
                             __html: DOMPurify.sanitize(
                                 event.details

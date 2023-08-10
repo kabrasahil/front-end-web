@@ -7,8 +7,11 @@ import { useNavigate, useParams } from "react-router-dom";
 import { SERVER_URL } from "../config";
 import DialogBox from "./DialogBox";
 import { Context } from "../context/Context";
+import Notification from "../notifications/Notification";
 
+// toast.configure();
 function Editor() {
+  const [showNotification, setShowNotification] = useState([]);
   const [content, setContent] = useState("");
   const [heading, setHeading] = useState("");
   const [thumbnail, setThumbnail] = useState("");
@@ -24,9 +27,7 @@ function Editor() {
   const navigate = useNavigate();
   useEffect(() => {
     if (user && user.role) {
-      console.log("here user - ", user);
       if (user.role !== "ADMIN" && user.role !== "EDITOR") {
-        console.log(user.role == "ADMIN");
         navigate("/404");
       }
     }
@@ -35,7 +36,7 @@ function Editor() {
   const [success, setSuccess] = useState();
 
   const fetchDraft = async () => {
-    console.log("fetchDraft")
+    console.log("fetchDraft");
     const token = localStorage.getItem("jwt");
     const response = await fetch(`${SERVER_URL}/api/blog/${blog_id}/draft`, {
       method: "GET",
@@ -61,7 +62,6 @@ function Editor() {
 
   useEffect(() => {
     if (blog_id) fetchDraft();
-
   }, []);
 
   const [saveDialogBox, setSaveDialogBox] = useState(false);
@@ -99,7 +99,15 @@ function Editor() {
       if (response.ok) {
         const data = await response.json();
         if (data.success) {
-          window.location.href = "/editor/" + data._doc._id;
+          setShowNotification([
+            ...showNotification,
+            {
+              message:
+                "Draft has been successfully sent to the admin for review🙌",
+              type: "success",
+            },
+          ]);
+          window.location.href = "/dashboard/blogs";
         }
       }
     }
@@ -128,21 +136,35 @@ function Editor() {
       if (response.ok) {
         const data = await response.json();
         if (data.success) {
-          window.location.href = "/blogs/" + data._doc._id;
+          window.location.href =
+            "/blogs/" + data._doc._id + "/" + data._doc.title;
         }
       }
     }
   };
   const [subtopics, setSubtopics] = useState([]);
   return (
-    <div className="!h-max">
+    <div className="!h-max mt-32 lg:mt-10 ml-2">
+      <div className="fixed lg:top-32 sm:top-48 md:top-48 left-10">
+        {showNotification.map((el) => {
+          return (
+            <Notification
+              title={el.type}
+              message={el.message}
+              color={el.type}
+            />
+          );
+        })}
+      </div>
       {saveDialogBox ? (
         <>
+          {/* <div className="ml-20"> */}
           <DialogBox
             subtopics={subtopics}
             setSubtopics={setSubtopics}
             handleSubmit={onSave}
           />
+          {/* </div> */}
         </>
       ) : (
         <></>
@@ -159,7 +181,7 @@ function Editor() {
         <></>
       )}
 
-      <div className="mt-16 flex flex-row h-full  min-h-[800px] w-full">
+      <div className="mt-16 flex flex-row h-full  min-h-[800px] w-full !text-white">
         <TipTap
           setContent={setContent}
           content={content}
@@ -171,7 +193,7 @@ function Editor() {
         />
         <div className="flex justify-center gap-7 w-full h-full">
           <div
-            className="!w-full !h-full m-10 sm:mx-0  prose-h1:font-sans rounded-xl dark:bg-stone-900 shadow-[0_0_60px_20px_rgb(0,0,0,0.22)] p-10 pt-0 prose prose-stone prose-headings:!text-white dark:prose-invert lg:prose-xl prose-img:mx-auto prose-img:rounded-xl prose-a:text-indigo-600 hover:prose-a:text-indigo-400 editor-output"
+            className="!w-full!h-full m-10  !text-white sm:mx-0  prose-h1:font-sans rounded-xl dark:bg-[#101010] shadow-[0_0_60px_20px_rgb(0,0,0,0.22)] p-10 pt-0 prose prose-stone prose-headings:!text-white dark:prose-invert lg:prose-xl prose-img:mx-auto prose-img:rounded-xl prose-a:text-indigo-600 hover:prose-a:text-indigo-400 editor-output"
             dangerouslySetInnerHTML={{
               __html: DOMPurify.sanitize(
                 `<h1>${heading}</h1>` + `<img src="${thumbnail}" />` + content
@@ -188,13 +210,15 @@ function Editor() {
         >
           Save as Draft
         </button>
-        <button
-          type="button"
-          class="text-white bg-green-600 hover:bg-green-700 px-10 py-2 rounded-xl font-extrabold m-4 w-1/3 text-center justify-center"
-          onClick={handleSubmit}
-        >
-          Publish Blog
-        </button>{" "}
+        {user?.role === "ADMIN" && user?.role !== "EDITOR" && (
+          <button
+            type="button"
+            className="text-white bg-green-600 hover:bg-green-700 px-10 py-2 rounded-xl font-extrabold m-4 w-1/3 text-center justify-center"
+            onClick={handleSubmit}
+          >
+            Publish Blog
+          </button>
+        )}
       </div>
     </div>
   );

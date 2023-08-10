@@ -1,5 +1,6 @@
 import "./App.css";
 import React from "react";
+import { Helmet } from "react-helmet";
 import Editor from "./Editor/Editor";
 // import Discussions from './article/comment-section/discussions/Discussions';
 import Terms from "./privacy and terms/terms";
@@ -12,7 +13,13 @@ import EventCreationPage from "./eventCreationForm/EventCreationPage";
 import ShareButton from "./article/shareButton/ShareButtons";
 import ArticleContent from "./article/articleContent/ArticleContent";
 import ArticlesHome from "./articles_home/ArticlesHome";
-import { EarthCanvas, BallCanvas, ComputersCanvas, StarsCanvas } from "./canvas";
+import {
+  EarthCanvas,
+  BallCanvas,
+  ComputersCanvas,
+  StarsCanvas,
+} from "./canvas";
+import { Team } from "./pastCouncil/TeamPage";
 
 import {
   BrowserRouter as Router,
@@ -43,7 +50,7 @@ import Community from "./community/Community";
 import Events from "./events/Events";
 import ViewParticipants from "./eventCreationForm/ViewParticipants";
 import EventPage from "./eventsPage/EventPage";
-
+import MetaDecorators from "./MetaDecorator";
 
 function IgtsWebsite() {
   const [user, setUser] = useState();
@@ -88,16 +95,24 @@ function IgtsWebsite() {
 
           <Routes>
             <Route exact path="/blogs" element={<ArticlesHome />} />
-            <Route exact path="/blogs/:id" element={<Article />} />
+            <Route exact path="/blogs/:id/:title" element={<Article />} />
             <Route
               exact
-              path="/blogs/subtopic/:id"
+              path="/blogs/subtopic/:id/:subtopicTitle"
               element={<SubtopicHome />}
             />
-
+            {/* <Route exact path="/team" element={<Team />}/> */}
             <Route exact path="/login" element={<LoginPage />} />
-            <Route exact path="/password-reset" element={<PasswordResetPage />} />
-            <Route exact path="/forgotpassword/:id/:token" element={<ForgotPasswordPage />} />
+            <Route
+              exact
+              path="/password-reset"
+              element={<PasswordResetPage />}
+            />
+            <Route
+              exact
+              path="/forgotpassword/:id/:token"
+              element={<ForgotPasswordPage />}
+            />
             <Route path="/dashboard/*" element={<Dashboard />} />
             <Route exact path="/" element={<Navigate to="/home" />} />
             <Route exact path="/home" element={<Home />} />
@@ -105,10 +120,22 @@ function IgtsWebsite() {
             <Route exact path="/igts" element={<AboutIgts />} />
             <Route exact path="/editor/:blog_id" element={<Editor />} />
             <Route exact path="/editor" element={<Editor />} />
-            <Route exact path="/event-creation" element={<EventCreationPage />} />
-            <Route exact path="/event-creation/:id" element={<EventCreationPage />} />
+            <Route
+              exact
+              path="/event-creation"
+              element={<EventCreationPage />}
+            />
+            <Route
+              exact
+              path="/event-creation/:id"
+              element={<EventCreationPage />}
+            />
 
-            <Route exact path="/:id/viewparticipants" element={<ViewParticipants />} />
+            <Route
+              exact
+              path="/:id/viewparticipants"
+              element={<ViewParticipants />}
+            />
 
             <Route exact path="/privacy" element={<PrivacyPolicy />} />
             <Route exact path="/terms" element={<Terms />} />
@@ -116,7 +143,7 @@ function IgtsWebsite() {
 
             <Route exact path="/games" element={<ComingSoon />} />
             <Route exact path="/events" element={<Events />} />
-            <Route exact path="/events/:id" element={<EventPage />} />
+            <Route exact path="/events/:id/:title" element={<EventPage />} />
 
             <Route exact path="/merchandise" element={<ComingSoon />} />
             <Route path="/*" element={<NotFound />} />
@@ -138,18 +165,17 @@ const App = () => {
       setIsLoading(false);
     }, 3000);
 
-    window.addEventListener('load', () => {
+    window.addEventListener("load", () => {
       setTimeout(() => {
         setIsLoading(false);
       }, 1500);
-    })
-
+    });
   }, []);
 
   return (
     <div>
-      <div className="bg-stone-900 relative">
-        <div className="sticky-top" style={{ pointerEvents: 'none' }}>
+      <div className="bg-[#101010] relative">
+        <div className="sticky-top" style={{ pointerEvents: "none" }}>
           <StarsCanvas />
         </div>
         {isLoading ? (
@@ -157,7 +183,7 @@ const App = () => {
             <LoadingScreen />
           </div>
         ) : (
-          <div className="" style={{ pointerEvents: 'auto' }}>
+          <div className="" style={{ pointerEvents: "auto" }}>
             <IgtsWebsite />
           </div>
         )}

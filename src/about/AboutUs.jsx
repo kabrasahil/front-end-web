@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
+import { Helmet } from "react-helmet";
 import Headings from "./Headings";
+import MetaDecorators from "../MetaDecorator";
 
 const AboutUs = () => {
   useEffect(() => {
@@ -10,7 +12,7 @@ const AboutUs = () => {
       name: "Parikshit Dabas",
       post: "Lead Developer",
       avatar:
-        "https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/jese-leos.png",
+        "https://res.cloudinary.com/dafqvvk91/image/upload/v1686077297/WhatsApp_Image_2023-06-06_at_09.44.31_su0wby.jpg",
       socials: [
         { icon: "instagram", url: "https://www.instagram.com/igts_nsut" },
         { icon: "github", url: "https://www.github.com/igts_nsut" },
@@ -21,39 +23,44 @@ const AboutUs = () => {
       name: "Vishal Jatia",
       post: "Lead Developer",
       avatar:
-        "https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/jese-leos.png",
+        "https://res.cloudinary.com/dafqvvk91/image/upload/v1685733172/Developers/IMG_20230603_002827_dw6tzc.jpg",
       socials: [
-        { icon: "instagram", url: "https://www.instagram.com/igts_nsut" },
-        { icon: "github", url: "https://www.github.com/igts_nsut" },
-        { icon: "linkedin", url: "https://www.linkedin.com/igts_nsut" },
+        { icon: "instagram", url: "https://www.instagram.com/v._.i_s_h_a_l/" },
+        { icon: "github", url: "https://github.com/Vishal-jatia" },
+        { icon: "linkedin", url: "https://www.linkedin.com/in/vishal-jatia-638146229/" },
       ],
     },
     {
       name: "Pragun Bansal",
       post: "Lead Developer",
       avatar:
-        "https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/jese-leos.png",
+        "https://res.cloudinary.com/dafqvvk91/image/upload/v1685731655/Developers/InShot_20230526_135247900_p8uedx.jpg",
       socials: [
-        { icon: "instagram", url: "https://www.instagram.com/igts_nsut" },
-        { icon: "github", url: "https://www.github.com/igts_nsut" },
-        { icon: "linkedin", url: "https://www.linkedin.com/igts_nsut" },
+        { icon: "instagram", url: "https://www.instagram.com/pragun_bansal/" },
+        { icon: "github", url: "https://github.com/pragun-bansal" },
+        { icon: "linkedin", url: "https://www.linkedin.com/in/pragun-bansal-233a05214/" },
       ],
     },
     {
       name: "Samyak Jain",
       post: "Lead Developer",
       avatar:
-        "https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/jese-leos.png",
+        "https://res.cloudinary.com/dafqvvk91/image/upload/v1685734245/Developers/IMG20220210125653_2_bso5mk.jpg",
       socials: [
-        { icon: "instagram", url: "https://www.instagram.com/igts_nsut" },
-        { icon: "github", url: "https://www.github.com/igts_nsut" },
-        { icon: "linkedin", url: "https://www.linkedin.com/igts_nsut" },
+        { icon: "instagram", url: "https://www.instagram.com/samyak15_jain/" },
+        { icon: "github", url: "https://github.com/samyak1512" },
+        { icon: "linkedin", url: "https://www.linkedin.com/in/samyak-j-488812b7/" },
       ],
     },
   ]);
 
   return (
     <div className="min-h-screen pt-10 flex flex-col items-center">
+      <MetaDecorators
+        title="IGTS-NSUT | About Us"
+        description="Welcome to the official website of the IGTS college society! We are a community of passionate individuals with a shared love for gaming, economics, and math."
+        image="https://res.cloudinary.com/dafqvvk91/image/upload/v1685737442/igts_group_photo_no6dzo.jpg"
+      />
       <Headings
         title={"About Us"}
         subTitle={[
@@ -79,6 +86,31 @@ const AboutUs = () => {
         a supportive and inclusive community.
       </p>
 
+
+
+      <h1 className="text-center  text-gray-400  lg:text-4xl md:text-6xl sm:text-6xl font-semibold pt-20 pb-4">
+        Meet IGTS
+      </h1>
+
+      <p className=" prose lg:text-xl md:text-3xl sm:text-3xl sm:mx-3 md:mx-3 text-center pb-8  text-slate-400">
+        Uniting game theory enthusiasts, fostering collaboration, and advancing
+        its practical applications through events, workshops, and discussions.
+        Join us in exploring strategic decision-making!
+      </p>
+      <img
+        class="h-96 card-shadow-black transition-all duration-300 rounded-xl cursor-pointer filter lg:grayscale lg:hover:grayscale-0 shadow-2xl shadow-gray-800 m-5"
+        src="https://res.cloudinary.com/dafqvvk91/image/upload/v1685737442/igts_group_photo_no6dzo.jpg"
+        alt="image description"
+      />
+      <p className="  prose lg:text-xl md:text-3xl sm:text-3xl sm:mx-3 md:mx-3 text-center pb-8 pt-8  text-slate-400">
+        Explore our curated collection of articles, case studies, and research
+        papers that delve into various aspects of strategic decision-making.
+        Engage in thought-provoking discussions on our online forums, where you
+        can exchange ideas and perspectives with fellow enthusiasts. Whether you
+        are a student, researcher, or simply curious about game theory, IGTS
+        provides a platform to expand your knowledge and connect with others who
+        share your passion
+      </p>
       <h1 className="text-center  text-gray-400  lg:text-4xl md:text-6xl sm:text-6xl font-semibold pt-20 pb-4  ">
         Meet Our Developers
       </h1>
@@ -90,12 +122,12 @@ const AboutUs = () => {
         to present our dedicated team:
       </p>
 
-      <div class="grid gap-8 pt-16 lg:gap-16 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2">
+      <div class="grid gap-8 pt-16 lg:gap-16 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-4">
         {techTeam.map((el, i) => {
           return (
             <div class="text-center text-gray-500 dark:text-gray-400">
               <img
-                class="mx-auto mb-4 lg:w-48 lg:h-48 md:h-64 md:w-64 sm:h-64 md:w-64 rounded-full"
+                class="mx-auto mb-4 lg:w-48 lg:h-48 md:h-64 md:w-64 sm:h-64 rounded-full"
                 src={el.avatar}
                 alt="Bonnie Avatar"
               />
@@ -122,25 +154,9 @@ const AboutUs = () => {
           );
         })}
       </div>
-
-      <h1 className="text-center  text-gray-400  lg:text-4xl md:text-6xl sm:text-6xl font-semibold pt-20 pb-4">
-        Meet IGTS
-      </h1>
-
-      <p className=" prose lg:text-xl md:text-3xl sm:text-3xl sm:mx-3 md:mx-3 text-center pb-8  text-slate-400">
-        Uniting game theory enthusiasts, fostering collaboration, and advancing
-        its practical applications through events, workshops, and discussions.
-        Join us in exploring strategic decision-making!
-      </p>
-      <img
-        class="h-96 card-shadow-black transition-all duration-300 rounded-xl cursor-pointer filter lg:grayscale lg:hover:grayscale-0 shadow-2xl shadow-gray-800 m-5"
-        src="https://drive.google.com/uc?export=view&id=1I8LBraLkRdRLWp2f9mNzsnip6ujxO3LZ"
-        alt="image description"
-      />
-      <p className="  prose lg:text-xl md:text-3xl sm:text-3xl sm:mx-3 md:mx-3 text-center pb-8 pt-8  text-slate-400">
-        Explore our curated collection of articles, case studies, and research papers that delve into various aspects of strategic decision-making. Engage in thought-provoking discussions on our online forums, where you can exchange ideas and perspectives with fellow enthusiasts. Whether you are a student, researcher, or simply curious about game theory, IGTS provides a platform to expand your knowledge and connect with others who share your passion
-      </p>
     </div>
+
+    
   );
 };
 

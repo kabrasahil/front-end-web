@@ -4,6 +4,6 @@ import anim from './404_not_found.riv';
 
 export default function NotFound() {
     return (
-            <Rive src={anim} className='notFound' />
+            <Rive src={anim} className='notFound overflow-x-hidden' />
     )
 }

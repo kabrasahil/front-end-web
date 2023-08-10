@@ -55,6 +55,16 @@ const handleSearch = async (query) => {
     console.log("subtopics", subtopics);
   }, [subtopics]);
 
+
+  const capitalizeWords = (str) => {
+    return str
+      .toLowerCase()
+      .split(' ')
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(' ');
+  };
+
+
   return (
     <div className="fixed top-0 left-0 right-0 bottom-0 flex items-center justify-center h-full w-full z-50">
       <div
@@ -86,8 +96,9 @@ const handleSearch = async (query) => {
               <input
                 type="text"
                 className="h-full w-full outline-none bg-transparent"
+
                 onChange={(e) => {
-                  setSearchTerm(e.target.value);
+                  setSearchTerm(capitalizeWords(e.target.value));
                   handleSearch(e.target.value);
                 }}
                 value={searchTerm}

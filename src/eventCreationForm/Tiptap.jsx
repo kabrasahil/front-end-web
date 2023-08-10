@@ -224,7 +224,7 @@ const TipTap = ({
     }, [editor,success]);
 
   return (
-    <div className="w-full h-full bg-white dark:bg-stone-900">
+    <div className="w-full h-full bg-white dark:bg-[#101010]">
       
 
       <MenuBar editor={editor} />

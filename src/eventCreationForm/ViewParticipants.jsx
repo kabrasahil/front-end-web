@@ -110,7 +110,7 @@ const ViewParticipants = () => {
     };
 
     return (
-        <div className="bg-stone-900 min-h-screen py-8 px-4 sm:px-6 lg:px-8 pt-24">
+        <div className="bg-[#101010] min-h-screen py-8 px-4 sm:px-6 lg:px-8 pt-24 mt-32 lg:mt-10">
             <div className="max-w-3xl mx-auto">
                 <h1 className="text-4xl font-bold text-white mb-6">Registered Users</h1>
                 <div className="flex justify-end mb-6">

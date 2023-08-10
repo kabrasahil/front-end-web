@@ -1,10 +1,12 @@
 import React, { useContext, useEffect, useState } from "react";
+import { Helmet } from "react-helmet";
 import { useNavigate, useParams } from "react-router-dom";
 import { SERVER_URL } from "../config";
 import { Context } from "../context/Context";
 import ArticleContent from "./articleContent/ArticleContent";
 import Discussions from "./comment-section/discussions/Discussions";
 import Moment from "react-moment";
+import MetaDecorators from "../MetaDecorator";
 
 const Article = () => {
   const [heading, setHeading] = useState("");
@@ -36,7 +38,7 @@ const Article = () => {
         setLiked(data.liked);
         setSubtopics(data.blog.subtopics);
       } else {
-        console.log("blogs not found")
+        console.log("blogs not found");
         navigate("/404");
       }
     }
@@ -70,15 +72,25 @@ const Article = () => {
   useEffect(() => {
     if (blog) fetchEditor();
   }, [blog]);
-
+  const allSpacesRemoved = heading.replaceAll(" ", "-");
+  const sliceHeading = heading.slice(0, 62);
+  // alert("https://igtsnsut.org/blogs/" + blog_id + "/" + allSpacesRemoved);
   return (
     <div className="sm:pt-48 md:pt-48 lg:pt-24 min-h-screen">
       {/* article place the share button in it */}
-
+      <MetaDecorators
+        title={heading}
+        description="Welcome to the official website of the IGTS college society! We are a community of passionate individuals with a shared love for gaming, economics, and math."
+        image={thumbnail}
+      />
       <div className="mx-[8vw] lg:mx-[16vw] flex flex-row items-center justify-start">
         <div className="flex w-max items-center">
           <img
-            src={editor ? editor.pfp_url : ''}
+            src={
+              editor
+                ? editor.pfp_url
+                : "https://media.gettyimages.com/id/1389019209/vector/ghost-doodle-5.jpg?s=612x612&w=gi&k=20&c=rIEN506sx3wa05ezS4BEGmbXwrU1gQJYSDv_NdjeEjg="
+            }
             alt=""
             className="mr-4 mt-8 aspect-square h-20 rounded-full bg-gray-50 lg:h-16"
           />
@@ -87,11 +99,18 @@ const Article = () => {
           <p className="mt-8 font-sans text-3xl font-bold text-gray-400 lg:text-xl">
             <a>
               <span className="relative inset-0" />
-              {editor ? editor.name.first_name + ' ' + editor.name.last_name : ''}
+              {editor
+                ? editor.name.first_name == undefined
+                  ? editor.name.last_name
+                  : editor.name.first_name + " " + editor.name.last_name
+                : "Deleted User"}
             </a>
           </p>
-          <time dateTime={blog ? blog.createdAt : ''} className="font-light text-3xl lg:text-xl text-gray-400">
-            <Moment fromNow>{blog ? blog.createdAt : ''}</Moment>
+          <time
+            dateTime={blog ? blog.createdAt : ""}
+            className="font-light text-3xl lg:text-xl text-gray-400"
+          >
+            <Moment fromNow>{blog ? blog.createdAt : ""}</Moment>
           </time>
         </div>
       </div>
@@ -106,14 +125,14 @@ const Article = () => {
       />
 
       <div className="mx-20 flex justify-center items-center sm:mx-30 ">
-        <div className="text-stone-300">
-          Related:
-        </div>
-        {subtopics.map(el => {
+        <div className="text-stone-300">Related:</div>
+        {subtopics.map((el) => {
+          const subtopicName = el.name.replaceAll(" ", "-");
           return (
             <a
-              href={'/blogs/subtopic/' + el.subtopic_id}
-              className="mx-4 relative z-10 rounded-full bg-stone-600 px-3 py-1.5 text-lg font-medium text-gray-200 hover:bg-gray-100 hover:text-gray-700 lg:text-sm">
+              href={"/blogs/subtopic/" + el.subtopic_id + "/" + subtopicName}
+              className="mx-4 relative z-10 rounded-full bg-stone-600 px-3 py-1.5 text-lg font-medium text-gray-200 hover:bg-gray-100 hover:text-gray-700 lg:text-sm"
+            >
               {el.name}
             </a>
           );

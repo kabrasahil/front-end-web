@@ -3,7 +3,7 @@ import { useContext, useEffect, useState } from 'react';
 
 
 
-function EventCreationForm3({ clickedNext, setClickedNext, content, setContent, members, setMembers }) {
+function EventCreationForm3({ members, setMembers }) {
   const [item, setItem] = useState("");
 
   const addMem = () => {
@@ -36,7 +36,7 @@ function EventCreationForm3({ clickedNext, setClickedNext, content, setContent, 
 
 
   return (
-    <div className="!h-max  bg-stone-900">
+    <div className="!h-max  bg-[#101010]">
       <div class=" bg-teal-lightest flex w-full items-center justify-center font-sans">
         <div class=" m-4 w-full rounded p-6 shadow">
           <div class="mb-4">

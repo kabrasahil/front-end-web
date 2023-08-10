@@ -38,7 +38,7 @@ const ForgotPasswordCard = (id,token) => {
         })}
       </div>
       <div
-        className="lg:w-[650px] sm:w-[800px] md:w-[800px] bg-stone-900 rounded-lg lg:p-30 sm:p-10 md:p-10  flex flex-col justify-center lg:gap-y-2 sm:gap-y-10 md:gap-y-10"
+        className="lg:w-[650px] sm:w-[800px] md:w-[800px] bg-[#101010] rounded-lg lg:p-30 sm:p-10 md:p-10  flex flex-col justify-center lg:gap-y-2 sm:gap-y-10 md:gap-y-10"
         style={{
           boxShadow: " 0 0px 40px -1px rgba(0, 0, 0, 0.6)",
         }}

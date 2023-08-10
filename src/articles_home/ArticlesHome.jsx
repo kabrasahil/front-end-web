@@ -1,11 +1,18 @@
 import React from "react";
+import { Helmet } from "react-helmet";
 import ArticleList from "./AtricleList";
 import BlogHeading from "./BlogHeading";
 import Topics from "./Topics";
+import MetaDecorators from "../MetaDecorator";
 
 const ArticlesHome = () => {
   return (
-    <div className="flex flex-col  mr-auto justify-center items-center pt-24 pb-48">
+    <div className="flex flex-col mr-auto justify-center items-center pt-24 pb-48">
+      <MetaDecorators
+        title="IGTS-NSUT | Blogs"
+        description="Welcome to the Blogs Home page of IGTS-NSUT! Explore our collection of insightful and thought-provoking blogs that delve into the world of game theory."
+        image="https://res.cloudinary.com/dksdmvwch/image/upload/v1685981881/IGTS_logo_white_nflxiq.jpg"
+      />
       <div className="w-full bg-gray-900">
         <BlogHeading />
       </div>

@@ -226,7 +226,7 @@ const TipTap = ({
     }, [editor,success]);
 
   return (
-    <div className="w-full h-full bg-white">
+    <div className="w-full h-full bg-white mt-10">
       <div class="mb-6">
         <label
           for="large-input"
@@ -257,7 +257,7 @@ const TipTap = ({
       <MenuBar editor={editor} />
       <EditorContent
         editor={editor}
-        className="outline-none h-full overflow-scroll"
+        className="outline-none h-full overflow-scroll ml-4"
       />
     </div>
   );

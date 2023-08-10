@@ -6,7 +6,7 @@ const EventCreationPage = () => {
 
   return (
     <section
-      className="bg-stone-900  bg-center bg-cover  min-h-screen"
+      className="bg-[#101010]  bg-center bg-cover  min-h-screen"
       style={{
         backgroundImage: `url(https://wallpaperaccess.com/full/2454622.jpg)`,
       }}

@@ -1,5 +1,7 @@
 import React, { useEffect } from "react";
+import { Helmet } from "react-helmet";
 import Headings from "./Headings";
+import MetaDecorators from "../MetaDecorator";
 
 const AboutIgts = () => {
   useEffect(() => {
@@ -8,6 +10,11 @@ const AboutIgts = () => {
   
   return (
     <div className="min-h-screen pt-10 flex flex-col items-center">
+      <MetaDecorators
+        title="IGTS-NSUT | About IGTS"
+        description="Welcome to the official website of the IGTS college society! We are a community of passionate individuals with a shared love for gaming, economics, and math."
+        image="https://www.pokersnowie.com/blog/sites/default/files/Game%20Theory.jpg"
+      />
       <Headings
         title={"The Indian Game Theory Society"}
         subTitle={[
@@ -43,7 +50,9 @@ const AboutIgts = () => {
       </h1>
 
       <p className=" prose lg:text-xl md:text-3xl sm:text-3xl sm:mx-3 md:mx-3 text-center pb-8  text-slate-400">
-      We aim to find the applications of game theory in various fields like economics, politics, behavioural science and primarily computational decision making.
+        We aim to find the applications of game theory in various fields like
+        economics, politics, behavioural science and primarily computational
+        decision making.
       </p>
       <img
         class="h-96 card-shadow-black transition-all duration-300 rounded-xl cursor-pointer filter lg:grayscale lg:hover:grayscale-0 shadow-2xl shadow-gray-800 m-5"
@@ -56,7 +65,10 @@ const AboutIgts = () => {
       </h1>
 
       <p className=" prose lg:text-xl md:text-3xl sm:text-3xl sm:mx-3 md:mx-3 text-center pb-8  text-slate-400">
-      The branch of social science that studies strategic decision making is called game theory. The games in this theory range from chess to child-rearing, from tennis to business takeovers, and from advertising to arms control.
+        The branch of social science that studies strategic decision making is
+        called game theory. The games in this theory range from chess to
+        child-rearing, from tennis to business takeovers, and from advertising
+        to arms control.
       </p>
 
       <img
@@ -65,8 +77,8 @@ const AboutIgts = () => {
         alt="image description"
       />
       <p className=" prose lg:text-xl md:text-3xl sm:text-3xl sm:mx-3 md:mx-3 text-center pb-8  text-slate-400">
-The Monty Hall Problem      </p>
-
+        The Monty Hall Problem{" "}
+      </p>
     </div>
   );
 };
