@@ -20,17 +20,6 @@ const AboutUs = () => {
       ],
     },
     {
-      name: "Vishal Jatia",
-      post: "Lead Developer",
-      avatar:
-        "https://res.cloudinary.com/dafqvvk91/image/upload/v1685733172/Developers/IMG_20230603_002827_dw6tzc.jpg",
-      socials: [
-        { icon: "instagram", url: "https://www.instagram.com/v._.i_s_h_a_l/" },
-        { icon: "github", url: "https://github.com/Vishal-jatia" },
-        { icon: "linkedin", url: "https://www.linkedin.com/in/vishal-jatia-638146229/" },
-      ],
-    },
-    {
       name: "Pragun Bansal",
       post: "Lead Developer",
       avatar:
@@ -41,6 +30,18 @@ const AboutUs = () => {
         { icon: "linkedin", url: "https://www.linkedin.com/in/pragun-bansal-233a05214/" },
       ],
     },
+    {
+      name: "Vishal Jatia",
+      post: "Lead Developer",
+      avatar:
+        "https://res.cloudinary.com/dafqvvk91/image/upload/v1685733172/Developers/IMG_20230603_002827_dw6tzc.jpg",
+      socials: [
+        { icon: "instagram", url: "https://www.instagram.com/v._.i_s_h_a_l/" },
+        { icon: "github", url: "https://github.com/Vishal-jatia" },
+        { icon: "linkedin", url: "https://www.linkedin.com/in/vishal-jatia-638146229/" },
+      ],
+    },
+    
     {
       name: "Samyak Jain",
       post: "Lead Developer",
