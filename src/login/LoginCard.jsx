@@ -38,14 +38,11 @@ const LoginCard = () => {
   const onLoginSuccess = async (tokenResponse) => {
 
   console.log("tokenResponse",tokenResponse);
-    const response = await axios.get(
-      "https://www.googleapis.com/oauth2/v3/userinfo",
-      {
-        headers: {
-          Authorization: `Bearer ${tokenResponse.access_token}`,
-        },
-      }
-    );
+  const response = await fetch("https://www.googleapis.com/oauth2/v3/userinfo", {
+    headers: {
+      Authorization: `Bearer ${tokenResponse.access_token}`,
+    },
+  });
     const decoded = response.data;
     try {
       const res = await fetch(`${SERVER_URL}/api/user/register/google`, {
