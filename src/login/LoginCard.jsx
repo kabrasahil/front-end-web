@@ -1,10 +1,20 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 import Notification from "../notifications/Notification";
 import { SERVER_URL } from "../config";
 import LoginForm from "./LoginForm";
 import RegisterForm from "./RegisterForm";
+
+
+import {
+  useGoogleLogin,
+  GoogleLogin,
+  hasGrantedAllScopesGoogle,
+} from "@react-oauth/google";
+
+
 const LoginCard = () => {
   const [hasAccount, setHasAccount] = useState(true);
 
@@ -21,9 +31,44 @@ const LoginCard = () => {
     },
   };
 
-
+  
 
   const [showNotification, setShowNotification] = useState([]);
+
+
+  const onLoginSuccess = async (tokenResponse) => {
+
+  console.log("tokenResponse",tokenResponse);
+    const response = await axios.get(
+      "https://www.googleapis.com/oauth2/v3/userinfo",
+      {
+        headers: {
+          Authorization: `Bearer ${tokenResponse.access_token}`,
+        },
+      }
+    );
+    const decoded = response.data;
+    try {
+        const res = await axios.post(`${SERVER_URL}/api/user/register/google`, {
+          name: decoded.name,
+          email: decoded.email,
+          profile: decoded.picture,
+        });
+        console.log(res.data);
+        const jwtToken = res.data.token.token;
+        console.log(jwtToken)
+        localStorage.setItem('jwt',jwtToken);
+        window.location.href = '/'
+   
+        window.location.reload();
+      }
+    catch (err) {
+      console.log(err);
+    }
+  };
+  const onLoginFail = (res) => {
+    console.log(res);
+  };
 
 
   const handleGLogin = async (e) => {
@@ -126,7 +171,11 @@ const LoginCard = () => {
         <button
           type="button"
           className="text-white  bg-blue-500 hover:bg-blue-600 focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg lg:text-base sm:text-3xl md:text-3xl px-5 lg:py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55 mr-2 mb-2 gap-x-3 w-full justify-center sm:py-5 md:py-5"
-          onClick={handleGLogin}
+          onClick={useGoogleLogin({
+            onSuccess: (tokenResponse) => {
+              onLoginSuccess(tokenResponse);
+            },
+          })}
         >
           <svg
             className="lg:w-4 lg:h-4 sm:w-8 sm:h-8 md:w-8 md:h-8 mr-2 -ml-1 "
