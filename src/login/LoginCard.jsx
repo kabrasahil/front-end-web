@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 import Notification from "../notifications/Notification";
 import { SERVER_URL } from "../config";
 import LoginForm from "./LoginForm";
@@ -49,11 +48,17 @@ const LoginCard = () => {
     );
     const decoded = response.data;
     try {
-        const res = await axios.post(`${SERVER_URL}/api/user/register/google`, {
+      const res = await fetch(`${SERVER_URL}/api/user/register/google`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
           name: decoded.name,
           email: decoded.email,
           profile: decoded.picture,
-        });
+        })
+      });
         console.log(res.data);
         const jwtToken = res.data.token.token;
         console.log(jwtToken)
