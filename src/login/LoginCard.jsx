@@ -6,13 +6,11 @@ import { SERVER_URL } from "../config";
 import LoginForm from "./LoginForm";
 import RegisterForm from "./RegisterForm";
 
-
 import {
   useGoogleLogin,
   GoogleLogin,
   hasGrantedAllScopesGoogle,
 } from "@react-oauth/google";
-
 
 const LoginCard = () => {
   const [hasAccount, setHasAccount] = useState(true);
@@ -30,48 +28,46 @@ const LoginCard = () => {
     },
   };
 
-  
-
   const [showNotification, setShowNotification] = useState([]);
 
-
   const onLoginSuccess = async (tokenResponse) => {
-
-  console.log("tokenResponse",tokenResponse);
-  const response = await fetch("https://www.googleapis.com/oauth2/v3/userinfo", {
-    headers: {
-      Authorization: `Bearer ${tokenResponse.access_token}`,
-    },
-  });
-    const decoded = response.data;
+    console.log("tokenResponse", tokenResponse);
+    const response = await fetch(
+      "https://www.googleapis.com/oauth2/v3/userinfo",
+      {
+        headers: {
+          Authorization: `Bearer ${tokenResponse.access_token}`,
+        },
+      }
+    );
+    const decoded = await response.json();
+    console.log(decoded);
     try {
       const res = await fetch(`${SERVER_URL}/api/user/register/google`, {
-        method: 'POST',
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json'
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({
           name: decoded.name,
           email: decoded.email,
           profile: decoded.picture,
-        })
+        }),
       });
-        console.log(res.data);
-        const jwtToken = res.data.token.token;
-        console.log(jwtToken)
-        localStorage.setItem('jwt',jwtToken);
-        window.location.href = '/'
-   
-        window.location.reload();
-      }
-    catch (err) {
+      console.log(res);
+      const jwtToken = res.data.token.token;
+      console.log(jwtToken);
+      localStorage.setItem("jwt", jwtToken);
+      window.location.href = "/";
+
+      window.location.reload();
+    } catch (err) {
       console.log(err);
     }
   };
   const onLoginFail = (res) => {
     console.log(res);
   };
-
 
   const handleGLogin = async (e) => {
     e.preventDefault();
@@ -80,7 +76,7 @@ const LoginCard = () => {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        credentials: 'include', // Include credentials (cookies) in the request
+        credentials: "include", // Include credentials (cookies) in the request
       },
     });
 
@@ -93,28 +89,29 @@ const LoginCard = () => {
       const left = (window.screen.width - width) / 2;
       const top = (window.screen.height - height) / 2;
 
-      window.open(data.authUrl, "_blank", `width=${width},height=${height},left=${left},top=${top}`);
-
+      window.open(
+        data.authUrl,
+        "_blank",
+        `width=${width},height=${height},left=${left},top=${top}`
+      );
 
       const formattedUrl = SERVER_URL.replace("https://", "");
       // Open a WebSocket connection to the backend WebSocket server
-      const socket = new WebSocket('wss://' + formattedUrl,
-      );
+      const socket = new WebSocket("wss://" + formattedUrl);
 
       // Handle received messages
       socket.onmessage = async (event) => {
         const d2 = JSON.parse(event.data);
         const jwtToken = d2.token;
-        console.log("object",d2);
-        localStorage.setItem('jwt', jwtToken);
-        window.location.href = '/'
+        console.log("object", d2);
+        localStorage.setItem("jwt", jwtToken);
+        window.location.href = "/";
       };
 
       // Clean up the WebSocket connection
       socket.onclose = () => {
-        console.log('WebSocket connection closed');
+        console.log("WebSocket connection closed");
       };
-
     } else {
       console.log("here");
       setShowNotification([
@@ -124,11 +121,8 @@ const LoginCard = () => {
           message: "Something went wrong",
         },
       ]);
-
     }
   };
-
-
 
   return (
     <motion.div animate={hasAccount ? "small" : "big"} variants={variants}>
