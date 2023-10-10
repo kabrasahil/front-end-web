@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import Notification from "../notifications/Notification";
 import { SERVER_URL } from "../config";
 import LoginForm from "./LoginForm";
+import axios from "axios";
 import RegisterForm from "./RegisterForm";
 
 import {
@@ -43,16 +44,11 @@ const LoginCard = () => {
     const decoded = await response.json();
     console.log(decoded);
     try {
-      const res = await fetch(`${SERVER_URL}/api/user/register/google`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          name: decoded.name,
-          email: decoded.email,
-          profile: decoded.picture,
-        }),
+      console.log("here");
+      const res = await axios.post(`${SERVER_URL}/api/user/register/google`, {
+        name: decoded.name,
+        email: decoded.email,
+        profile: decoded.picture,
       });
       console.log(res);
       const jwtToken = res.data.token.token;
