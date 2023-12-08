@@ -40,7 +40,7 @@ const ReadingList = () => {
 
   const fetchBlogs = async () => {
     const token = localStorage.getItem("jwt");
-    const response = await fetch(`${SERVER_URL}/api/user/getalllists/0`, {
+    const response = await fetch(`${SERVER_URL}/api/user/getreadinglist`, {
       
       method: "GET",
       headers: {
@@ -48,12 +48,16 @@ const ReadingList = () => {
         Authorization: token,
       },
     });
-    if (response.ok) {
+    if (response.status === 200) {
       const data = await response.json();
-      console.log(response.success)
+      console.log(data)
       if (data.success) {
-        setData(data.blogs);
+        setData(data.readingLists);
       }
+    }
+    else{
+      console.log("error")
+      console.log(response.json().error)
     }
   };
 
