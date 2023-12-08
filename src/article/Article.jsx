@@ -36,7 +36,6 @@ const Article = () => {
         setContent(data.blog.content);
         setBlog(data.blog);
         setLiked(data.liked);
-        setRead(data.toread)
         setSubtopics(data.blog.subtopics);
       } else {
         console.log("blogs not found");
@@ -63,8 +62,10 @@ const Article = () => {
       const data2 = await response.json();
       console.log(data2)
       if (data2.success) {
+        
+        console.log(data2.readingLists)
         setData(data2.readingLists);
-        console.log(data)
+        return data2.readingLists
       }
     }
     else{
@@ -78,7 +79,8 @@ const Article = () => {
     
     const checkIfInList = async () => {
       const readingList = await fetchBlogs();
-      const isInList = data.find((el)=>el.blog_id.equals(blog_id))
+      console.log(data)
+      const isInList = readingList.some((el) => el._id === blog_id);
       console.log(isInList)
       setRead(isInList);
       
