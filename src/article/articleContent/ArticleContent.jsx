@@ -55,7 +55,7 @@ const ArticleContent = ({
       }
     }
   };
-  const addToReadingList = async(blog_id) =>{
+  const addToReadingList = async() =>{
     const token = localStorage.getItem("jwt");
     const response = await fetch(
       `${SERVER_URL}/api/user/${blog_id}/addblogtolist`,

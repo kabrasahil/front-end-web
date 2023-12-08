@@ -67,8 +67,8 @@ const ReadingList = () => {
 
   const deleteBlog = async (blog_id) => {
     const token = localStorage.getItem("jwt");
-    const response = await fetch(`${SERVER_URL}/api/blog/${blog_id}/delete`, {
-      method: "DELETE",
+    const response = await fetch(`${SERVER_URL}/api/user/${blog_id}/deleteblogfromlist`, {
+      method: "POST",
       headers: {
         Authorization: token,
         "Content-Type": "application/json",
