@@ -1,6 +1,6 @@
 import DOMPurify from "dompurify";
 import { Helmet } from "react-helmet";
-import React from "react";
+import React, {useEffect, useState} from "react";
 import Rock from "./Rock.svg";
 import Comment from "./Comment.svg";
 import { useParams } from "react-router-dom";
@@ -98,6 +98,28 @@ const ArticleContent = ({
       }
     }
   };
+  const getBlogs = async () => {
+    const token = localStorage.getItem("jwt");
+    const response = await fetch(`${SERVER_URL}/api/user/readinglist`, {
+      headers: {
+        Authorization: token,
+      },
+    });
+    const data = await response.json();
+    if (data.success) {
+      const blogs = data.blogs;
+      const isRead = blogs.some((blog) => blog._id === blog_id);
+      setRead(isRead);
+    }
+  };
+  
+  useEffect(() => {
+    getBlogs();
+  }, []);
+  
+  
+
+
 
   console.log(likes);
 
@@ -147,13 +169,21 @@ const ArticleContent = ({
             }}
           />
         </button>
-        <button onClick={() => {(toread ? deleteBlog() : addToReadingList()); setRead(!toread)}}>
+        <button onClick={() => {
+          if (toread) {
+            deleteBlog(blog_id);
+          } else {
+            addToReadingList();
+          }
+          setRead(!toread);
+        }}>
           <img
             className="opacity-80 hover:opacity-100 ml-6 h-10 w-10"
             src={toread ? tick : ReadingListIcon}
             alt={toread ? "Added to Reading List" : "Add to Reading List"}
           />
         </button>
+
 
       </div>
     </div>
