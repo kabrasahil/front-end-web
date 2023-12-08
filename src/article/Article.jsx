@@ -36,6 +36,7 @@ const Article = () => {
         setContent(data.blog.content);
         setBlog(data.blog);
         setLiked(data.liked);
+        setRead(data.toread)
         setSubtopics(data.blog.subtopics);
       } else {
         console.log("blogs not found");
@@ -44,6 +45,11 @@ const Article = () => {
     }
   };
   const [liked, setLiked] = useState(false);
+  useEffect(() => {
+    fetchBlog();
+  }, [user]);
+
+  const [toread, setRead] = useState(false);
   useEffect(() => {
     fetchBlog();
   }, [user]);
@@ -120,6 +126,7 @@ const Article = () => {
         heading={heading}
         thumbnail={thumbnail}
         liked={liked}
+        toread = {toread}
         likes={blog ? blog.likes : 0}
         fetchBlog={fetchBlog}
       />
