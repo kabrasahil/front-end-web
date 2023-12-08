@@ -22,6 +22,7 @@ const ArticleContent = ({
   liked,
   fetchBlog,
   toread,
+  setRead
 }) => {
   const blog_id = useParams().id;
   const addLike = async (e) => {
@@ -60,6 +61,7 @@ const ArticleContent = ({
     }
   };
   const addToReadingList = async() =>{
+    console.log("blog added")
     const token = localStorage.getItem("jwt");
     const response = await fetch(
       `${SERVER_URL}/api/user/${blog_id}/addblogtolist`,
@@ -79,6 +81,7 @@ const ArticleContent = ({
     }
   };
   const deleteBlog = async (blog_id) => {
+    console.log("blog delted")
     const token = localStorage.getItem("jwt");
     const response = await fetch(`${SERVER_URL}/api/user/${blog_id}/deleteblogfromlist`, {
       method: "POST",
@@ -144,17 +147,14 @@ const ArticleContent = ({
             }}
           />
         </button>
-        <button onClick={toread ? addToReadingList : deleteBlog}>
+        <button onClick={() => {(toread ? deleteBlog() : addToReadingList()); setRead(!toread)}}>
           <img
             className="opacity-80 hover:opacity-100 ml-6 h-10 w-10"
             src={toread ? tick : ReadingListIcon}
             alt={toread ? "Added to Reading List" : "Add to Reading List"}
-            onClick={(e) => {
-              e.preventDefault();
-              addToReadingList();
-            }}
           />
         </button>
+
       </div>
     </div>
   );
